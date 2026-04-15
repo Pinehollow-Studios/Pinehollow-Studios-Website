@@ -1,0 +1,39 @@
+{
+  "name": "pinehollow-studios-website",
+  "version": "1.0.0",
+  "description": "Pinehollow Studios marketing website",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pinehollow-Studios/Pinehollow-Studios-Website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pinehollow-Studios/Pinehollow-Studios-Website/issues"
+  },
+  "homepage": "https://github.com/Pinehollow-Studios/Pinehollow-Studios-Website#readme",
+  "dependencies": {
+    "framer-motion": "^12.38.0",
+    "next": "^15.5.15",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.2",
+    "@types/node": "^25.6.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "^16.2.3",
+    "postcss": "^8.5.9",
+    "tailwindcss": "^4.2.2",
+    "typescript": "^6.0.2"
+  }
+}
