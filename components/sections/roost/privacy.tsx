@@ -6,19 +6,20 @@ import { roostContent } from "@/lib/tokens";
 
 export function RoostPrivacy() {
   return (
-    <section className="section-space bg-[var(--color-cream)] pt-0">
+    <section className="section-space bg-[var(--color-paper)] pt-0">
       <div className="container-shell">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={viewportOnce}
           transition={{ duration: 0.7, ease: [0, 0, 0.2, 1] }}
-          className="mx-auto max-w-[52rem] text-center"
+          className="grid gap-8 lg:grid-cols-[1fr_1.5fr] lg:gap-16 lg:items-center"
         >
-          <p className="label-overline text-[var(--color-pine)]">Privacy</p>
-          <h2 className="section-title mt-3">Private by design</h2>
-          <div className="underline-accent" />
-          <p className="body-copy mt-6 text-[var(--color-mid-grey)]">{roostContent.privacy}</p>
+          <div>
+            <p className="label-overline text-[var(--color-pine)]">Privacy</p>
+            <h2 className="section-title mt-3 text-[var(--color-charcoal)]">Private by design.</h2>
+          </div>
+          <p className="body-copy text-[var(--color-mid-grey)]">{roostContent.privacy}</p>
         </motion.div>
       </div>
     </section>

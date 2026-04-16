@@ -1,59 +1,86 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { fadeLeft, fadeRight, viewportOnce } from "@/components/shared/motion";
 import { siteContent } from "@/lib/tokens";
 
-const images = [
-  {
-    src: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80",
-    alt: "Warm, restrained interior with natural materials",
+const accentConfig = {
+  pine: {
+    blockClass: "craft-block--pine grain-surface-dark",
+    markColor: "rgba(250,248,245,0.07)",
   },
-  {
-    src: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=1400&q=80",
-    alt: "Close timber surface with quiet grain",
+  paper: {
+    blockClass: "craft-block--paper grain-surface",
+    markColor: "rgba(28,31,30,0.055)",
   },
-] as const;
+  timber: {
+    blockClass: "craft-block--parchment grain-surface",
+    markColor: "rgba(107,91,74,0.1)",
+  },
+} as const;
 
 export function Craft() {
   return (
     <section className="section-space bg-[var(--color-cream)]">
-      <div className="container-shell space-y-10 sm:space-y-16">
-        {siteContent.craft.map((item, index) => {
-          const reverse = index % 2 === 1;
+      <div className="container-shell">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={viewportOnce}
+          transition={{ duration: 0.7, ease: [0, 0, 0.2, 1] }}
+          className="mb-14 max-w-[28rem]"
+        >
+          <p className="label-overline text-[var(--color-mid-grey)]">Our approach</p>
+          <h2 className="section-title mt-3 text-[var(--color-charcoal)]">
+            Three things we never compromise on.
+          </h2>
+        </motion.div>
 
-          return (
-            <div key={item.title} className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
-              <motion.div
-                {...(reverse ? fadeRight : fadeLeft)}
-                viewport={viewportOnce}
-                className={reverse ? "lg:order-2" : ""}
-              >
-                <p className="label-overline">Our Approach</p>
-                <h2 className="section-title mt-3 text-[var(--color-charcoal)]">{item.title}</h2>
-                <p className="body-copy mt-6 max-w-[36rem] text-[var(--color-mid-grey)]">{item.body}</p>
-              </motion.div>
+        <div className="space-y-12 sm:space-y-20">
+          {siteContent.craft.map((item, index) => {
+            const reverse = index % 2 === 1;
+            const cfg = accentConfig[item.accent];
+            const markChars = ["P", "S", "T"];
 
-              <motion.div
-                {...(reverse ? fadeLeft : fadeRight)}
-                viewport={viewportOnce}
-                className={reverse ? "lg:order-1" : ""}
-              >
-                <div className={`texture-block ${index === 0 ? "texture-block--pine grain-surface-dark" : "texture-block--cream grain-surface"}`}>
-                  <Image
-                    src={images[index].src}
-                    alt={images[index].alt}
-                    width={900}
-                    height={620}
-                    sizes="(min-width: 1024px) 45vw, 100vw"
-                    className="h-full min-h-[280px] w-full object-cover opacity-80 saturate-[0.55]"
-                  />
-                </div>
-              </motion.div>
-            </div>
-          );
-        })}
+            return (
+              <div key={item.title} className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
+                <motion.div
+                  {...(reverse ? fadeRight : fadeLeft)}
+                  viewport={viewportOnce}
+                  className={reverse ? "lg:order-2" : ""}
+                >
+                  <p className="label-overline text-[var(--color-mid-grey)]">0{index + 1}</p>
+                  <h3 className="section-title mt-4 text-[var(--color-charcoal)]">{item.title}</h3>
+                  <p className="body-copy mt-6 max-w-[38rem] text-[var(--color-mid-grey)]">
+                    {item.body}
+                  </p>
+                </motion.div>
+
+                <motion.div
+                  {...(reverse ? fadeLeft : fadeRight)}
+                  viewport={viewportOnce}
+                  className={reverse ? "lg:order-1" : ""}
+                >
+                  <div className={`craft-block ${cfg.blockClass}`} aria-hidden="true">
+                    <span
+                      style={{
+                        fontFamily: "var(--font-display)",
+                        fontSize: "clamp(6rem, 16vw, 11rem)",
+                        lineHeight: 1,
+                        letterSpacing: "-0.06em",
+                        color: cfg.markColor,
+                        userSelect: "none",
+                        fontWeight: 700,
+                      }}
+                    >
+                      {markChars[index]}
+                    </span>
+                  </div>
+                </motion.div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

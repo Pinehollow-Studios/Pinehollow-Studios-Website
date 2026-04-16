@@ -68,12 +68,30 @@
   --color-grabbit: var(--color-grabbit);
 }
 
+/* ─── Reset ─────────────────────────────────────────────── */
+
 * {
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Thin pine scrollbar */
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--color-pine) 55%, transparent);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-pine);
 }
 
 body {
@@ -100,6 +118,8 @@ img {
   max-width: 100%;
 }
 
+/* ─── Layout ─────────────────────────────────────────────── */
+
 .page-shell {
   position: relative;
   overflow-x: clip;
@@ -107,45 +127,51 @@ img {
 }
 
 .container-shell {
-  width: min(calc(100% - 2rem), var(--container-max));
+  width: min(calc(100% - 2.5rem), var(--container-max));
   margin-inline: auto;
 }
 
 .section-space {
-  padding-block: clamp(4.5rem, 8vw, 8rem);
+  padding-block: clamp(5rem, 9vw, 9rem);
 }
+
+.section-space-sm {
+  padding-block: clamp(3rem, 5vw, 5rem);
+}
+
+/* ─── Typography ─────────────────────────────────────────── */
 
 .display-type {
   font-family: var(--font-display);
   font-size: clamp(3rem, 6.5vw, 5.75rem);
   line-height: 0.98;
-  letter-spacing: 0;
+  letter-spacing: -0.01em;
 }
 
 .headline-app {
   font-family: var(--font-display);
   font-size: clamp(3rem, 6.25vw, 5.25rem);
   line-height: 1;
-  letter-spacing: 0;
+  letter-spacing: -0.01em;
 }
 
 .section-title {
   font-family: var(--font-display);
   font-size: clamp(2rem, 3.2vw, 2.75rem);
   line-height: 1.15;
-  letter-spacing: 0;
+  letter-spacing: -0.01em;
 }
 
 .card-title {
   font-family: var(--font-display);
   font-size: 1.25rem;
   line-height: 1.2;
-  letter-spacing: 0;
+  letter-spacing: -0.005em;
 }
 
 .body-copy {
   font-size: 1.0625rem;
-  line-height: 1.75;
+  line-height: 1.78;
   color: var(--color-charcoal);
 }
 
@@ -157,6 +183,13 @@ img {
   font-weight: 500;
   color: var(--color-mid-grey);
 }
+
+.word-span {
+  display: inline-block;
+  margin-right: 0.22em;
+}
+
+/* ─── Grain ──────────────────────────────────────────────── */
 
 .grain-surface,
 .grain-surface-dark {
@@ -177,30 +210,13 @@ img {
 }
 
 .grain-surface-dark::after {
-  opacity: 0.05;
+  opacity: 0.055;
 }
 
-.texture-block {
-  min-height: 280px;
-  border-radius: var(--radius-card);
-  border: 1px solid var(--color-border-light);
-  background: var(--color-paper);
-  box-shadow: none;
-  overflow: hidden;
-}
+/* ─── Navigation ─────────────────────────────────────────── */
 
-.texture-block--pine {
-  background: var(--color-deep-pine);
-  border-color: color-mix(in srgb, var(--color-pine) 70%, var(--color-charcoal));
-}
-
-.texture-block--cream {
-  background: var(--color-paper);
-}
-
-.texture-block--timber {
-  background: var(--color-parchment);
-  border-color: color-mix(in srgb, var(--color-timber) 35%, var(--color-border-light));
+.nav-shell {
+  height: var(--nav-height);
 }
 
 .ghost-link {
@@ -237,9 +253,7 @@ img {
   transform: scaleX(1);
 }
 
-.nav-shell {
-  height: var(--nav-height);
-}
+/* ─── Hero ───────────────────────────────────────────────── */
 
 .hero-section {
   min-height: 100svh;
@@ -248,13 +262,210 @@ img {
 
 .hero-inner {
   min-height: calc(100svh - var(--nav-height) - 2rem);
-  padding-block: clamp(3.5rem, 6vw, 5rem);
+  padding-block: clamp(4rem, 7vw, 6rem);
 }
 
-.word-span {
-  display: inline-block;
-  margin-right: 0.22em;
+/* ─── Product preview cards (replace hero images) ────────── */
+
+.product-preview-pine {
+  background: var(--color-deep-pine);
+  color: var(--color-cream);
+  border-radius: var(--radius-card);
+  padding: 1.875rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 13.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.5s ease;
+  cursor: pointer;
 }
+
+.product-preview-pine:hover {
+  transform: translateY(-2px);
+}
+
+.product-preview-timber {
+  background: var(--color-parchment);
+  color: var(--color-charcoal);
+  border: 1px solid color-mix(in srgb, var(--color-timber) 25%, var(--color-border-light));
+  border-radius: var(--radius-card);
+  padding: 1.875rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 13.5rem;
+  transition: transform 0.5s ease;
+  cursor: pointer;
+}
+
+.product-preview-timber:hover {
+  transform: translateY(-2px);
+}
+
+/* ─── Roost app mockup ────────────────────────────────────── */
+
+.app-mockup {
+  border-radius: 12px;
+  border: 1px solid var(--color-border-light);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  background: color-mix(in srgb, var(--color-cream) 55%, var(--color-paper));
+}
+
+.mockup-header {
+  background: var(--color-deep-pine);
+  color: var(--color-cream);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mockup-section {
+  padding: 1.25rem 1.5rem;
+}
+
+.mockup-section + .mockup-section {
+  border-top: 1px solid var(--color-border-light);
+}
+
+.mockup-section-label {
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--color-mid-grey);
+  margin-bottom: 0.875rem;
+}
+
+.mockup-row {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.35rem 0;
+  font-size: 0.9rem;
+  color: var(--color-charcoal);
+}
+
+.mockup-row.done {
+  color: var(--color-mid-grey);
+}
+
+.mockup-row.done .mockup-text {
+  text-decoration: line-through;
+}
+
+.mockup-check {
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 3px;
+  border: 1px solid var(--color-border-light);
+  background: transparent;
+  flex-shrink: 0;
+}
+
+.mockup-check.done {
+  background: var(--color-pine);
+  border-color: var(--color-pine);
+}
+
+.mockup-amount {
+  margin-left: auto;
+  font-size: 0.85rem;
+  color: var(--color-mid-grey);
+  font-variant-numeric: tabular-nums;
+}
+
+.mockup-balance {
+  font-size: 0.8rem;
+  color: var(--color-pine);
+  font-weight: 500;
+  margin-top: 0.75rem;
+  letter-spacing: 0.01em;
+}
+
+/* ─── Grabbit search examples ────────────────────────────── */
+
+.search-examples {
+  border-top: 1px solid var(--color-border-light);
+  margin-top: 2rem;
+}
+
+.search-example-row {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.875rem 0;
+  border-bottom: 1px solid var(--color-border-light);
+  cursor: default;
+}
+
+.search-example-glyph {
+  color: var(--color-grabbit);
+  font-size: 1rem;
+  flex-shrink: 0;
+  width: 1.25rem;
+  opacity: 0.65;
+}
+
+.search-example-query {
+  flex: 1;
+  font-size: 0.9375rem;
+  color: var(--color-charcoal);
+  line-height: 1.4;
+}
+
+.search-example-arrow {
+  color: var(--color-grabbit);
+  font-size: 0.875rem;
+  opacity: 0.35;
+  transition: opacity 0.3s ease;
+}
+
+.search-example-row:hover .search-example-arrow {
+  opacity: 1;
+}
+
+/* ─── Principle cards ────────────────────────────────────── */
+
+.principle-card {
+  padding: 1.75rem 2rem;
+  border-left: 1.5px solid rgba(250, 248, 245, 0.22);
+  transition: border-color 0.4s ease;
+}
+
+.principle-card:hover {
+  border-left-color: rgba(250, 248, 245, 0.55);
+}
+
+/* ─── Abstract craft blocks (no images) ─────────────────── */
+
+.craft-block {
+  min-height: 320px;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.craft-block--pine {
+  background: var(--color-deep-pine);
+  border: 1px solid color-mix(in srgb, var(--color-pine) 60%, var(--color-charcoal));
+}
+
+.craft-block--paper {
+  background: var(--color-paper);
+  border: 1px solid var(--color-border-light);
+}
+
+.craft-block--parchment {
+  background: var(--color-parchment);
+  border: 1px solid color-mix(in srgb, var(--color-timber) 20%, var(--color-border-light));
+}
+
+/* ─── Buttons ────────────────────────────────────────────── */
 
 .button-primary,
 .button-secondary,
@@ -265,18 +476,18 @@ img {
   justify-content: center;
   gap: 0.5rem;
   min-height: 3rem;
-  padding: 0.875rem 1.25rem;
+  padding: 0.875rem 1.375rem;
   border-radius: var(--radius-control);
   border: 1px solid transparent;
   font-size: 0.95rem;
   line-height: 1;
   font-weight: 500;
   transition:
-    background-color 0.6s ease,
-    border-color 0.6s ease,
-    color 0.6s ease,
-    opacity 0.6s ease,
-    transform 0.6s ease;
+    background-color 0.5s ease,
+    border-color 0.5s ease,
+    color 0.5s ease,
+    opacity 0.5s ease,
+    transform 0.5s ease;
 }
 
 .button-primary {
@@ -305,12 +516,7 @@ img {
   transform: translateY(-1px);
 }
 
-.surface-card {
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-card);
-  background: color-mix(in srgb, var(--color-cream) 88%, var(--color-paper));
-  box-shadow: none;
-}
+/* ─── Pills ──────────────────────────────────────────────── */
 
 .status-pill,
 .status-pill-timber {
@@ -334,6 +540,62 @@ img {
   color: var(--color-cream);
 }
 
+/* ─── Surfaces / cards ───────────────────────────────────── */
+
+.surface-card {
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-card);
+  background: color-mix(in srgb, var(--color-cream) 88%, var(--color-paper));
+  box-shadow: none;
+}
+
+.product-surface {
+  border-radius: var(--radius-card);
+  border: 1px solid var(--color-border-light);
+  background: color-mix(in srgb, var(--color-cream) 76%, var(--color-paper));
+  overflow: hidden;
+  transition:
+    border-color 0.6s ease,
+    transform 0.6s ease;
+}
+
+.product-surface:hover {
+  border-color: color-mix(in srgb, var(--color-pine) 35%, var(--color-border-light));
+  transform: translateY(-2px);
+}
+
+.product-surface-bar {
+  height: 0.45rem;
+  background: var(--color-pine);
+}
+
+.product-surface-bar[data-tone="timber"] {
+  background: var(--color-grabbit);
+}
+
+/* ─── Feature rows (Grabbit horizontal layout) ────────────── */
+
+.feature-row {
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  gap: 0 1.25rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.feature-row:first-of-type {
+  border-top: 1px solid var(--color-border-light);
+}
+
+.feature-row-glyph {
+  font-size: 1.1rem;
+  color: var(--color-grabbit);
+  line-height: 1.5;
+  padding-top: 0.125rem;
+}
+
+/* ─── Step numbers ───────────────────────────────────────── */
+
 .step-number {
   font-family: var(--font-display);
   font-size: clamp(3rem, 8vw, 4.5rem);
@@ -345,6 +607,75 @@ img {
 .step-number-timber {
   color: var(--color-grabbit);
 }
+
+/* ─── Pricing cards ──────────────────────────────────────── */
+
+.pricing-card-free {
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-card);
+  padding: 2rem 2.25rem;
+  background: color-mix(in srgb, var(--color-cream) 60%, var(--color-paper));
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.pricing-card-premium {
+  border-radius: var(--radius-card);
+  padding: 2rem 2.25rem;
+  background: var(--color-deep-pine);
+  color: var(--color-cream);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.pricing-feature-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  font-size: 0.975rem;
+  line-height: 1.6;
+  color: var(--color-mid-grey);
+}
+
+.pricing-feature-item::before {
+  content: "—";
+  flex-shrink: 0;
+  color: var(--color-pine);
+}
+
+.pricing-card-premium .pricing-feature-item {
+  color: rgba(250, 248, 245, 0.75);
+}
+
+.pricing-card-premium .pricing-feature-item::before {
+  color: rgba(250, 248, 245, 0.4);
+}
+
+/* ─── Hazel capability list ──────────────────────────────── */
+
+.hazel-capability {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid rgba(250, 248, 245, 0.1);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(250, 248, 245, 0.78);
+  font-style: italic;
+}
+
+.hazel-capability::before {
+  content: "◌";
+  flex-shrink: 0;
+  color: rgba(250, 248, 245, 0.35);
+  font-size: 0.875rem;
+  font-style: normal;
+}
+
+/* ─── Forms ──────────────────────────────────────────────── */
 
 .underline-accent {
   width: 2.5rem;
@@ -373,79 +704,15 @@ img {
   color: var(--color-mid-grey);
 }
 
+/* ─── Misc ───────────────────────────────────────────────── */
+
+.dark-band {
+  background: var(--color-charcoal);
+  color: var(--color-cream);
+}
+
 .app-page-muted {
   filter: saturate(0.92);
-}
-
-.hero-panel {
-  display: grid;
-  gap: 1.5rem;
-  padding: 1.5rem;
-}
-
-.hero-panel-note {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  color: var(--color-mid-grey);
-  font-size: 0.9rem;
-}
-
-.hero-panel-note::before {
-  content: "";
-  width: 0.55rem;
-  height: 0.55rem;
-  border-radius: 999px;
-  background: var(--color-pine);
-  flex: none;
-}
-
-.material-image {
-  position: relative;
-  min-height: clamp(22rem, 42vw, 38rem);
-  overflow: hidden;
-  border-radius: var(--radius-card);
-  border: 1px solid var(--color-border-light);
-  background: var(--color-paper);
-  box-shadow: var(--shadow-soft);
-  isolation: isolate;
-}
-
-.material-image::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: color-mix(in srgb, var(--color-charcoal) 18%, transparent);
-  mix-blend-mode: multiply;
-  z-index: 1;
-}
-
-.material-image img {
-  height: 100%;
-  min-height: inherit;
-  width: 100%;
-  object-fit: cover;
-  filter: saturate(0.62) contrast(0.92);
-  transform: scale(1.02);
-}
-
-.material-caption {
-  position: absolute;
-  inset-inline: 1rem;
-  bottom: 1rem;
-  z-index: 2;
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  border: 1px solid color-mix(in srgb, var(--color-cream) 34%, transparent);
-  border-radius: var(--radius-control);
-  background: color-mix(in srgb, var(--color-charcoal) 62%, transparent);
-  color: var(--color-cream);
-  padding: 0.85rem 1rem;
-  font-size: 0.82rem;
-  line-height: 1.4;
-  backdrop-filter: blur(10px);
 }
 
 .editorial-rule {
@@ -454,38 +721,11 @@ img {
   background: var(--color-border-light);
 }
 
-.product-surface {
-  border-radius: var(--radius-card);
-  border: 1px solid var(--color-border-light);
-  background: color-mix(in srgb, var(--color-cream) 76%, var(--color-paper));
-  overflow: hidden;
-  transition:
-    border-color 0.6s ease,
-    transform 0.6s ease;
-}
-
-.product-surface:hover {
-  border-color: color-mix(in srgb, var(--color-pine) 35%, var(--color-border-light));
-  transform: translateY(-2px);
-}
-
-.product-surface-bar {
-  height: 0.45rem;
-  background: var(--color-pine);
-}
-
-.product-surface-bar[data-tone="timber"] {
-  background: var(--color-grabbit);
-}
-
-.dark-band {
-  background: var(--color-charcoal);
-  color: var(--color-cream);
-}
+/* ─── Responsive ─────────────────────────────────────────── */
 
 @media (max-width: 767px) {
   .container-shell {
-    width: min(calc(100% - 1.5rem), var(--container-max));
+    width: min(calc(100% - 2rem), var(--container-max));
   }
 
   .hero-inner {
@@ -493,12 +733,14 @@ img {
     padding-block: 3.5rem;
   }
 
-  .texture-block {
-    min-height: 220px;
+  .product-preview-pine,
+  .product-preview-timber {
+    min-height: 11rem;
+    padding: 1.375rem;
   }
 
-  .field-shell {
-    width: 100%;
+  .craft-block {
+    min-height: 220px;
   }
 }
 

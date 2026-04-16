@@ -20,7 +20,7 @@ export const tokens = {
     pill: "var(--radius-pill)",
   },
   motion: {
-    easeOut: [0, 0, 0.2, 1],
+    easeOut: [0, 0, 0.2, 1] as [number, number, number, number],
     slow: 0.7,
     slower: 0.8,
     fast: 0.6,
@@ -31,42 +31,60 @@ export const siteContent = {
   heroEyebrow: "Pinehollow Studios",
   heroTitle: "Software built with care, for people who notice.",
   heroSubtitle:
-    "Thoughtfully crafted applications for everyday life, shaped with restraint, warmth, and lasting utility.",
-  heroCard: {
-    label: "Pinehollow Studios",
-    title: "Quiet software, made to stay useful.",
-    body: "We build digital tools with the patience of a craftsperson — warm in tone, precise in detail, and steady enough to live with every day.",
-    notes: ["Cream canvas", "Pine as an accent", "Nothing louder than it needs to be"],
-  },
-  philosophy: ["Quiet Confidence", "Earned Trust", "Built to Last"],
+    "Small applications for everyday life — designed with the patience of a craftsperson, built to stay useful long after the novelty fades.",
+  principles: [
+    {
+      title: "Quiet Confidence",
+      body: "Quality speaks through restraint. Every decision serves the person using it, not anyone watching. If it feels loud, it is wrong.",
+    },
+    {
+      title: "Earned Trust",
+      body: "We build software that feels stable and permanent — never rushed, never over-complicated, never asking more than it needs to.",
+    },
+    {
+      title: "Warm Minimalism",
+      body: "We strip back to essentials without feeling sterile. Natural tones, generous space, and careful detail keep things human and approachable.",
+    },
+    {
+      title: "Built to Last",
+      body: "Our palette, typography, and tone are chosen to feel as relevant in five years as they do today. Timelessness over trendiness.",
+    },
+  ],
   products: {
     roost: {
       status: "Available Now",
       name: "Roost",
-      descriptor: "Shared household management for couples. macOS · iOS",
-      copy:
-        "A calm place to share the rhythms of home, from weekly chores to the small details that keep a household in step.",
+      tagline: "Shared household management for couples.",
+      descriptor:
+        "Shopping, expenses, chores, budget, and calendar — synced across Mac and iPhone in real time, quietly and without ceremony.",
+      platforms: "macOS · iOS",
       href: "/apps/roost",
     },
     grabbit: {
       status: "Coming Soon",
       name: "Grabbit",
-      descriptor: "Smart save-and-find for iPhone. iOS · In Development",
-      copy:
-        "A private home for screenshots, photos, recipes, places, outfits, quotes, and anything else you want to find again.",
+      tagline: "Save anything. Find it in plain English.",
+      descriptor:
+        "Your screenshots and saved photos, organised automatically by on-device AI and searchable the way you remember them.",
+      platforms: "iPhone · In development",
       href: "/apps/grabbit",
     },
   },
   craft: [
     {
       title: "Made with restraint",
-      body:
-        "We favour clarity over spectacle. Each interaction is reduced to what matters, then refined until it feels natural, steady, and easy to trust.",
+      body: "We favour clarity over spectacle. Each interaction is reduced to what matters, then refined until it feels natural, steady, and easy to trust. Nothing is added for the sake of it.",
+      accent: "pine" as const,
     },
     {
       title: "Built to endure",
-      body:
-        "Our software is shaped like well-made objects: considered in detail, warm in tone, and designed to remain useful long after novelty wears away.",
+      body: "Our software is shaped like well-made objects: considered in detail, warm in tone, and designed to stay useful long after novelty wears away. We don't build for the demo.",
+      accent: "paper" as const,
+    },
+    {
+      title: "Private by default",
+      body: "Your data is yours. We build with privacy as a foundation — your household, your saves, your life. Not pooled, not analysed, not shared. Just yours.",
+      accent: "timber" as const,
     },
   ],
 } as const;
@@ -76,39 +94,39 @@ export const roostContent = {
     overline: "Pinehollow Studios",
     title: "One place for your home, shared between two.",
     subtitle:
-      "Roost keeps your shopping, expenses, chores, and calendar in sync — across both your devices, instantly.",
-    caption: "Free to start · Early access · No account required to try",
+      "Shopping lists, shared expenses, chores, budget, and calendar — kept in sync across Mac and iPhone, instantly and quietly.",
+    caption: "Free to start · Mac and iPhone · Two people, one home",
   },
   features: [
     {
       glyph: "⌂",
       title: "Shopping List",
-      body: "Add from either screen and watch the list update in real time, so both of you see the same shop as it happens.",
+      body: "One list, two phones. Add from either device and watch it update in real time — no refresh, no duplicates, no wondering if it's already in the trolley.",
     },
     {
       glyph: "◫",
-      title: "Expenses",
-      body: "Log what you spend, split it fairly, keep a running balance, and settle up in one deliberate tap.",
+      title: "Shared Expenses",
+      body: "Log what you spend, split it fairly, track a running balance, and settle up in one tap. No awkward conversations. No spreadsheet on the fridge.",
     },
     {
       glyph: "◔",
       title: "Budget",
-      body: "Set monthly limits by category and track progress with simple traffic-light cues before spending drifts too far.",
+      body: "Set monthly limits by category — groceries, eating out, subscriptions. Roost tracks progress with calm visual cues before spending drifts too far.",
     },
     {
       glyph: "✓",
       title: "Chores",
-      body: "Assign work by room, repeat what needs repeating, and quietly remove the usual whose-turn friction.",
+      body: "Assign tasks by room, set them to repeat, and quietly eliminate the friction of whose turn it is this week. No nagging. No keeping score.",
     },
     {
       glyph: "◷",
       title: "Calendar",
-      body: "Keep events, chores, and reminders in one shared view so your week stays visible to both people at once.",
+      body: "A shared view of events, chores, and reminders so both of you can see what the week looks like — from the same screen, on either device.",
     },
     {
       glyph: "✦",
       title: "Pinboard",
-      body: "A shared place for notes, links, and things worth keeping close — coming soon to the Roost household.",
+      body: "A shared space for links, notes, and things worth keeping close — flat inspo, travel ideas, things to do together. Coming to Roost soon.",
       badge: "Coming Soon",
     },
   ],
@@ -116,100 +134,158 @@ export const roostContent = {
     {
       number: "01",
       title: "Download on both devices",
-      body: "Install Roost on Mac and iPhone, then open it like any other tool you plan to keep.",
+      body: "Install Roost on Mac and iPhone. It works on both from the start — no choosing one over the other.",
     },
     {
       number: "02",
-      title: "Create a home and share invite code",
-      body: "One of you sets up the household, the other joins with a simple code, and the shared space is ready.",
+      title: "Create a home, share the code",
+      body: "One of you sets up the household. The other joins with a six-digit invite code. The shared space is ready in under a minute.",
     },
     {
       number: "03",
-      title: "Everything syncs instantly",
-      body: "Lists, balances, tasks, and plans stay aligned across devices without ceremony or manual refresh.",
+      title: "Everything stays in sync",
+      body: "Lists, balances, chores, and plans update the moment either of you makes a change. No refreshing. No manual sync. Just works.",
     },
   ],
-  hazel:
-    "Hazel is the AI assistant built into Roost Nest. Ask her anything about your home — spending patterns, what needs doing, upcoming events. She has full context on your household and answers in plain language. Not a chatbot. Not a gimmick. A genuinely useful tool for two people running a home together.",
+  hazel: {
+    intro:
+      "Hazel is the AI assistant built into Roost Nest — the premium tier. She has full context on your household: what you spend, what needs doing, what's coming up. Ask her anything about your home in plain language.",
+    capabilities: [
+      "How much have we spent on groceries this month?",
+      "What chores haven't been done in a while?",
+      "What's on for this week?",
+      "What do we tend to overspend on?",
+    ],
+    closing:
+      "Not a chatbot. Not a gimmick. A genuinely useful tool for two people running a home together.",
+  },
   pricing: {
     free: {
       title: "Roost Free",
-      subtitle: "Free forever.",
+      subtitle: "Free forever",
+      price: null as string | null,
       features: [
-        "Shopping list",
-        "Expenses",
-        "Chores",
-        "Calendar",
-        "Real-time sync",
+        "Shopping list with real-time sync",
+        "Shared expenses and settle-up",
+        "Chores and task assignment",
+        "Shared calendar",
         "One home, two people",
+        "Mac and iPhone",
       ],
     },
     nest: {
       title: "Roost Nest",
       subtitle: "Early access pricing",
+      price: "£3.99 / month" as string | null,
       features: [
         "Everything in Free",
-        "Full expense history",
-        "Budget insights",
-        "Hazel AI assistant",
+        "Full expense history and insights",
+        "Budget tracking by category",
+        "Hazel AI household assistant",
         "Priority support",
-        "Early access to new features",
+        "Early access to every new feature",
       ],
     },
   },
   privacy:
-    "Roost is private by design. Your household data lives in its own isolated database. No tracking, no advertising, no third parties. Just two people and their home.",
+    "Roost is private by design. Your household data lives in a private, isolated database — not pooled, not analysed, not monetised. No tracking, no advertising, no third-party access. Just two people and their home.",
 } as const;
 
 export const grabbitContent = {
   hero: {
     overline: "Pinehollow Studios",
     title: "Save anything. Find it again in seconds.",
-    subtitle: "Grabbit gives your screenshots and saved photos a proper home, then makes them searchable in plain English.",
+    subtitle:
+      "Grabbit gives your screenshots and saved photos a proper home — then makes them searchable in plain English, privately, without sending anything away.",
     status: "Coming Soon",
-    note: "iPhone first · Private by design · TestFlight planned",
+    note: "iPhone · Private by design · TestFlight planned",
+    searches: [
+      "that pasta recipe I saved last week",
+      "blue trainers from Instagram",
+      "the cafe in Paris",
+      "sofa inspiration for the living room",
+    ],
   },
   intro:
-    "Your camera roll is full of things you meant to come back to: a recipe, a product, an outfit, a place, a quote. Grabbit understands what you save, tags it for you, and brings it back when you search.",
+    "Your camera roll is full of things you meant to come back to — a recipe, a product, an outfit, a quote, a place. You save them constantly. You never find them again. Grabbit fixes that. The moment you save something, it reads the content, understands what it is, and tags it automatically. When you need it back, you search the way you remember it. Grabbit finds it.",
   steps: [
     {
       number: "01",
-      title: "Grab",
-      body: "Save a screenshot or photo from your camera roll, the share sheet, or a quick prompt after taking a screenshot.",
+      title: "Grab it",
+      body: "Save a screenshot or photo via screenshot detection, the iOS Share Sheet, or manual import from your camera roll. One tap is all it takes.",
     },
     {
       number: "02",
-      title: "Let Grabbit sort it",
-      body: "Text, visual clues, and context become useful tags and a simple title. You do not need to organise first.",
+      title: "Grabbit sorts it",
+      body: "On-device AI reads the content, classifies it — recipe, product, place, quote, outfit — and generates tags automatically. No organising from you.",
     },
     {
       number: "03",
       title: "Find it later",
-      body: "Search for what you remember: “that pasta recipe”, “blue trainers”, or “the place I saved last week”.",
+      body: "Search for what you remember: \"that pasta recipe\", \"blue trainers\", \"the place I saved last week\". Grabbit finds it instantly.",
     },
   ],
   features: [
     {
       glyph: "◌",
       title: "Plain-English search",
-      body: "Look for saved things the way you remember them, not by file name, date, or where they ended up.",
+      body: "Search the way you remember things — by what it was, not by date or file name. Grabbit parses your words and scores every save against them in real time.",
     },
     {
       glyph: "→",
-      title: "Automatic tags",
-      body: "Recipes, products, places, quotes, outfits, documents, and design ideas are labelled as they arrive.",
+      title: "Automatic classification",
+      body: "Recipes, products, places, quotes, outfits, documents, design ideas — tagged and labelled the moment they arrive. No effort from you.",
     },
     {
       glyph: "□",
-      title: "Inbox first",
-      body: "New saves land in a calm queue. Swipe to keep, collect, or discard them when you are ready.",
+      title: "Inbox triage",
+      body: "New saves land in a calm queue. Swipe right to collect, swipe left to discard. Or use Triage All to sweep through everything like a deck of cards.",
     },
     {
       glyph: "∿",
       title: "Private by default",
-      body: "Understanding happens on your iPhone. Your saved screenshots are not sent away to be read.",
+      body: "All AI processing happens on your iPhone. Nothing leaves your device for classification or search. Your saves are read by you alone.",
+    },
+    {
+      glyph: "◈",
+      title: "Collections",
+      body: "Create boards for anything — Gift Ideas, Flat Inspo, Recipes to Try. Assign saves to one or several collections. No limits on free or Pro.",
+    },
+    {
+      glyph: "⌘",
+      title: "Share Sheet",
+      body: "Save directly from Instagram, Safari, TikTok, Pinterest, or anywhere on iPhone. Tap Share → Grabbit. Done in one step.",
     },
   ],
-  partnership:
-    "Start free with space for 50 saves. Upgrade to Grabbit Pro when your library becomes something worth keeping.",
+  pricing: {
+    free: {
+      title: "Grabbit Free",
+      subtitle: "Up to 50 saves",
+      features: [
+        "Full AI classification and tagging",
+        "Plain-English search",
+        "Collections — no limit",
+        "Share Sheet extension",
+        "Screenshot detection",
+        "Private, on-device processing",
+      ],
+    },
+    pro: {
+      title: "Grabbit Pro",
+      subtitle: "Unlimited everything",
+      priceMonthly: "£2.99 / month",
+      priceAnnual: "£19.99 / year",
+      saving: "Save 44%",
+      features: [
+        "Everything in Free",
+        "Unlimited saves",
+        "Priority processing",
+        "Full save history",
+        "Early access to new features",
+        "Support the development",
+      ],
+    },
+  },
+  privacyNote:
+    "On-device AI only. Your screenshots are never sent to a server for classification or search. Grabbit reads your content privately, on your device, using Apple's Vision and Core ML frameworks.",
 } as const;

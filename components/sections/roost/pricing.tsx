@@ -5,7 +5,7 @@ import { fadeUpItem, staggerContainer, viewportOnce } from "@/components/shared/
 import { roostContent } from "@/lib/tokens";
 
 export function RoostPricing() {
-  const tiers = [roostContent.pricing.free, roostContent.pricing.nest];
+  const { free, nest } = roostContent.pricing;
 
   return (
     <section className="section-space bg-[var(--color-cream)]">
@@ -18,7 +18,12 @@ export function RoostPricing() {
           className="max-w-[40rem]"
         >
           <p className="label-overline text-[var(--color-pine)]">Pricing</p>
-          <h2 className="section-title mt-3">Free to start. Nest when you&apos;re ready.</h2>
+          <h2 className="section-title mt-3 text-[var(--color-charcoal)]">
+            Free to start. Nest when you&apos;re ready.
+          </h2>
+          <p className="mt-5 text-[1rem] leading-7 text-[var(--color-mid-grey)]">
+            Roost Free covers everything most households need. Nest adds AI insights, expense history, and budget tracking.
+          </p>
         </motion.div>
 
         <motion.div
@@ -26,29 +31,75 @@ export function RoostPricing() {
           whileInView="visible"
           viewport={viewportOnce}
           variants={staggerContainer(0.15)}
-          className="mt-10 grid gap-6 lg:grid-cols-2"
+          className="mt-12 grid gap-6 lg:grid-cols-2"
         >
-          {tiers.map((tier, index) => (
-            <motion.article
-              key={tier.title}
-              variants={fadeUpItem}
-              transition={{ duration: 0.7, ease: [0, 0, 0.2, 1] }}
-              className="surface-card flex h-full flex-col p-6 sm:p-8"
-            >
-              <p className="label-overline text-[var(--color-pine)]">{tier.title}</p>
-              <h3 className="card-title mt-4">{tier.subtitle}</h3>
-              <ul className="mt-6 space-y-3 text-[0.98rem] leading-7 text-[var(--color-mid-grey)]">
-                {tier.features.map((feature) => (
-                  <li key={feature}>— {feature}</li>
+          {/* Free tier */}
+          <motion.div variants={fadeUpItem} transition={{ duration: 0.7, ease: [0, 0, 0.2, 1] }}>
+            <div className="pricing-card-free h-full">
+              <p className="label-overline text-[var(--color-pine)]">{free.title}</p>
+              <p
+                className="mt-3"
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "1.75rem",
+                  lineHeight: 1.1,
+                  color: "var(--color-charcoal)",
+                }}
+              >
+                {free.subtitle}
+              </p>
+              {free.price === null && (
+                <p
+                  className="mt-2"
+                  style={{ fontSize: "0.9rem", color: "var(--color-mid-grey)" }}
+                >
+                  No credit card required.
+                </p>
+              )}
+              <ul className="mt-8 flex flex-col gap-3">
+                {free.features.map((f) => (
+                  <li key={f} className="pricing-feature-item">{f}</li>
                 ))}
               </ul>
               <div className="mt-8">
-                <a href="#download" className={index === 1 ? "button-primary" : "button-secondary"}>
-                  {index === 1 ? "Join Nest early" : "Start with Free"}
-                </a>
+                <a href="#download" className="button-secondary">Start with Free</a>
               </div>
-            </motion.article>
-          ))}
+            </div>
+          </motion.div>
+
+          {/* Nest tier */}
+          <motion.div variants={fadeUpItem} transition={{ duration: 0.7, ease: [0, 0, 0.2, 1] }}>
+            <div className="pricing-card-premium grain-surface-dark h-full">
+              <p className="label-overline" style={{ color: "rgba(250,248,245,0.45)" }}>
+                {nest.title}
+              </p>
+              <p
+                className="mt-3"
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "1.75rem",
+                  lineHeight: 1.1,
+                  color: "var(--color-cream)",
+                }}
+              >
+                {nest.price ?? nest.subtitle}
+              </p>
+              <p
+                className="mt-2"
+                style={{ fontSize: "0.9rem", color: "rgba(250,248,245,0.5)" }}
+              >
+                {nest.subtitle}
+              </p>
+              <ul className="mt-8 flex flex-col gap-3">
+                {nest.features.map((f) => (
+                  <li key={f} className="pricing-feature-item">{f}</li>
+                ))}
+              </ul>
+              <div className="mt-8">
+                <a href="#download" className="button-outline-inverse">Join Nest early</a>
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>
