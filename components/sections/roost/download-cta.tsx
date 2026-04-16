@@ -5,7 +5,7 @@ import { viewportOnce } from "@/components/shared/motion";
 
 export function RoostDownloadCta() {
   return (
-    <section id="download" className="grain-surface-dark bg-[var(--color-deep-pine)] py-24 text-[var(--color-cream)] sm:py-28">
+    <section id="download" className="grain-surface-dark py-24 text-[var(--color-cream)] sm:py-28" style={{ background: "color-mix(in srgb, var(--color-roost) 18%, var(--color-deep-pine))" }}>
       <div className="container-shell">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -37,10 +37,10 @@ export function RoostDownloadCta() {
             Download Roost on Mac and iPhone. Free to start, no account required to try.
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <a href="#" className="button-outline-inverse">
+            <a href="https://roost-website-five.vercel.app/download" className="button-outline-inverse">
               Download for Mac
             </a>
-            <a href="#" className="button-outline-inverse">
+            <a href="https://roost-website-five.vercel.app/download" className="button-outline-inverse">
               Download for iPhone
             </a>
           </div>

@@ -6,7 +6,7 @@ import { roostContent } from "@/lib/tokens";
 
 export function RoostFeatures() {
   return (
-    <section className="section-space bg-[var(--color-paper)]">
+    <section className="section-space bg-[var(--color-roost-card)]">
       <div className="container-shell">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
@@ -15,7 +15,7 @@ export function RoostFeatures() {
           transition={{ duration: 0.7, ease: [0, 0, 0.2, 1] }}
           className="max-w-[38rem]"
         >
-          <p className="label-overline text-[var(--color-pine)]">Features</p>
+          <p className="label-overline text-[var(--color-roost)]">Features</p>
           <h2 className="section-title mt-3 text-[var(--color-charcoal)]">
             Everything your home needs, nothing it doesn&apos;t.
           </h2>
@@ -34,14 +34,14 @@ export function RoostFeatures() {
               variants={fadeUpItem}
               transition={{ duration: 0.7, ease: [0, 0, 0.2, 1] }}
               className="surface-card p-6 sm:p-7"
-              style={{ borderLeft: "2px solid var(--color-pine)" }}
+              style={{ borderLeft: "2px solid var(--color-roost)" }}
             >
               <div className="flex items-center justify-between gap-4">
                 <span
                   style={{
                     fontFamily: "var(--font-display)",
                     fontSize: "1.4rem",
-                    color: "var(--color-pine)",
+                    color: "var(--color-roost)",
                     lineHeight: 1,
                   }}
                 >

@@ -19,7 +19,7 @@ const expenses = [
 
 export function RoostHero() {
   return (
-    <section className="hero-section grain-surface relative bg-[var(--color-cream)]">
+    <section className="hero-section grain-surface relative bg-[var(--color-roost-bg)]">
       <div className="hero-inner container-shell flex items-center">
         <div className="grid w-full items-center gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(340px,0.78fr)] lg:gap-16">
 
@@ -29,7 +29,7 @@ export function RoostHero() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: [0, 0, 0.2, 1] }}
-              className="label-overline text-[var(--color-pine)]"
+              className="label-overline text-[var(--color-roost)]"
             >
               {roostContent.hero.overline}
             </motion.p>
@@ -67,8 +67,8 @@ export function RoostHero() {
               transition={{ duration: 0.8, delay: 0.55, ease: [0, 0, 0.2, 1] }}
               className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center"
             >
-              <a href="#download" className="button-primary">Download for Mac</a>
-              <a href="#download" className="button-secondary">Download for iPhone</a>
+              <a href="https://roost-website-five.vercel.app/download" className="button-primary" style={{ background: "var(--color-roost)", borderColor: "var(--color-roost)" }}>Download for Mac</a>
+              <a href="https://roost-website-five.vercel.app/download" className="button-secondary">Download for iPhone</a>
             </motion.div>
 
             <motion.p
@@ -87,13 +87,14 @@ export function RoostHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.55, ease: [0, 0, 0.2, 1] }}
             className="app-mockup"
+            style={{ background: "var(--color-roost-card)" }}
           >
             {/* Header */}
-            <div className="mockup-header">
+            <div className="mockup-header" style={{ background: "var(--color-roost)", color: "var(--color-roost-card)" }}>
               <span style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.9375rem" }}>
                 Roost
               </span>
-              <span style={{ fontSize: "0.75rem", opacity: 0.55, letterSpacing: "0.02em" }}>
+              <span style={{ fontSize: "0.75rem", opacity: 0.65, letterSpacing: "0.02em" }}>
                 ↻ Synced
               </span>
             </div>
@@ -103,7 +104,10 @@ export function RoostHero() {
               <p className="mockup-section-label">Shopping this week</p>
               {shoppingItems.map(({ name, done }) => (
                 <div key={name} className={`mockup-row${done ? " done" : ""}`}>
-                  <div className={`mockup-check${done ? " done" : ""}`} />
+                  <div
+                    className={`mockup-check${done ? " done" : ""}`}
+                    style={done ? { background: "var(--color-roost)", borderColor: "var(--color-roost)" } : undefined}
+                  />
                   <span className="mockup-text">{name}</span>
                 </div>
               ))}
@@ -118,7 +122,7 @@ export function RoostHero() {
                   <span className="mockup-amount">{amount}</span>
                 </div>
               ))}
-              <p className="mockup-balance">✓ Balance settled</p>
+              <p className="mockup-balance" style={{ color: "var(--color-roost)" }}>✓ Balance settled</p>
             </div>
           </motion.div>
 

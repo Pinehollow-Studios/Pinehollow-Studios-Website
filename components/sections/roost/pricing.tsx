@@ -8,7 +8,7 @@ export function RoostPricing() {
   const { free, nest } = roostContent.pricing;
 
   return (
-    <section className="section-space bg-[var(--color-cream)]">
+    <section className="section-space bg-[var(--color-roost-bg)]">
       <div className="container-shell">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
@@ -17,12 +17,12 @@ export function RoostPricing() {
           transition={{ duration: 0.7, ease: [0, 0, 0.2, 1] }}
           className="max-w-[40rem]"
         >
-          <p className="label-overline text-[var(--color-pine)]">Pricing</p>
+          <p className="label-overline text-[var(--color-roost)]">Pricing</p>
           <h2 className="section-title mt-3 text-[var(--color-charcoal)]">
-            Free to start. Nest when you&apos;re ready.
+            Free to start. Go Pro when you&apos;re ready.
           </h2>
           <p className="mt-5 text-[1rem] leading-7 text-[var(--color-mid-grey)]">
-            Roost Free covers everything most households need. Nest adds AI insights, expense history, and budget tracking.
+            Roost Free covers everything most households need. Pro adds AI insights, expense history, and budget tracking.
           </p>
         </motion.div>
 
@@ -36,7 +36,7 @@ export function RoostPricing() {
           {/* Free tier */}
           <motion.div variants={fadeUpItem} transition={{ duration: 0.7, ease: [0, 0, 0.2, 1] }}>
             <div className="pricing-card-free h-full">
-              <p className="label-overline text-[var(--color-pine)]">{free.title}</p>
+              <p className="label-overline text-[var(--color-roost)]">{free.title}</p>
               <p
                 className="mt-3"
                 style={{
@@ -62,15 +62,15 @@ export function RoostPricing() {
                 ))}
               </ul>
               <div className="mt-8">
-                <a href="#download" className="button-secondary">Start with Free</a>
+                <a href="https://roost-website-five.vercel.app/download" className="button-secondary">Start with Free</a>
               </div>
             </div>
           </motion.div>
 
           {/* Nest tier */}
           <motion.div variants={fadeUpItem} transition={{ duration: 0.7, ease: [0, 0, 0.2, 1] }}>
-            <div className="pricing-card-premium grain-surface-dark h-full">
-              <p className="label-overline" style={{ color: "rgba(250,248,245,0.45)" }}>
+            <div className="pricing-card-premium grain-surface-dark h-full" style={{ background: "var(--color-roost)" }}>
+              <p className="label-overline" style={{ color: "rgba(250,248,245,0.55)" }}>
                 {nest.title}
               </p>
               <p
@@ -96,7 +96,7 @@ export function RoostPricing() {
                 ))}
               </ul>
               <div className="mt-8">
-                <a href="#download" className="button-outline-inverse">Join Nest early</a>
+                <a href="https://roost-website-five.vercel.app/download" className="button-outline-inverse">Join Pro early</a>
               </div>
             </div>
           </motion.div>

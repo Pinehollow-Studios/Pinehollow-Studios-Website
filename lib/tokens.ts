@@ -149,7 +149,7 @@ export const roostContent = {
   ],
   hazel: {
     intro:
-      "Hazel is the AI assistant built into Roost Nest — the premium tier. She has full context on your household: what you spend, what needs doing, what's coming up. Ask her anything about your home in plain language.",
+      "Hazel is the AI assistant built into Roost Pro — the premium tier. She has full context on your household: what you spend, what needs doing, what's coming up. Ask her anything about your home in plain language.",
     capabilities: [
       "How much have we spent on groceries this month?",
       "What chores haven't been done in a while?",
@@ -174,7 +174,7 @@ export const roostContent = {
       ],
     },
     nest: {
-      title: "Roost Nest",
+      title: "Roost Pro",
       subtitle: "Early access pricing",
       price: "£3.99 / month" as string | null,
       features: [

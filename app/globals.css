@@ -41,6 +41,10 @@
   --color-deep-pine: #21392f;
   --color-ash: #d8d2ca;
   --color-grabbit: #7c6448;
+  --color-roost: #d4795e;
+  --color-roost-sage: #9db19f;
+  --color-roost-bg: #ebe3d5;
+  --color-roost-card: #f2ebe0;
 
   --radius-card: 8px;
   --radius-control: 8px;
@@ -66,6 +70,10 @@
   --color-deep-pine: var(--color-deep-pine);
   --color-ash: var(--color-ash);
   --color-grabbit: var(--color-grabbit);
+  --color-roost: var(--color-roost);
+  --color-roost-sage: var(--color-roost-sage);
+  --color-roost-bg: var(--color-roost-bg);
+  --color-roost-card: var(--color-roost-card);
 }
 
 /* ─── Reset ─────────────────────────────────────────────── */
@@ -606,6 +614,10 @@ img {
 
 .step-number-timber {
   color: var(--color-grabbit);
+}
+
+.step-number-roost {
+  color: var(--color-roost);
 }
 
 /* ─── Pricing cards ──────────────────────────────────────── */

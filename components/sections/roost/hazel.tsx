@@ -17,8 +17,8 @@ export function RoostHazel() {
             viewport={viewportOnce}
             transition={{ duration: 0.8, ease: [0, 0, 0.2, 1] }}
           >
-            <p className="label-overline" style={{ color: "rgba(250,248,245,0.4)" }}>
-              Roost Nest
+            <p className="label-overline" style={{ color: "rgba(212,121,94,0.7)" }}>
+              Roost Pro
             </p>
             <h2
               className="mt-5"
