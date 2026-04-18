@@ -63,15 +63,21 @@ export function Footer() {
           {/* Contact */}
           <div>
             <p className="label-overline mb-5" style={{ color: "rgba(250,248,245,0.32)" }}>
-              Contact
+              Studio
             </p>
             <nav className="flex flex-col gap-3">
               <a
-                href="mailto:hello@pinehollow.studio"
+                href="mailto:support@pinehollow.studio"
                 className="text-[0.9375rem] text-[rgba(250,248,245,0.68)] transition-colors duration-300 hover:text-[var(--color-cream)]"
               >
-                hello@pinehollow.studio
+                support@pinehollow.studio
               </a>
+              <Link
+                href="/privacy"
+                className="text-[0.9375rem] text-[rgba(250,248,245,0.68)] transition-colors duration-300 hover:text-[var(--color-cream)]"
+              >
+                Privacy Policy
+              </Link>
             </nav>
           </div>
 
