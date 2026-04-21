@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export function Footer() {
@@ -11,6 +12,13 @@ export function Footer() {
 
           {/* Brand */}
           <div className="max-w-[22rem]">
+            <Image
+              src="/pinehollow-icon.png"
+              alt="Pinehollow Studios"
+              width={56}
+              height={56}
+              className="mb-5 h-14 w-14 rounded-[10px]"
+            />
             <p
               style={{
                 fontFamily: "var(--font-display)",

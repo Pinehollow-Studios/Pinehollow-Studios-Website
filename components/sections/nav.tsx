@@ -1,6 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -48,9 +49,18 @@ export function Nav() {
         <nav className="container-shell nav-shell flex items-center justify-between">
           <Link
             href="/"
-            className="font-[var(--font-display)] text-[1.1rem] font-bold text-[var(--color-charcoal)]"
+            aria-label="Pinehollow Studios home"
+            className="flex items-center gap-2.5 font-[var(--font-display)] text-[1.1rem] font-bold text-[var(--color-charcoal)]"
           >
-            Pinehollow Studios
+            <Image
+              src="/pinehollow-icon.png"
+              alt=""
+              width={32}
+              height={32}
+              priority
+              className="h-8 w-8 rounded-[6px]"
+            />
+            <span>Pinehollow Studios</span>
           </Link>
 
           <div className="hidden items-center gap-10 md:flex">

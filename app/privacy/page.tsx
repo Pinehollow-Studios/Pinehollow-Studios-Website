@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Footer } from "@/components/sections/footer";
 import { Nav } from "@/components/sections/nav";
 
@@ -68,6 +69,13 @@ export default function PrivacyPage() {
 
           <div className="mt-16 grid gap-x-16 gap-y-12 lg:grid-cols-[0.7fr_1.3fr]">
             <div>
+              <Image
+                src="/pinehollow-icon.png"
+                alt="Pinehollow Studios"
+                width={48}
+                height={48}
+                className="mb-5 h-12 w-12 rounded-[10px]"
+              />
               <p className="label-overline text-[var(--color-mid-grey)]">Pinehollow Studios</p>
               <p className="mt-4 max-w-[18rem] text-[0.98rem] leading-7 text-[var(--color-mid-grey)]">
                 Covers the brand, website, Roost, Grabbit, and connected Pinehollow apps.
