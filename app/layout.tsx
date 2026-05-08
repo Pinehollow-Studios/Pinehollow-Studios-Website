@@ -3,10 +3,10 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Pinehollow Studios",
-  description: "Thoughtfully crafted software for everyday life.",
+  description: "A two-person software studio. Quiet, considered, built to last.",
   openGraph: {
     title: "Pinehollow Studios",
-    description: "Thoughtfully crafted software for everyday life.",
+    description: "A two-person software studio. Quiet, considered, built to last.",
     images: [{ url: "/pinehollow-icon.png", width: 512, height: 512 }],
   },
 };

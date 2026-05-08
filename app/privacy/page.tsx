@@ -5,37 +5,29 @@ import { Nav } from "@/components/sections/nav";
 
 export const metadata: Metadata = {
   title: "Privacy Policy - Pinehollow Studios",
-  description: "Privacy policy for Pinehollow Studios, Roost, Grabbit, and connected Pinehollow apps.",
+  description: "Privacy policy for Pinehollow Studios and connected studio properties.",
 };
 
 const policySections = [
   {
     title: "What this covers",
-    body: "This policy applies to Pinehollow Studios, this website, Roost, Grabbit, and any Pinehollow Studios app that links to this page.",
+    body: "This policy applies to Pinehollow Studios, this website, and any Pinehollow Studios property that links to this page.",
   },
   {
     title: "What we collect",
-    body: "We only collect information needed to run the website, provide support, or operate an app feature you choose to use. That may include your email address if you contact us, basic support details you send us, and app data needed for sync, household sharing, saved items, subscriptions, or account features.",
+    body: "We only collect information needed to run the website or reply when you contact us. That means basic web request data and, if you email us, the email address and message you choose to send.",
   },
   {
     title: "What stays private",
-    body: "We do not sell your personal information. We do not use your app data for advertising. We do not build marketing profiles from your household data, saved photos, screenshots, searches, chores, budgets, or lists.",
+    body: "We do not sell your personal information. We do not run advertising on this site. We do not build marketing profiles.",
   },
   {
-    title: "Roost",
-    body: "Roost stores household information for the people you invite into your shared home. That can include shopping lists, expenses, chores, budgets, calendar items, notes, and related settings. It is used to keep your home in sync across your devices and is not shared with advertisers.",
-  },
-  {
-    title: "Grabbit",
-    body: "Grabbit is designed around private saving and search. Where the app uses on-device processing, your screenshots and saved photos are classified and searched on your device. We do not use that content for advertising or resale.",
-  },
-  {
-    title: "Payments",
-    body: "If an app offers paid features through the App Store or another platform, payment and billing are handled by that platform. We do not receive your full card details.",
+    title: "Cookies and analytics",
+    body: "This site keeps cookie use to the minimum needed to function. Where we use lightweight analytics, it is to understand which pages are read — never to identify individuals or follow you across the web.",
   },
   {
     title: "Support",
-    body: "If you email us, we use the information you provide to reply and resolve the issue. We may keep support messages so we can understand previous conversations and improve the product.",
+    body: "If you email us, we use the information you provide to reply and resolve the question. We may keep support messages so we can understand previous conversations.",
   },
   {
     title: "Security",
@@ -43,7 +35,7 @@ const policySections = [
   },
   {
     title: "Your choices",
-    body: "You can contact us to ask about your data, request deletion where available, or ask a privacy question. Some app data can also be deleted directly inside the app or by removing the app from your device.",
+    body: "You can contact us to ask about your data or request deletion where available. We will respond honestly and as quickly as a small team can.",
   },
   {
     title: "Contact",
@@ -61,10 +53,10 @@ export default function PrivacyPage() {
             <p className="label-overline text-[var(--color-pine)]">Privacy Policy</p>
             <h1 className="display-type mt-5 text-[var(--color-charcoal)]">Simple privacy, plainly stated.</h1>
             <p className="body-copy mt-7 max-w-[38rem] text-[var(--color-mid-grey)]">
-              Pinehollow Studios builds private, useful software. We collect as little as practical, use data only
-              to provide the product, and do not sell personal information.
+              Pinehollow Studios is a small studio. We collect as little as practical, use data only
+              to run the site or reply when you contact us, and we do not sell personal information.
             </p>
-            <p className="mt-6 text-[0.9rem] leading-6 text-[var(--color-mid-grey)]">Last updated: 18 April 2026</p>
+            <p className="mt-6 text-[0.9rem] leading-6 text-[var(--color-mid-grey)]">Last updated: 8 May 2026</p>
           </div>
 
           <div className="mt-16 grid gap-x-16 gap-y-12 lg:grid-cols-[0.7fr_1.3fr]">
@@ -78,7 +70,7 @@ export default function PrivacyPage() {
               />
               <p className="label-overline text-[var(--color-mid-grey)]">Pinehollow Studios</p>
               <p className="mt-4 max-w-[18rem] text-[0.98rem] leading-7 text-[var(--color-mid-grey)]">
-                Covers the brand, website, Roost, Grabbit, and connected Pinehollow apps.
+                Covers the studio brand and this website.
               </p>
             </div>
 

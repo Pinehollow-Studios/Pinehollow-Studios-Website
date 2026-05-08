@@ -21,14 +21,14 @@ const accentConfig = {
 
 export function Craft() {
   return (
-    <section className="section-space bg-[var(--color-cream)]">
+    <section id="approach" className="section-space bg-[var(--color-cream)]">
       <div className="container-shell">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={viewportOnce}
           transition={{ duration: 0.7, ease: [0, 0, 0.2, 1] }}
-          className="mb-14 max-w-[28rem]"
+          className="mb-14 max-w-[34rem]"
         >
           <p className="label-overline text-[var(--color-mid-grey)]">Our approach</p>
           <h2 className="section-title mt-3 text-[var(--color-charcoal)]">

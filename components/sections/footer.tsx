@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { siteContent } from "@/lib/tokens";
 
 export function Footer() {
   return (
@@ -7,11 +8,11 @@ export function Footer() {
       id="contact"
       className="grain-surface-dark border-t border-[var(--color-border-dark)] bg-[var(--color-charcoal)] text-[var(--color-cream)]"
     >
-      <div className="container-shell py-14 sm:py-16">
-        <div className="grid gap-10 sm:grid-cols-[1fr_auto_auto] sm:gap-16">
+      <div className="container-shell py-14 sm:py-20">
+        <div className="grid gap-12 sm:grid-cols-[1fr_auto_auto] sm:gap-16">
 
           {/* Brand */}
-          <div className="max-w-[22rem]">
+          <div className="max-w-[24rem]">
             <Image
               src="/pinehollow-icon.png"
               alt="Pinehollow Studios"
@@ -37,7 +38,7 @@ export function Footer() {
                 color: "rgba(250,248,245,0.55)",
               }}
             >
-              Thoughtfully crafted software for everyday life. Built with care, for people who notice.
+              A two-person studio building software with care, for people who notice.
             </p>
             <p
               className="mt-6"
@@ -47,23 +48,29 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Apps */}
+          {/* Studio */}
           <div>
             <p className="label-overline mb-5" style={{ color: "rgba(250,248,245,0.32)" }}>
-              Applications
+              Studio
             </p>
             <nav className="flex flex-col gap-3">
               <Link
-                href="/apps/roost"
+                href="/#approach"
                 className="text-[0.9375rem] text-[rgba(250,248,245,0.68)] transition-colors duration-300 hover:text-[var(--color-cream)]"
               >
-                Roost
+                Approach
               </Link>
               <Link
-                href="/apps/grabbit"
+                href="/#team"
                 className="text-[0.9375rem] text-[rgba(250,248,245,0.68)] transition-colors duration-300 hover:text-[var(--color-cream)]"
               >
-                Grabbit
+                Team
+              </Link>
+              <Link
+                href="/#materials"
+                className="text-[0.9375rem] text-[rgba(250,248,245,0.68)] transition-colors duration-300 hover:text-[var(--color-cream)]"
+              >
+                Materials
               </Link>
             </nav>
           </div>
@@ -71,14 +78,14 @@ export function Footer() {
           {/* Contact */}
           <div>
             <p className="label-overline mb-5" style={{ color: "rgba(250,248,245,0.32)" }}>
-              Studio
+              Contact
             </p>
             <nav className="flex flex-col gap-3">
               <a
-                href="mailto:support@pinehollow.studio"
+                href={`mailto:${siteContent.contact.email}`}
                 className="text-[0.9375rem] text-[rgba(250,248,245,0.68)] transition-colors duration-300 hover:text-[var(--color-cream)]"
               >
-                support@pinehollow.studio
+                {siteContent.contact.email}
               </a>
               <Link
                 href="/privacy"
