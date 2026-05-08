@@ -28,9 +28,9 @@ export const tokens = {
 
 export const siteContent = {
   heroEyebrow: "Pinehollow Studios",
-  heroTitle: "We build apps for iOS, macOS, and the web.",
+  heroTitle: "Independent software for everyday use.",
   heroSubtitle:
-    "A two-person software studio working on a small number of products at a time.",
+    "Pinehollow Studios is a two-person product studio. We design, build, and ship our own apps.",
   principles: [
     {
       title: "Privacy by default",
