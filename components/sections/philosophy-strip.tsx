@@ -6,14 +6,17 @@ import { siteContent } from "@/lib/tokens";
 
 export function PhilosophyStrip() {
   return (
-    <section className="grain-surface-dark bg-[var(--color-deep-pine)] py-20 text-[var(--color-cream)] sm:py-28">
+    <section
+      id="principles"
+      className="grain-surface-dark bg-[var(--color-deep-pine)] py-20 text-[var(--color-cream)] sm:py-28"
+    >
       <div className="container-shell">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={viewportOnce}
           transition={{ duration: 0.7, ease: [0, 0, 0.2, 1] }}
-          className="mb-14"
+          className="mb-14 max-w-[40rem]"
         >
           <p className="label-overline mb-4" style={{ color: "rgba(250,248,245,0.4)" }}>
             How we work
@@ -27,7 +30,7 @@ export function PhilosophyStrip() {
               color: "var(--color-cream)",
             }}
           >
-            Four things we always come back to.
+            Four principles.
           </h2>
         </motion.div>
 
@@ -60,7 +63,7 @@ export function PhilosophyStrip() {
                 style={{
                   fontSize: "0.9375rem",
                   lineHeight: 1.72,
-                  color: "rgba(250,248,245,0.58)",
+                  color: "rgba(250,248,245,0.62)",
                 }}
               >
                 {principle.body}

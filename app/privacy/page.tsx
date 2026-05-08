@@ -4,38 +4,38 @@ import { Footer } from "@/components/sections/footer";
 import { Nav } from "@/components/sections/nav";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy - Pinehollow Studios",
-  description: "Privacy policy for Pinehollow Studios and connected studio properties.",
+  title: "Privacy Policy — Pinehollow Studios",
+  description: "Privacy policy for Pinehollow Studios.",
 };
 
 const policySections = [
   {
-    title: "What this covers",
-    body: "This policy applies to Pinehollow Studios, this website, and any Pinehollow Studios property that links to this page.",
+    title: "Scope",
+    body: "This policy covers the Pinehollow Studios website and any direct contact with the studio.",
   },
   {
-    title: "What we collect",
-    body: "We only collect information needed to run the website or reply when you contact us. That means basic web request data and, if you email us, the email address and message you choose to send.",
+    title: "Data we collect",
+    body: "Basic web request data needed to serve the site. If you email us, the address and message you send.",
   },
   {
-    title: "What stays private",
-    body: "We do not sell your personal information. We do not run advertising on this site. We do not build marketing profiles.",
+    title: "What we don't do",
+    body: "We don't sell personal information. We don't run advertising. We don't build marketing profiles.",
   },
   {
     title: "Cookies and analytics",
-    body: "This site keeps cookie use to the minimum needed to function. Where we use lightweight analytics, it is to understand which pages are read — never to identify individuals or follow you across the web.",
+    body: "Minimal cookies, only what's needed for the page to function. Any analytics are aggregate, not used to identify individuals.",
   },
   {
     title: "Support",
-    body: "If you email us, we use the information you provide to reply and resolve the question. We may keep support messages so we can understand previous conversations.",
+    body: "If you email us, we keep the message so we can reply and follow up. We don't share it.",
   },
   {
     title: "Security",
-    body: "We use reasonable technical and organisational measures to protect the information we handle. No online service can be guaranteed completely secure, but we keep access limited and collect as little as practical.",
+    body: "Standard security practices. We collect as little data as we can.",
   },
   {
-    title: "Your choices",
-    body: "You can contact us to ask about your data or request deletion where available. We will respond honestly and as quickly as a small team can.",
+    title: "Your data",
+    body: "Email us to request a copy of any data we hold or to have it deleted.",
   },
   {
     title: "Contact",
@@ -51,10 +51,9 @@ export default function PrivacyPage() {
         <div className="container-shell">
           <div className="max-w-[46rem]">
             <p className="label-overline text-[var(--color-pine)]">Privacy Policy</p>
-            <h1 className="display-type mt-5 text-[var(--color-charcoal)]">Simple privacy, plainly stated.</h1>
+            <h1 className="display-type mt-5 text-[var(--color-charcoal)]">Privacy Policy</h1>
             <p className="body-copy mt-7 max-w-[38rem] text-[var(--color-mid-grey)]">
-              Pinehollow Studios is a small studio. We collect as little as practical, use data only
-              to run the site or reply when you contact us, and we do not sell personal information.
+              We collect what we need to run the site and reply to messages. Nothing else.
             </p>
             <p className="mt-6 text-[0.9rem] leading-6 text-[var(--color-mid-grey)]">Last updated: 8 May 2026</p>
           </div>

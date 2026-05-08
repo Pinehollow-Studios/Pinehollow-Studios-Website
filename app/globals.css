@@ -278,51 +278,6 @@ img {
   user-select: none;
 }
 
-/* ─── Materials cards ────────────────────────────────────── */
-
-.material-card {
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-card);
-  background: color-mix(in srgb, var(--color-cream) 75%, var(--color-paper));
-  padding: 2rem 2rem 2.25rem;
-  height: 100%;
-}
-
-.swatch-chip {
-  width: 1.75rem;
-  height: 1.75rem;
-  border-radius: var(--radius-pill);
-  border: 1px solid transparent;
-  flex-shrink: 0;
-}
-
-/* ─── Abstract craft blocks (no images) ─────────────────── */
-
-.craft-block {
-  min-height: 320px;
-  border-radius: var(--radius-card);
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.craft-block--pine {
-  background: var(--color-deep-pine);
-  border: 1px solid color-mix(in srgb, var(--color-pine) 60%, var(--color-charcoal));
-}
-
-.craft-block--paper {
-  background: var(--color-paper);
-  border: 1px solid var(--color-border-light);
-}
-
-.craft-block--parchment {
-  background: var(--color-parchment);
-  border: 1px solid color-mix(in srgb, var(--color-timber) 20%, var(--color-border-light));
-}
-
 /* ─── Buttons ────────────────────────────────────────────── */
 
 .button-primary,
@@ -375,15 +330,7 @@ img {
     padding-block: 3.5rem;
   }
 
-  .craft-block {
-    min-height: 220px;
-  }
-
   .founder-card {
-    padding: 1.75rem 1.75rem 2rem;
-  }
-
-  .material-card {
     padding: 1.75rem 1.75rem 2rem;
   }
 }

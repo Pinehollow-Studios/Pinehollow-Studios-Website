@@ -5,8 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { siteContent } from "@/lib/tokens";
 
-const words = siteContent.heroTitle.split(" ");
-
 export function Hero() {
   return (
     <section id="top" className="hero-section grain-surface relative bg-[var(--color-cream)]">
@@ -15,7 +13,7 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0, 0, 0.2, 1] }}
+            transition={{ duration: 0.6, ease: [0, 0, 0.2, 1] }}
             className="mb-7 flex items-center gap-3"
           >
             <Image
@@ -32,34 +30,19 @@ export function Hero() {
           </motion.div>
 
           <motion.h1
-            initial="hidden"
-            animate="visible"
-            variants={{
-              hidden: {},
-              visible: { transition: { staggerChildren: 0.07 } },
-            }}
-            className="display-type max-w-[14ch] text-[var(--color-charcoal)]"
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0, 0, 0.2, 1] }}
+            className="display-type max-w-[18ch] text-[var(--color-charcoal)]"
           >
-            {words.map((word, i) => (
-              <motion.span
-                key={`${word}-${i}`}
-                variants={{
-                  hidden: { opacity: 0, y: 14 },
-                  visible: { opacity: 1, y: 0 },
-                }}
-                transition={{ duration: 0.7, ease: [0, 0, 0.2, 1] }}
-                className="word-span"
-              >
-                {word}
-              </motion.span>
-            ))}
+            {siteContent.heroTitle}
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 18 }}
+            initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.45, ease: [0, 0, 0.2, 1] }}
-            className="body-copy mt-8 max-w-[42rem] text-[var(--color-mid-grey)]"
+            transition={{ duration: 0.7, delay: 0.15, ease: [0, 0, 0.2, 1] }}
+            className="body-copy mt-7 max-w-[40rem] text-[var(--color-mid-grey)]"
           >
             {siteContent.heroSubtitle}
           </motion.p>
@@ -67,14 +50,14 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.6, ease: [0, 0, 0.2, 1] }}
+            transition={{ duration: 0.7, delay: 0.3, ease: [0, 0, 0.2, 1] }}
             className="mt-10 flex flex-wrap gap-3"
           >
-            <Link href="#approach" className="button-primary">
-              How we work
+            <Link href="#team" className="button-primary">
+              About the studio
             </Link>
             <Link href="#contact" className="button-secondary">
-              Get in touch
+              Contact
             </Link>
           </motion.div>
         </div>

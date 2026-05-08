@@ -38,7 +38,7 @@ export function Footer() {
                 color: "rgba(250,248,245,0.55)",
               }}
             >
-              A two-person studio building software with care, for people who notice.
+              A two-person software studio. Apps for iOS, macOS, and the web.
             </p>
             <p
               className="mt-6"
@@ -55,22 +55,16 @@ export function Footer() {
             </p>
             <nav className="flex flex-col gap-3">
               <Link
-                href="/#approach"
+                href="/#principles"
                 className="text-[0.9375rem] text-[rgba(250,248,245,0.68)] transition-colors duration-300 hover:text-[var(--color-cream)]"
               >
-                Approach
+                Principles
               </Link>
               <Link
                 href="/#team"
                 className="text-[0.9375rem] text-[rgba(250,248,245,0.68)] transition-colors duration-300 hover:text-[var(--color-cream)]"
               >
                 Team
-              </Link>
-              <Link
-                href="/#materials"
-                className="text-[0.9375rem] text-[rgba(250,248,245,0.68)] transition-colors duration-300 hover:text-[var(--color-cream)]"
-              >
-                Materials
               </Link>
             </nav>
           </div>
