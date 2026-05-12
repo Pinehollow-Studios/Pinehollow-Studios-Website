@@ -3,6 +3,7 @@ import { ContactForm } from "@/components/sections/contact-form";
 import { GlassCard } from "@/components/shared/glass-card";
 import { Overline, Pill, Section } from "@/components/shared/primitives";
 import { Page } from "@/components/shared/page";
+import { Reveal } from "@/components/shared/reveal";
 
 export const metadata: Metadata = {
   title: "Contact — Pinehollow Studios",
@@ -23,35 +24,41 @@ function ContactHero() {
   return (
     <Section py="100px">
       <div style={{ paddingTop: 40, maxWidth: 1000 }}>
-        <Pill tone="pine" icon="dot">We read every message</Pill>
-        <h1
-          style={{
-            fontFamily: "var(--lp-font-display)",
-            fontWeight: 500,
-            letterSpacing: "var(--lp-track-display)",
-            fontSize: "var(--lp-text-6xl)",
-            lineHeight: "var(--lp-leading-tight)",
-            margin: "28px 0 0",
-          }}
-        >
-          Say hello,
-          <br />
-          <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>
-            without ceremony
-          </em>
-          .
-        </h1>
-        <p
-          style={{
-            color: "var(--lp-fg-mute)",
-            fontSize: "var(--lp-text-lg)",
-            lineHeight: 1.55,
-            maxWidth: 600,
-            marginTop: 28,
-          }}
-        >
-          The fastest way to reach us is email. We — Tom and Jack — read everything ourselves, and reply within two working days. Usually one.
-        </p>
+        <Reveal variant="up" immediate delay={80}>
+          <Pill tone="pine" icon="dot">We read every message</Pill>
+        </Reveal>
+        <Reveal variant="up-xl" immediate delay={180} duration={1100}>
+          <h1
+            style={{
+              fontFamily: "var(--lp-font-display)",
+              fontWeight: 500,
+              letterSpacing: "var(--lp-track-display)",
+              fontSize: "var(--lp-text-6xl)",
+              lineHeight: "var(--lp-leading-tight)",
+              margin: "28px 0 0",
+            }}
+          >
+            Say hello,
+            <br />
+            <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>
+              without ceremony
+            </em>
+            .
+          </h1>
+        </Reveal>
+        <Reveal variant="up" immediate delay={420}>
+          <p
+            style={{
+              color: "var(--lp-fg-mute)",
+              fontSize: "var(--lp-text-lg)",
+              lineHeight: 1.55,
+              maxWidth: 600,
+              marginTop: 28,
+            }}
+          >
+            The fastest way to reach us is email. We — Tom and Jack — read everything ourselves, and reply within two working days. Usually one.
+          </p>
+        </Reveal>
       </div>
     </Section>
   );
@@ -64,9 +71,12 @@ function ContactGrid() {
         className="contact-grid"
         style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 20 }}
       >
-        <ContactForm />
+        <Reveal variant="up-lg" duration={1000}>
+          <ContactForm />
+        </Reveal>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+          <Reveal variant="up" delay={120}>
           <GlassCard hover style={{ padding: 28 }}>
             <Overline>General &amp; support</Overline>
             <a
@@ -87,7 +97,9 @@ function ContactGrid() {
               Goes to both of us. The fastest way to reach the studio.
             </div>
           </GlassCard>
+          </Reveal>
 
+          <Reveal variant="up" delay={240}>
           <GlassCard hover style={{ padding: 28, position: "relative", overflow: "hidden" }}>
             <div
               aria-hidden="true"
@@ -125,7 +137,9 @@ function ContactGrid() {
               ● ACCEPTING MESSAGES
             </div>
           </GlassCard>
+          </Reveal>
 
+          <Reveal variant="up" delay={360}>
           <GlassCard hover style={{ padding: 28 }}>
             <Overline>Hours</Overline>
             <div
@@ -143,6 +157,7 @@ function ContactGrid() {
               From a real address. No autoresponder.
             </div>
           </GlassCard>
+          </Reveal>
         </div>
       </div>
 
@@ -176,30 +191,33 @@ function ContactFaq() {
   ];
   return (
     <Section py="120px">
-      <div style={{ marginBottom: 40 }}>
-        <Overline>Things people ask</Overline>
-        <h2
-          style={{
-            fontFamily: "var(--lp-font-display)",
-            fontWeight: 500,
-            letterSpacing: "-0.035em",
-            fontSize: "var(--lp-text-4xl)",
-            lineHeight: 1.05,
-            margin: "16px 0 0",
-          }}
-        >
-          Quick answers,
-          <br />
-          before you write.
-        </h2>
-      </div>
+      <Reveal variant="up-lg" duration={1000}>
+        <div style={{ marginBottom: 40 }}>
+          <Overline>Things people ask</Overline>
+          <h2
+            style={{
+              fontFamily: "var(--lp-font-display)",
+              fontWeight: 500,
+              letterSpacing: "-0.035em",
+              fontSize: "var(--lp-text-4xl)",
+              lineHeight: 1.05,
+              margin: "16px 0 0",
+            }}
+          >
+            Quick answers,
+            <br />
+            before you write.
+          </h2>
+        </div>
+      </Reveal>
 
       <div
         className="faq-grid"
         style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 14 }}
       >
         {faqs.map((f, i) => (
-          <GlassCard key={i} style={{ padding: 28 }}>
+          <Reveal key={i} variant="up" delay={(i % 2) * 90}>
+          <GlassCard style={{ padding: 28, height: "100%" }}>
             <div
               style={{
                 fontFamily: "var(--lp-font-display)",
@@ -221,6 +239,7 @@ function ContactFaq() {
               {f.a}
             </p>
           </GlassCard>
+          </Reveal>
         ))}
       </div>
 

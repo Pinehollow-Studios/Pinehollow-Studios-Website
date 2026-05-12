@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { GlassCard } from "@/components/shared/glass-card";
 import { Overline, Pill, Section } from "@/components/shared/primitives";
 import { Page } from "@/components/shared/page";
+import { Reveal } from "@/components/shared/reveal";
 
 export const metadata: Metadata = {
   title: "Manifesto — Pinehollow Studios",
@@ -56,35 +57,41 @@ function ManifestoHero() {
   return (
     <Section py="120px">
       <div style={{ paddingTop: 60, textAlign: "center", maxWidth: 900, margin: "0 auto" }}>
-        <Pill>The Pinehollow Manifesto · 2026</Pill>
-        <h1
-          style={{
-            fontFamily: "var(--lp-font-display)",
-            fontWeight: 500,
-            letterSpacing: "var(--lp-track-display)",
-            fontSize: "var(--lp-text-display)",
-            lineHeight: 0.92,
-            margin: "28px 0 0",
-          }}
-        >
-          We build
-          <br />
-          <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>
-            quietly.
-          </em>
-        </h1>
-        <div
-          style={{
-            fontFamily: "var(--lp-font-mono)",
-            fontSize: 12,
-            letterSpacing: "0.22em",
-            color: "var(--lp-fg-dim)",
-            textTransform: "uppercase",
-            marginTop: 36,
-          }}
-        >
-          Tom · Jack · MMXXVI
-        </div>
+        <Reveal variant="up" immediate delay={80}>
+          <Pill>The Pinehollow Manifesto · 2026</Pill>
+        </Reveal>
+        <Reveal variant="up-xl" immediate delay={200} duration={1200}>
+          <h1
+            style={{
+              fontFamily: "var(--lp-font-display)",
+              fontWeight: 500,
+              letterSpacing: "var(--lp-track-display)",
+              fontSize: "var(--lp-text-display)",
+              lineHeight: 0.92,
+              margin: "28px 0 0",
+            }}
+          >
+            We build
+            <br />
+            <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>
+              quietly.
+            </em>
+          </h1>
+        </Reveal>
+        <Reveal variant="up" immediate delay={520}>
+          <div
+            style={{
+              fontFamily: "var(--lp-font-mono)",
+              fontSize: 12,
+              letterSpacing: "0.22em",
+              color: "var(--lp-fg-dim)",
+              textTransform: "uppercase",
+              marginTop: 36,
+            }}
+          >
+            Tom · Jack · MMXXVI
+          </div>
+        </Reveal>
       </div>
     </Section>
   );
@@ -103,53 +110,73 @@ function ManifestoBody() {
           fontWeight: 400,
         }}
       >
-        <p style={{ marginTop: 0 }}>
-          We started Pinehollow because we wanted to use software that felt the way our favourite objects feel. Well-made. Honest. Quiet. Software that wears in rather than out.
-        </p>
+        <Reveal variant="up">
+          <p style={{ marginTop: 0 }}>
+            We started Pinehollow because we wanted to use software that felt the way our favourite objects feel. Well-made. Honest. Quiet. Software that wears in rather than out.
+          </p>
+        </Reveal>
 
-        <p>
-          Most of the internet got very loud somewhere along the way. Every app wanted to be a platform. Every feature wanted to be a hook. Every screen wanted to be the one you came back to. Engagement, we were told, was the point.
-        </p>
+        <Reveal variant="up">
+          <p>
+            Most of the internet got very loud somewhere along the way. Every app wanted to be a platform. Every feature wanted to be a hook. Every screen wanted to be the one you came back to. Engagement, we were told, was the point.
+          </p>
+        </Reveal>
 
-        <p>We disagree.</p>
+        <Reveal variant="up">
+          <p>We disagree.</p>
+        </Reveal>
 
-        <blockquote
-          style={{
-            margin: "48px 0",
-            padding: "0 0 0 28px",
-            borderLeft: "2px solid var(--lp-pine-glow)",
-            fontFamily: "var(--lp-font-display)",
-            fontSize: "var(--lp-text-3xl)",
-            fontStyle: "italic",
-            fontWeight: 400,
-            color: "var(--lp-pine-mist)",
-            letterSpacing: "-0.025em",
-            lineHeight: 1.15,
-          }}
-        >
-          The point of a tool is to{" "}
-          <span style={{ color: "var(--lp-fg)", fontStyle: "normal" }}>do its job</span> — and then to wait, without complaint, until you need it again.
-        </blockquote>
+        <Reveal variant="up-lg" duration={1000}>
+          <blockquote
+            style={{
+              margin: "48px 0",
+              padding: "0 0 0 28px",
+              borderLeft: "2px solid var(--lp-pine-glow)",
+              fontFamily: "var(--lp-font-display)",
+              fontSize: "var(--lp-text-3xl)",
+              fontStyle: "italic",
+              fontWeight: 400,
+              color: "var(--lp-pine-mist)",
+              letterSpacing: "-0.025em",
+              lineHeight: 1.15,
+            }}
+          >
+            The point of a tool is to{" "}
+            <span style={{ color: "var(--lp-fg)", fontStyle: "normal" }}>do its job</span> — and then to wait, without complaint, until you need it again.
+          </blockquote>
+        </Reveal>
 
-        <p>
-          Our apps don&apos;t have streaks. They don&apos;t have badges. They don&apos;t send notifications you didn&apos;t ask for. They don&apos;t try to be your second brain. They certainly don&apos;t want to be your friend.
-        </p>
+        <Reveal variant="up">
+          <p>
+            Our apps don&apos;t have streaks. They don&apos;t have badges. They don&apos;t send notifications you didn&apos;t ask for. They don&apos;t try to be your second brain. They certainly don&apos;t want to be your friend.
+          </p>
+        </Reveal>
 
-        <p>What they do is one thing. Quietly. With care.</p>
+        <Reveal variant="up">
+          <p>What they do is one thing. Quietly. With care.</p>
+        </Reveal>
 
-        <p>
-          We are two people. Tom designs and engineers the apps. Jack leads product and content — what we build, who it&apos;s for, and how it gets to people. We work for ourselves, on our own time, with our own money.
-        </p>
+        <Reveal variant="up">
+          <p>
+            We are two people. Tom designs and engineers the apps. Jack leads product and content — what we build, who it&apos;s for, and how it gets to people. We work for ourselves, on our own time, with our own money.
+          </p>
+        </Reveal>
 
-        <p>
-          We are not, and will never be, a platform. We will never raise venture capital. We will never run analytics on you. We will never sell, share, or peek at your data. The apps ship free, with the full thing usable on day one — and the optional Pro upgrade adds depth for power users without ever holding the basics hostage.
-        </p>
+        <Reveal variant="up">
+          <p>
+            We are not, and will never be, a platform. We will never raise venture capital. We will never run analytics on you. We will never sell, share, or peek at your data. The apps ship free, with the full thing usable on day one — and the optional Pro upgrade adds depth for power users without ever holding the basics hostage.
+          </p>
+        </Reveal>
 
-        <p>
-          We will, in exchange, make small, considered software that respects you. We&apos;ll support it for years. We&apos;ll mend it when it breaks. We&apos;ll retire it kindly when its time is over.
-        </p>
+        <Reveal variant="up">
+          <p>
+            We will, in exchange, make small, considered software that respects you. We&apos;ll support it for years. We&apos;ll mend it when it breaks. We&apos;ll retire it kindly when its time is over.
+          </p>
+        </Reveal>
 
-        <p style={{ marginBottom: 0 }}>That is the whole agreement.</p>
+        <Reveal variant="up">
+          <p style={{ marginBottom: 0 }}>That is the whole agreement.</p>
+        </Reveal>
       </div>
     </Section>
   );
@@ -158,30 +185,33 @@ function ManifestoBody() {
 function ManifestoPrinciples() {
   return (
     <Section py="120px">
-      <div style={{ marginBottom: 48 }}>
-        <Overline>Six principles</Overline>
-        <h2
-          style={{
-            fontFamily: "var(--lp-font-display)",
-            fontWeight: 500,
-            letterSpacing: "-0.035em",
-            fontSize: "var(--lp-text-5xl)",
-            lineHeight: 1,
-            margin: "16px 0 0",
-          }}
-        >
-          The agreement,
-          <br />
-          in <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>six lines</em>.
-        </h2>
-      </div>
+      <Reveal variant="up-lg" duration={1000}>
+        <div style={{ marginBottom: 48 }}>
+          <Overline>Six principles</Overline>
+          <h2
+            style={{
+              fontFamily: "var(--lp-font-display)",
+              fontWeight: 500,
+              letterSpacing: "-0.035em",
+              fontSize: "var(--lp-text-5xl)",
+              lineHeight: 1,
+              margin: "16px 0 0",
+            }}
+          >
+            The agreement,
+            <br />
+            in <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>six lines</em>.
+          </h2>
+        </div>
+      </Reveal>
 
       <div
         className="principle-grid"
         style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 16 }}
       >
-        {principles.map((p) => (
-          <GlassCard key={p.no} hover style={{ padding: 36 }}>
+        {principles.map((p, i) => (
+          <Reveal key={p.no} variant="up" delay={(i % 2) * 90}>
+          <GlassCard hover style={{ padding: 36, height: "100%" }}>
             <span
               style={{
                 fontFamily: "var(--lp-font-display)",
@@ -217,6 +247,7 @@ function ManifestoPrinciples() {
               {p.body}
             </p>
           </GlassCard>
+          </Reveal>
         ))}
       </div>
 
@@ -239,7 +270,9 @@ function ManifestoSign() {
           borderTop: "1px solid var(--lp-glass-rim)",
         }}
       >
-        <Overline>Signed</Overline>
+        <Reveal variant="up">
+          <Overline>Signed</Overline>
+        </Reveal>
         <div
           style={{
             display: "flex",
@@ -249,8 +282,12 @@ function ManifestoSign() {
             flexWrap: "wrap",
           }}
         >
-          <Signature name="Tom" role="Engineering · Design" mark="t" />
-          <Signature name="Jack" role="Product · Content" mark="j" />
+          <Reveal variant="up-lg" delay={120} duration={1000}>
+            <Signature name="Tom" role="Engineering · Design" mark="t" />
+          </Reveal>
+          <Reveal variant="up-lg" delay={260} duration={1000}>
+            <Signature name="Jack" role="Product · Content" mark="j" />
+          </Reveal>
         </div>
         <div
           style={{

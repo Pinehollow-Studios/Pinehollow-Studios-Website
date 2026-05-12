@@ -1,6 +1,7 @@
 import { GhostButton } from "@/components/shared/buttons";
 import { GlassCard } from "@/components/shared/glass-card";
 import { Overline, Section } from "@/components/shared/primitives";
+import { Reveal } from "@/components/shared/reveal";
 
 const founders = [
   { name: "Tom", role: "Engineering · Design", glow: "var(--lp-pine-glow)" },
@@ -10,6 +11,7 @@ const founders = [
 export function StudioPeek() {
   return (
     <Section py="120px">
+      <Reveal variant="up-lg" duration={1100}>
       <GlassCard strong style={{ padding: 0, position: "relative", overflow: "hidden" }}>
         <div
           aria-hidden="true"
@@ -87,9 +89,9 @@ export function StudioPeek() {
             className="peek-portraits"
             style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}
           >
-            {founders.map((p) => (
+            {founders.map((p, idx) => (
+              <Reveal key={p.name} variant="up-lg" delay={200 + idx * 140} duration={1000}>
               <div
-                key={p.name}
                 style={{
                   aspectRatio: "3 / 4",
                   borderRadius: "var(--lp-r-xl)",
@@ -155,6 +157,7 @@ export function StudioPeek() {
                   </div>
                 </div>
               </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -166,6 +169,7 @@ export function StudioPeek() {
           }
         `}</style>
       </GlassCard>
+      </Reveal>
     </Section>
   );
 }

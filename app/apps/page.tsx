@@ -3,6 +3,7 @@ import { GhostButton, PrimaryButton } from "@/components/shared/buttons";
 import { GlassCard } from "@/components/shared/glass-card";
 import { Overline, Pill, Section } from "@/components/shared/primitives";
 import { Page } from "@/components/shared/page";
+import { Reveal } from "@/components/shared/reveal";
 
 export const metadata: Metadata = {
   title: "Apps — Pinehollow Studios",
@@ -24,35 +25,41 @@ function AppsHero() {
   return (
     <Section py="80px">
       <div style={{ paddingTop: 40, maxWidth: 1000 }}>
-        <Pill tone="pine" icon="dot">01 in development · 0 shipped · yet</Pill>
-        <h1
-          style={{
-            fontFamily: "var(--lp-font-display)",
-            fontWeight: 500,
-            letterSpacing: "var(--lp-track-display)",
-            fontSize: "var(--lp-text-6xl)",
-            lineHeight: "var(--lp-leading-tight)",
-            margin: "28px 0 0",
-          }}
-        >
-          Small apps,
-          <br />
-          <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>
-            made slowly
-          </em>
-          .
-        </h1>
-        <p
-          style={{
-            color: "var(--lp-fg-mute)",
-            fontSize: "var(--lp-text-lg)",
-            lineHeight: 1.55,
-            maxWidth: 620,
-            marginTop: 28,
-          }}
-        >
-          We&apos;ve nothing shipped yet — but there&apos;s one app in the workshop. It&apos;ll arrive when it&apos;s ready, and not a day before.
-        </p>
+        <Reveal variant="up" immediate delay={80}>
+          <Pill tone="pine" icon="dot">01 in development · 0 shipped · yet</Pill>
+        </Reveal>
+        <Reveal variant="up-xl" immediate delay={180} duration={1100}>
+          <h1
+            style={{
+              fontFamily: "var(--lp-font-display)",
+              fontWeight: 500,
+              letterSpacing: "var(--lp-track-display)",
+              fontSize: "var(--lp-text-6xl)",
+              lineHeight: "var(--lp-leading-tight)",
+              margin: "28px 0 0",
+            }}
+          >
+            Small apps,
+            <br />
+            <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>
+              made slowly
+            </em>
+            .
+          </h1>
+        </Reveal>
+        <Reveal variant="up" immediate delay={420}>
+          <p
+            style={{
+              color: "var(--lp-fg-mute)",
+              fontSize: "var(--lp-text-lg)",
+              lineHeight: 1.55,
+              maxWidth: 620,
+              marginTop: 28,
+            }}
+          >
+            We&apos;ve nothing shipped yet — but there&apos;s one app in the workshop. It&apos;ll arrive when it&apos;s ready, and not a day before.
+          </p>
+        </Reveal>
       </div>
     </Section>
   );
@@ -61,6 +68,7 @@ function AppsHero() {
 function FairwaysTeaser() {
   return (
     <Section py="60px">
+      <Reveal variant="up-xl" duration={1200}>
       <GlassCard
         strong
         style={{ padding: 0, position: "relative", overflow: "hidden", minHeight: 560 }}
@@ -264,6 +272,7 @@ function FairwaysTeaser() {
           }
         `}</style>
       </GlassCard>
+      </Reveal>
     </Section>
   );
 }
@@ -402,6 +411,7 @@ function FreemiumStripe() {
   ];
   return (
     <Section py="100px">
+      <Reveal variant="up-lg" duration={1000}>
       <GlassCard strong style={{ padding: 0, overflow: "hidden" }}>
         <div style={{ padding: "48px 48px 32px" }}>
           <Overline>The pact</Overline>
@@ -445,30 +455,32 @@ function FreemiumStripe() {
           }}
         >
           {values.map((v, i) => (
-            <div
-              key={i}
-              className="freemium-cell"
-              style={{
-                padding: 40,
-                borderRight: i < values.length - 1 ? "1px solid var(--lp-glass-rim)" : "none",
-              }}
-            >
+            <Reveal key={i} variant="up" delay={i * 90} duration={700}>
               <div
+                className="freemium-cell"
                 style={{
-                  fontFamily: "var(--lp-font-display)",
-                  fontWeight: 500,
-                  letterSpacing: "-0.04em",
-                  fontSize: 56,
-                  lineHeight: 1,
-                  color: "var(--lp-pine-glow)",
+                  padding: 40,
+                  borderRight: i < values.length - 1 ? "1px solid var(--lp-glass-rim)" : "none",
+                  height: "100%",
                 }}
               >
-                {v.k}
+                <div
+                  style={{
+                    fontFamily: "var(--lp-font-display)",
+                    fontWeight: 500,
+                    letterSpacing: "-0.04em",
+                    fontSize: 56,
+                    lineHeight: 1,
+                    color: "var(--lp-pine-glow)",
+                  }}
+                >
+                  {v.k}
+                </div>
+                <div style={{ color: "var(--lp-fg-mute)", fontSize: 14, marginTop: 12 }}>
+                  {v.d}
+                </div>
               </div>
-              <div style={{ color: "var(--lp-fg-mute)", fontSize: 14, marginTop: 12 }}>
-                {v.d}
-              </div>
-            </div>
+            </Reveal>
           ))}
         </div>
 
@@ -480,6 +492,7 @@ function FreemiumStripe() {
           }
         `}</style>
       </GlassCard>
+      </Reveal>
     </Section>
   );
 }

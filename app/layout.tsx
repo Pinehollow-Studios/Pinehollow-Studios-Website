@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { PageFade } from "@/components/shared/page-fade";
+import { ScrollTop } from "@/components/shared/scroll-top";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -16,7 +18,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <ScrollTop />
+        <PageFade>{children}</PageFade>
+      </body>
     </html>
   );
 }

@@ -1,5 +1,6 @@
 import { GhostButton, PrimaryButton } from "@/components/shared/buttons";
 import { Section } from "@/components/shared/primitives";
+import { Reveal } from "@/components/shared/reveal";
 
 export function FinalCta() {
   return (
@@ -15,47 +16,53 @@ export function FinalCta() {
             filter: "blur(40px)",
           }}
         />
-        <h2
-          style={{
-            position: "relative",
-            fontFamily: "var(--lp-font-display)",
-            fontWeight: 500,
-            letterSpacing: "-0.04em",
-            fontSize: "var(--lp-text-5xl)",
-            lineHeight: 1,
-            margin: 0,
-          }}
-        >
-          Write to us, when you&apos;re{" "}
-          <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>
-            ready
-          </em>
-          .
-        </h2>
-        <p
-          style={{
-            position: "relative",
-            color: "var(--lp-fg-mute)",
-            fontSize: 17,
-            maxWidth: 520,
-            margin: "20px auto 0",
-          }}
-        >
-          We&apos;re a small studio, so we read every message ourselves. Reply within two working days.
-        </p>
-        <div
-          style={{
-            position: "relative",
-            display: "flex",
-            justifyContent: "center",
-            gap: 12,
-            marginTop: 32,
-            flexWrap: "wrap",
-          }}
-        >
-          <PrimaryButton href="/contact" size="lg">Say hello →</PrimaryButton>
-          <GhostButton href="/manifesto" size="lg">Read the manifesto</GhostButton>
-        </div>
+        <Reveal variant="up-lg" duration={1100}>
+          <h2
+            style={{
+              position: "relative",
+              fontFamily: "var(--lp-font-display)",
+              fontWeight: 500,
+              letterSpacing: "-0.04em",
+              fontSize: "var(--lp-text-5xl)",
+              lineHeight: 1,
+              margin: 0,
+            }}
+          >
+            Write to us, when you&apos;re{" "}
+            <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>
+              ready
+            </em>
+            .
+          </h2>
+        </Reveal>
+        <Reveal variant="up" delay={180}>
+          <p
+            style={{
+              position: "relative",
+              color: "var(--lp-fg-mute)",
+              fontSize: 17,
+              maxWidth: 520,
+              margin: "20px auto 0",
+            }}
+          >
+            We&apos;re a small studio, so we read every message ourselves. Reply within two working days.
+          </p>
+        </Reveal>
+        <Reveal variant="up" delay={320}>
+          <div
+            style={{
+              position: "relative",
+              display: "flex",
+              justifyContent: "center",
+              gap: 12,
+              marginTop: 32,
+              flexWrap: "wrap",
+            }}
+          >
+            <PrimaryButton href="/contact" size="lg">Say hello →</PrimaryButton>
+            <GhostButton href="/manifesto" size="lg">Read the manifesto</GhostButton>
+          </div>
+        </Reveal>
       </div>
     </Section>
   );

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { GlassCard } from "@/components/shared/glass-card";
 import { Overline, Pill, Section } from "@/components/shared/primitives";
 import { Page } from "@/components/shared/page";
+import { Reveal } from "@/components/shared/reveal";
 
 export const metadata: Metadata = {
   title: "Studio — Pinehollow Studios",
@@ -46,35 +47,41 @@ function StudioHero() {
   return (
     <Section py="100px">
       <div style={{ paddingTop: 40, maxWidth: 1000 }}>
-        <Pill tone="pine" icon="dot">The Studio · Two people · Independent</Pill>
-        <h1
-          style={{
-            fontFamily: "var(--lp-font-display)",
-            fontWeight: 500,
-            letterSpacing: "var(--lp-track-display)",
-            fontSize: "var(--lp-text-6xl)",
-            lineHeight: "var(--lp-leading-tight)",
-            margin: "28px 0 0",
-          }}
-        >
-          Two people,
-          <br />
-          one <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>
-            quiet workshop
-          </em>
-          .
-        </h1>
-        <p
-          style={{
-            color: "var(--lp-fg-mute)",
-            fontSize: "var(--lp-text-lg)",
-            lineHeight: 1.55,
-            maxWidth: 660,
-            marginTop: 28,
-          }}
-        >
-          Pinehollow Studios is a two-person software studio. We design, build, support, and answer for every line of code under our name. No outsourcing. No investors. No urgency that isn&apos;t ours.
-        </p>
+        <Reveal variant="up" immediate delay={80}>
+          <Pill tone="pine" icon="dot">The Studio · Two people · Independent</Pill>
+        </Reveal>
+        <Reveal variant="up-xl" immediate delay={180} duration={1100}>
+          <h1
+            style={{
+              fontFamily: "var(--lp-font-display)",
+              fontWeight: 500,
+              letterSpacing: "var(--lp-track-display)",
+              fontSize: "var(--lp-text-6xl)",
+              lineHeight: "var(--lp-leading-tight)",
+              margin: "28px 0 0",
+            }}
+          >
+            Two people,
+            <br />
+            one <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>
+              quiet workshop
+            </em>
+            .
+          </h1>
+        </Reveal>
+        <Reveal variant="up" immediate delay={420}>
+          <p
+            style={{
+              color: "var(--lp-fg-mute)",
+              fontSize: "var(--lp-text-lg)",
+              lineHeight: 1.55,
+              maxWidth: 660,
+              marginTop: 28,
+            }}
+          >
+            Pinehollow Studios is a two-person software studio. We design, build, support, and answer for every line of code under our name. No outsourcing. No investors. No urgency that isn&apos;t ours.
+          </p>
+        </Reveal>
       </div>
     </Section>
   );
@@ -87,8 +94,9 @@ function FoundersGrid() {
         className="founders-grid"
         style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}
       >
-        {founders.map((f) => (
-          <GlassCard key={f.name} strong style={{ padding: 0, overflow: "hidden", position: "relative" }}>
+        {founders.map((f, idx) => (
+          <Reveal key={f.name} variant="up-lg" delay={idx * 140} duration={1100}>
+          <GlassCard strong style={{ padding: 0, overflow: "hidden", position: "relative", height: "100%" }}>
             <div
               aria-hidden="true"
               style={{
@@ -237,6 +245,7 @@ function FoundersGrid() {
               </div>
             </div>
           </GlassCard>
+          </Reveal>
         ))}
       </div>
 
@@ -252,6 +261,7 @@ function FoundersGrid() {
 function StudioStory() {
   return (
     <Section py="120px">
+      <Reveal variant="up-lg" duration={1100}>
       <GlassCard strong style={{ padding: 0, overflow: "hidden", position: "relative" }}>
         <div
           aria-hidden="true"
@@ -317,6 +327,7 @@ function StudioStory() {
           }
         `}</style>
       </GlassCard>
+      </Reveal>
     </Section>
   );
 }
@@ -330,7 +341,9 @@ function StudioFacts() {
   ];
   return (
     <Section py="80px">
-      <Overline>The studio, in numbers</Overline>
+      <Reveal variant="up">
+        <Overline>The studio, in numbers</Overline>
+      </Reveal>
       <div
         className="facts-grid"
         style={{
@@ -341,29 +354,31 @@ function StudioFacts() {
         }}
       >
         {facts.map((f, i) => (
-          <div
-            key={i}
-            className="fact-cell"
-            style={{
-              padding: "40px 24px",
-              borderRight: i < facts.length - 1 ? "1px solid var(--lp-glass-rim)" : "none",
-              borderBottom: "1px solid var(--lp-glass-rim)",
-            }}
-          >
+          <Reveal key={i} variant="up" delay={i * 90}>
             <div
+              className="fact-cell"
               style={{
-                fontFamily: "var(--lp-font-display)",
-                fontWeight: 500,
-                letterSpacing: "-0.04em",
-                fontSize: 56,
-                lineHeight: 1,
-                color: "var(--lp-pine-glow)",
+                padding: "40px 24px",
+                borderRight: i < facts.length - 1 ? "1px solid var(--lp-glass-rim)" : "none",
+                borderBottom: "1px solid var(--lp-glass-rim)",
+                height: "100%",
               }}
             >
-              {f.k}
+              <div
+                style={{
+                  fontFamily: "var(--lp-font-display)",
+                  fontWeight: 500,
+                  letterSpacing: "-0.04em",
+                  fontSize: 56,
+                  lineHeight: 1,
+                  color: "var(--lp-pine-glow)",
+                }}
+              >
+                {f.k}
+              </div>
+              <div style={{ color: "var(--lp-fg-mute)", fontSize: 14, marginTop: 12 }}>{f.d}</div>
             </div>
-            <div style={{ color: "var(--lp-fg-mute)", fontSize: 14, marginTop: 12 }}>{f.d}</div>
-          </div>
+          </Reveal>
         ))}
       </div>
 
