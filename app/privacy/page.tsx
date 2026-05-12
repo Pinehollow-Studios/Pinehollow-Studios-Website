@@ -16,7 +16,7 @@ const policySections = [
   },
   {
     title: "What we collect on this website",
-    body: "Basic web request data needed to serve the site (your IP address and the page you asked for, briefly held in server logs). If you email us, the address and the message you send. We don't load third-party tracking scripts or build a marketing profile of you.",
+    body: "Basic web request data needed to serve the site (your IP address and the page you asked for, briefly held in our hosting provider's edge logs). We use Vercel's Web Analytics to count aggregate page views — it records the page you visited, your country, browser and device class, and how you got here. It uses no cookies, doesn't follow you to other sites, and never identifies you as an individual. If you email us, the address and the message you send.",
   },
   {
     title: "Anonymous usage data in our apps",
