@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: "Pinehollow Studios",
     description:
       "A two-person software studio building independent apps for iOS, macOS, and the web — quietly, and on our own terms.",
-    images: [{ url: "/pinehollow-icon.png", width: 512, height: 512 }],
+    // images is auto-resolved from app/opengraph-image.tsx
   },
 };
 

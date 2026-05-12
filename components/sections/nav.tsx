@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from "react";
 import { GhostButton, PrimaryButton } from "@/components/shared/buttons";
+import { PineBloom } from "@/components/shared/pine-bloom";
 
 const items = [
   { label: "Apps", href: "/apps" },
@@ -60,13 +60,10 @@ export function Nav() {
           }}
         >
           <Link href="/" style={{ display: "flex", alignItems: "center", gap: 12 }} aria-label="Pinehollow home">
-            <Image
-              src="/pinehollow-icon.png"
-              alt=""
-              width={32}
-              height={32}
-              priority
-              style={{ width: 30, height: 30, borderRadius: 8 }}
+            <PineBloom
+              size={32}
+              ariaHidden
+              style={{ borderRadius: 8, boxShadow: "0 0 12px -4px rgba(63,229,160,0.45)" }}
             />
             <span style={{ fontWeight: 500, fontSize: 17, letterSpacing: "-0.02em" }}>Pinehollow</span>
             <span
