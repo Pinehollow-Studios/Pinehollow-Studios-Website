@@ -5,9 +5,10 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { GhostButton, PrimaryButton } from "@/components/shared/buttons";
 
-type NavKey = "manifesto" | "studio" | "contact" | null;
+type NavKey = "apps" | "manifesto" | "studio" | "contact" | null;
 
 const items: { label: string; href: string; id: Exclude<NavKey, null> }[] = [
+  { label: "Apps", href: "/apps", id: "apps" },
   { label: "Manifesto", href: "/manifesto", id: "manifesto" },
   { label: "Studio", href: "/studio", id: "studio" },
   { label: "Contact", href: "/contact", id: "contact" },

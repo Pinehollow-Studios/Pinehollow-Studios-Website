@@ -14,7 +14,7 @@ const items = [
   {
     no: "03",
     label: "Permanence",
-    body: "Software you can settle into. We build for ten years, not for next quarter. Universal purchase, long support, calm updates.",
+    body: "Software you can settle into. We build for ten years, not for next quarter. Free at the core, long support, calm updates.",
   },
 ];
 

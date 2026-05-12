@@ -26,8 +26,8 @@ const principles = [
   },
   {
     no: "04",
-    title: "Paid once, owned forever.",
-    body: "No subscriptions for things that don't have an ongoing cost. No tiers designed to push you to the next one. Long support, from the day you buy.",
+    title: "Free at the centre, Pro at the edges.",
+    body: "Every app ships free, with the whole thing usable on day one. Pro adds power-user features for people who want them. The free version is the product. Pro is the cherry on top.",
   },
   {
     no: "05",
@@ -142,7 +142,7 @@ function ManifestoBody() {
         </p>
 
         <p>
-          We are not, and will never be, a platform. We will never raise venture capital. We will never run analytics on you. We will never sell, share, or peek at your data. We will never add a subscription to an app you already paid for.
+          We are not, and will never be, a platform. We will never raise venture capital. We will never run analytics on you. We will never sell, share, or peek at your data. The apps ship free, with the full thing usable on day one — and the optional Pro upgrade adds depth for power users without ever holding the basics hostage.
         </p>
 
         <p>

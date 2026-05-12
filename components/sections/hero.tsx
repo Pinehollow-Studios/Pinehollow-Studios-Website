@@ -83,9 +83,9 @@ export function Hero() {
               />
               <PrincipleTile
                 no="PH-003"
-                kicker="What you get"
-                title="A real address"
-                body="One inbox. Two people. Replies inside two working days — and a paid-once-owned-forever pricing model on everything we sell."
+                kicker="How we charge"
+                title="Free at the centre"
+                body="Every app ships free, with the whole thing usable on day one. Pro is for the power-user edges — nice to have, never required."
                 glow="var(--lp-pine-mist)"
               />
             </div>

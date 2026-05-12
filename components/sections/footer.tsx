@@ -100,7 +100,7 @@ export function Footer() {
                 marginTop: 16,
               }}
             >
-              A two-person software studio by Tom and Jack. We design, build, and ship our own apps — quietly, and on our own terms.
+              A two-person software studio by Tom and Jack, trading as Pinehollow Studios Ltd. We design, build, and ship our own apps — quietly, and on our own terms.
             </p>
             <div
               style={{
@@ -140,6 +140,7 @@ export function Footer() {
           <FooterCol
             title="Studio"
             items={[
+              { label: "Apps", href: "/apps" },
               { label: "Manifesto", href: "/manifesto" },
               { label: "About", href: "/studio" },
               { label: "Contact", href: "/contact" },
@@ -170,7 +171,7 @@ export function Footer() {
             flexWrap: "wrap",
           }}
         >
-          <div>© Pinehollow Studios — MMXXVI</div>
+          <div>© Pinehollow Studios Ltd — MMXXVI · Registered in England &amp; Wales</div>
           <div>Privacy by default · No tracking · Built independently</div>
         </div>
       </div>

@@ -3,7 +3,7 @@ import { AtmosphereBg } from "@/components/shared/atmosphere";
 import { Footer } from "@/components/sections/footer";
 import { Nav } from "@/components/sections/nav";
 
-type NavKey = "manifesto" | "studio" | "contact" | null;
+type NavKey = "apps" | "manifesto" | "studio" | "contact" | null;
 type Atmosphere = "default" | "deep" | "sky" | "ember" | "quiet";
 
 export function Page({
