@@ -380,7 +380,7 @@ function ObscuredCard() {
             lineHeight: 1.6,
           }}
         >
-          PH-001 · Fairways<br />Pinehollow Studios Ltd
+          PH-001 · Fairways<br />Pinehollow Studios Limited
         </div>
       </div>
     </div>

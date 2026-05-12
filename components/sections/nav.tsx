@@ -61,18 +61,29 @@ export function Nav() {
         >
           <Link href="/" style={{ display: "flex", alignItems: "center", gap: 12 }} aria-label="Pinehollow home">
             <PinehollowIconTile size={32} ariaHidden />
-            <span style={{ fontWeight: 500, fontSize: 17, letterSpacing: "-0.02em" }}>Pinehollow</span>
             <span
-              className="nav-monogram"
               style={{
-                fontFamily: "var(--lp-font-mono)",
-                fontSize: 11,
-                color: "var(--lp-fg-mute)",
-                letterSpacing: "0.14em",
-                marginLeft: 6,
+                display: "inline-flex",
+                alignItems: "baseline",
+                gap: 9,
+                lineHeight: 1,
               }}
             >
-              STUDIOS
+              <span style={{ fontWeight: 500, fontSize: 17, letterSpacing: "-0.02em" }}>Pinehollow</span>
+              <span
+                className="nav-monogram"
+                style={{
+                  fontFamily: "var(--lp-font-mono)",
+                  fontSize: 11,
+                  fontWeight: 500,
+                  color: "var(--lp-fg-mute)",
+                  letterSpacing: "0.18em",
+                  position: "relative",
+                  top: -1,
+                }}
+              >
+                STUDIOS
+              </span>
             </span>
           </Link>
 

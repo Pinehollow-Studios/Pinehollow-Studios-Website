@@ -94,7 +94,7 @@ export function Footer() {
                 marginTop: 16,
               }}
             >
-              A two-person software studio by Tom and Jack, trading as Pinehollow Studios Ltd. We design, build, and ship our own apps — quietly, and on our own terms.
+              A two-person software studio by Tom and Jack, trading as Pinehollow Studios Limited. We design, build, and ship our own apps — quietly, and on our own terms.
             </p>
             <div
               style={{
@@ -165,7 +165,7 @@ export function Footer() {
             flexWrap: "wrap",
           }}
         >
-          <div>© Pinehollow Studios Ltd — 2026 · Registered in England &amp; Wales</div>
+          <div>© Pinehollow Studios Limited — 2026 · Registered in England &amp; Wales</div>
           <div>Anonymous by default · Opt-out always · Built independently</div>
         </div>
       </div>

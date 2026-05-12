@@ -56,7 +56,7 @@ function ContactHero() {
               marginTop: 28,
             }}
           >
-            The fastest way to reach us is email. We — Tom and Jack — read everything ourselves, and reply within two working days. Usually one.
+            The fastest way to reach us is email. We read everything ourselves, and reply within two working days. Usually one.
           </p>
         </Reveal>
       </div>
@@ -76,7 +76,7 @@ function ContactGrid() {
         </Reveal>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-          <Reveal variant="up" delay={120}>
+          <Reveal variant="up-lg" duration={900} delay={360}>
           <GlassCard hover style={{ padding: 28 }}>
             <Overline>General &amp; support</Overline>
             <a
@@ -99,7 +99,7 @@ function ContactGrid() {
           </GlassCard>
           </Reveal>
 
-          <Reveal variant="up" delay={240}>
+          <Reveal variant="up-lg" duration={900} delay={500}>
           <GlassCard hover style={{ padding: 28, position: "relative", overflow: "hidden" }}>
             <div
               aria-hidden="true"
@@ -139,7 +139,7 @@ function ContactGrid() {
           </GlassCard>
           </Reveal>
 
-          <Reveal variant="up" delay={360}>
+          <Reveal variant="up-lg" duration={900} delay={640}>
           <GlassCard hover style={{ padding: 28 }}>
             <Overline>Hours</Overline>
             <div
