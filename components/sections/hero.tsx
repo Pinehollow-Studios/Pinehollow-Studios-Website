@@ -1,67 +1,196 @@
-"use client";
-
-import { motion } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
-import { siteContent } from "@/lib/tokens";
+import { GhostButton, PrimaryButton } from "@/components/shared/buttons";
+import { GlassCard } from "@/components/shared/glass-card";
+import { Pill, Section } from "@/components/shared/primitives";
 
 export function Hero() {
   return (
-    <section id="top" className="hero-section grain-surface relative bg-[var(--color-cream)]">
-      <div className="hero-inner container-shell flex items-center">
-        <div className="w-full max-w-[60rem]">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0, 0, 0.2, 1] }}
-            className="mb-7 flex items-center gap-3"
-          >
-            <Image
-              src="/pinehollow-icon.png"
-              alt=""
-              width={44}
-              height={44}
-              priority
-              className="h-11 w-11 rounded-[10px]"
-            />
-            <p className="label-overline text-[var(--color-pine)]">
-              {siteContent.heroEyebrow}
-            </p>
-          </motion.div>
+    <Section py="80px">
+      <div style={{ textAlign: "center", position: "relative", paddingTop: 60 }}>
+        <Pill tone="pine" icon="dot">Pinehollow Studios · MMXXVI</Pill>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0, 0, 0.2, 1] }}
-            className="display-type max-w-[18ch] text-[var(--color-charcoal)]"
-          >
-            {siteContent.heroTitle}
-          </motion.h1>
+        <h1
+          style={{
+            fontFamily: "var(--lp-font-display)",
+            fontWeight: 500,
+            letterSpacing: "var(--lp-track-display)",
+            fontSize: "var(--lp-text-6xl)",
+            lineHeight: "var(--lp-leading-tight)",
+            margin: "32px auto 0",
+            maxWidth: 1100,
+          }}
+        >
+          Independent software,<br />
+          <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>
+            built quietly.
+          </em>
+        </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.15, ease: [0, 0, 0.2, 1] }}
-            className="body-copy mt-7 max-w-[40rem] text-[var(--color-mid-grey)]"
-          >
-            {siteContent.heroSubtitle}
-          </motion.p>
+        <p
+          style={{
+            color: "var(--lp-fg-mute)",
+            fontSize: "var(--lp-text-lg)",
+            lineHeight: 1.55,
+            maxWidth: 580,
+            margin: "32px auto 0",
+          }}
+        >
+          A two-person studio by Tom and Jack. We design, build, and ship our own apps for iOS, macOS and the web — on our own time, with our own money, for the long run.
+        </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3, ease: [0, 0, 0.2, 1] }}
-            className="mt-10 flex flex-wrap gap-3"
-          >
-            <Link href="#team" className="button-primary">
-              About the studio
-            </Link>
-            <Link href="#contact" className="button-secondary">
-              Contact
-            </Link>
-          </motion.div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            gap: 12,
+            marginTop: 36,
+            flexWrap: "wrap",
+          }}
+        >
+          <PrimaryButton href="/manifesto" size="lg">Read the manifesto →</PrimaryButton>
+          <GhostButton href="/studio" size="lg">Meet the studio</GhostButton>
+        </div>
+
+        <div style={{ position: "relative", marginTop: 96 }}>
+          <div
+            aria-hidden="true"
+            style={{
+              position: "absolute",
+              inset: "-60px -60px 20%",
+              background:
+                "radial-gradient(60% 60% at 50% 40%, rgba(63,229,160,0.30), transparent 70%)",
+              filter: "blur(40px)",
+            }}
+          />
+
+          <GlassCard strong style={{ padding: 18 }}>
+            <div
+              className="hero-tiles"
+              style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 14 }}
+            >
+              <PrincipleTile
+                no="PH-001"
+                kicker="What we make"
+                title="Considered tools"
+                body="Small, focused apps that do one thing well. iOS first, with macOS and the web close behind."
+                glow="var(--lp-pine-glow)"
+              />
+              <PrincipleTile
+                no="PH-002"
+                kicker="How we work"
+                title="Slowly, on our own"
+                body="No investors. No advertising. No engagement tricks. We ship when the work is ready, and not before."
+                glow="var(--lp-sky)"
+              />
+              <PrincipleTile
+                no="PH-003"
+                kicker="What you get"
+                title="A real address"
+                body="One inbox. Two people. Replies inside two working days — and a paid-once-owned-forever pricing model on everything we sell."
+                glow="var(--lp-pine-mist)"
+              />
+            </div>
+          </GlassCard>
         </div>
       </div>
-    </section>
+
+      <style>{`
+        @media (max-width: 880px) {
+          .hero-tiles { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
+    </Section>
+  );
+}
+
+function PrincipleTile({
+  no,
+  kicker,
+  title,
+  body,
+  glow,
+}: {
+  no: string;
+  kicker: string;
+  title: string;
+  body: string;
+  glow: string;
+}) {
+  return (
+    <div
+      style={{
+        position: "relative",
+        overflow: "hidden",
+        padding: 24,
+        minHeight: 280,
+        borderRadius: "var(--lp-r-lg)",
+        background: "var(--lp-glass)",
+        border: "1px solid var(--lp-glass-rim)",
+        boxShadow: "var(--lp-glass-inset), var(--lp-shadow)",
+        backdropFilter: "var(--lp-blur)",
+        WebkitBackdropFilter: "var(--lp-blur)",
+        textAlign: "left",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          top: -40,
+          right: -40,
+          width: 200,
+          height: 200,
+          borderRadius: 99,
+          background: `radial-gradient(circle at center, ${glow}, transparent 70%)`,
+          opacity: 0.4,
+          filter: "blur(8px)",
+        }}
+      />
+      <div
+        style={{
+          position: "relative",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <span
+          style={{
+            fontFamily: "var(--lp-font-mono)",
+            fontSize: 11,
+            color: "var(--lp-fg-dim)",
+            letterSpacing: "0.18em",
+          }}
+        >
+          {no}
+        </span>
+        <span
+          style={{
+            fontFamily: "var(--lp-font-mono)",
+            fontSize: 11,
+            color: "var(--lp-fg-mute)",
+            letterSpacing: "0.18em",
+            textTransform: "uppercase",
+          }}
+        >
+          {kicker}
+        </span>
+      </div>
+      <div style={{ marginTop: 28, position: "relative" }}>
+        <div style={{ fontSize: 22, fontWeight: 500, letterSpacing: "-0.025em" }}>{title}</div>
+        <p
+          style={{
+            color: "var(--lp-fg-mute)",
+            fontSize: 14,
+            lineHeight: 1.6,
+            marginTop: 10,
+            marginBottom: 0,
+          }}
+        >
+          {body}
+        </p>
+      </div>
+    </div>
   );
 }

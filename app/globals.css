@@ -1,336 +1,196 @@
-@import "tailwindcss";
-
-@font-face {
-  font-family: "Satoshi";
-  src: url("https://cdn.fontshare.com/wf/LAFFD4SDUCDVQEXFPDC7C53EQ4ZELWQI/PXCT3G6LO6ICM5I3NTYENYPWJAECAWDD/GHM6WVH6MILNYOOCXHXB5GTSGNTMGXZR.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "General Sans";
-  src: url("https://cdn.fontshare.com/wf/MFQT7HFGCR2L5ULQTW6YXYZXXHMPKLJ3/YWQ244D6TACUX5JBKATPOW5I5MGJ3G73/7YY3ZAAE3TRV2LANYOLXNHTPHLXVWTKH.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "General Sans";
-  src: url("https://cdn.fontshare.com/wf/3RZHWSNONLLWJK3RLPEKUZOMM56GO4LJ/BPDRY7AHVI3MCDXXVXTQQ76H3UXA63S3/SB2OEB6IKZPRR6JT4GFJ2TFT6HBB6AZN.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap');
 
 :root {
-  --font-display: "Satoshi", "Helvetica Neue", Arial, sans-serif;
-  --font-body: "General Sans", "Helvetica Neue", Arial, sans-serif;
+  /* ─── COLOUR · BASE ─────────────────────────────────────── */
+  --lp-base:           #0A1410;
+  --lp-base-deep:      #050A08;
+  --lp-base-raised:    #0E1814;
 
-  --color-pine: #2d4f3f;
-  --color-timber: #8b7355;
-  --color-cream: #faf8f5;
-  --color-charcoal: #1c1f1e;
-  --color-mid-grey: #8a8d8c;
-  --color-border-light: #e8e4df;
-  --color-border-dark: #3a3d3c;
-  --color-paper: #f3eee6;
-  --color-parchment: #ece4d8;
-  --color-deep-pine: #21392f;
+  /* ─── COLOUR · PINE ─────────────────────────────────────── */
+  --lp-pine:           #2D4F3F;
+  --lp-pine-deep:      #1A3328;
+  --lp-pine-glow:      #3FE5A0;
+  --lp-pine-glow-hot:  #5EFFBE;
+  --lp-pine-mist:      #B8F5D6;
 
-  --radius-card: 8px;
-  --radius-control: 8px;
-  --radius-pill: 100px;
-  --shadow-card: 0 2px 20px rgba(28, 31, 30, 0.06);
-  --shadow-soft: 0 18px 60px rgba(28, 31, 30, 0.08);
+  /* ─── COLOUR · SECONDARY ────────────────────────────────── */
+  --lp-ember:          #FF9560;
+  --lp-sky:            #9FE0FF;
 
-  --container-max: 1280px;
-  --nav-height: 76px;
+  /* ─── COLOUR · TYPE ─────────────────────────────────────── */
+  --lp-fg:             #F1F5F2;
+  --lp-fg-mute:        rgba(241, 245, 242, 0.62);
+  --lp-fg-dim:         rgba(241, 245, 242, 0.38);
+  --lp-fg-faint:       rgba(241, 245, 242, 0.18);
+
+  /* ─── GLASS ─────────────────────────────────────────────── */
+  --lp-glass:          rgba(255, 255, 255, 0.06);
+  --lp-glass-thin:     rgba(255, 255, 255, 0.04);
+  --lp-glass-strong:   rgba(255, 255, 255, 0.10);
+  --lp-glass-hi:       rgba(255, 255, 255, 0.14);
+
+  --lp-glass-rim:      rgba(255, 255, 255, 0.16);
+  --lp-glass-rim-hi:   rgba(255, 255, 255, 0.24);
+  --lp-glass-inset:    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  --lp-glass-inset-hi: inset 0 1px 0 rgba(255, 255, 255, 0.20);
+
+  --lp-blur-sm:        blur(16px) saturate(150%);
+  --lp-blur:           blur(28px) saturate(160%);
+  --lp-blur-lg:        blur(40px) saturate(180%);
+  --lp-blur-xl:        blur(60px) saturate(200%);
+
+  /* ─── TYPOGRAPHY ───────────────────────────────────────── */
+  --lp-font-display:   'Geist', 'Inter Tight', system-ui, -apple-system, sans-serif;
+  --lp-font-body:      'Geist', 'Inter Tight', system-ui, -apple-system, sans-serif;
+  --lp-font-mono:      'Geist Mono', 'JetBrains Mono', ui-monospace, monospace;
+
+  --lp-text-overline:  clamp(11px, 0.7vw, 12px);
+  --lp-text-xs:        13px;
+  --lp-text-sm:        15px;
+  --lp-text-base:      17px;
+  --lp-text-lg:        19px;
+  --lp-text-xl:        22px;
+  --lp-text-2xl:       28px;
+  --lp-text-3xl:       36px;
+  --lp-text-4xl:       48px;
+  --lp-text-5xl:       64px;
+  --lp-text-6xl:       clamp(56px, 9vw, 124px);
+  --lp-text-display:   clamp(64px, 11vw, 168px);
+
+  --lp-leading-tight:  0.95;
+  --lp-leading-snug:   1.15;
+  --lp-leading-base:   1.55;
+  --lp-leading-loose:  1.78;
+
+  --lp-track-display:  -0.04em;
+  --lp-track-headline: -0.03em;
+  --lp-track-body:     -0.01em;
+  --lp-track-mono:     0.04em;
+  --lp-track-overline: 0.22em;
+
+  /* ─── SPACING · 8px grid ───────────────────────────────── */
+  --lp-1:  4px;
+  --lp-2:  8px;
+  --lp-3:  12px;
+  --lp-4:  16px;
+  --lp-5:  24px;
+  --lp-6:  32px;
+  --lp-7:  48px;
+  --lp-8:  64px;
+  --lp-9:  96px;
+  --lp-10: 128px;
+  --lp-11: 160px;
+  --lp-12: 200px;
+
+  /* ─── LAYOUT ──────────────────────────────────────────── */
+  --lp-container:      1280px;
+  --lp-gutter:         24px;
+  --lp-section-y:      clamp(80px, 10vw, 160px);
+  --lp-nav-h:          72px;
+
+  /* ─── RADII ───────────────────────────────────────────── */
+  --lp-r-sm:           6px;
+  --lp-r:              12px;
+  --lp-r-lg:           20px;
+  --lp-r-xl:           28px;
+  --lp-r-2xl:          36px;
+  --lp-r-pill:         999px;
+
+  /* ─── SHADOWS ─────────────────────────────────────────── */
+  --lp-shadow-sm:      0 2px 12px rgba(0, 0, 0, 0.25);
+  --lp-shadow:         0 24px 60px -20px rgba(0, 0, 0, 0.55);
+  --lp-shadow-lg:      0 60px 100px -40px rgba(0, 0, 0, 0.65);
+  --lp-shadow-glow:    0 0 40px -4px rgba(63, 229, 160, 0.45);
+  --lp-shadow-glow-sm: 0 0 24px -8px rgba(63, 229, 160, 0.55);
+
+  /* ─── MOTION ──────────────────────────────────────────── */
+  --lp-ease:           cubic-bezier(0.2, 0.7, 0.2, 1);
+  --lp-ease-settle:    cubic-bezier(0, 0, 0.2, 1);
+  --lp-dur-fast:       180ms;
+  --lp-dur:            360ms;
+  --lp-dur-slow:       640ms;
+  --lp-dur-settle:     800ms;
 }
 
-@theme inline {
-  --color-pine: var(--color-pine);
-  --color-timber: var(--color-timber);
-  --color-cream: var(--color-cream);
-  --color-charcoal: var(--color-charcoal);
-  --color-mid-grey: var(--color-mid-grey);
-  --color-border-light: var(--color-border-light);
-  --color-border-dark: var(--color-border-dark);
-  --color-paper: var(--color-paper);
-  --color-parchment: var(--color-parchment);
-  --color-deep-pine: var(--color-deep-pine);
-}
+/* ─── RESET ──────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
 
-/* ─── Reset ─────────────────────────────────────────────── */
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-::-webkit-scrollbar {
-  width: 3px;
-  height: 3px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: color-mix(in srgb, var(--color-pine) 55%, transparent);
-  border-radius: 2px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-pine);
+html, body {
+  margin: 0; padding: 0;
+  background: var(--lp-base);
+  color: var(--lp-fg);
+  font-family: var(--lp-font-body);
+  font-size: var(--lp-text-base);
+  line-height: var(--lp-leading-base);
+  letter-spacing: var(--lp-track-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-  margin: 0;
-  background: var(--color-cream);
-  color: var(--color-charcoal);
-  font-family: var(--font-body);
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button,
-input {
-  font: inherit;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
-/* ─── Layout ─────────────────────────────────────────────── */
-
-.page-shell {
-  position: relative;
+  background:
+    radial-gradient(1100px 700px at 88% -10%, rgba(63, 229, 160, 0.10), transparent 60%),
+    radial-gradient(900px 700px at -10% 60%, rgba(45, 79, 63, 0.35), transparent 60%),
+    var(--lp-base);
+  background-attachment: fixed;
+  min-height: 100vh;
   overflow-x: clip;
-  background: var(--color-cream);
 }
 
-.container-shell {
-  width: min(calc(100% - 2.5rem), var(--container-max));
-  margin-inline: auto;
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; background: none; border: 0; color: inherit; padding: 0; }
+img { display: block; max-width: 100%; }
+
+::selection { background: rgba(63, 229, 160, 0.35); color: var(--lp-fg); }
+
+:focus-visible {
+  outline: 2px solid var(--lp-pine-glow);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
-.section-space {
-  padding-block: clamp(5rem, 9vw, 9rem);
+/* ─── SCROLLBAR ─────────────────────────────────────────── */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--lp-glass-rim);
+  border-radius: 4px;
 }
+::-webkit-scrollbar-thumb:hover { background: var(--lp-glass-rim-hi); }
 
-/* ─── Typography ─────────────────────────────────────────── */
-
-.display-type {
-  font-family: var(--font-display);
-  font-size: clamp(3rem, 6.5vw, 5.75rem);
-  line-height: 0.98;
-  letter-spacing: -0.01em;
-}
-
-.section-title {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 3.2vw, 2.75rem);
-  line-height: 1.15;
-  letter-spacing: -0.01em;
-}
-
-.body-copy {
-  font-size: 1.0625rem;
-  line-height: 1.78;
-  color: var(--color-charcoal);
-}
-
-.label-overline {
-  font-size: 0.6875rem;
-  line-height: 1.4;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-weight: 500;
-  color: var(--color-mid-grey);
-}
-
-.word-span {
-  display: inline-block;
-  margin-right: 0.22em;
-}
-
-/* ─── Grain ──────────────────────────────────────────────── */
-
-.grain-surface,
-.grain-surface-dark {
-  position: relative;
-  isolation: isolate;
-}
-
-.grain-surface::after,
-.grain-surface-dark::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.045;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-  mix-blend-mode: multiply;
-  z-index: -1;
-}
-
-.grain-surface-dark::after {
-  opacity: 0.055;
-}
-
-/* ─── Navigation ─────────────────────────────────────────── */
-
-.nav-shell {
-  height: var(--nav-height);
-}
-
-.ghost-link {
-  position: relative;
-  border: 0;
-  background: transparent;
-  padding: 0;
-  color: var(--color-charcoal);
-  cursor: pointer;
-  font-size: 0.9375rem;
-  line-height: 1.5;
-}
-
-.ghost-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -0.2rem;
+/* ─── UTILITIES ─────────────────────────────────────────── */
+.lp-container {
   width: 100%;
-  height: 1px;
-  background: currentColor;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.6s ease;
+  max-width: var(--lp-container);
+  margin: 0 auto;
+  padding: 0 var(--lp-gutter);
 }
 
-.ghost-link:hover::after,
-.ghost-link:focus-visible::after {
-  transform: scaleX(1);
+.lp-overline {
+  font-family: var(--lp-font-mono);
+  font-size: var(--lp-text-overline);
+  letter-spacing: var(--lp-track-overline);
+  text-transform: uppercase;
+  color: var(--lp-fg-mute);
 }
 
-/* ─── Hero ───────────────────────────────────────────────── */
-
-.hero-section {
-  min-height: 100svh;
-  padding-top: var(--nav-height);
+.lp-hr {
+  height: 1px; background: var(--lp-glass-rim); border: 0;
 }
 
-.hero-inner {
-  min-height: calc(100svh - var(--nav-height) - 2rem);
-  padding-block: clamp(4rem, 7vw, 6rem);
+.lp-no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.lp-no-scrollbar::-webkit-scrollbar { display: none; }
+
+.lp-grain::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  opacity: 0.05; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/></svg>");
 }
 
-/* ─── Principle cards (Philosophy strip) ─────────────────── */
-
-.principle-card {
-  padding: 1.75rem 2rem;
-  border-left: 1.5px solid rgba(250, 248, 245, 0.22);
-  transition: border-color 0.4s ease;
-}
-
-.principle-card:hover {
-  border-left-color: rgba(250, 248, 245, 0.55);
-}
-
-/* ─── Founder cards (Team) ───────────────────────────────── */
-
-.founder-card {
-  position: relative;
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-card);
-  background: color-mix(in srgb, var(--color-cream) 70%, var(--color-paper));
-  padding: 2.25rem 2.25rem 2.5rem;
-  overflow: hidden;
-  transition: border-color 0.6s ease, transform 0.6s ease;
-}
-
-.founder-card:hover {
-  border-color: color-mix(in srgb, var(--color-pine) 30%, var(--color-border-light));
-  transform: translateY(-2px);
-}
-
-.founder-monogram {
-  position: absolute;
-  right: -0.6rem;
-  top: -1.5rem;
-  font-family: var(--font-display);
-  font-size: clamp(8rem, 17vw, 13rem);
-  line-height: 1;
-  letter-spacing: -0.06em;
-  font-weight: 700;
-  opacity: 0.09;
-  pointer-events: none;
-  user-select: none;
-}
-
-/* ─── Buttons ────────────────────────────────────────────── */
-
-.button-primary,
-.button-secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  min-height: 3rem;
-  padding: 0.875rem 1.375rem;
-  border-radius: var(--radius-control);
-  border: 1px solid transparent;
-  font-size: 0.95rem;
-  line-height: 1;
-  font-weight: 500;
-  transition:
-    background-color 0.5s ease,
-    border-color 0.5s ease,
-    color 0.5s ease,
-    opacity 0.5s ease,
-    transform 0.5s ease;
-}
-
-.button-primary {
-  background: var(--color-pine);
-  color: var(--color-cream);
-}
-
-.button-secondary {
-  border-color: var(--color-border-light);
-  background: color-mix(in srgb, var(--color-cream) 70%, transparent);
-  color: var(--color-charcoal);
-}
-
-.button-primary:hover,
-.button-secondary:hover {
-  opacity: 0.82;
-  transform: translateY(-1px);
-}
-
-/* ─── Responsive ─────────────────────────────────────────── */
-
-@media (max-width: 767px) {
-  .container-shell {
-    width: min(calc(100% - 2rem), var(--container-max));
-  }
-
-  .hero-inner {
-    min-height: calc(100svh - var(--nav-height));
-    padding-block: 3.5rem;
-  }
-
-  .founder-card {
-    padding: 1.75rem 1.75rem 2rem;
+/* ─── RESPONSIVE ─────────────────────────────────────────── */
+@media (max-width: 900px) {
+  :root {
+    --lp-gutter: 18px;
   }
 }

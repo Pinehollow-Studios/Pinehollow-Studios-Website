@@ -1,17 +1,16 @@
-import { Footer } from "@/components/sections/footer";
+import { FinalCta } from "@/components/sections/final-cta";
 import { Hero } from "@/components/sections/hero";
-import { Nav } from "@/components/sections/nav";
 import { PhilosophyStrip } from "@/components/sections/philosophy-strip";
-import { Team } from "@/components/sections/team";
+import { StudioPeek } from "@/components/sections/team";
+import { Page } from "@/components/shared/page";
 
 export default function Home() {
   return (
-    <main className="page-shell">
-      <Nav />
+    <Page atmosphere="default">
       <Hero />
       <PhilosophyStrip />
-      <Team />
-      <Footer />
-    </main>
+      <StudioPeek />
+      <FinalCta />
+    </Page>
   );
 }

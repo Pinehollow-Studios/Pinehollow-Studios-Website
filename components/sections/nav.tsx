@@ -1,111 +1,210 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { GhostButton, PrimaryButton } from "@/components/shared/buttons";
 
-const navLinks = [
-  { href: "/#principles", label: "Principles" },
-  { href: "/#team", label: "Team" },
-  { href: "/#contact", label: "Contact" },
-] as const;
+type NavKey = "manifesto" | "studio" | "contact" | null;
 
-export function Nav() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+const items: { label: string; href: string; id: Exclude<NavKey, null> }[] = [
+  { label: "Manifesto", href: "/manifesto", id: "manifesto" },
+  { label: "Studio", href: "/studio", id: "studio" },
+  { label: "Contact", href: "/contact", id: "contact" },
+];
 
-  useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 16);
-
-    onScroll();
-    window.addEventListener("scroll", onScroll);
-
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+export function Nav({ active = null }: { active?: NavKey }) {
+  const [isOpen, setOpen] = useState(false);
 
   useEffect(() => {
-    const close = () => setIsOpen(false);
-
+    const close = () => setOpen(false);
     window.addEventListener("resize", close);
     return () => window.removeEventListener("resize", close);
   }, []);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
-      <div
-        className="transition-all duration-700"
-        style={{
-          borderBottom: `1px solid ${isScrolled ? "var(--color-border-light)" : "transparent"}`,
-          background: isScrolled ? "color-mix(in srgb, var(--color-cream) 88%, transparent)" : "transparent",
-          backdropFilter: isScrolled ? "blur(12px)" : "blur(0px)",
-        }}
-      >
-        <nav className="container-shell nav-shell flex items-center justify-between">
-          <Link
-            href="/"
-            aria-label="Pinehollow Studios home"
-            className="flex items-center gap-2.5 font-[var(--font-display)] text-[1.1rem] font-bold text-[var(--color-charcoal)]"
-          >
+    <header
+      style={{
+        position: "sticky",
+        top: 0,
+        zIndex: 50,
+        padding: "20px 0",
+      }}
+    >
+      <div className="lp-container">
+        <nav
+          style={{
+            background: "var(--lp-glass)",
+            backdropFilter: "var(--lp-blur-lg)",
+            WebkitBackdropFilter: "var(--lp-blur-lg)",
+            border: "1px solid var(--lp-glass-rim)",
+            borderRadius: "var(--lp-r-pill)",
+            padding: "10px 14px 10px 22px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            boxShadow: "var(--lp-glass-inset), var(--lp-shadow)",
+            gap: 16,
+          }}
+        >
+          <Link href="/" style={{ display: "flex", alignItems: "center", gap: 12 }} aria-label="Pinehollow home">
             <Image
               src="/pinehollow-icon.png"
               alt=""
               width={32}
               height={32}
               priority
-              className="h-8 w-8 rounded-[6px]"
+              style={{ width: 30, height: 30, borderRadius: 8 }}
             />
-            <span>Pinehollow Studios</span>
+            <span style={{ fontWeight: 500, fontSize: 17, letterSpacing: "-0.02em" }}>Pinehollow</span>
+            <span
+              className="nav-monogram"
+              style={{
+                fontFamily: "var(--lp-font-mono)",
+                fontSize: 11,
+                color: "var(--lp-fg-mute)",
+                letterSpacing: "0.14em",
+                marginLeft: 6,
+              }}
+            >
+              STUDIOS
+            </span>
           </Link>
 
-          <div className="hidden items-center gap-10 md:flex">
-            {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="ghost-link">
-                {link.label}
-              </Link>
+          <div
+            className="nav-links"
+            style={{
+              display: "flex",
+              gap: 28,
+              fontSize: 14,
+              color: "var(--lp-fg-mute)",
+            }}
+          >
+            {items.map((item) => (
+              <NavLink key={item.id} {...item} isActive={active === item.id} />
             ))}
+          </div>
+
+          <div className="nav-cta" style={{ display: "flex", gap: 10 }}>
+            <GhostButton href="/contact">Get in touch</GhostButton>
+            <PrimaryButton href="/manifesto">Read manifesto</PrimaryButton>
           </div>
 
           <button
             type="button"
+            aria-label="Menu"
             aria-expanded={isOpen}
-            aria-label="Toggle navigation"
-            onClick={() => setIsOpen((open) => !open)}
-            className="flex h-10 w-10 items-center justify-center rounded-[var(--radius-control)] border border-[var(--color-border-light)] text-[var(--color-charcoal)] md:hidden"
+            onClick={() => setOpen((v) => !v)}
+            className="nav-burger"
+            style={{
+              display: "none",
+              width: 40,
+              height: 40,
+              borderRadius: 99,
+              border: "1px solid var(--lp-glass-rim)",
+              background: "var(--lp-glass)",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
           >
-            <span className="sr-only">Menu</span>
-            <div className="flex flex-col gap-1.5">
-              <span className="block h-px w-4 bg-current" />
-              <span className="block h-px w-4 bg-current" />
-            </div>
+            <span style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+              <span style={{ display: "block", width: 16, height: 1, background: "var(--lp-fg)" }} />
+              <span style={{ display: "block", width: 16, height: 1, background: "var(--lp-fg)" }} />
+            </span>
           </button>
         </nav>
 
-        <AnimatePresence>
-          {isOpen ? (
-            <motion.div
-              initial={{ opacity: 0, y: -12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.6, ease: [0, 0, 0.2, 1] }}
-              className="border-t border-[var(--color-border-light)] bg-[color:var(--color-cream)] md:hidden"
-            >
-              <div className="container-shell flex flex-col gap-4 py-6">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setIsOpen(false)}
-                    className="text-base text-[var(--color-charcoal)]"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-            </motion.div>
-          ) : null}
-        </AnimatePresence>
+        {isOpen ? (
+          <div
+            className="nav-mobile-panel"
+            style={{
+              marginTop: 10,
+              background: "var(--lp-glass)",
+              backdropFilter: "var(--lp-blur-lg)",
+              WebkitBackdropFilter: "var(--lp-blur-lg)",
+              border: "1px solid var(--lp-glass-rim)",
+              borderRadius: "var(--lp-r-xl)",
+              padding: 18,
+              boxShadow: "var(--lp-glass-inset), var(--lp-shadow)",
+              display: "none",
+              flexDirection: "column",
+              gap: 12,
+            }}
+          >
+            {items.map((item) => (
+              <Link
+                key={item.id}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                style={{
+                  fontSize: 16,
+                  color: active === item.id ? "var(--lp-fg)" : "var(--lp-fg-mute)",
+                  padding: "6px 4px",
+                }}
+              >
+                {item.label}
+              </Link>
+            ))}
+            <div style={{ display: "flex", gap: 10, marginTop: 6 }}>
+              <GhostButton href="/contact">Get in touch</GhostButton>
+              <PrimaryButton href="/manifesto">Read manifesto</PrimaryButton>
+            </div>
+          </div>
+        ) : null}
       </div>
+
+      <style>{`
+        @media (max-width: 880px) {
+          .nav-links, .nav-cta, .nav-monogram { display: none !important; }
+          .nav-burger { display: inline-flex !important; }
+          .nav-mobile-panel { display: flex !important; }
+        }
+      `}</style>
     </header>
+  );
+}
+
+function NavLink({
+  label,
+  href,
+  id,
+  isActive,
+}: {
+  label: string;
+  href: string;
+  id: string;
+  isActive: boolean;
+}) {
+  return (
+    <Link
+      key={id}
+      href={href}
+      style={{
+        position: "relative",
+        color: isActive ? "var(--lp-fg)" : "var(--lp-fg-mute)",
+        transition: "color var(--lp-dur) var(--lp-ease)",
+      }}
+      onMouseEnter={(e) => (e.currentTarget.style.color = "var(--lp-fg)")}
+      onMouseLeave={(e) =>
+        (e.currentTarget.style.color = isActive ? "var(--lp-fg)" : "var(--lp-fg-mute)")
+      }
+    >
+      {label}
+      {isActive ? (
+        <span
+          style={{
+            position: "absolute",
+            bottom: -8,
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: 4,
+            height: 4,
+            borderRadius: 99,
+            background: "var(--lp-pine-glow)",
+            boxShadow: "0 0 8px var(--lp-pine-glow)",
+          }}
+        />
+      ) : null}
+    </Link>
   );
 }

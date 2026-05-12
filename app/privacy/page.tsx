@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import { Footer } from "@/components/sections/footer";
-import { Nav } from "@/components/sections/nav";
+import { GlassCard } from "@/components/shared/glass-card";
+import { Overline, Pill, Section } from "@/components/shared/primitives";
+import { Page } from "@/components/shared/page";
 
 export const metadata: Metadata = {
   title: "Privacy Policy — Pinehollow Studios",
@@ -45,48 +45,139 @@ const policySections = [
 
 export default function PrivacyPage() {
   return (
-    <main className="page-shell">
-      <Nav />
-      <section className="grain-surface section-space bg-[var(--color-cream)] pt-[calc(var(--nav-height)+4rem)]">
-        <div className="container-shell">
-          <div className="max-w-[46rem]">
-            <p className="label-overline text-[var(--color-pine)]">Privacy Policy</p>
-            <h1 className="display-type mt-5 text-[var(--color-charcoal)]">Privacy Policy</h1>
-            <p className="body-copy mt-7 max-w-[38rem] text-[var(--color-mid-grey)]">
-              We collect what we need to run the site and reply to messages. Nothing else.
-            </p>
-            <p className="mt-6 text-[0.9rem] leading-6 text-[var(--color-mid-grey)]">Last updated: 8 May 2026</p>
-          </div>
-
-          <div className="mt-16 grid gap-x-16 gap-y-12 lg:grid-cols-[0.7fr_1.3fr]">
-            <div>
-              <Image
-                src="/pinehollow-icon.png"
-                alt="Pinehollow Studios"
-                width={48}
-                height={48}
-                className="mb-5 h-12 w-12 rounded-[10px]"
-              />
-              <p className="label-overline text-[var(--color-mid-grey)]">Pinehollow Studios</p>
-              <p className="mt-4 max-w-[18rem] text-[0.98rem] leading-7 text-[var(--color-mid-grey)]">
-                Covers the studio brand and this website.
-              </p>
-            </div>
-
-            <div className="divide-y divide-[var(--color-border-light)] border-y border-[var(--color-border-light)]">
-              {policySections.map((section) => (
-                <section key={section.title} className="py-8">
-                  <h2 className="font-[var(--font-display)] text-[1.35rem] font-bold leading-tight text-[var(--color-charcoal)]">
-                    {section.title}
-                  </h2>
-                  <p className="mt-4 text-[1rem] leading-8 text-[var(--color-mid-grey)]">{section.body}</p>
-                </section>
-              ))}
-            </div>
+    <Page atmosphere="quiet">
+      <Section py="80px">
+        <div style={{ paddingTop: 40, maxWidth: 900 }}>
+          <Pill>Privacy Policy</Pill>
+          <h1
+            style={{
+              fontFamily: "var(--lp-font-display)",
+              fontWeight: 500,
+              letterSpacing: "var(--lp-track-display)",
+              fontSize: "var(--lp-text-5xl)",
+              lineHeight: "var(--lp-leading-tight)",
+              margin: "28px 0 0",
+            }}
+          >
+            We collect only what we
+            <br />
+            <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>
+              need
+            </em>
+            .
+          </h1>
+          <p
+            style={{
+              color: "var(--lp-fg-mute)",
+              fontSize: "var(--lp-text-lg)",
+              lineHeight: 1.55,
+              maxWidth: 580,
+              marginTop: 28,
+            }}
+          >
+            What we keep, what we don&apos;t, and how to reach us about any of it.
+          </p>
+          <div
+            style={{
+              fontFamily: "var(--lp-font-mono)",
+              fontSize: 11,
+              letterSpacing: "0.22em",
+              color: "var(--lp-fg-dim)",
+              textTransform: "uppercase",
+              marginTop: 24,
+            }}
+          >
+            Last updated · May MMXXVI
           </div>
         </div>
-      </section>
-      <Footer />
-    </main>
+      </Section>
+
+      <Section py="40px">
+        <div
+          className="privacy-grid"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "0.7fr 1.3fr",
+            gap: 64,
+            alignItems: "start",
+          }}
+        >
+          <div>
+            <GlassCard style={{ padding: 28, position: "sticky", top: 100 }}>
+              <Overline>Pinehollow Studios</Overline>
+              <p
+                style={{
+                  marginTop: 12,
+                  fontSize: 15,
+                  lineHeight: 1.6,
+                  color: "var(--lp-fg-mute)",
+                }}
+              >
+                A two-person software studio. This policy covers the studio brand and this website.
+              </p>
+              <a
+                href="mailto:support@pinehollow.studio"
+                style={{
+                  display: "block",
+                  marginTop: 20,
+                  fontFamily: "var(--lp-font-display)",
+                  fontSize: 17,
+                  fontWeight: 500,
+                  letterSpacing: "-0.02em",
+                  color: "var(--lp-pine-glow)",
+                }}
+              >
+                support@pinehollow.studio
+              </a>
+            </GlassCard>
+          </div>
+
+          <div
+            style={{
+              borderTop: "1px solid var(--lp-glass-rim)",
+              borderBottom: "1px solid var(--lp-glass-rim)",
+            }}
+          >
+            {policySections.map((section, i) => (
+              <div
+                key={section.title}
+                style={{
+                  padding: "32px 0",
+                  borderTop: i === 0 ? "none" : "1px solid var(--lp-glass-rim)",
+                }}
+              >
+                <h2
+                  style={{
+                    fontFamily: "var(--lp-font-display)",
+                    fontSize: "var(--lp-text-2xl)",
+                    fontWeight: 500,
+                    letterSpacing: "-0.025em",
+                    margin: 0,
+                  }}
+                >
+                  {section.title}
+                </h2>
+                <p
+                  style={{
+                    marginTop: 10,
+                    fontSize: 16,
+                    lineHeight: 1.7,
+                    color: "var(--lp-fg-mute)",
+                  }}
+                >
+                  {section.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <style>{`
+          @media (max-width: 880px) {
+            .privacy-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+          }
+        `}</style>
+      </Section>
+    </Page>
   );
 }

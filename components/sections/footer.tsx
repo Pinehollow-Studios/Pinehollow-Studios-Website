@@ -1,97 +1,185 @@
 import Image from "next/image";
 import Link from "next/link";
-import { siteContent } from "@/lib/tokens";
+
+interface FooterColProps {
+  title: string;
+  items: { label: string; href: string; external?: boolean }[];
+}
+
+function FooterCol({ title, items }: FooterColProps) {
+  return (
+    <div>
+      <div className="lp-overline" style={{ marginBottom: 18 }}>
+        {title}
+      </div>
+      <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 10 }}>
+        {items.map((item) => (
+          <li key={item.label}>
+            {item.external ? (
+              <a
+                href={item.href}
+                style={{
+                  fontSize: 14,
+                  color: "var(--lp-fg-mute)",
+                  transition: "color var(--lp-dur) var(--lp-ease)",
+                }}
+              >
+                {item.label}
+              </a>
+            ) : (
+              <Link
+                href={item.href}
+                style={{
+                  fontSize: 14,
+                  color: "var(--lp-fg-mute)",
+                  transition: "color var(--lp-dur) var(--lp-ease)",
+                }}
+              >
+                {item.label}
+              </Link>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 export function Footer() {
   return (
     <footer
-      id="contact"
-      className="grain-surface-dark border-t border-[var(--color-border-dark)] bg-[var(--color-charcoal)] text-[var(--color-cream)]"
+      style={{
+        position: "relative",
+        zIndex: 1,
+        marginTop: "var(--lp-section-y)",
+        padding: "80px 0 48px",
+        borderTop: "1px solid var(--lp-glass-rim)",
+        background: "linear-gradient(180deg, transparent 0%, var(--lp-base-deep) 80%)",
+      }}
     >
-      <div className="container-shell py-14 sm:py-20">
-        <div className="grid gap-12 sm:grid-cols-[1fr_auto_auto] sm:gap-16">
-
-          {/* Brand */}
-          <div className="max-w-[24rem]">
-            <Image
-              src="/pinehollow-icon.png"
-              alt="Pinehollow Studios"
-              width={56}
-              height={56}
-              className="mb-5 h-14 w-14 rounded-[10px]"
-            />
+      <div className="lp-container">
+        <div
+          className="footer-grid"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "2fr 1fr 1fr",
+            gap: 48,
+            marginBottom: 64,
+          }}
+        >
+          <div>
+            <Link href="/" style={{ display: "inline-flex", alignItems: "center", gap: 14, marginBottom: 24 }}>
+              <Image
+                src="/pinehollow-icon.png"
+                alt=""
+                width={48}
+                height={48}
+                style={{ width: 44, height: 44, borderRadius: 10 }}
+              />
+              <div>
+                <div style={{ fontSize: 22, fontWeight: 500, letterSpacing: "-0.02em" }}>Pinehollow</div>
+                <div
+                  style={{
+                    fontFamily: "var(--lp-font-mono)",
+                    fontSize: 11,
+                    letterSpacing: "0.18em",
+                    color: "var(--lp-fg-mute)",
+                    marginTop: 2,
+                  }}
+                >
+                  STUDIOS — MMXXVI
+                </div>
+              </div>
+            </Link>
             <p
               style={{
-                fontFamily: "var(--font-display)",
-                fontWeight: 700,
-                fontSize: "1.15rem",
-                color: "var(--color-cream)",
+                color: "var(--lp-fg-mute)",
+                fontSize: 15,
+                lineHeight: 1.55,
+                maxWidth: 360,
+                marginTop: 16,
               }}
             >
-              Pinehollow Studios
+              A two-person software studio by Tom and Jack. We design, build, and ship our own apps — quietly, and on our own terms.
             </p>
-            <p
-              className="mt-4"
+            <div
               style={{
-                fontSize: "0.9375rem",
-                lineHeight: 1.72,
-                color: "rgba(250,248,245,0.55)",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 10,
+                marginTop: 28,
+                padding: "6px 14px",
+                borderRadius: "var(--lp-r-pill)",
+                border: "1px solid rgba(63,229,160,0.30)",
+                background: "rgba(63,229,160,0.06)",
               }}
             >
-              A two-person software studio. Apps for iOS, macOS, and the web.
-            </p>
-            <p
-              className="mt-6"
-              style={{ fontSize: "0.875rem", color: "rgba(250,248,245,0.32)" }}
-            >
-              © 2026 Pinehollow Studios
-            </p>
+              <span
+                style={{
+                  width: 7,
+                  height: 7,
+                  borderRadius: 99,
+                  background: "var(--lp-pine-glow)",
+                  boxShadow: "0 0 10px var(--lp-pine-glow)",
+                }}
+              />
+              <span
+                style={{
+                  fontFamily: "var(--lp-font-mono)",
+                  fontSize: 11,
+                  letterSpacing: "0.22em",
+                  textTransform: "uppercase",
+                  color: "var(--lp-pine-glow)",
+                }}
+              >
+                Open studio · accepting messages
+              </span>
+            </div>
           </div>
 
-          {/* Studio */}
-          <div>
-            <p className="label-overline mb-5" style={{ color: "rgba(250,248,245,0.32)" }}>
-              Studio
-            </p>
-            <nav className="flex flex-col gap-3">
-              <Link
-                href="/#principles"
-                className="text-[0.9375rem] text-[rgba(250,248,245,0.68)] transition-colors duration-300 hover:text-[var(--color-cream)]"
-              >
-                Principles
-              </Link>
-              <Link
-                href="/#team"
-                className="text-[0.9375rem] text-[rgba(250,248,245,0.68)] transition-colors duration-300 hover:text-[var(--color-cream)]"
-              >
-                Team
-              </Link>
-            </nav>
-          </div>
+          <FooterCol
+            title="Studio"
+            items={[
+              { label: "Manifesto", href: "/manifesto" },
+              { label: "About", href: "/studio" },
+              { label: "Contact", href: "/contact" },
+              { label: "Privacy", href: "/privacy" },
+            ]}
+          />
+          <FooterCol
+            title="Elsewhere"
+            items={[
+              { label: "support@pinehollow.studio", href: "mailto:support@pinehollow.studio", external: true },
+            ]}
+          />
+        </div>
 
-          {/* Contact */}
-          <div>
-            <p className="label-overline mb-5" style={{ color: "rgba(250,248,245,0.32)" }}>
-              Contact
-            </p>
-            <nav className="flex flex-col gap-3">
-              <a
-                href={`mailto:${siteContent.contact.email}`}
-                className="text-[0.9375rem] text-[rgba(250,248,245,0.68)] transition-colors duration-300 hover:text-[var(--color-cream)]"
-              >
-                {siteContent.contact.email}
-              </a>
-              <Link
-                href="/privacy"
-                className="text-[0.9375rem] text-[rgba(250,248,245,0.68)] transition-colors duration-300 hover:text-[var(--color-cream)]"
-              >
-                Privacy Policy
-              </Link>
-            </nav>
-          </div>
-
+        <div
+          className="footer-meta"
+          style={{
+            borderTop: "1px solid var(--lp-glass-rim)",
+            paddingTop: 24,
+            display: "flex",
+            justifyContent: "space-between",
+            fontFamily: "var(--lp-font-mono)",
+            fontSize: 11,
+            letterSpacing: "0.18em",
+            textTransform: "uppercase",
+            color: "var(--lp-fg-dim)",
+            gap: 16,
+            flexWrap: "wrap",
+          }}
+        >
+          <div>© Pinehollow Studios — MMXXVI</div>
+          <div>Privacy by default · No tracking · Built independently</div>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 760px) {
+          .footer-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+        }
+      `}</style>
     </footer>
   );
 }

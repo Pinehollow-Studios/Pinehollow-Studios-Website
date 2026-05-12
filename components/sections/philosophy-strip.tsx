@@ -1,77 +1,103 @@
-"use client";
+import { Overline, Section } from "@/components/shared/primitives";
 
-import { motion } from "framer-motion";
-import { fadeUpItem, staggerContainer, viewportOnce } from "@/components/shared/motion";
-import { siteContent } from "@/lib/tokens";
+const items = [
+  {
+    no: "01",
+    label: "Restraint",
+    body: "One thousand no's for every yes. Each app does one thing well. Feature creep is the slow death of considered software — we'd rather start something new.",
+  },
+  {
+    no: "02",
+    label: "Privacy",
+    body: "On-device by default. Your data stays where it is yours. No analytics. No tracking. No third-party scripts on this website.",
+  },
+  {
+    no: "03",
+    label: "Permanence",
+    body: "Software you can settle into. We build for ten years, not for next quarter. Universal purchase, long support, calm updates.",
+  },
+];
 
 export function PhilosophyStrip() {
   return (
-    <section
-      id="principles"
-      className="grain-surface-dark bg-[var(--color-deep-pine)] py-20 text-[var(--color-cream)] sm:py-28"
-    >
-      <div className="container-shell">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={viewportOnce}
-          transition={{ duration: 0.7, ease: [0, 0, 0.2, 1] }}
-          className="mb-14 max-w-[40rem]"
+    <Section py="120px">
+      <div style={{ marginBottom: 64 }}>
+        <Overline>How we build</Overline>
+        <h2
+          style={{
+            fontFamily: "var(--lp-font-display)",
+            fontWeight: 500,
+            letterSpacing: "-0.035em",
+            fontSize: "var(--lp-text-5xl)",
+            lineHeight: 1,
+            margin: "16px 0 0",
+            maxWidth: 800,
+          }}
         >
-          <p className="label-overline mb-4" style={{ color: "rgba(250,248,245,0.4)" }}>
-            How we work
-          </p>
-          <h2
+          Three things, held loosely
+          <br />
+          and{" "}
+          <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>
+            kept very still
+          </em>
+          .
+        </h2>
+      </div>
+
+      <div
+        className="philosophy-grid"
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(3, 1fr)",
+          gap: 0,
+          borderTop: "1px solid var(--lp-glass-rim)",
+        }}
+      >
+        {items.map((it, i) => (
+          <div
+            key={it.no}
+            className="philosophy-cell"
             style={{
-              fontFamily: "var(--font-display)",
-              fontSize: "clamp(2rem, 3.2vw, 2.6rem)",
-              lineHeight: 1.15,
-              letterSpacing: "-0.01em",
-              color: "var(--color-cream)",
+              padding: "40px 32px 40px 0",
+              borderRight: i < items.length - 1 ? "1px solid var(--lp-glass-rim)" : "none",
+              paddingLeft: i > 0 ? 32 : 0,
             }}
           >
-            Four principles.
-          </h2>
-        </motion.div>
-
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOnce}
-          variants={staggerContainer(0.1)}
-          className="grid gap-0 sm:grid-cols-2 lg:grid-cols-4"
-        >
-          {siteContent.principles.map((principle) => (
-            <motion.div
-              key={principle.title}
-              variants={fadeUpItem}
-              transition={{ duration: 0.7, ease: [0, 0, 0.2, 1] }}
-              className="principle-card"
+            <div
+              style={{
+                fontFamily: "var(--lp-font-display)",
+                fontWeight: 500,
+                fontSize: "var(--lp-text-4xl)",
+                color: "var(--lp-pine-glow)",
+                letterSpacing: "-0.04em",
+              }}
             >
-              <h3
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: "1.15rem",
-                  lineHeight: 1.25,
-                  color: "var(--color-cream)",
-                  marginBottom: "0.75rem",
-                }}
-              >
-                {principle.title}
-              </h3>
-              <p
-                style={{
-                  fontSize: "0.9375rem",
-                  lineHeight: 1.72,
-                  color: "rgba(250,248,245,0.62)",
-                }}
-              >
-                {principle.body}
-              </p>
-            </motion.div>
-          ))}
-        </motion.div>
+              {it.no}
+            </div>
+            <div
+              style={{
+                fontSize: "var(--lp-text-2xl)",
+                fontWeight: 500,
+                letterSpacing: "-0.025em",
+                marginTop: 12,
+              }}
+            >
+              {it.label}
+            </div>
+            <p style={{ color: "var(--lp-fg-mute)", fontSize: 15, lineHeight: 1.6, marginTop: 12 }}>
+              {it.body}
+            </p>
+          </div>
+        ))}
       </div>
-    </section>
+
+      <style>{`
+        @media (max-width: 880px) {
+          .philosophy-grid { grid-template-columns: 1fr !important; }
+          .philosophy-cell { padding: 32px 0 !important; border-right: none !important; border-bottom: 1px solid var(--lp-glass-rim); }
+          .philosophy-cell:last-child { border-bottom: none; }
+        }
+      `}</style>
+    </Section>
   );
 }
