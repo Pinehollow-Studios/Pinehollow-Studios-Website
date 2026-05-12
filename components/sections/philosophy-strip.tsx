@@ -9,8 +9,8 @@ const items = [
   },
   {
     no: "02",
-    label: "Privacy",
-    body: "On-device by default. Your data stays where it is yours. No analytics. No tracking. No third-party scripts on this website.",
+    label: "Anonymous",
+    body: "We never sell personal data. Some apps share anonymised, aggregate usage with industry partners — never tied to you, opt out in one tap. It's the honest reason our apps stay free.",
   },
   {
     no: "03",

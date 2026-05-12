@@ -182,7 +182,7 @@ function ContactFaq() {
     },
     {
       q: "Will you sell my data?",
-      a: "No. We don't run analytics on this site, we don't have advertising, and our apps don't ship telemetry. Email us if you want the long version.",
+      a: "Not the kind that's tied to you. Our apps may share anonymised, aggregate usage with industry partners — Fairways with golf clubs, for example — and that's what keeps them free. It's never tied to your identity, and you can opt out in one tap.",
     },
     {
       q: "Are you hiring?",

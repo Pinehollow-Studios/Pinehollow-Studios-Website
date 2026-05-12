@@ -241,8 +241,8 @@ function FairwaysTeaser() {
               className="fairways-meta"
             >
               <Meta label="Stage" value="In development" />
-              <Meta label="Platforms" value="iOS · first" />
-              <Meta label="Pricing" value="Freemium" />
+              <Meta label="Platform" value="iOS only" />
+              <Meta label="Pricing" value="Free" />
             </div>
           </div>
 

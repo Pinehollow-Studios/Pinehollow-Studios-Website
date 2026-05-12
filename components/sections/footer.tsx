@@ -87,7 +87,7 @@ export function Footer() {
                     marginTop: 2,
                   }}
                 >
-                  STUDIOS — MMXXVI
+                  STUDIOS — 2026
                 </div>
               </div>
             </Link>
@@ -171,8 +171,8 @@ export function Footer() {
             flexWrap: "wrap",
           }}
         >
-          <div>© Pinehollow Studios Ltd — MMXXVI · Registered in England &amp; Wales</div>
-          <div>Privacy by default · No tracking · Built independently</div>
+          <div>© Pinehollow Studios Ltd — 2026 · Registered in England &amp; Wales</div>
+          <div>Anonymous by default · Opt-out always · Built independently</div>
         </div>
       </div>
 

@@ -12,19 +12,27 @@ export const metadata: Metadata = {
 const policySections = [
   {
     title: "Scope",
-    body: "This policy covers the Pinehollow Studios website and any direct contact with the studio.",
+    body: "This policy covers the Pinehollow Studios website, direct contact with the studio, and the apps we ship. Each app's own privacy summary is shown in-app before you use it, so you always know what's collected before anything is sent.",
   },
   {
-    title: "Data we collect",
-    body: "Basic web request data needed to serve the site. If you email us, the address and message you send.",
+    title: "What we collect on this website",
+    body: "Basic web request data needed to serve the site (your IP address and the page you asked for, briefly held in server logs). If you email us, the address and the message you send. We don't load third-party tracking scripts or build a marketing profile of you.",
   },
   {
-    title: "What we don't do",
-    body: "We don't sell personal information. We don't run advertising. We don't build marketing profiles.",
+    title: "Anonymous usage data in our apps",
+    body: "Some of our apps collect anonymised, aggregate usage data — the kind of thing that says \"a player walked this hole in 12 minutes\" without saying which player. This data is what lets the apps stay free. It is never tied to your identity, and the opt-out is one tap inside the app.",
   },
   {
-    title: "Cookies and analytics",
-    body: "Minimal cookies, only what's needed for the page to function. Any analytics are aggregate, not used to identify individuals.",
+    title: "B2B insights — what gets sold, and what doesn't",
+    body: "We sell aggregate, anonymised insights derived from app usage to relevant industry partners — for Fairways, that means golf clubs and course operators. Personal data is never sold, shared, or transferred. Identifiers are stripped before any data leaves the app, and partners only ever see aggregated patterns, not individuals.",
+  },
+  {
+    title: "What we never do",
+    body: "We never sell personal information. We never share anything tied to your identity with third parties. We never run advertising. We never build marketing profiles of you.",
+  },
+  {
+    title: "Cookies",
+    body: "Minimal cookies on the website, only what's needed for the page to function.",
   },
   {
     title: "Support",
@@ -32,11 +40,11 @@ const policySections = [
   },
   {
     title: "Security",
-    body: "Standard security practices. We collect as little data as we can.",
+    body: "Standard security practices. We collect as little data as we can, and what we do collect is held only as long as it's useful.",
   },
   {
     title: "Your data",
-    body: "Email us to request a copy of any data we hold or to have it deleted.",
+    body: "Email us to request a copy of any data we hold, to opt out of anonymous app collection, or to have your records deleted.",
   },
   {
     title: "Contact",
@@ -63,10 +71,10 @@ export default function PrivacyPage() {
                 margin: "28px 0 0",
               }}
             >
-              We collect only what we
+              Anonymous data,
               <br />
               <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>
-                need
+                never personal
               </em>
               .
             </h1>
@@ -81,7 +89,7 @@ export default function PrivacyPage() {
                 marginTop: 28,
               }}
             >
-              What we keep, what we don&apos;t, and how to reach us about any of it.
+              What our apps collect, what gets sold to industry partners, and what stays entirely yours.
             </p>
             <div
               style={{
@@ -93,7 +101,7 @@ export default function PrivacyPage() {
                 marginTop: 24,
               }}
             >
-              Last updated · May MMXXVI
+              Last updated · May 2026
             </div>
           </Reveal>
         </div>

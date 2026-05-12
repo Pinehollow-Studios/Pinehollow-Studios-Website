@@ -22,8 +22,8 @@ const principles = [
   },
   {
     no: "03",
-    title: "Privacy by default.",
-    body: "On-device or end-to-end where it matters. No analytics. No telemetry. No third-party scripts. Your data is yours, and we don't want to see it.",
+    title: "Anonymous, never personal.",
+    body: "We don't sell who you are. Some apps share anonymised, aggregate usage data with industry partners — Fairways with golf clubs, for example — so the apps can stay free. It's never tied to your identity, it's easy to opt out, and we explain exactly what's collected before you start.",
   },
   {
     no: "04",
@@ -89,7 +89,7 @@ function ManifestoHero() {
               marginTop: 36,
             }}
           >
-            Tom · Jack · MMXXVI
+            Tom · Jack · 2026
           </div>
         </Reveal>
       </div>
@@ -164,7 +164,7 @@ function ManifestoBody() {
 
         <Reveal variant="up">
           <p>
-            We are not, and will never be, a platform. We will never raise venture capital. We will never run analytics on you. We will never sell, share, or peek at your data. The apps ship free, with the full thing usable on day one — and the optional Pro upgrade adds depth for power users without ever holding the basics hostage.
+            We are not, and will never be, a platform. We will never raise venture capital. We will never sell who you are. Our apps may share anonymised, aggregate usage with industry partners — Fairways with golf clubs, for example — and that funding model is what lets the apps stay free. It&apos;s never tied to your identity, the opt-out is one tap, and we tell you what&apos;s collected before you start.
           </p>
         </Reveal>
 
@@ -299,7 +299,7 @@ function ManifestoSign() {
             marginTop: 48,
           }}
         >
-          MMXXVI
+          2026
         </div>
       </div>
     </Section>

@@ -8,7 +8,7 @@ export function Hero() {
     <Section py="80px">
       <div style={{ textAlign: "center", position: "relative", paddingTop: 60 }}>
         <Reveal variant="up" immediate delay={80}>
-          <Pill tone="pine" icon="dot">Pinehollow Studios · MMXXVI</Pill>
+          <Pill tone="pine" icon="dot">Pinehollow Studios · 2026</Pill>
         </Reveal>
 
         <Reveal variant="up-xl" immediate delay={180} duration={1100}>

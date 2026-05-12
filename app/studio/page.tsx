@@ -93,14 +93,15 @@ function StudioHero() {
 function StudioPhoto() {
   return (
     <Section py="40px">
-      <Reveal variant="up-xl" duration={1200}>
+      <Reveal variant="up-lg" duration={1100}>
         <div
           className="studio-photo-card"
           style={{
             position: "relative",
+            maxWidth: 560,
             width: "100%",
-            aspectRatio: "16 / 10",
-            borderRadius: "var(--lp-r-2xl)",
+            aspectRatio: "4 / 5",
+            borderRadius: "var(--lp-r-xl)",
             overflow: "hidden",
             border: "1px solid var(--lp-glass-rim-hi)",
             boxShadow: "var(--lp-glass-inset-hi), var(--lp-shadow-lg)",
@@ -112,82 +113,63 @@ function StudioPhoto() {
             alt="Tom and Jack out on a links course in the UK"
             fill
             priority
-            sizes="(max-width: 880px) 100vw, 1200px"
-            style={{ objectFit: "cover", objectPosition: "center 35%" }}
+            sizes="(max-width: 880px) 100vw, 560px"
+            style={{ objectFit: "cover", objectPosition: "center 30%" }}
           />
-          {/* atmospheric blend top + caption gradient bottom */}
           <div
             aria-hidden="true"
             style={{
               position: "absolute",
               inset: 0,
               background:
-                "linear-gradient(180deg, rgba(10,20,16,0.45) 0%, rgba(10,20,16,0) 22%, rgba(10,20,16,0) 60%, rgba(5,10,8,0.85) 100%)",
+                "linear-gradient(180deg, rgba(10,20,16,0.40) 0%, rgba(10,20,16,0) 24%, rgba(10,20,16,0) 60%, rgba(5,10,8,0.85) 100%)",
             }}
           />
           <div
             style={{
               position: "absolute",
-              top: 24,
-              left: 24,
-              right: 24,
+              top: 20,
+              left: 20,
+              right: 20,
               display: "flex",
               justifyContent: "space-between",
               alignItems: "flex-start",
-              gap: 16,
+              gap: 12,
             }}
           >
             <Pill tone="pine" icon="dot">The studio · in person</Pill>
-            <Overline color="var(--lp-fg)">PH-STUDIO · MMXXVI</Overline>
           </div>
           <div
-            className="studio-photo-caption"
             style={{
               position: "absolute",
-              left: 32,
-              right: 32,
-              bottom: 28,
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "flex-end",
-              gap: 24,
-              flexWrap: "wrap",
+              left: 24,
+              right: 24,
+              bottom: 22,
             }}
           >
-            <div>
-              <div
-                style={{
-                  fontFamily: "var(--lp-font-display)",
-                  fontWeight: 500,
-                  fontSize: "var(--lp-text-3xl)",
-                  letterSpacing: "-0.03em",
-                  lineHeight: 1.05,
-                  color: "var(--lp-fg)",
-                }}
-              >
-                Tom &amp; Jack,
-                <br />
-                <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>
-                  on a links course
-                </em>
-                .
-              </div>
-            </div>
             <div
               style={{
                 fontFamily: "var(--lp-font-mono)",
                 fontSize: 11,
                 letterSpacing: "0.22em",
                 textTransform: "uppercase",
-                color: "var(--lp-fg-mute)",
-                textAlign: "right",
-                maxWidth: 240,
-                lineHeight: 1.7,
+                color: "var(--lp-pine-glow)",
               }}
             >
-              Research, mostly.
-              <br />
-              The studio sees fresh air.
+              ● Tom &amp; Jack
+            </div>
+            <div
+              style={{
+                fontFamily: "var(--lp-font-display)",
+                fontStyle: "italic",
+                fontWeight: 400,
+                fontSize: 22,
+                letterSpacing: "-0.02em",
+                color: "var(--lp-pine-mist)",
+                marginTop: 6,
+              }}
+            >
+              out on a links course
             </div>
           </div>
         </div>
@@ -195,8 +177,7 @@ function StudioPhoto() {
 
       <style>{`
         @media (max-width: 720px) {
-          .studio-photo-card { aspect-ratio: 4 / 5 !important; }
-          .studio-photo-caption { flex-direction: column; align-items: flex-start !important; }
+          .studio-photo-card { aspect-ratio: 4 / 5 !important; max-width: 100% !important; }
         }
       `}</style>
     </Section>
@@ -400,10 +381,10 @@ function StudioStory() {
             }}
           >
             <p style={{ margin: 0 }}>
-              We&apos;ve both spent time inside larger companies, building software at speed for goals we didn&apos;t set. Some of that work we&apos;re proud of. Most of it taught us how we&apos;d rather work instead.
+              Pinehollow started as the two of us, fresh out of university, building the apps we wanted to use ourselves — and asking why so much of modern software felt rushed, loud, or built for someone else&apos;s metrics.
             </p>
             <p style={{ margin: 0 }}>
-              Pinehollow is the answer to that. A studio of two, owned by two, accountable to two. The pace is set by us. The standard is set by us. The roadmap is set by us. The customer hears from us directly.
+              A studio of two, owned by two, accountable to two. The pace is set by us. The standard is set by us. The roadmap is set by us. The customer hears from us directly.
             </p>
             <p style={{ margin: 0 }}>
               We don&apos;t expect to ever be bigger than two people. We don&apos;t expect to raise money. We don&apos;t expect to sell. The plan is to keep going, slowly, for a long time.
