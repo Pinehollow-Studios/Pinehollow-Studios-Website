@@ -7,6 +7,7 @@ import { SmoothScroll } from "@/components/shared/smooth-scroll";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://pinehollow.studio"),
   title: "Pinehollow Studios",
   description:
     "A two-person software studio building independent apps for iOS, macOS, and the web — quietly, and on our own terms.",
@@ -15,6 +16,15 @@ export const metadata: Metadata = {
     description:
       "A two-person software studio building independent apps for iOS, macOS, and the web — quietly, and on our own terms.",
     // images is auto-resolved from app/opengraph-image.tsx
+  },
+  // Explicitly enumerate the icons so legacy consumers (Google indexer, older
+  // Safari) bind to fresh URLs and don't keep serving cached older marks.
+  icons: {
+    icon: [
+      { url: "/icon", sizes: "192x192", type: "image/png" },
+    ],
+    shortcut: [{ url: "/icon", type: "image/png" }],
+    apple: [{ url: "/apple-icon", sizes: "180x180", type: "image/png" }],
   },
 };
 

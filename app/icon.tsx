@@ -1,6 +1,10 @@
 import { ImageResponse } from "next/og";
 
-export const size = { width: 64, height: 64 };
+// 192x192 is Google Search's recommended favicon size — large enough that
+// the search snippet, the browser tab, and any home-screen consumer all
+// down-scale cleanly. Smaller raster favicons (e.g. 32x32) get rejected by
+// Google's indexer.
+export const size = { width: 192, height: 192 };
 export const contentType = "image/png";
 
 const svg = `
@@ -42,8 +46,8 @@ export default function Icon() {
         }}
       >
         <img
-          width={64}
-          height={64}
+          width={192}
+          height={192}
           src={`data:image/svg+xml;utf8,${encodeURIComponent(svg)}`}
           alt=""
         />
