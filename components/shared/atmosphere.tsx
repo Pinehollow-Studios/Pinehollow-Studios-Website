@@ -1,29 +1,113 @@
 type Variant = "default" | "deep" | "sky" | "ember" | "quiet";
 
-const variants: Record<Variant, string> = {
-  default: `
-    radial-gradient(800px 700px at 12% 18%, rgba(63,229,160,0.18), transparent 60%),
-    radial-gradient(900px 800px at 92% 8%, rgba(45,79,63,0.45), transparent 65%),
-    radial-gradient(700px 600px at 80% 92%, rgba(255,149,96,0.08), transparent 60%)
-  `,
-  deep: `
-    radial-gradient(900px 800px at 50% 50%, rgba(45,79,63,0.40), transparent 65%),
-    radial-gradient(600px 500px at 18% 8%, rgba(63,229,160,0.10), transparent 60%)
-  `,
-  sky: `
-    radial-gradient(800px 700px at 88% 16%, rgba(159,224,255,0.16), transparent 60%),
-    radial-gradient(900px 800px at 8% 84%, rgba(63,229,160,0.16), transparent 65%)
-  `,
-  ember: `
-    radial-gradient(700px 600px at 84% 12%, rgba(255,149,96,0.18), transparent 60%),
-    radial-gradient(900px 800px at 16% 80%, rgba(63,229,160,0.14), transparent 65%)
-  `,
-  quiet: `
-    radial-gradient(1200px 900px at 50% 0%, rgba(63,229,160,0.06), transparent 60%)
-  `,
+interface GlowLayer {
+  /** CSS background (radial-gradient) for this layer */
+  background: string;
+  /** Initial pos: `top` or `bottom` + `left` or `right` keyword anchor, with offset */
+  anchor: { top?: string; bottom?: string; left?: string; right?: string };
+  /** Size in px (square) */
+  size: number;
+  /** Animation: which keyframe + duration in seconds */
+  anim: "drift-a" | "drift-b" | "drift-c";
+  /** Optional negative delay so layers start out of phase */
+  delay: number;
+}
+
+const layerSets: Record<Variant, GlowLayer[]> = {
+  default: [
+    {
+      background:
+        "radial-gradient(circle at center, rgba(63,229,160,0.22), transparent 65%)",
+      anchor: { top: "-10%", left: "0%" },
+      size: 900,
+      anim: "drift-a",
+      delay: 0,
+    },
+    {
+      background:
+        "radial-gradient(circle at center, rgba(45,79,63,0.50), transparent 65%)",
+      anchor: { top: "-15%", right: "-10%" },
+      size: 1000,
+      anim: "drift-b",
+      delay: -8,
+    },
+    {
+      background:
+        "radial-gradient(circle at center, rgba(255,149,96,0.10), transparent 65%)",
+      anchor: { bottom: "-10%", right: "5%" },
+      size: 800,
+      anim: "drift-c",
+      delay: -16,
+    },
+  ],
+  deep: [
+    {
+      background:
+        "radial-gradient(circle at center, rgba(45,79,63,0.50), transparent 65%)",
+      anchor: { top: "10%", left: "20%" },
+      size: 1100,
+      anim: "drift-b",
+      delay: 0,
+    },
+    {
+      background:
+        "radial-gradient(circle at center, rgba(63,229,160,0.14), transparent 65%)",
+      anchor: { top: "-8%", left: "-8%" },
+      size: 700,
+      anim: "drift-a",
+      delay: -10,
+    },
+  ],
+  sky: [
+    {
+      background:
+        "radial-gradient(circle at center, rgba(159,224,255,0.18), transparent 65%)",
+      anchor: { top: "-8%", right: "-5%" },
+      size: 900,
+      anim: "drift-a",
+      delay: 0,
+    },
+    {
+      background:
+        "radial-gradient(circle at center, rgba(63,229,160,0.20), transparent 65%)",
+      anchor: { bottom: "-15%", left: "-5%" },
+      size: 1000,
+      anim: "drift-b",
+      delay: -12,
+    },
+  ],
+  ember: [
+    {
+      background:
+        "radial-gradient(circle at center, rgba(255,149,96,0.20), transparent 65%)",
+      anchor: { top: "-5%", right: "0%" },
+      size: 800,
+      anim: "drift-a",
+      delay: 0,
+    },
+    {
+      background:
+        "radial-gradient(circle at center, rgba(63,229,160,0.16), transparent 65%)",
+      anchor: { bottom: "-10%", left: "-5%" },
+      size: 1000,
+      anim: "drift-c",
+      delay: -14,
+    },
+  ],
+  quiet: [
+    {
+      background:
+        "radial-gradient(circle at center, rgba(63,229,160,0.08), transparent 65%)",
+      anchor: { top: "-30%", left: "10%" },
+      size: 1400,
+      anim: "drift-a",
+      delay: 0,
+    },
+  ],
 };
 
 export function AtmosphereBg({ variant = "default" }: { variant?: Variant }) {
+  const layers = layerSets[variant];
   return (
     <div
       aria-hidden="true"
@@ -32,8 +116,28 @@ export function AtmosphereBg({ variant = "default" }: { variant?: Variant }) {
         inset: 0,
         zIndex: 0,
         pointerEvents: "none",
-        background: variants[variant],
+        overflow: "hidden",
       }}
-    />
+    >
+      {layers.map((l, i) => (
+        <span
+          key={i}
+          style={{
+            position: "absolute",
+            width: l.size,
+            height: l.size,
+            borderRadius: "50%",
+            background: l.background,
+            filter: "blur(40px)",
+            top: l.anchor.top,
+            bottom: l.anchor.bottom,
+            left: l.anchor.left,
+            right: l.anchor.right,
+            animation: `lp-${l.anim} 22s ease-in-out ${l.delay}s infinite alternate`,
+            willChange: "transform, opacity",
+          }}
+        />
+      ))}
+    </div>
   );
 }

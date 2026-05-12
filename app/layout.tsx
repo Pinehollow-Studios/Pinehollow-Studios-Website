@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import { Footer } from "@/components/sections/footer";
+import { Nav } from "@/components/sections/nav";
 import { PageFade } from "@/components/shared/page-fade";
 import { ScrollTop } from "@/components/shared/scroll-top";
+import { SmoothScroll } from "@/components/shared/smooth-scroll";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -19,8 +22,14 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <body>
-        <ScrollTop />
-        <PageFade>{children}</PageFade>
+        <SmoothScroll>
+          <ScrollTop />
+          <Nav />
+          <main style={{ position: "relative", zIndex: 1 }}>
+            <PageFade>{children}</PageFade>
+          </main>
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   );

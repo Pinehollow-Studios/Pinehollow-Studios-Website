@@ -44,7 +44,7 @@ const principles = [
 
 export default function ManifestoPage() {
   return (
-    <Page active="manifesto" atmosphere="quiet">
+    <Page atmosphere="quiet">
       <ManifestoHero />
       <ManifestoBody />
       <ManifestoPrinciples />

@@ -1,26 +1,24 @@
 import type { ReactNode } from "react";
 import { AtmosphereBg } from "@/components/shared/atmosphere";
-import { Footer } from "@/components/sections/footer";
-import { Nav } from "@/components/sections/nav";
 
-type NavKey = "apps" | "manifesto" | "studio" | "contact" | null;
 type Atmosphere = "default" | "deep" | "sky" | "ember" | "quiet";
 
+/**
+ * Page wrapper for route content. Nav + Footer live in the root layout so
+ * they persist across navigation (and the active-nav indicator can animate
+ * smoothly between routes), while the per-route atmosphere variant lives here.
+ */
 export function Page({
   children,
-  active = null,
   atmosphere = "default",
 }: {
   children: ReactNode;
-  active?: NavKey;
   atmosphere?: Atmosphere;
 }) {
   return (
     <>
       <AtmosphereBg variant={atmosphere} />
-      <Nav active={active} />
-      <main style={{ position: "relative", zIndex: 1 }}>{children}</main>
-      <Footer />
+      {children}
     </>
   );
 }

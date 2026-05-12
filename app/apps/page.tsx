@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { GhostButton, PrimaryButton } from "@/components/shared/buttons";
 import { GlassCard } from "@/components/shared/glass-card";
 import { Overline, Pill, Section } from "@/components/shared/primitives";
+import { OrbMark } from "@/components/shared/orb-mark";
 import { Page } from "@/components/shared/page";
 import { Reveal } from "@/components/shared/reveal";
 
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function AppsPage() {
   return (
-    <Page active="apps" atmosphere="default">
+    <Page atmosphere="default">
       <AppsHero />
       <FairwaysTeaser />
       <FreemiumStripe />
@@ -351,28 +352,7 @@ function ObscuredCard() {
           textAlign: "center",
         }}
       >
-        <div
-          style={{
-            width: 64,
-            height: 64,
-            borderRadius: 99,
-            background:
-              "linear-gradient(160deg, var(--lp-pine-glow) 0%, var(--lp-pine-deep) 80%)",
-            border: "1px solid var(--lp-glass-rim-hi)",
-            boxShadow:
-              "inset 0 2px 0 rgba(255,255,255,0.30), 0 0 32px -4px rgba(63,229,160,0.55)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontFamily: "var(--lp-font-display)",
-            fontStyle: "italic",
-            fontSize: 30,
-            color: "rgba(255,255,255,0.95)",
-            letterSpacing: "-0.02em",
-          }}
-        >
-          f
-        </div>
+        <OrbMark mark="f" size={68} glow="var(--lp-pine-glow)" />
         <div
           style={{
             fontFamily: "var(--lp-font-mono)",

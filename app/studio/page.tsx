@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { GlassCard } from "@/components/shared/glass-card";
 import { Overline, Pill, Section } from "@/components/shared/primitives";
+import { OrbMark } from "@/components/shared/orb-mark";
 import { Page } from "@/components/shared/page";
 import { Reveal } from "@/components/shared/reveal";
 
@@ -34,8 +36,9 @@ const founders = [
 
 export default function StudioPage() {
   return (
-    <Page active="studio" atmosphere="ember">
+    <Page atmosphere="ember">
       <StudioHero />
+      <StudioPhoto />
       <FoundersGrid />
       <StudioStory />
       <StudioFacts />
@@ -87,6 +90,119 @@ function StudioHero() {
   );
 }
 
+function StudioPhoto() {
+  return (
+    <Section py="40px">
+      <Reveal variant="up-xl" duration={1200}>
+        <div
+          className="studio-photo-card"
+          style={{
+            position: "relative",
+            width: "100%",
+            aspectRatio: "16 / 10",
+            borderRadius: "var(--lp-r-2xl)",
+            overflow: "hidden",
+            border: "1px solid var(--lp-glass-rim-hi)",
+            boxShadow: "var(--lp-glass-inset-hi), var(--lp-shadow-lg)",
+            background: "var(--lp-base-raised)",
+          }}
+        >
+          <Image
+            src="/tom-and-jack.jpg"
+            alt="Tom and Jack out on a links course in the UK"
+            fill
+            priority
+            sizes="(max-width: 880px) 100vw, 1200px"
+            style={{ objectFit: "cover", objectPosition: "center 35%" }}
+          />
+          {/* atmospheric blend top + caption gradient bottom */}
+          <div
+            aria-hidden="true"
+            style={{
+              position: "absolute",
+              inset: 0,
+              background:
+                "linear-gradient(180deg, rgba(10,20,16,0.45) 0%, rgba(10,20,16,0) 22%, rgba(10,20,16,0) 60%, rgba(5,10,8,0.85) 100%)",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              top: 24,
+              left: 24,
+              right: 24,
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "flex-start",
+              gap: 16,
+            }}
+          >
+            <Pill tone="pine" icon="dot">The studio · in person</Pill>
+            <Overline color="var(--lp-fg)">PH-STUDIO · MMXXVI</Overline>
+          </div>
+          <div
+            className="studio-photo-caption"
+            style={{
+              position: "absolute",
+              left: 32,
+              right: 32,
+              bottom: 28,
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "flex-end",
+              gap: 24,
+              flexWrap: "wrap",
+            }}
+          >
+            <div>
+              <div
+                style={{
+                  fontFamily: "var(--lp-font-display)",
+                  fontWeight: 500,
+                  fontSize: "var(--lp-text-3xl)",
+                  letterSpacing: "-0.03em",
+                  lineHeight: 1.05,
+                  color: "var(--lp-fg)",
+                }}
+              >
+                Tom &amp; Jack,
+                <br />
+                <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>
+                  on a links course
+                </em>
+                .
+              </div>
+            </div>
+            <div
+              style={{
+                fontFamily: "var(--lp-font-mono)",
+                fontSize: 11,
+                letterSpacing: "0.22em",
+                textTransform: "uppercase",
+                color: "var(--lp-fg-mute)",
+                textAlign: "right",
+                maxWidth: 240,
+                lineHeight: 1.7,
+              }}
+            >
+              Research, mostly.
+              <br />
+              The studio sees fresh air.
+            </div>
+          </div>
+        </div>
+      </Reveal>
+
+      <style>{`
+        @media (max-width: 720px) {
+          .studio-photo-card { aspect-ratio: 4 / 5 !important; }
+          .studio-photo-caption { flex-direction: column; align-items: flex-start !important; }
+        }
+      `}</style>
+    </Section>
+  );
+}
+
 function FoundersGrid() {
   return (
     <Section py="40px">
@@ -122,33 +238,7 @@ function FoundersGrid() {
                 position: "relative",
               }}
             >
-              <div
-                style={{
-                  width: 96,
-                  height: 96,
-                  borderRadius: 99,
-                  flexShrink: 0,
-                  background: `linear-gradient(160deg, ${f.glow} 0%, var(--lp-pine-deep) 70%)`,
-                  border: "1px solid var(--lp-glass-rim-hi)",
-                  boxShadow:
-                    "inset 0 2px 0 rgba(255,255,255,0.30), 0 12px 32px -8px rgba(0,0,0,0.4)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: "var(--lp-font-display)",
-                    fontStyle: "italic",
-                    fontSize: 44,
-                    color: "rgba(255,255,255,0.92)",
-                    letterSpacing: "-0.02em",
-                  }}
-                >
-                  {f.mark}
-                </span>
-              </div>
+              <OrbMark mark={f.mark} size={96} glow={f.glow} />
               <div>
                 <div
                   style={{
