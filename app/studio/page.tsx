@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { StudioBulletin } from "@/components/sections/studio-bulletin";
 import { GlassCard } from "@/components/shared/glass-card";
 import { Overline, Pill, Section } from "@/components/shared/primitives";
 import { OrbMark } from "@/components/shared/orb-mark";
@@ -93,96 +94,113 @@ function StudioHero() {
 function StudioPhoto() {
   return (
     <Section py="40px">
-      <Reveal variant="up-lg" duration={1100}>
-        <div
-          className="studio-photo-card"
-          style={{
-            position: "relative",
-            maxWidth: 560,
-            width: "100%",
-            aspectRatio: "4 / 5",
-            borderRadius: "var(--lp-r-xl)",
-            overflow: "hidden",
-            border: "1px solid var(--lp-glass-rim-hi)",
-            boxShadow: "var(--lp-glass-inset-hi), var(--lp-shadow-lg)",
-            background: "var(--lp-base-raised)",
-          }}
-        >
-          <Image
-            src="/tom-and-jack.jpg"
-            alt="Tom and Jack out on a links course in the UK"
-            fill
-            priority
-            sizes="(max-width: 880px) 100vw, 560px"
-            style={{ objectFit: "cover", objectPosition: "center 30%" }}
-          />
+      <div
+        className="studio-photo-grid"
+        style={{
+          display: "grid",
+          gridTemplateColumns: "minmax(0, 0.85fr) minmax(0, 1.15fr)",
+          gap: 24,
+          alignItems: "stretch",
+        }}
+      >
+        <Reveal variant="up-lg" duration={1100}>
           <div
-            aria-hidden="true"
+            className="studio-photo-card"
             style={{
-              position: "absolute",
-              inset: 0,
-              background:
-                "linear-gradient(180deg, rgba(10,20,16,0.40) 0%, rgba(10,20,16,0) 24%, rgba(10,20,16,0) 60%, rgba(5,10,8,0.85) 100%)",
-            }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              top: 20,
-              left: 20,
-              right: 20,
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "flex-start",
-              gap: 12,
+              position: "relative",
+              width: "100%",
+              height: "100%",
+              minHeight: 560,
+              aspectRatio: "4 / 5",
+              borderRadius: "var(--lp-r-xl)",
+              overflow: "hidden",
+              border: "1px solid var(--lp-glass-rim-hi)",
+              boxShadow: "var(--lp-glass-inset-hi), var(--lp-shadow-lg)",
+              background: "var(--lp-base-raised)",
             }}
           >
-            <Pill tone="pine" icon="dot">The studio · in person</Pill>
-          </div>
-          <div
-            style={{
-              position: "absolute",
-              left: 24,
-              right: 24,
-              bottom: 22,
-            }}
-          >
+            <Image
+              src="/tom-and-jack.jpg"
+              alt="Tom and Jack out on a links course in the UK"
+              fill
+              priority
+              sizes="(max-width: 880px) 100vw, 520px"
+              style={{ objectFit: "cover", objectPosition: "center 30%" }}
+            />
+            <div
+              aria-hidden="true"
+              style={{
+                position: "absolute",
+                inset: 0,
+                background:
+                  "linear-gradient(180deg, rgba(10,20,16,0.40) 0%, rgba(10,20,16,0) 24%, rgba(10,20,16,0) 60%, rgba(5,10,8,0.85) 100%)",
+              }}
+            />
             <div
               style={{
-                fontFamily: "var(--lp-font-mono)",
-                fontSize: 11,
-                letterSpacing: "0.22em",
-                textTransform: "uppercase",
-                color: "var(--lp-pine-glow)",
+                position: "absolute",
+                top: 20,
+                left: 20,
+                right: 20,
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "flex-start",
+                gap: 12,
               }}
             >
-              ● Tom &amp; Jack
+              <Pill tone="pine" icon="dot">The studio · in person</Pill>
             </div>
             <div
               style={{
-                fontFamily: "var(--lp-font-display)",
-                fontStyle: "italic",
-                fontWeight: 400,
-                fontSize: 22,
-                letterSpacing: "-0.02em",
-                color: "var(--lp-pine-mist)",
-                marginTop: 6,
+                position: "absolute",
+                left: 24,
+                right: 24,
+                bottom: 22,
               }}
             >
-              out on a links course
+              <div
+                style={{
+                  fontFamily: "var(--lp-font-mono)",
+                  fontSize: 11,
+                  letterSpacing: "0.22em",
+                  textTransform: "uppercase",
+                  color: "var(--lp-pine-glow)",
+                }}
+              >
+                ● Tom &amp; Jack
+              </div>
+              <div
+                style={{
+                  fontFamily: "var(--lp-font-display)",
+                  fontStyle: "italic",
+                  fontWeight: 400,
+                  fontSize: 22,
+                  letterSpacing: "-0.02em",
+                  color: "var(--lp-pine-mist)",
+                  marginTop: 6,
+                }}
+              >
+                out on a links course
+              </div>
             </div>
           </div>
-        </div>
-      </Reveal>
+        </Reveal>
+
+        <Reveal variant="up-lg" duration={1100} delay={180}>
+          <StudioBulletin />
+        </Reveal>
+      </div>
 
       <style>{`
-        @media (max-width: 720px) {
-          .studio-photo-card { aspect-ratio: 4 / 5 !important; max-width: 100% !important; }
+        @media (max-width: 880px) {
+          .studio-photo-grid { grid-template-columns: 1fr !important; }
+          .studio-photo-card { min-height: 0 !important; }
         }
       `}</style>
     </Section>
   );
 }
+
 
 function FoundersGrid() {
   return (
