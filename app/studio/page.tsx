@@ -120,12 +120,12 @@ function StudioPhoto() {
             }}
           >
             <Image
-              src="/tom-and-jack.jpg"
-              alt="Tom and Jack out on a links course in the UK"
+              src="/jack-on-course.jpg"
+              alt="Jack playing a parkland course in Surrey at sunset"
               fill
               priority
               sizes="(max-width: 880px) 100vw, 520px"
-              style={{ objectFit: "cover", objectPosition: "center 30%" }}
+              style={{ objectFit: "cover", objectPosition: "center 35%" }}
             />
             <div
               aria-hidden="true"
@@ -167,7 +167,7 @@ function StudioPhoto() {
                   color: "var(--lp-pine-glow)",
                 }}
               >
-                ● Tom &amp; Jack
+                ● Jack
               </div>
               <div
                 style={{
@@ -180,7 +180,7 @@ function StudioPhoto() {
                   marginTop: 6,
                 }}
               >
-                out on a links course
+                a Surrey parkland, at last light
               </div>
             </div>
           </div>

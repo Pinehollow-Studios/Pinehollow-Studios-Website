@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState, type CSSProperties } from "react";
 import { GlassCard } from "@/components/shared/glass-card";
-import { PineBloom } from "@/components/shared/pine-bloom";
+import { PinehollowIconTile } from "@/components/shared/pinehollow-mark";
 import { Overline } from "@/components/shared/primitives";
 
 /**
@@ -95,11 +95,7 @@ function FirstApp() {
       </div>
 
       <div style={{ display: "flex", alignItems: "center", gap: 18, marginTop: 18 }}>
-        <PineBloom
-          size={64}
-          ariaHidden
-          style={{ borderRadius: 16, boxShadow: "0 0 24px -6px rgba(63,229,160,0.45)" }}
-        />
+        <PinehollowIconTile size={64} ariaHidden />
         <div>
           <div
             style={{

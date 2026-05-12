@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PineBloom } from "@/components/shared/pine-bloom";
+import { PinehollowIconTile } from "@/components/shared/pinehollow-mark";
 
 interface FooterColProps {
   title: string;
@@ -69,11 +69,7 @@ export function Footer() {
         >
           <div>
             <Link href="/" style={{ display: "inline-flex", alignItems: "center", gap: 14, marginBottom: 24 }}>
-              <PineBloom
-                size={48}
-                ariaHidden
-                style={{ borderRadius: 10, boxShadow: "0 0 16px -4px rgba(63,229,160,0.45)" }}
-              />
+              <PinehollowIconTile size={48} ariaHidden />
               <div>
                 <div style={{ fontSize: 22, fontWeight: 500, letterSpacing: "-0.02em" }}>Pinehollow</div>
                 <div
