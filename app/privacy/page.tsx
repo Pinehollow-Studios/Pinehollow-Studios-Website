@@ -56,7 +56,7 @@ export default function PrivacyPage() {
   return (
     <Page atmosphere="quiet">
       <Section py="80px">
-        <div style={{ paddingTop: 40, maxWidth: 900 }}>
+        <div className="lp-hero-pad-top" style={{ paddingTop: 40, maxWidth: 900 }}>
           <Reveal variant="up" immediate delay={80}>
             <Pill>Privacy Policy</Pill>
           </Reveal>

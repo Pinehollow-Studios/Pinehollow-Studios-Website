@@ -25,7 +25,7 @@ export default function AppsPage() {
 function AppsHero() {
   return (
     <Section py="80px">
-      <div style={{ paddingTop: 40, maxWidth: 1000 }}>
+      <div className="lp-hero-pad-top" style={{ paddingTop: 40, maxWidth: 1000 }}>
         <Reveal variant="up" immediate delay={80}>
           <Pill tone="pine" icon="dot">01 in development · 0 shipped · yet</Pill>
         </Reveal>
@@ -157,9 +157,10 @@ function FairwaysTeaser() {
               }}
             >
               <h2
+                className="fairways-title"
                 style={{
                   fontFamily: "var(--lp-font-display)",
-                  fontSize: 92,
+                  fontSize: "clamp(48px, 12vw, 92px)",
                   fontWeight: 500,
                   letterSpacing: "-0.045em",
                   margin: 0,
@@ -270,6 +271,10 @@ function FairwaysTeaser() {
             .fairways-tease { border-left: none !important; border-top: 1px solid var(--lp-glass-rim); min-height: 360px !important; padding: 32px !important; }
             .fairways-content { padding: 36px !important; }
             .fairways-meta { grid-template-columns: 1fr !important; gap: 16px !important; }
+          }
+          @media (max-width: 560px) {
+            .fairways-content { padding: 24px !important; }
+            .fairways-tease { min-height: 280px !important; padding: 24px !important; }
           }
         `}</style>
       </GlassCard>

@@ -19,6 +19,7 @@ export function StudioBulletin() {
   return (
     <GlassCard
       strong
+      className="studio-bulletin"
       style={{
         position: "relative",
         height: "100%",
@@ -66,6 +67,12 @@ export function StudioBulletin() {
       <Lineup />
       <Divider />
       <StayClose />
+
+      <style>{`
+        @media (max-width: 880px) {
+          .studio-bulletin { min-height: 0 !important; height: auto !important; }
+        }
+      `}</style>
     </GlassCard>
   );
 }
@@ -291,6 +298,7 @@ function StayClose() {
   return (
     <div style={{ position: "relative", padding: "28px 36px 32px", marginTop: "auto" }}>
       <div
+        className="bulletin-overlines"
         style={{
           display: "flex",
           alignItems: "center",
@@ -301,6 +309,12 @@ function StayClose() {
         <Overline color="var(--lp-fg-mute)">Stay close</Overline>
         <Overline color="var(--lp-fg-dim)">No spam. One email when it ships.</Overline>
       </div>
+
+      <style>{`
+        @media (max-width: 560px) {
+          .bulletin-overlines { flex-direction: column; align-items: flex-start; gap: 4px; }
+        }
+      `}</style>
 
       <div
         style={{

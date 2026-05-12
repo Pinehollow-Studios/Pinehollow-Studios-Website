@@ -6,7 +6,7 @@ import { Reveal } from "@/components/shared/reveal";
 export function Hero() {
   return (
     <Section py="80px">
-      <div style={{ textAlign: "center", position: "relative", paddingTop: 60 }}>
+      <div className="lp-hero-pad-top" style={{ textAlign: "center", position: "relative", paddingTop: 60 }}>
         <Reveal variant="up" immediate delay={80}>
           <Pill tone="pine" icon="dot">Pinehollow Studios · 2026</Pill>
         </Reveal>
@@ -134,6 +134,7 @@ function PrincipleTile({
 }) {
   return (
     <div
+      className="lp-tile-auto-h"
       style={{
         position: "relative",
         overflow: "hidden",

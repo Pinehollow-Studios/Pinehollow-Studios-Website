@@ -247,3 +247,18 @@ img { display: block; max-width: 100%; }
     --lp-gutter: 18px;
   }
 }
+
+/* Mobile-only utility hooks. Desktop is untouched.
+   Apply via className on elements that need responsive overrides. */
+@media (max-width: 720px) {
+  /* Hero blocks usually have an inline paddingTop ~60. Collapse it on mobile
+     so the page doesn't open with a giant empty band under the nav. */
+  .lp-hero-pad-top { padding-top: 8px !important; }
+
+  /* Auto-height for principle tiles so they don't reserve 280px on mobile. */
+  .lp-tile-auto-h { min-height: 0 !important; }
+
+  /* Allow grid items to actually fit their column on mobile (drops any
+     stretched height: 100% conflicting with aspect-ratio). */
+  .lp-fit-col { height: auto !important; min-height: 0 !important; }
+}

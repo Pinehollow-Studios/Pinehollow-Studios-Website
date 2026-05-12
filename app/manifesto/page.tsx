@@ -56,7 +56,7 @@ export default function ManifestoPage() {
 function ManifestoHero() {
   return (
     <Section py="120px">
-      <div style={{ paddingTop: 60, textAlign: "center", maxWidth: 900, margin: "0 auto" }}>
+      <div className="lp-hero-pad-top" style={{ paddingTop: 60, textAlign: "center", maxWidth: 900, margin: "0 auto" }}>
         <Reveal variant="up" immediate delay={80}>
           <Pill>The Pinehollow Manifesto · 2026</Pill>
         </Reveal>

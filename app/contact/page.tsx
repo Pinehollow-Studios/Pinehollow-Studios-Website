@@ -23,7 +23,7 @@ export default function ContactPage() {
 function ContactHero() {
   return (
     <Section py="100px">
-      <div style={{ paddingTop: 40, maxWidth: 1000 }}>
+      <div className="lp-hero-pad-top" style={{ paddingTop: 40, maxWidth: 1000 }}>
         <Reveal variant="up" immediate delay={80}>
           <Pill tone="pine" icon="dot">We read every message</Pill>
         </Reveal>

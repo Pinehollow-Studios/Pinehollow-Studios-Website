@@ -50,7 +50,7 @@ export default function StudioPage() {
 function StudioHero() {
   return (
     <Section py="100px">
-      <div style={{ paddingTop: 40, maxWidth: 1000 }}>
+      <div className="lp-hero-pad-top" style={{ paddingTop: 40, maxWidth: 1000 }}>
         <Reveal variant="up" immediate delay={80}>
           <Pill tone="pine" icon="dot">The Studio · Two people · Independent</Pill>
         </Reveal>
@@ -105,7 +105,7 @@ function StudioPhoto() {
       >
         <Reveal variant="up-lg" duration={1100}>
           <div
-            className="studio-photo-card"
+            className="studio-photo-card lp-fit-col"
             style={{
               position: "relative",
               width: "100%",
@@ -193,8 +193,8 @@ function StudioPhoto() {
 
       <style>{`
         @media (max-width: 880px) {
-          .studio-photo-grid { grid-template-columns: 1fr !important; }
-          .studio-photo-card { min-height: 0 !important; }
+          .studio-photo-grid { grid-template-columns: minmax(0, 1fr) !important; }
+          .studio-photo-card { min-height: 0 !important; height: auto !important; }
         }
       `}</style>
     </Section>
