@@ -88,13 +88,6 @@ export function Reveal({
       else reveal();
     };
 
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReducedMotion) {
-      el.style.transition = "none";
-      reveal();
-      return;
-    }
-
     if (immediate) {
       // Defer to next frame so the initial paint shows the "from" state.
       const raf = requestAnimationFrame(trigger);

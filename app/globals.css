@@ -232,14 +232,10 @@ img { display: block; max-width: 100%; }
   100% { transform: scale(1.6); opacity: 0; }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
+/* Intentionally do not honour prefers-reduced-motion at the CSS level — the
+   atmospheric motion is core to the brand identity and must render the same
+   on every machine, including Windows installs that ship with "Animation
+   effects" disabled in Accessibility settings. */
 
 /* ─── RESPONSIVE ─────────────────────────────────────────── */
 @media (max-width: 900px) {

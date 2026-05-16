@@ -8,12 +8,13 @@ import Lenis from "lenis";
  * Modelled on the Apple / Linear feel — just enough lag that the scroll
  * carries inertia, not enough to feel like it's lagging behind input.
  *
- * Honours prefers-reduced-motion by skipping initialization entirely.
+ * Runs on every device — prefers-reduced-motion is intentionally ignored
+ * so the feel is identical across Mac, iOS, and Windows machines that have
+ * "Animation effects" disabled in OS Accessibility settings.
  */
 export function SmoothScroll({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const lenis = new Lenis({
       duration: 1.15,
