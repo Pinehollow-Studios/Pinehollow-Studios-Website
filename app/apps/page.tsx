@@ -9,7 +9,7 @@ import { Reveal } from "@/components/shared/reveal";
 export const metadata: Metadata = {
   title: "Apps — Pinehollow Studios",
   description:
-    "What we're building. One app in development under wraps — and the way we'll ship everything: free at the centre, Pro at the edges.",
+    "What we're building. One iOS app in development — Fairways, a golf app. Plus how we charge for the apps we ship.",
 };
 
 export default function AppsPage() {
@@ -27,7 +27,7 @@ function AppsHero() {
     <Section py="80px">
       <div className="lp-hero-pad-top" style={{ paddingTop: 40, maxWidth: 1000 }}>
         <Reveal variant="up" immediate delay={80}>
-          <Pill tone="pine" icon="dot">01 in development · 0 shipped · yet</Pill>
+          <Pill tone="pine" icon="dot">One in development</Pill>
         </Reveal>
         <Reveal variant="up-xl" immediate delay={180} duration={1100}>
           <h1
@@ -40,10 +40,10 @@ function AppsHero() {
               margin: "28px 0 0",
             }}
           >
-            Small apps,
+            What we&rsquo;re
             <br />
             <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>
-              made slowly
+              building
             </em>
             .
           </h1>
@@ -58,7 +58,7 @@ function AppsHero() {
               marginTop: 28,
             }}
           >
-            We&apos;ve nothing shipped yet — but there&apos;s one app in the workshop. It&apos;ll arrive when it&apos;s ready, and not a day before.
+            Nothing shipped yet. One iOS app in development — Fairways, a golf app.
           </p>
         </Reveal>
       </div>
@@ -142,7 +142,7 @@ function FairwaysTeaser() {
                   letterSpacing: "0.22em",
                 }}
               >
-                PH-001 · CODENAME
+                PH-001
               </span>
               <Pill tone="ember" icon="dot">In development</Pill>
             </div>
@@ -191,7 +191,7 @@ function FairwaysTeaser() {
                 color: "var(--lp-pine-glow)",
               }}
             >
-              ● Codename only · final name TBA
+              ● Launching 2026
             </div>
 
             <p
@@ -203,7 +203,7 @@ function FairwaysTeaser() {
                 maxWidth: 520,
               }}
             >
-              That&apos;s most of what we can say.
+              We&rsquo;re not saying much about Fairways yet. The screens, the features, the full pitch — those come closer to launch.
             </p>
             <p
               style={{
@@ -214,7 +214,7 @@ function FairwaysTeaser() {
                 maxWidth: 520,
               }}
             >
-              The shape, the screens, the feature list — we&apos;re keeping all of it under wraps until the work earns the announcement. If you&apos;d like to be among the first to hear about it, write to us.
+              Drop us a line if you&rsquo;d like a note when it&rsquo;s ready.
             </p>
 
             <div
@@ -226,8 +226,8 @@ function FairwaysTeaser() {
                 flexWrap: "wrap",
               }}
             >
-              <PrimaryButton href="/contact">Hear from us first →</PrimaryButton>
-              <GhostButton href="/manifesto">How we build</GhostButton>
+              <PrimaryButton href="/contact">Get in touch →</PrimaryButton>
+              <GhostButton href="/manifesto">Our approach</GhostButton>
             </div>
 
             <div
@@ -367,7 +367,7 @@ function ObscuredCard() {
             color: "var(--lp-pine-glow)",
           }}
         >
-          Under wraps
+          In development
         </div>
         <div
           style={{
@@ -389,17 +389,17 @@ function ObscuredCard() {
 
 function FreemiumStripe() {
   const values = [
-    { k: "Free", d: "The full app, day one" },
-    { k: "Pro", d: "Optional power-user depth" },
-    { k: "0", d: "Ads · ever" },
-    { k: "∞", d: "Years of updates" },
+    { k: "Free", d: "Each app, free to download" },
+    { k: "Pro", d: "Optional paid extras" },
+    { k: "iOS", d: "Phones first" },
+    { k: "Direct", d: "Sold by us, no middleman" },
   ];
   return (
     <Section py="100px">
       <Reveal variant="up-lg" duration={1000}>
       <GlassCard strong style={{ padding: 0, overflow: "hidden" }}>
         <div style={{ padding: "48px 48px 32px" }}>
-          <Overline>The pact</Overline>
+          <Overline>Pricing</Overline>
           <h2
             style={{
               fontFamily: "var(--lp-font-display)",
@@ -411,13 +411,11 @@ function FreemiumStripe() {
               maxWidth: 700,
             }}
           >
-            Free at the centre,
-            <br />
-            Pro at the{" "}
+            Free, with an{" "}
             <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>
-              edges
-            </em>
-            .
+              optional
+            </em>{" "}
+            paid tier.
           </h2>
           <p
             style={{
@@ -428,7 +426,7 @@ function FreemiumStripe() {
               maxWidth: 620,
             }}
           >
-            Every app we make ships free, with the whole thing usable on day one. Pro is the nice-to-have layer for power users — never the gate to the basics.
+            Each app is free to download and useful on its own. A paid Pro tier adds extras for people who want them — it never gates the basics.
           </p>
         </div>
         <div

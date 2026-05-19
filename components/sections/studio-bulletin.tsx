@@ -97,7 +97,7 @@ function FirstApp() {
           gap: 12,
         }}
       >
-        <Overline color="var(--lp-fg-mute)">The first app</Overline>
+        <Overline color="var(--lp-fg-mute)">Currently building</Overline>
         <LiveTag>In development</LiveTag>
       </div>
 
@@ -141,14 +141,13 @@ function FirstApp() {
           marginBottom: 18,
         }}
       >
-        We&apos;re keeping the details under wraps. What we can tell you: iOS, free, and the
-        codename is here to stay until the work earns the announcement.
+        Fairways is an iOS golf app — our first product. More details closer to launch.
       </p>
 
       <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 22 }}>
-        <Chip>iOS only</Chip>
+        <Chip>iOS</Chip>
         <Chip>Free</Chip>
-        <Chip>Codename</Chip>
+        <Chip>2026</Chip>
       </div>
 
       <Link
@@ -162,7 +161,7 @@ function FirstApp() {
           fontWeight: 500,
         }}
       >
-        See the Fairways page <span aria-hidden="true">→</span>
+        See Fairways <span aria-hidden="true">→</span>
       </Link>
     </div>
   );
@@ -306,8 +305,8 @@ function StayClose() {
           gap: 12,
         }}
       >
-        <Overline color="var(--lp-fg-mute)">Stay close</Overline>
-        <Overline color="var(--lp-fg-dim)">No spam. One email when it ships.</Overline>
+        <Overline color="var(--lp-fg-mute)">Get notified</Overline>
+        <Overline color="var(--lp-fg-dim)">One email at launch. That&rsquo;s it.</Overline>
       </div>
 
       <style>{`
@@ -327,11 +326,11 @@ function StayClose() {
           marginTop: 12,
         }}
       >
-        Want the heads-up when{" "}
+        Want a note when{" "}
         <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>
           Fairways
         </em>{" "}
-        arrives?
+        is out?
       </div>
 
       {submitted ? (
@@ -350,7 +349,7 @@ function StayClose() {
           }}
         >
           <span aria-hidden="true">✓</span>
-          Your mail client should have opened — we&apos;ll add you when it arrives.
+          Your mail client should have opened. We&rsquo;ll let you know when Fairways is ready.
         </div>
       ) : (
         <form

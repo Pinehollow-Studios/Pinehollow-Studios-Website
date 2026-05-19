@@ -5,40 +5,40 @@ import { Page } from "@/components/shared/page";
 import { Reveal } from "@/components/shared/reveal";
 
 export const metadata: Metadata = {
-  title: "Manifesto — Pinehollow Studios",
-  description: "How we build, and why. The Pinehollow agreement, in six lines.",
+  title: "Approach — Pinehollow Studios",
+  description: "How we build, and a few things we've decided.",
 };
 
 const principles = [
   {
     no: "01",
-    title: "One job each.",
-    body: "Every app does one thing well. Feature creep is the slow death of considered software — we'd rather start something new than overload what already works.",
+    title: "One thing at a time.",
+    body: "Each app does one job. If we have a new idea, we start something new rather than piling features onto something that's already finished.",
   },
   {
     no: "02",
-    title: "No streaks. No badges. No nudges.",
-    body: "We will never engineer for engagement. If you don't open one of our apps for a month, that is a successful outcome — for both of us.",
+    title: "No engagement tricks.",
+    body: "No streaks, no badges, no notifications dressed up as features. The apps don't try to keep you in them.",
   },
   {
     no: "03",
-    title: "Anonymous, never personal.",
-    body: "We don't sell who you are. Some apps share anonymised, aggregate usage data with industry partners — Fairways with golf clubs, for example — so the apps can stay free. It's never tied to your identity, it's easy to opt out, and we explain exactly what's collected before you start.",
+    title: "Free first.",
+    body: "Each app is free to download. A paid Pro tier covers extras where there are any. The basics are never gated.",
   },
   {
     no: "04",
-    title: "Free at the centre, Pro at the edges.",
-    body: "Every app ships free, with the whole thing usable on day one. Pro adds power-user features for people who want them. The free version is the product. Pro is the cherry on top.",
+    title: "iOS first.",
+    body: "We start on iPhone. Mac, web, or Android come later, if and when they make sense for a given app.",
   },
   {
     no: "05",
-    title: "Calm by construction.",
-    body: "Animations settle, they don't bounce. Notifications are gentle, and rare. The default state is quiet. Loudness is something we have to justify.",
+    title: "Built to last.",
+    body: "We maintain the apps over time, not just at launch. Updates are small and considered, not constant.",
   },
   {
     no: "06",
-    title: "Independent, by choice.",
-    body: "We are two people. No investors. No exit plan. No acquisition. We answer to ourselves and to the people who use our work — and that is the whole company.",
+    title: "Independent.",
+    body: "Two people, no investors, no acquisition plan. We answer to ourselves and to the people who use our apps.",
   },
 ];
 
@@ -58,7 +58,7 @@ function ManifestoHero() {
     <Section py="120px">
       <div className="lp-hero-pad-top" style={{ paddingTop: 60, textAlign: "center", maxWidth: 900, margin: "0 auto" }}>
         <Reveal variant="up" immediate delay={80}>
-          <Pill>The Pinehollow Manifesto · 2026</Pill>
+          <Pill>Our approach</Pill>
         </Reveal>
         <Reveal variant="up-xl" immediate delay={200} duration={1200}>
           <h1
@@ -71,10 +71,10 @@ function ManifestoHero() {
               margin: "28px 0 0",
             }}
           >
-            We build
+            How we
             <br />
             <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>
-              quietly.
+              work.
             </em>
           </h1>
         </Reveal>
@@ -112,70 +112,38 @@ function ManifestoBody() {
       >
         <Reveal variant="up">
           <p style={{ marginTop: 0 }}>
-            We started Pinehollow because we wanted to use software that felt the way our favourite objects feel. Well-made. Honest. Quiet. Software that wears in rather than out.
+            Pinehollow Studios is a two-person iOS software studio. Tom builds the apps. Jack runs product. That&rsquo;s the company.
           </p>
         </Reveal>
 
         <Reveal variant="up">
           <p>
-            Most of the internet got very loud somewhere along the way. Every app wanted to be a platform. Every feature wanted to be a hook. Every screen wanted to be the one you came back to. Engagement, we were told, was the point.
-          </p>
-        </Reveal>
-
-        <Reveal variant="up">
-          <p>We disagree.</p>
-        </Reveal>
-
-        <Reveal variant="up-lg" duration={1000}>
-          <blockquote
-            style={{
-              margin: "48px 0",
-              padding: "0 0 0 28px",
-              borderLeft: "2px solid var(--lp-pine-glow)",
-              fontFamily: "var(--lp-font-display)",
-              fontSize: "var(--lp-text-3xl)",
-              fontStyle: "italic",
-              fontWeight: 400,
-              color: "var(--lp-pine-mist)",
-              letterSpacing: "-0.025em",
-              lineHeight: 1.15,
-            }}
-          >
-            The point of a tool is to{" "}
-            <span style={{ color: "var(--lp-fg)", fontStyle: "normal" }}>do its job</span> — and then to wait, without complaint, until you need it again.
-          </blockquote>
-        </Reveal>
-
-        <Reveal variant="up">
-          <p>
-            Our apps don&apos;t have streaks. They don&apos;t have badges. They don&apos;t send notifications you didn&apos;t ask for. They don&apos;t try to be your second brain. They certainly don&apos;t want to be your friend.
-          </p>
-        </Reveal>
-
-        <Reveal variant="up">
-          <p>What they do is one thing. Quietly. With care.</p>
-        </Reveal>
-
-        <Reveal variant="up">
-          <p>
-            We are two people. Tom designs and engineers the apps. Jack leads product and content — what we build, who it&apos;s for, and how it gets to people. We work for ourselves, on our own time, with our own money.
+            We&rsquo;re self-funded. There are no investors, no debt, no exit plan. The apps pay for the apps. That means we get to choose what we make, who it&rsquo;s for, and how long it takes.
           </p>
         </Reveal>
 
         <Reveal variant="up">
           <p>
-            We are not, and will never be, a platform. We will never raise venture capital. We will never sell who you are. Our apps may share anonymised, aggregate usage with industry partners — Fairways with golf clubs, for example — and that funding model is what lets the apps stay free. It&apos;s never tied to your identity, the opt-out is one tap, and we tell you what&apos;s collected before you start.
+            Most modern software is designed around attention — streaks, badges, push notifications dressed up as features, daily prompts to keep you opening the app. We don&rsquo;t do any of that. Our apps are there when you want them, and out of the way when you don&rsquo;t.
           </p>
         </Reveal>
 
         <Reveal variant="up">
           <p>
-            We will, in exchange, make small, considered software that respects you. We&apos;ll support it for years. We&apos;ll mend it when it breaks. We&apos;ll retire it kindly when its time is over.
+            We&rsquo;d rather make a small thing well than a big thing badly. Each app does one job. If we have a new idea, we start a new app — we don&rsquo;t bolt features onto something that&rsquo;s already done.
           </p>
         </Reveal>
 
         <Reveal variant="up">
-          <p style={{ marginBottom: 0 }}>That is the whole agreement.</p>
+          <p>
+            Each app is free to download. Where there are extras, they live behind a paid Pro tier — never the basics. Some of our apps may share anonymised, aggregate usage with industry partners (Fairways with golf clubs, for example) to fund the free tier; we go into the detail on the privacy page.
+          </p>
+        </Reveal>
+
+        <Reveal variant="up">
+          <p style={{ marginBottom: 0 }}>
+            That&rsquo;s the approach. It might change in places, and if it does we&rsquo;ll say so here.
+          </p>
         </Reveal>
       </div>
     </Section>
@@ -198,7 +166,7 @@ function ManifestoPrinciples() {
               margin: "16px 0 0",
             }}
           >
-            The agreement,
+            How we work,
             <br />
             in <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>six lines</em>.
           </h2>

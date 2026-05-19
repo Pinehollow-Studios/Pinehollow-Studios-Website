@@ -7,7 +7,7 @@ import { Reveal } from "@/components/shared/reveal";
 
 export const metadata: Metadata = {
   title: "Contact — Pinehollow Studios",
-  description: "Write to us. We read every message ourselves and reply within two working days.",
+  description: "Get in touch with Pinehollow Studios. Email is the fastest way.",
 };
 
 export default function ContactPage() {
@@ -25,7 +25,7 @@ function ContactHero() {
     <Section py="100px">
       <div className="lp-hero-pad-top" style={{ paddingTop: 40, maxWidth: 1000 }}>
         <Reveal variant="up" immediate delay={80}>
-          <Pill tone="pine" icon="dot">We read every message</Pill>
+          <Pill tone="pine" icon="dot">Contact</Pill>
         </Reveal>
         <Reveal variant="up-xl" immediate delay={180} duration={1100}>
           <h1
@@ -38,10 +38,9 @@ function ContactHero() {
               margin: "28px 0 0",
             }}
           >
-            Say hello,
-            <br />
+            Get in{" "}
             <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>
-              without ceremony
+              touch
             </em>
             .
           </h1>
@@ -56,7 +55,7 @@ function ContactHero() {
               marginTop: 28,
             }}
           >
-            The fastest way to reach us is email. We read everything ourselves, and reply within two working days. Usually one.
+            Email is the fastest way to reach us. Tom and Jack both see what comes in.
           </p>
         </Reveal>
       </div>
@@ -78,7 +77,7 @@ function ContactGrid() {
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
           <Reveal variant="up-lg" duration={900} delay={360}>
           <GlassCard hover style={{ padding: 28 }}>
-            <Overline>General &amp; support</Overline>
+            <Overline>Email</Overline>
             <a
               href="mailto:support@pinehollow.studio"
               style={{
@@ -94,7 +93,7 @@ function ContactGrid() {
               support@pinehollow.studio
             </a>
             <div style={{ fontSize: 14, color: "var(--lp-fg-mute)", marginTop: 8 }}>
-              Goes to both of us. The fastest way to reach the studio.
+              For anything — support, questions, hello.
             </div>
           </GlassCard>
           </Reveal>
@@ -122,7 +121,7 @@ function ContactGrid() {
                 position: "relative",
               }}
             >
-              Two people · United Kingdom
+              Tom &amp; Jack · UK
             </div>
             <div
               style={{
@@ -134,14 +133,14 @@ function ContactGrid() {
                 position: "relative",
               }}
             >
-              ● ACCEPTING MESSAGES
+              ● BUILDING FAIRWAYS
             </div>
           </GlassCard>
           </Reveal>
 
           <Reveal variant="up-lg" duration={900} delay={640}>
           <GlassCard hover style={{ padding: 28 }}>
-            <Overline>Hours</Overline>
+            <Overline>Replies</Overline>
             <div
               style={{
                 fontFamily: "var(--lp-font-display)",
@@ -151,10 +150,10 @@ function ContactGrid() {
                 marginTop: 12,
               }}
             >
-              Reply within 2 working days
+              Usually within a few days
             </div>
             <div style={{ fontSize: 14, color: "var(--lp-fg-mute)", marginTop: 8 }}>
-              From a real address. No autoresponder.
+              Sometimes longer if we&rsquo;re deep in something.
             </div>
           </GlassCard>
           </Reveal>
@@ -173,20 +172,20 @@ function ContactGrid() {
 function ContactFaq() {
   const faqs = [
     {
-      q: "What do you actually make?",
-      a: "Independent software, primarily for iOS — and increasingly for macOS and the web alongside. We're still early; the public catalogue is short on purpose.",
+      q: "What do you make?",
+      a: "iOS apps. Our first is Fairways, a golf app — in development, no shipping date yet.",
     },
     {
-      q: "Are you available for client work?",
-      a: "Generally no. Pinehollow's focus is our own products. If you have something genuinely interesting, write to us anyway — we'll consider it carefully.",
+      q: "Do you take client work?",
+      a: "Not usually. Pinehollow is focused on our own products. If you have something interesting, write to us anyway.",
     },
     {
-      q: "Will you sell my data?",
-      a: "Not the kind that's tied to you. Our apps may share anonymised, aggregate usage with industry partners — Fairways with golf clubs, for example — and that's what keeps them free. It's never tied to your identity, and you can opt out in one tap.",
+      q: "Do you sell my data?",
+      a: "We don't sell personal data. See our privacy page for the detail on what each app collects and shares.",
     },
     {
       q: "Are you hiring?",
-      a: "No. We are two people and intend to stay that way. We will say so loudly if that ever changes.",
+      a: "No. We're two people and that's the plan for the foreseeable.",
     },
   ];
   return (
@@ -204,9 +203,9 @@ function ContactFaq() {
               margin: "16px 0 0",
             }}
           >
-            Quick answers,
+            A few common
             <br />
-            before you write.
+            questions.
           </h2>
         </div>
       </Reveal>

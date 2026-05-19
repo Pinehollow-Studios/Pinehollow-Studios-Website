@@ -8,7 +8,7 @@ export function Hero() {
     <Section py="80px">
       <div className="lp-hero-pad-top" style={{ textAlign: "center", position: "relative", paddingTop: 60 }}>
         <Reveal variant="up" immediate delay={80}>
-          <Pill tone="pine" icon="dot">Pinehollow Studios · 2026</Pill>
+          <Pill tone="pine" icon="dot">Pinehollow Studios</Pill>
         </Reveal>
 
         <Reveal variant="up-xl" immediate delay={180} duration={1100}>
@@ -23,9 +23,9 @@ export function Hero() {
               maxWidth: 1100,
             }}
           >
-            Independent software,<br />
+            A two-person<br />
             <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>
-              built quietly.
+              software studio.
             </em>
           </h1>
         </Reveal>
@@ -40,7 +40,7 @@ export function Hero() {
               margin: "32px auto 0",
             }}
           >
-            A two-person studio by Tom and Jack. We design, build, and ship our own apps for iOS, macOS and the web — on our own time, with our own money, for the long run.
+            We&apos;re Tom and Jack. We make iOS apps — starting with Fairways, a golf app. Self-funded, UK-based, in no particular rush.
           </p>
         </Reveal>
 
@@ -54,8 +54,8 @@ export function Hero() {
               flexWrap: "wrap",
             }}
           >
-            <PrimaryButton href="/manifesto" size="lg">Read the manifesto →</PrimaryButton>
-            <GhostButton href="/studio" size="lg">Meet the studio</GhostButton>
+            <PrimaryButton href="/apps" size="lg">See what we&apos;re building →</PrimaryButton>
+            <GhostButton href="/studio" size="lg">About us</GhostButton>
           </div>
         </Reveal>
 
@@ -81,8 +81,8 @@ export function Hero() {
                   <PrincipleTile
                     no="PH-001"
                     kicker="What we make"
-                    title="Considered tools"
-                    body="Small, focused apps that do one thing well. iOS first, with macOS and the web close behind."
+                    title="iOS apps"
+                    body="One app at a time. Fairways is in the workshop now — a golf app. We'll share more closer to launch."
                     glow="var(--lp-pine-glow)"
                   />
                 </Reveal>
@@ -90,17 +90,17 @@ export function Hero() {
                   <PrincipleTile
                     no="PH-002"
                     kicker="How we work"
-                    title="Slowly, on our own"
-                    body="No investors. No advertising. No engagement tricks. We ship when the work is ready, and not before."
+                    title="Self-funded"
+                    body="No investors. No ads. We ship when the app is ready."
                     glow="var(--lp-sky)"
                   />
                 </Reveal>
                 <Reveal variant="up" immediate delay={1140}>
                   <PrincipleTile
                     no="PH-003"
-                    kicker="How we charge"
-                    title="Free at the centre"
-                    body="Every app ships free, with the whole thing usable on day one. Pro is for the power-user edges — nice to have, never required."
+                    kicker="Pricing"
+                    title="Free to download"
+                    body="Each app is free. A paid Pro tier adds extras for people who want more — it never gates the basics."
                     glow="var(--lp-pine-mist)"
                   />
                 </Reveal>

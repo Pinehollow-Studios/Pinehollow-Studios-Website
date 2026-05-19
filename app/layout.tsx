@@ -11,11 +11,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://pinehollow.studio"),
   title: "Pinehollow Studios",
   description:
-    "A two-person software studio building independent apps for iOS, macOS, and the web — quietly, and on our own terms.",
+    "A two-person iOS software studio by Tom and Jack. Currently building Fairways, a golf app.",
   openGraph: {
     title: "Pinehollow Studios",
     description:
-      "A two-person software studio building independent apps for iOS, macOS, and the web — quietly, and on our own terms.",
+      "A two-person iOS software studio by Tom and Jack. Currently building Fairways, a golf app.",
     // images is auto-resolved from app/opengraph-image.tsx
   },
   // Explicitly enumerate the icons so legacy consumers (Google indexer, older

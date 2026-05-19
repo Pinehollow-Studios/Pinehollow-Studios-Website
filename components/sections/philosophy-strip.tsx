@@ -4,18 +4,18 @@ import { Reveal } from "@/components/shared/reveal";
 const items = [
   {
     no: "01",
-    label: "Restraint",
-    body: "One thousand no's for every yes. Each app does one thing well. Feature creep is the slow death of considered software — we'd rather start something new.",
+    label: "One thing at a time",
+    body: "We make one app, well, then move on. If we have a new idea, we start something new rather than piling features onto something that's already finished.",
   },
   {
     no: "02",
-    label: "Anonymous",
-    body: "We never sell personal data. Some apps share anonymised, aggregate usage with industry partners — never tied to you, opt out in one tap. It's the honest reason our apps stay free.",
+    label: "Self-funded",
+    body: "No investors, no ads. The studio runs on what the apps earn. That keeps the choices ours.",
   },
   {
     no: "03",
-    label: "Permanence",
-    body: "Software you can settle into. We build for ten years, not for next quarter. Free at the core, long support, calm updates.",
+    label: "iOS first",
+    body: "We focus on iPhone. Mac, web, or Android come later if and when they make sense for a given app.",
   },
 ];
 
@@ -24,7 +24,7 @@ export function PhilosophyStrip() {
     <Section py="120px">
       <Reveal variant="up-lg">
         <div style={{ marginBottom: 64 }}>
-          <Overline>How we build</Overline>
+          <Overline>What we believe</Overline>
           <h2
             style={{
               fontFamily: "var(--lp-font-display)",
@@ -36,11 +36,9 @@ export function PhilosophyStrip() {
               maxWidth: 800,
             }}
           >
-            Three things, held loosely
-            <br />
-            and{" "}
+            A few things we&rsquo;ve{" "}
             <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>
-              kept very still
+              decided
             </em>
             .
           </h2>

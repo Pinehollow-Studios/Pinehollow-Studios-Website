@@ -9,29 +9,29 @@ import { Reveal } from "@/components/shared/reveal";
 
 export const metadata: Metadata = {
   title: "Studio — Pinehollow Studios",
-  description: "Pinehollow Studios is a two-person software studio. Meet Tom and Jack.",
+  description: "Pinehollow Studios is a two-person iOS software studio. About Tom and Jack.",
 };
 
 const founders = [
   {
-    name: "Tom Slater",
-    role: "Engineering · Design",
+    name: "Tom",
+    role: "Engineering & design",
     mark: "t",
     based: "United Kingdom",
     glow: "var(--lp-pine-glow)",
-    bio: "Tom designs and builds the apps. He works in Swift and SwiftUI for iOS and macOS, and in TypeScript and React on the web. He spends an unreasonable amount of time on the small details — the kind you only notice when they're wrong.",
+    bio: "Tom builds the apps. He works in Swift and SwiftUI on iOS, with some TypeScript and React on the web.",
     stack: ["Swift", "SwiftUI", "TypeScript", "React", "Figma"],
-    quote: "I want to make software the way you make a good chair.",
+    quote: "",
   },
   {
     name: "Jack",
-    role: "Product · Content",
+    role: "Product",
     mark: "j",
     based: "United Kingdom",
     glow: "var(--lp-sky)",
-    bio: "Jack leads product direction and content. He decides what we build, who it's for, and how it gets to the people who'd use it. He thinks deeply about the boring things — pricing, words, how an app is introduced — so the rest of the work can stay quiet.",
-    stack: ["Product strategy", "Writing", "Research", "A long memory"],
-    quote: "The hardest part is deciding what not to build.",
+    bio: "Jack runs product. He decides what we build, who it's for, and what we leave out.",
+    stack: ["Product", "Writing", "Research", "Support"],
+    quote: "",
   },
 ];
 
@@ -52,7 +52,7 @@ function StudioHero() {
     <Section py="100px">
       <div className="lp-hero-pad-top" style={{ paddingTop: 40, maxWidth: 1000 }}>
         <Reveal variant="up" immediate delay={80}>
-          <Pill tone="pine" icon="dot">The Studio · Two people · Independent</Pill>
+          <Pill tone="pine" icon="dot">The studio</Pill>
         </Reveal>
         <Reveal variant="up-xl" immediate delay={180} duration={1100}>
           <h1
@@ -65,12 +65,10 @@ function StudioHero() {
               margin: "28px 0 0",
             }}
           >
-            Two people,
-            <br />
-            one <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>
-              quiet workshop
-            </em>
-            .
+            <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>
+              About
+            </em>{" "}
+            us.
           </h1>
         </Reveal>
         <Reveal variant="up" immediate delay={420}>
@@ -83,7 +81,7 @@ function StudioHero() {
               marginTop: 28,
             }}
           >
-            Pinehollow Studios is a two-person software studio. We design, build, support, and answer for every line of code under our name. No outsourcing. No investors. No urgency that isn&apos;t ours.
+            Pinehollow is the two of us — Tom and Jack. We started the studio in 2026 to make iOS apps we wanted to use ourselves. We do all the work ourselves: no outsourcing, no investors.
           </p>
         </Reveal>
       </div>
@@ -148,7 +146,7 @@ function StudioPhoto() {
                 gap: 12,
               }}
             >
-              <Pill tone="pine" icon="dot">The studio · in person</Pill>
+              <Pill tone="pine" icon="dot">Jack · on a course</Pill>
             </div>
             <div
               style={{
@@ -289,22 +287,24 @@ function FoundersGrid() {
                 {f.bio}
               </p>
 
-              <blockquote
-                style={{
-                  margin: "28px 0 0",
-                  padding: "0 0 0 18px",
-                  borderLeft: `2px solid ${f.glow}`,
-                  fontFamily: "var(--lp-font-display)",
-                  fontStyle: "italic",
-                  fontWeight: 400,
-                  fontSize: 20,
-                  color: "var(--lp-pine-mist)",
-                  letterSpacing: "-0.01em",
-                  lineHeight: 1.35,
-                }}
-              >
-                &ldquo;{f.quote}&rdquo;
-              </blockquote>
+              {f.quote ? (
+                <blockquote
+                  style={{
+                    margin: "28px 0 0",
+                    padding: "0 0 0 18px",
+                    borderLeft: `2px solid ${f.glow}`,
+                    fontFamily: "var(--lp-font-display)",
+                    fontStyle: "italic",
+                    fontWeight: 400,
+                    fontSize: 20,
+                    color: "var(--lp-pine-mist)",
+                    letterSpacing: "-0.01em",
+                    lineHeight: 1.35,
+                  }}
+                >
+                  &ldquo;{f.quote}&rdquo;
+                </blockquote>
+              ) : null}
 
               <div
                 style={{
@@ -372,7 +372,7 @@ function StudioStory() {
           }}
         >
           <div>
-            <Overline>The studio story</Overline>
+            <Overline>About the studio</Overline>
             <h2
               style={{
                 fontFamily: "var(--lp-font-display)",
@@ -383,9 +383,9 @@ function StudioStory() {
                 margin: "16px 0 0",
               }}
             >
-              Why we work
+              How we&rsquo;re
               <br />
-              this <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>way</em>.
+              <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>set up</em>.
             </h2>
           </div>
           <div
@@ -399,13 +399,13 @@ function StudioStory() {
             }}
           >
             <p style={{ margin: 0 }}>
-              Pinehollow started as the two of us, fresh out of university, building the apps we wanted to use ourselves — and asking why so much of modern software felt rushed, loud, or built for someone else&apos;s metrics.
+              We&rsquo;re two cofounders, in the UK. Tom handles engineering and design. Jack handles product. We started the studio in 2026 to make iOS apps we wanted to use ourselves.
             </p>
             <p style={{ margin: 0 }}>
-              A studio of two, owned by two, accountable to two. The pace is set by us. The standard is set by us. The roadmap is set by us. The customer hears from us directly.
+              The company is self-funded. No investors, no debt, no plans to take any on. The apps pay for the apps.
             </p>
             <p style={{ margin: 0 }}>
-              We don&apos;t expect to ever be bigger than two people. We don&apos;t expect to raise money. We don&apos;t expect to sell. The plan is to keep going, slowly, for a long time.
+              We don&rsquo;t expect to grow much past two people. We&rsquo;d rather build a handful of things we&rsquo;re proud of than a company that needs to keep growing.
             </p>
           </div>
         </div>
@@ -423,10 +423,10 @@ function StudioStory() {
 
 function StudioFacts() {
   const facts = [
-    { k: "2", d: "Co-founders" },
-    { k: "0", d: "Investors" },
-    { k: "0", d: "Ads run" },
-    { k: "∞", d: "Years committed" },
+    { k: "2", d: "Founders" },
+    { k: "2026", d: "Started" },
+    { k: "iOS", d: "Focus" },
+    { k: "UK", d: "Based" },
   ];
   return (
     <Section py="80px">

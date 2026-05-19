@@ -86,7 +86,7 @@ export function ContactForm() {
               marginTop: 28,
             }}
           >
-            Off it goes — <em style={{ fontStyle: "italic", color: "var(--lp-pine-mist)" }}>thanks</em>.
+            Sent — <em style={{ fontStyle: "italic", color: "var(--lp-pine-mist)" }}>thanks</em>.
           </h2>
           <p
             style={{
@@ -95,11 +95,11 @@ export function ContactForm() {
               margin: "12px auto 0",
             }}
           >
-            Your mail client should have opened. If nothing happened, write to us directly at{" "}
+            Your mail client should have opened. If not, write to{" "}
             <a href="mailto:support@pinehollow.studio" style={{ color: "var(--lp-pine-glow)" }}>
               support@pinehollow.studio
-            </a>
-            .
+            </a>{" "}
+            directly.
           </p>
         </div>
       ) : (
@@ -115,9 +115,7 @@ export function ContactForm() {
               lineHeight: 1.1,
             }}
           >
-            Tell us what you&apos;re
-            <br />
-            writing about.
+            Write us a line.
           </h2>
 
           <div style={{ marginBottom: 24 }}>
@@ -195,7 +193,7 @@ export function ContactForm() {
                 background: "var(--lp-pine-glow)",
               }}
             />
-            <span>Replies within two working days · usually one</span>
+            <span>Replies usually within a few days</span>
           </div>
 
           <div style={{ marginTop: 28 }}>

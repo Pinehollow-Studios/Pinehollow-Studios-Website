@@ -27,8 +27,8 @@ const policySections = [
     body: "We sell aggregate, anonymised insights derived from app usage to relevant industry partners — for Fairways, that means golf clubs and course operators. Personal data is never sold, shared, or transferred. Identifiers are stripped before any data leaves the app, and partners only ever see aggregated patterns, not individuals.",
   },
   {
-    title: "What we never do",
-    body: "We never sell personal information. We never share anything tied to your identity with third parties. We never run advertising. We never build marketing profiles of you.",
+    title: "What we don't do",
+    body: "We don't sell personal information, don't share identifiable data with third parties, don't run advertising, and don't build marketing profiles of you.",
   },
   {
     title: "Cookies",
@@ -71,10 +71,9 @@ export default function PrivacyPage() {
                 margin: "28px 0 0",
               }}
             >
-              Anonymous data,
-              <br />
+              Privacy{" "}
               <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>
-                never personal
+                policy
               </em>
               .
             </h1>
@@ -89,7 +88,7 @@ export default function PrivacyPage() {
                 marginTop: 28,
               }}
             >
-              What our apps collect, what gets sold to industry partners, and what stays entirely yours.
+              What this site and our apps collect, what we share with partners, and what stays yours.
             </p>
             <div
               style={{

@@ -28,11 +28,7 @@ export function FinalCta() {
               margin: 0,
             }}
           >
-            Write to us, when you&apos;re{" "}
-            <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>
-              ready
-            </em>
-            .
+            Get in touch.
           </h2>
         </Reveal>
         <Reveal variant="up" delay={180}>
@@ -45,7 +41,7 @@ export function FinalCta() {
               margin: "20px auto 0",
             }}
           >
-            We&apos;re a small studio, so we read every message ourselves. Reply within two working days.
+            We&rsquo;d be glad to hear from you. Email works best.
           </p>
         </Reveal>
         <Reveal variant="up" delay={320}>
@@ -59,8 +55,8 @@ export function FinalCta() {
               flexWrap: "wrap",
             }}
           >
-            <PrimaryButton href="/contact" size="lg">Say hello →</PrimaryButton>
-            <GhostButton href="/manifesto" size="lg">Read the manifesto</GhostButton>
+            <PrimaryButton href="/contact" size="lg">Contact us →</PrimaryButton>
+            <GhostButton href="/manifesto" size="lg">Our approach</GhostButton>
           </div>
         </Reveal>
       </div>

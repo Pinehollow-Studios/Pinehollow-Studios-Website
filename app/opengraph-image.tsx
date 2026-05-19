@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = "Pinehollow Studios — independent software, built quietly.";
+export const alt = "Pinehollow Studios — a two-person iOS software studio.";
 
 const markSvg = `
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
@@ -88,9 +88,9 @@ export default function OgImage() {
               flexDirection: "column",
             }}
           >
-            <span>Independent software,</span>
-            <span style={{ fontStyle: "italic", color: "#B8F5D6", fontWeight: 400 }}>
-              built quietly.
+            <span>A two-person</span>
+            <span style={{ fontStyle: "italic", color: "#D6F5FF", fontWeight: 400 }}>
+              software studio.
             </span>
           </div>
           <div

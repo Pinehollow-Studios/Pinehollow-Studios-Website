@@ -61,9 +61,7 @@ export function StudioPeek() {
                   margin: "16px 0 0",
                 }}
               >
-                Two people,
-                <br />
-                one quiet workshop.
+                Tom and Jack.
               </h2>
               <p
                 style={{
@@ -74,10 +72,10 @@ export function StudioPeek() {
                   maxWidth: 460,
                 }}
               >
-                Pinehollow is the joint studio of Tom and Jack — old friends, now business partners. Tom leads engineering and design. Jack leads product and content. We do all the work ourselves. No outsourcing. No investors. No urgency that isn&apos;t ours.
+                Pinehollow is the two of us. Tom builds the apps; Jack runs product. We started the studio in 2026 to make iOS apps we wanted to use ourselves, on our own time and money.
               </p>
               <div style={{ marginTop: 32 }}>
-                <GhostButton href="/studio" size="lg">Meet the studio →</GhostButton>
+                <GhostButton href="/studio" size="lg">About us →</GhostButton>
               </div>
             </div>
 

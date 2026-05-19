@@ -94,7 +94,7 @@ export function Footer() {
                 marginTop: 16,
               }}
             >
-              A two-person software studio by Tom and Jack, trading as Pinehollow Studios Limited. We design, build, and ship our own apps — quietly, and on our own terms.
+              A two-person iOS software studio by Tom and Jack. Trading as Pinehollow Studios Limited.
             </p>
             <div
               style={{
@@ -126,7 +126,7 @@ export function Footer() {
                   color: "var(--lp-pine-glow)",
                 }}
               >
-                Open studio · accepting messages
+                Currently building Fairways
               </span>
             </div>
           </div>
@@ -166,7 +166,7 @@ export function Footer() {
           }}
         >
           <div>© Pinehollow Studios Limited — 2026 · Registered in England &amp; Wales</div>
-          <div>Anonymous by default · Opt-out always · Built independently</div>
+          <div>Two people · United Kingdom</div>
         </div>
       </div>
 
