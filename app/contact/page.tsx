@@ -107,7 +107,7 @@ function ContactGrid() {
                 position: "absolute",
                 inset: 0,
                 background:
-                  "radial-gradient(60% 60% at 80% 30%, rgba(63,229,160,0.20), transparent 70%)",
+                  "radial-gradient(60% 60% at 80% 30%, rgba(127,228,255,0.20), transparent 70%)",
                 opacity: 0.45,
               }}
             />

@@ -22,8 +22,8 @@ interface ButtonProps {
 
 export function PrimaryButton({ children, href, onClick, size = "md", type, external }: ButtonProps) {
   const style: CSSProperties = {
-    background: "linear-gradient(180deg, #5EFFBE 0%, #3FE5A0 100%)",
-    color: "#04190E",
+    background: "linear-gradient(180deg, #B0F1FF 0%, #7FE4FF 100%)",
+    color: "#06181F",
     border: "1px solid rgba(255,255,255,0.30)",
     borderRadius: "var(--lp-r-pill)",
     fontWeight: 600,
@@ -31,7 +31,7 @@ export function PrimaryButton({ children, href, onClick, size = "md", type, exte
     letterSpacing: "-0.005em",
     whiteSpace: "nowrap",
     boxShadow:
-      "0 0 28px -4px rgba(63,229,160,0.55), inset 0 1px 0 rgba(255,255,255,0.5)",
+      "0 0 28px -4px rgba(127,228,255,0.55), inset 0 1px 0 rgba(255,255,255,0.5)",
     transition:
       "transform var(--lp-dur) var(--lp-ease), box-shadow var(--lp-dur) var(--lp-ease), filter var(--lp-dur) var(--lp-ease)",
     display: "inline-flex",

@@ -51,7 +51,7 @@ export function ContactForm() {
           width: 480,
           height: 480,
           borderRadius: 99,
-          background: "radial-gradient(circle at center, rgba(63,229,160,0.25), transparent 70%)",
+          background: "radial-gradient(circle at center, rgba(127,228,255,0.25), transparent 70%)",
           opacity: 0.4,
           filter: "blur(40px)",
         }}
@@ -71,7 +71,7 @@ export function ContactForm() {
               justifyContent: "center",
               margin: "0 auto",
               fontSize: 28,
-              color: "#04190E",
+              color: "#06181F",
               fontWeight: 700,
             }}
           >
@@ -139,8 +139,8 @@ export function ContactForm() {
                   style={{
                     padding: "11px 8px",
                     borderRadius: "var(--lp-r)",
-                    background: topic === t ? "rgba(63,229,160,0.10)" : "var(--lp-glass)",
-                    border: `1px solid ${topic === t ? "rgba(63,229,160,0.40)" : "var(--lp-glass-rim)"}`,
+                    background: topic === t ? "rgba(127,228,255,0.10)" : "var(--lp-glass)",
+                    border: `1px solid ${topic === t ? "rgba(127,228,255,0.40)" : "var(--lp-glass-rim)"}`,
                     color: topic === t ? "var(--lp-pine-glow)" : "var(--lp-fg)",
                     fontFamily: "var(--lp-font-mono)",
                     fontSize: 12,
@@ -259,7 +259,7 @@ function Field({
     fontSize: 15,
     color: "var(--lp-fg)",
     transition: "all var(--lp-dur) var(--lp-ease)",
-    boxShadow: focused ? "0 0 0 4px rgba(63,229,160,0.10)" : "none",
+    boxShadow: focused ? "0 0 0 4px rgba(127,228,255,0.10)" : "none",
     outline: "none",
     resize: "vertical",
   };

@@ -19,7 +19,7 @@ export function StudioPeek() {
               height: 480,
               borderRadius: 99,
               background:
-                "radial-gradient(circle at center, rgba(63,229,160,0.20), transparent 70%)",
+                "radial-gradient(circle at center, rgba(127,228,255,0.20), transparent 70%)",
               filter: "blur(40px)",
             }}
           />
@@ -108,7 +108,7 @@ export function StudioPeek() {
                     position: "absolute",
                     inset: 0,
                     background:
-                      "linear-gradient(180deg, rgba(10,20,16,0) 55%, rgba(5,10,8,0.75) 100%)",
+                      "linear-gradient(180deg, rgba(7,12,18,0) 55%, rgba(4,8,13,0.75) 100%)",
                   }}
                 />
                 <div

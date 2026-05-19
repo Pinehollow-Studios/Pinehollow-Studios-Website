@@ -41,7 +41,7 @@ export function StudioBulletin() {
           height: 460,
           borderRadius: "50%",
           background:
-            "radial-gradient(circle at center, rgba(63,229,160,0.16), transparent 70%)",
+            "radial-gradient(circle at center, rgba(127,228,255,0.16), transparent 70%)",
           filter: "blur(40px)",
           pointerEvents: "none",
         }}
@@ -56,7 +56,7 @@ export function StudioBulletin() {
           height: 420,
           borderRadius: "50%",
           background:
-            "radial-gradient(circle at center, rgba(159,224,255,0.08), transparent 70%)",
+            "radial-gradient(circle at center, rgba(242,215,168,0.10), transparent 70%)",
           filter: "blur(40px)",
           pointerEvents: "none",
         }}
@@ -292,7 +292,7 @@ function StayClose() {
     color: "var(--lp-fg)",
     outline: "none",
     transition: "all var(--lp-dur) var(--lp-ease)",
-    boxShadow: focused ? "0 0 0 3px rgba(63,229,160,0.10)" : "none",
+    boxShadow: focused ? "0 0 0 3px rgba(127,228,255,0.10)" : "none",
   };
 
   return (
@@ -343,8 +343,8 @@ function StayClose() {
             marginTop: 16,
             padding: "10px 14px",
             borderRadius: "var(--lp-r)",
-            background: "rgba(63,229,160,0.08)",
-            border: "1px solid rgba(63,229,160,0.30)",
+            background: "rgba(127,228,255,0.08)",
+            border: "1px solid rgba(127,228,255,0.30)",
             color: "var(--lp-pine-glow)",
             fontSize: 14,
           }}
@@ -373,8 +373,8 @@ function StayClose() {
             type="submit"
             style={{
               padding: "10px 16px",
-              background: "linear-gradient(180deg, #5EFFBE 0%, #3FE5A0 100%)",
-              color: "#04190E",
+              background: "linear-gradient(180deg, #B0F1FF 0%, #7FE4FF 100%)",
+              color: "#06181F",
               border: "1px solid rgba(255,255,255,0.30)",
               borderRadius: "var(--lp-r)",
               fontFamily: "var(--lp-font-body)",
@@ -383,7 +383,7 @@ function StayClose() {
               letterSpacing: "-0.005em",
               cursor: "pointer",
               boxShadow:
-                "0 0 20px -6px rgba(63,229,160,0.55), inset 0 1px 0 rgba(255,255,255,0.5)",
+                "0 0 20px -6px rgba(127,228,255,0.55), inset 0 1px 0 rgba(255,255,255,0.5)",
               whiteSpace: "nowrap",
             }}
           >
@@ -404,8 +404,8 @@ function LiveTag({ children }: { children: React.ReactNode }) {
         gap: 6,
         padding: "5px 11px",
         borderRadius: "var(--lp-r-pill)",
-        background: "rgba(63,229,160,0.10)",
-        border: "1px solid rgba(63,229,160,0.30)",
+        background: "rgba(127,228,255,0.10)",
+        border: "1px solid rgba(127,228,255,0.30)",
         color: "var(--lp-pine-glow)",
         fontFamily: "var(--lp-font-mono)",
         fontSize: 11,

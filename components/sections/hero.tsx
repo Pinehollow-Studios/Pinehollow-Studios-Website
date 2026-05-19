@@ -67,7 +67,7 @@ export function Hero() {
                 position: "absolute",
                 inset: "-60px -60px 20%",
                 background:
-                  "radial-gradient(60% 60% at 50% 40%, rgba(63,229,160,0.30), transparent 70%)",
+                  "radial-gradient(60% 60% at 50% 40%, rgba(127,228,255,0.30), transparent 70%)",
                 filter: "blur(40px)",
               }}
             />

@@ -5,10 +5,10 @@ type Icon = "dot" | "dot-still";
 
 const tones: Record<Tone, { bg: string; border: string; color: string }> = {
   default: { bg: "var(--lp-glass)", border: "var(--lp-glass-rim)", color: "var(--lp-fg-mute)" },
-  pine:    { bg: "rgba(63,229,160,0.10)", border: "rgba(63,229,160,0.30)", color: "var(--lp-pine-glow)" },
-  sky:     { bg: "rgba(159,224,255,0.08)", border: "rgba(159,224,255,0.28)", color: "var(--lp-sky)" },
+  pine:    { bg: "rgba(127,228,255,0.10)", border: "rgba(127,228,255,0.30)", color: "var(--lp-pine-glow)" },
+  sky:     { bg: "rgba(242,215,168,0.10)", border: "rgba(242,215,168,0.30)", color: "var(--lp-sky)" },
   ember:   { bg: "rgba(255,149,96,0.10)", border: "rgba(255,149,96,0.30)", color: "var(--lp-ember)" },
-  solid:   { bg: "var(--lp-pine-glow)", border: "transparent", color: "#04190E" },
+  solid:   { bg: "var(--lp-pine-glow)", border: "transparent", color: "var(--lp-ice-ink)" },
 };
 
 export function Pill({

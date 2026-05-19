@@ -104,8 +104,8 @@ export function Footer() {
                 marginTop: 28,
                 padding: "6px 14px",
                 borderRadius: "var(--lp-r-pill)",
-                border: "1px solid rgba(63,229,160,0.30)",
-                background: "rgba(63,229,160,0.06)",
+                border: "1px solid rgba(127,228,255,0.30)",
+                background: "rgba(127,228,255,0.06)",
               }}
             >
               <span

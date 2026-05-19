@@ -84,7 +84,7 @@ function FairwaysTeaser() {
             height: 560,
             borderRadius: 99,
             background:
-              "radial-gradient(circle at center, rgba(63,229,160,0.30), transparent 70%)",
+              "radial-gradient(circle at center, rgba(127,228,255,0.30), transparent 70%)",
             opacity: 0.4,
             filter: "blur(20px)",
           }}
@@ -99,7 +99,7 @@ function FairwaysTeaser() {
             height: 600,
             borderRadius: 99,
             background:
-              "radial-gradient(circle at center, rgba(45,79,63,0.55), transparent 70%)",
+              "radial-gradient(circle at center, rgba(42,74,94,0.55), transparent 70%)",
             opacity: 0.5,
             filter: "blur(40px)",
           }}
@@ -327,7 +327,7 @@ function ObscuredCard() {
           position: "absolute",
           inset: 0,
           background:
-            "radial-gradient(80% 60% at 50% 35%, rgba(63,229,160,0.35), transparent 70%), radial-gradient(60% 60% at 50% 100%, rgba(45,79,63,0.6), transparent 70%)",
+            "radial-gradient(80% 60% at 50% 35%, rgba(127,228,255,0.35), transparent 70%), radial-gradient(60% 60% at 50% 100%, rgba(42,74,94,0.6), transparent 70%)",
         }}
       />
 
@@ -337,7 +337,7 @@ function ObscuredCard() {
         style={{
           position: "absolute",
           inset: 0,
-          background: "rgba(10,20,16,0.32)",
+          background: "rgba(7,12,18,0.32)",
           backdropFilter: "blur(28px) saturate(120%)",
           WebkitBackdropFilter: "blur(28px) saturate(120%)",
         }}

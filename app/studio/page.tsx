@@ -133,7 +133,7 @@ function StudioPhoto() {
                 position: "absolute",
                 inset: 0,
                 background:
-                  "linear-gradient(180deg, rgba(10,20,16,0.40) 0%, rgba(10,20,16,0) 24%, rgba(10,20,16,0) 60%, rgba(5,10,8,0.85) 100%)",
+                  "linear-gradient(180deg, rgba(7,12,18,0.40) 0%, rgba(7,12,18,0) 24%, rgba(7,12,18,0) 60%, rgba(4,8,13,0.85) 100%)",
               }}
             />
             <div
@@ -358,7 +358,7 @@ function StudioStory() {
             position: "absolute",
             inset: 0,
             background:
-              "radial-gradient(60% 80% at 80% 20%, rgba(255,149,96,0.10), transparent 70%), radial-gradient(60% 80% at 20% 80%, rgba(63,229,160,0.12), transparent 70%)",
+              "radial-gradient(60% 80% at 80% 20%, rgba(255,149,96,0.10), transparent 70%), radial-gradient(60% 80% at 20% 80%, rgba(127,228,255,0.12), transparent 70%)",
           }}
         />
         <div

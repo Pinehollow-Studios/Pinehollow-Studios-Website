@@ -1,21 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap');
 
 :root {
-  /* ─── COLOUR · BASE ─────────────────────────────────────── */
-  --lp-base:           #0A1410;
-  --lp-base-deep:      #050A08;
-  --lp-base-raised:    #0E1814;
+  /* ─── COLOUR · BASE — Glacial v2026 ─────────────────────── */
+  --lp-base:           #070C12;
+  --lp-base-deep:      #04080D;
+  --lp-base-raised:    #101822;
 
-  /* ─── COLOUR · PINE ─────────────────────────────────────── */
-  --lp-pine:           #2D4F3F;
-  --lp-pine-deep:      #1A3328;
-  --lp-pine-glow:      #3FE5A0;
-  --lp-pine-glow-hot:  #5EFFBE;
-  --lp-pine-mist:      #B8F5D6;
+  /* ─── COLOUR · SLATE (structural anchor, was "pine") ────── */
+  --lp-pine:           #2A4A5E;
+  --lp-pine-deep:      #15293A;
+  --lp-pine-glow:      #7FE4FF; /* ICE — the signal */
+  --lp-pine-glow-hot:  #B0F1FF;
+  --lp-pine-mist:      #D6F5FF;
 
   /* ─── COLOUR · SECONDARY ────────────────────────────────── */
   --lp-ember:          #FF9560;
-  --lp-sky:            #9FE0FF;
+  --lp-sky:            #F2D7A8; /* PARCHMENT — warm cream secondary */
+
+  /* ─── COLOUR · BUTTON-ON-ICE TEXT ───────────────────────── */
+  --lp-ice-ink:        #06181F;
 
   /* ─── COLOUR · TYPE ─────────────────────────────────────── */
   --lp-fg:             #F1F5F2;
@@ -100,8 +103,8 @@
   --lp-shadow-sm:      0 2px 12px rgba(0, 0, 0, 0.25);
   --lp-shadow:         0 24px 60px -20px rgba(0, 0, 0, 0.55);
   --lp-shadow-lg:      0 60px 100px -40px rgba(0, 0, 0, 0.65);
-  --lp-shadow-glow:    0 0 40px -4px rgba(63, 229, 160, 0.45);
-  --lp-shadow-glow-sm: 0 0 24px -8px rgba(63, 229, 160, 0.55);
+  --lp-shadow-glow:    0 0 40px -4px rgba(127, 228, 255, 0.45);
+  --lp-shadow-glow-sm: 0 0 24px -8px rgba(127, 228, 255, 0.55);
 
   /* ─── MOTION ──────────────────────────────────────────── */
   --lp-ease:           cubic-bezier(0.2, 0.7, 0.2, 1);
@@ -130,8 +133,8 @@ html, body {
 
 body {
   background:
-    radial-gradient(1100px 700px at 88% -10%, rgba(63, 229, 160, 0.10), transparent 60%),
-    radial-gradient(900px 700px at -10% 60%, rgba(45, 79, 63, 0.35), transparent 60%),
+    radial-gradient(1100px 700px at 88% -10%, rgba(127, 228, 255, 0.12), transparent 60%),
+    radial-gradient(900px 700px at -10% 60%, rgba(42, 74, 94, 0.40), transparent 60%),
     var(--lp-base);
   background-attachment: fixed;
   min-height: 100vh;
@@ -142,7 +145,7 @@ a { color: inherit; text-decoration: none; }
 button { font-family: inherit; cursor: pointer; background: none; border: 0; color: inherit; padding: 0; }
 img { display: block; max-width: 100%; }
 
-::selection { background: rgba(63, 229, 160, 0.35); color: var(--lp-fg); }
+::selection { background: rgba(127, 228, 255, 0.35); color: var(--lp-fg); }
 
 :focus-visible {
   outline: 2px solid var(--lp-pine-glow);

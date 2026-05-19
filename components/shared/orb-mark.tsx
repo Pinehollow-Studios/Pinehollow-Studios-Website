@@ -35,7 +35,7 @@ export function OrbMark({
         flexShrink: 0,
         background: `
           radial-gradient(circle at 32% 26%, rgba(255,255,255,0.55), rgba(255,255,255,0.10) 30%, transparent 55%),
-          radial-gradient(circle at 50% 70%, ${glow} 0%, rgba(45,79,63,0.85) 60%, rgba(10,20,16,0.95) 100%)
+          radial-gradient(circle at 50% 70%, ${glow} 0%, rgba(42,74,94,0.85) 60%, rgba(7,12,18,0.95) 100%)
         `,
         boxShadow: `
           inset 0 1px 0 rgba(255,255,255,0.55),

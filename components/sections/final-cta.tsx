@@ -12,7 +12,7 @@ export function FinalCta() {
             position: "absolute",
             inset: "-40px 20%",
             background:
-              "radial-gradient(60% 60% at 50% 50%, rgba(63,229,160,0.15), transparent 70%)",
+              "radial-gradient(60% 60% at 50% 50%, rgba(127,228,255,0.15), transparent 70%)",
             filter: "blur(40px)",
           }}
         />

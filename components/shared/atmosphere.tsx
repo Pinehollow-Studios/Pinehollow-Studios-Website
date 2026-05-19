@@ -17,7 +17,7 @@ const layerSets: Record<Variant, GlowLayer[]> = {
   default: [
     {
       background:
-        "radial-gradient(circle at center, rgba(63,229,160,0.22), transparent 65%)",
+        "radial-gradient(circle at center, rgba(127,228,255,0.22), transparent 65%)",
       anchor: { top: "-10%", left: "0%" },
       size: 900,
       anim: "drift-a",
@@ -25,7 +25,7 @@ const layerSets: Record<Variant, GlowLayer[]> = {
     },
     {
       background:
-        "radial-gradient(circle at center, rgba(45,79,63,0.50), transparent 65%)",
+        "radial-gradient(circle at center, rgba(42,74,94,0.55), transparent 65%)",
       anchor: { top: "-15%", right: "-10%" },
       size: 1000,
       anim: "drift-b",
@@ -43,7 +43,7 @@ const layerSets: Record<Variant, GlowLayer[]> = {
   deep: [
     {
       background:
-        "radial-gradient(circle at center, rgba(45,79,63,0.50), transparent 65%)",
+        "radial-gradient(circle at center, rgba(42,74,94,0.55), transparent 65%)",
       anchor: { top: "10%", left: "20%" },
       size: 1100,
       anim: "drift-b",
@@ -51,7 +51,7 @@ const layerSets: Record<Variant, GlowLayer[]> = {
     },
     {
       background:
-        "radial-gradient(circle at center, rgba(63,229,160,0.14), transparent 65%)",
+        "radial-gradient(circle at center, rgba(127,228,255,0.14), transparent 65%)",
       anchor: { top: "-8%", left: "-8%" },
       size: 700,
       anim: "drift-a",
@@ -61,7 +61,7 @@ const layerSets: Record<Variant, GlowLayer[]> = {
   sky: [
     {
       background:
-        "radial-gradient(circle at center, rgba(159,224,255,0.18), transparent 65%)",
+        "radial-gradient(circle at center, rgba(242,215,168,0.16), transparent 65%)",
       anchor: { top: "-8%", right: "-5%" },
       size: 900,
       anim: "drift-a",
@@ -69,7 +69,7 @@ const layerSets: Record<Variant, GlowLayer[]> = {
     },
     {
       background:
-        "radial-gradient(circle at center, rgba(63,229,160,0.20), transparent 65%)",
+        "radial-gradient(circle at center, rgba(127,228,255,0.20), transparent 65%)",
       anchor: { bottom: "-15%", left: "-5%" },
       size: 1000,
       anim: "drift-b",
@@ -87,7 +87,7 @@ const layerSets: Record<Variant, GlowLayer[]> = {
     },
     {
       background:
-        "radial-gradient(circle at center, rgba(63,229,160,0.16), transparent 65%)",
+        "radial-gradient(circle at center, rgba(127,228,255,0.16), transparent 65%)",
       anchor: { bottom: "-10%", left: "-5%" },
       size: 1000,
       anim: "drift-c",
@@ -97,7 +97,7 @@ const layerSets: Record<Variant, GlowLayer[]> = {
   quiet: [
     {
       background:
-        "radial-gradient(circle at center, rgba(63,229,160,0.08), transparent 65%)",
+        "radial-gradient(circle at center, rgba(127,228,255,0.10), transparent 65%)",
       anchor: { top: "-30%", left: "10%" },
       size: 1400,
       anim: "drift-a",
