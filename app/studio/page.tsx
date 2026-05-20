@@ -10,14 +10,14 @@ export const metadata: Metadata = {
 
 const founders = [
   {
-    name: "Tom Wright",
+    name: "Tom",
     role: "Engineering · Design",
     based: "United Kingdom",
     bio: "Tom builds the apps. He works in Swift and SwiftUI on iOS, with some TypeScript and React on the web.",
     stack: ["Swift", "SwiftUI", "TypeScript", "React", "Figma"],
   },
   {
-    name: "Jack Hayes",
+    name: "Jack",
     role: "Product",
     based: "United Kingdom",
     bio: "Jack runs product. He decides what we build, who it's for, and what we leave out.",
@@ -112,8 +112,8 @@ function StudioPhotoBand() {
               alt="Jack playing a parkland course in Surrey at sunset"
               fill
               priority
-              sizes="(max-width: 1080px) 100vw, 1280px"
-              style={{ objectFit: "cover", objectPosition: "center 35%" }}
+              sizes="(max-width: 720px) 100vw, 560px"
+              style={{ objectFit: "cover", objectPosition: "center center" }}
             />
             <div className="ph-studio-photo-veil" aria-hidden="true" />
             <div className="ph-studio-photo-caption">
@@ -130,7 +130,9 @@ function StudioPhotoBand() {
         .ph-studio-photo { padding: 0 0 80px; }
         .ph-studio-photo-frame {
           position: relative;
-          aspect-ratio: 16 / 9;
+          aspect-ratio: 4 / 5;
+          width: 100%;
+          max-width: 560px;
           border-radius: 4px;
           overflow: hidden;
           border: 1px solid var(--ph-rule-hi);

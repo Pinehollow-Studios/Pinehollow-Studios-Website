@@ -44,13 +44,13 @@ export function FinalCta() {
             <div className="ph-final-sign">
               <div className="ph-final-sign-people">
                 <div className="ph-final-sig">
-                  <div className="ph-final-sig-name">Tom Wright</div>
+                  <div className="ph-final-sig-name">Tom</div>
                   <div className="ph-final-sig-role">
                     Engineering &amp; design
                   </div>
                 </div>
                 <div className="ph-final-sig">
-                  <div className="ph-final-sig-name">Jack Hayes</div>
+                  <div className="ph-final-sig-name">Jack</div>
                   <div className="ph-final-sig-role">Product</div>
                 </div>
               </div>

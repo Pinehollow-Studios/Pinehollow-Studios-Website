@@ -303,10 +303,10 @@ function ManifestoSign() {
 
         <div className="ph-sign-row">
           <Reveal variant="up-lg" delay={120} duration={1000}>
-            <Signature name="Tom Wright" role="Engineering · Design" />
+            <Signature name="Tom" role="Engineering · Design" />
           </Reveal>
           <Reveal variant="up-lg" delay={260} duration={1000}>
-            <Signature name="Jack Hayes" role="Product" />
+            <Signature name="Jack" role="Product" />
           </Reveal>
         </div>
 
