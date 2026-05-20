@@ -1,214 +1,212 @@
-import { GhostButton, PrimaryButton } from "@/components/shared/buttons";
-import { GlassCard } from "@/components/shared/glass-card";
-import { Pill, Section } from "@/components/shared/primitives";
-import { Reveal } from "@/components/shared/reveal";
+import Link from "next/link";
 
+/**
+ * Hero — Volume IV, editorial direction.
+ *
+ *   8/4 grid: big editorial headline on the left, "Currently" ledger on
+ *   the right. Hairlines instead of glass cards. One Instrument Serif
+ *   italic moment in the headline. A soft single aura behind the section.
+ */
 export function Hero() {
   return (
-    <Section py="80px">
-      <div className="lp-hero-pad-top" style={{ textAlign: "center", position: "relative", paddingTop: 60 }}>
-        <Reveal variant="up" immediate delay={80}>
-          <Pill tone="pine" icon="dot">Pinehollow Studios</Pill>
-        </Reveal>
+    <section className="ph-hero">
+      <div className="ph-hero-aura" aria-hidden="true" />
 
-        <Reveal variant="up-xl" immediate delay={180} duration={1100}>
-          <h1
-            style={{
-              fontFamily: "var(--lp-font-display)",
-              fontWeight: 500,
-              letterSpacing: "var(--lp-track-display)",
-              fontSize: "var(--lp-text-6xl)",
-              lineHeight: "var(--lp-leading-tight)",
-              margin: "32px auto 0",
-              maxWidth: 1100,
-            }}
-          >
-            A two-person<br />
-            <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>
-              software studio.
-            </em>
-          </h1>
-        </Reveal>
+      <div className="lp-container" style={{ position: "relative" }}>
+        <div className="ph-grid-hero ph-hero-grid">
+          <HeroHeadline />
+          <CurrentlyColumn />
+        </div>
 
-        <Reveal variant="up" immediate delay={420}>
-          <p
-            style={{
-              color: "var(--lp-fg-mute)",
-              fontSize: "var(--lp-text-lg)",
-              lineHeight: 1.55,
-              maxWidth: 580,
-              margin: "32px auto 0",
-            }}
-          >
-            We&apos;re Tom and Jack. We make iOS apps — starting with Fairways, a golf app. Self-funded, UK-based, in no particular rush.
-          </p>
-        </Reveal>
-
-        <Reveal variant="up" immediate delay={560}>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              gap: 12,
-              marginTop: 36,
-              flexWrap: "wrap",
-            }}
-          >
-            <PrimaryButton href="/apps" size="lg">See what we&apos;re building →</PrimaryButton>
-            <GhostButton href="/studio" size="lg">About us</GhostButton>
+        <div className="ph-hero-foot">
+          <hr className="ph-rule" />
+          <div className="ph-hero-foot-row">
+            <span>An independent iOS software studio · since 2026</span>
+            <span>Scroll to read · §01 ↓</span>
           </div>
-        </Reveal>
-
-        <Reveal variant="up-xl" immediate delay={700} duration={1200}>
-          <div style={{ position: "relative", marginTop: 96 }}>
-            <div
-              aria-hidden="true"
-              style={{
-                position: "absolute",
-                inset: "-60px -60px 20%",
-                background:
-                  "radial-gradient(60% 60% at 50% 40%, rgba(127,228,255,0.30), transparent 70%)",
-                filter: "blur(40px)",
-              }}
-            />
-
-            <GlassCard strong style={{ padding: 18 }}>
-              <div
-                className="hero-tiles"
-                style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 14 }}
-              >
-                <Reveal variant="up" immediate delay={900}>
-                  <PrincipleTile
-                    no="PH-001"
-                    kicker="What we make"
-                    title="iOS apps"
-                    body="One app at a time. Fairways is in the workshop now — a golf app. We'll share more closer to launch."
-                    glow="var(--lp-pine-glow)"
-                  />
-                </Reveal>
-                <Reveal variant="up" immediate delay={1020}>
-                  <PrincipleTile
-                    no="PH-002"
-                    kicker="How we work"
-                    title="Self-funded"
-                    body="No investors. No ads. We ship when the app is ready."
-                    glow="var(--lp-sky)"
-                  />
-                </Reveal>
-                <Reveal variant="up" immediate delay={1140}>
-                  <PrincipleTile
-                    no="PH-003"
-                    kicker="Pricing"
-                    title="Free to download"
-                    body="Each app is free. A paid Pro tier adds extras for people who want more — it never gates the basics."
-                    glow="var(--lp-pine-mist)"
-                  />
-                </Reveal>
-              </div>
-            </GlassCard>
-          </div>
-        </Reveal>
+        </div>
       </div>
 
-      <style>{`
-        @media (max-width: 880px) {
-          .hero-tiles { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
-    </Section>
+      <style>{HERO_CSS}</style>
+    </section>
   );
 }
 
-function PrincipleTile({
-  no,
-  kicker,
-  title,
-  body,
-  glow,
-}: {
-  no: string;
-  kicker: string;
-  title: string;
-  body: string;
-  glow: string;
-}) {
+function HeroHeadline() {
   return (
-    <div
-      className="lp-tile-auto-h"
-      style={{
-        position: "relative",
-        overflow: "hidden",
-        padding: 24,
-        minHeight: 280,
-        borderRadius: "var(--lp-r-lg)",
-        background: "var(--lp-glass)",
-        border: "1px solid var(--lp-glass-rim)",
-        boxShadow: "var(--lp-glass-inset), var(--lp-shadow)",
-        backdropFilter: "var(--lp-blur)",
-        WebkitBackdropFilter: "var(--lp-blur)",
-        textAlign: "left",
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
-      <div
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          top: -40,
-          right: -40,
-          width: 200,
-          height: 200,
-          borderRadius: 99,
-          background: `radial-gradient(circle at center, ${glow}, transparent 70%)`,
-          opacity: 0.4,
-          filter: "blur(8px)",
-        }}
-      />
-      <div
-        style={{
-          position: "relative",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
+    <div>
+      <div className="ph-eyebrow" style={{ marginBottom: 28 }}>
         <span
-          style={{
-            fontFamily: "var(--lp-font-mono)",
-            fontSize: 11,
-            color: "var(--lp-fg-dim)",
-            letterSpacing: "0.18em",
-          }}
-        >
-          {no}
-        </span>
-        <span
-          style={{
-            fontFamily: "var(--lp-font-mono)",
-            fontSize: 11,
-            color: "var(--lp-fg-mute)",
-            letterSpacing: "0.18em",
-            textTransform: "uppercase",
-          }}
-        >
-          {kicker}
-        </span>
+          aria-hidden="true"
+          style={{ width: 24, height: 1, background: "var(--lp-fg-mute)" }}
+        />
+        <span>Cover story · No. 01</span>
       </div>
-      <div style={{ marginTop: 28, position: "relative" }}>
-        <div style={{ fontSize: 22, fontWeight: 500, letterSpacing: "-0.025em" }}>{title}</div>
-        <p
-          style={{
-            color: "var(--lp-fg-mute)",
-            fontSize: 14,
-            lineHeight: 1.6,
-            marginTop: 10,
-            marginBottom: 0,
-          }}
-        >
-          {body}
-        </p>
+
+      <h1 className="ph-display ph-hero-h1">
+        Two people,
+        <br />
+        <em>one workshop</em>,
+        <br />
+        iOS apps.
+      </h1>
+
+      <p className="ph-hero-lede">
+        Pinehollow is a small studio by Tom and Jack. We make iOS apps —
+        Fairways, a golf app, is in the workshop now. Self-funded, UK-based,
+        in no particular rush.
+      </p>
+
+      <div className="ph-hero-links">
+        <Link href="/apps" className="ph-link">See Fairways</Link>
+        <span className="ph-hero-links-sep" aria-hidden="true" />
+        <Link href="/manifesto" className="ph-link">Read the manifesto</Link>
+        <span className="ph-hero-links-sep" aria-hidden="true" />
+        <Link href="/studio" className="ph-link">Meet the studio</Link>
       </div>
     </div>
   );
 }
+
+function CurrentlyColumn() {
+  const rows: Array<[label: string, value: string, href: string | null]> = [
+    ["On the bench", "Fairways · iOS · golf", "/apps"],
+    ["Stage", "Building", null],
+    ["Next", "TestFlight", null],
+    ["Studio", "United Kingdom", null],
+    ["Founded", "2026", null],
+    ["Funding", "Self-funded", null],
+  ];
+
+  return (
+    <aside className="ph-currently">
+      <div className="ph-currently-head">
+        <span className="ph-eyebrow">Currently</span>
+        <span className="ph-eyebrow ph-eyebrow-dim">14·05·26</span>
+      </div>
+
+      {rows.map(([label, value, href], i) => (
+        <div
+          key={label}
+          className="ph-currently-row"
+          style={{
+            borderTop: i === 0 ? "none" : "1px solid var(--ph-rule-faint)",
+          }}
+        >
+          <span className="ph-currently-key">{label}</span>
+          {href ? (
+            <Link href={href} className="ph-link ph-currently-val">
+              {value}
+            </Link>
+          ) : (
+            <span className="ph-currently-val">{value}</span>
+          )}
+        </div>
+      ))}
+    </aside>
+  );
+}
+
+const HERO_CSS = `
+  .ph-hero {
+    position: relative;
+    padding-top: 80px;
+    padding-bottom: 120px;
+  }
+
+  .ph-hero-grid {
+    display: grid;
+    grid-template-columns: 8fr 4fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .ph-hero-h1 {
+    margin: 0;
+    font-size: clamp(64px, 8.4vw, 152px);
+    max-width: 14ch;
+  }
+
+  .ph-hero-lede {
+    color: var(--lp-fg-mute);
+    font-size: clamp(17px, 1.2vw, 19px);
+    line-height: 1.55;
+    max-width: 520px;
+    margin-top: 40px;
+  }
+
+  .ph-hero-links {
+    display: flex;
+    gap: 28px;
+    margin-top: 36px;
+    align-items: center;
+    font-size: 15px;
+    flex-wrap: wrap;
+  }
+  .ph-hero-links-sep {
+    width: 1px;
+    height: 14px;
+    background: var(--ph-rule-hi);
+  }
+
+  /* — currently ledger — */
+  .ph-currently {
+    border-top: 1px solid var(--ph-rule-hi);
+    border-bottom: 1px solid var(--ph-rule-hi);
+    padding-top: 18px;
+    padding-bottom: 8px;
+    margin-top: 6px;
+  }
+  .ph-currently-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 18px;
+  }
+  .ph-currently-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+    gap: 12px;
+    padding: 12px 0;
+  }
+  .ph-currently-key {
+    font-family: var(--lp-font-mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--lp-fg-dim);
+  }
+  .ph-currently-val {
+    font-size: 15px;
+    color: var(--lp-fg);
+    letter-spacing: -0.01em;
+  }
+
+  /* — bottom rule + meta row — */
+  .ph-hero-foot { margin-top: 100px; }
+  .ph-hero-foot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    font-family: var(--lp-font-mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--lp-fg-dim);
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 980px) {
+    .ph-hero { padding-top: 56px; padding-bottom: 80px; }
+    .ph-hero-grid { gap: 48px; }
+    .ph-hero-h1 { font-size: clamp(52px, 12vw, 96px); }
+    .ph-hero-foot { margin-top: 64px; }
+  }
+  @media (max-width: 520px) {
+    .ph-hero-links { gap: 16px; }
+    .ph-hero-links-sep { display: none; }
+  }
+`;

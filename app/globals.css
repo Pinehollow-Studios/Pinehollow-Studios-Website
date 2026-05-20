@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&display=swap');
 
 :root {
   /* ─── COLOUR · BASE — Glacial v2026 ─────────────────────── */
@@ -113,6 +114,17 @@
   --lp-dur:            360ms;
   --lp-dur-slow:       640ms;
   --lp-dur-settle:     800ms;
+
+  /* ─── EDITORIAL · VOLUME IV ────────────────────────────── */
+  /* Quarterly-journal direction. Near-flat surface, hairlines,
+     Instrument Serif italic moments, cream-paper letter card. */
+  --ph-serif:          'Fraunces', 'Instrument Serif', 'Cormorant Garamond', Georgia, serif;
+  --ph-base:           #060A0F;             /* slightly deeper than --lp-base */
+  --ph-paper:          #EEE7D8;             /* warm cream — letter card */
+  --ph-paper-ink:      #1A1813;             /* deep brown-black on the cream */
+  --ph-rule:           rgba(241, 245, 242, 0.14);
+  --ph-rule-hi:        rgba(241, 245, 242, 0.28);
+  --ph-rule-faint:     rgba(241, 245, 242, 0.07);
 }
 
 /* ─── RESET ──────────────────────────────────────────────── */
@@ -132,11 +144,10 @@ html, body {
 }
 
 body {
-  background:
-    radial-gradient(1100px 700px at 88% -10%, rgba(127, 228, 255, 0.12), transparent 60%),
-    radial-gradient(900px 700px at -10% 60%, rgba(42, 74, 94, 0.40), transparent 60%),
-    var(--lp-base);
-  background-attachment: fixed;
+  /* Editorial v2026: near-flat surface. Atmospheric glows live on individual
+     sections (.ph-hero-aura, AtmosphereBg) rather than as page wallpaper. */
+  background: var(--ph-base);
+  background-attachment: scroll;
   min-height: 100vh;
   overflow-x: clip;
 }
@@ -233,6 +244,173 @@ img { display: block; max-width: 100%; }
   0%   { transform: scale(0.6); opacity: 0; }
   20%  { opacity: 0.6; }
   100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* Code-card caret blink */
+@keyframes lp-caret-blink {
+  0%, 49%   { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* ───────────────────────────────────────────────────────────
+   EDITORIAL · VOLUME IV — quarterly-journal primitives
+   ─────────────────────────────────────────────────────────── */
+
+/* hairline rules used in place of glass for structure */
+.ph-rule        { height: 1px; background: var(--ph-rule); border: 0; margin: 0; }
+.ph-rule-hi     { height: 1px; background: var(--ph-rule-hi); border: 0; margin: 0; }
+.ph-rule-faint  { height: 1px; background: var(--ph-rule-faint); border: 0; margin: 0; }
+.ph-rule-double {
+  height: 5px; border: 0; margin: 0;
+  background:
+    linear-gradient(var(--ph-rule), var(--ph-rule)) top/100% 1px no-repeat,
+    linear-gradient(var(--ph-rule), var(--ph-rule)) bottom/100% 1px no-repeat;
+}
+
+/* mono caps eyebrow with extra-wide tracking */
+.ph-eyebrow {
+  font-family: var(--lp-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--lp-fg-mute);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.ph-eyebrow-dim { color: var(--lp-fg-dim); }
+
+/* display headlines — Geist + Fraunces italic moments */
+.ph-display {
+  font-family: var(--lp-font-display);
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+}
+.ph-display em,
+.ph-serif {
+  font-family: var(--ph-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  /* Fraunces variable axes — display optical size + softer corners for
+     a modern, less classical italic that holds its own beside heavy sans. */
+  font-variation-settings: 'opsz' 144, 'SOFT' 50;
+  /* Visual nudge so the italic baseline doesn't appear to float on top of
+     descenders from the surrounding sans lines. */
+}
+
+/* small text links with a subtle ice underline */
+.ph-link {
+  color: var(--lp-fg);
+  background-image: linear-gradient(var(--lp-pine-glow), var(--lp-pine-glow));
+  background-size: 100% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  padding-bottom: 2px;
+  transition: background-size 360ms var(--lp-ease), color 240ms var(--lp-ease);
+}
+.ph-link:hover { color: var(--lp-pine-glow); }
+
+/* soft single glow ONLY behind the hero (replaces wallpaper blobs) */
+.ph-hero-aura {
+  position: absolute;
+  inset: -120px -10% auto -10%;
+  height: 700px;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(620px 380px at 22% 30%, rgba(127, 228, 255, 0.10), transparent 60%),
+    radial-gradient(700px 400px at 78% 8%, rgba(42, 74, 94, 0.45), transparent 65%);
+  filter: blur(2px);
+}
+
+/* cream-paper letter card */
+.ph-paper {
+  background: var(--ph-paper);
+  color: var(--ph-paper-ink);
+  border-radius: 4px;
+  box-shadow: 0 80px 100px -40px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(0, 0, 0, 0.4);
+}
+.ph-paper .ph-eyebrow,
+.ph-paper .ph-eyebrow-dim { color: rgba(26, 24, 19, 0.55); }
+
+/* row-hover index — typographic table of links */
+.ph-irow {
+  display: grid;
+  grid-template-columns: 64px 1.7fr 1fr 0.7fr 80px;
+  align-items: center;
+  gap: 24px;
+  padding: 28px 0;
+  border-top: 1px solid var(--ph-rule);
+  cursor: pointer;
+  position: relative;
+  transition: padding 360ms var(--lp-ease);
+}
+.ph-irow:last-child { border-bottom: 1px solid var(--ph-rule); }
+.ph-irow:hover { padding-left: 16px; padding-right: 16px; }
+.ph-irow:hover .ph-irow-name { color: var(--lp-pine-glow); }
+.ph-irow:hover .ph-irow-arrow { transform: translateX(8px); opacity: 1; }
+.ph-irow .ph-irow-arrow {
+  opacity: 0.4;
+  transition: transform 360ms var(--lp-ease), opacity 240ms var(--lp-ease);
+}
+
+/* full-bleed marquee — one slow infinite line of display type */
+.ph-marquee {
+  overflow: hidden;
+  border-top: 1px solid var(--ph-rule);
+  border-bottom: 1px solid var(--ph-rule);
+  padding: 28px 0;
+  white-space: nowrap;
+}
+.ph-marquee-track {
+  display: inline-flex;
+  gap: 56px;
+  animation: ph-scroll 48s linear infinite;
+  will-change: transform;
+}
+@keyframes ph-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* moonrise — a single rise on initial page load */
+.ph-moonrise-moon {
+  transform: translateY(40px);
+  animation: ph-rise 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+}
+@keyframes ph-rise { to { transform: translateY(0); } }
+
+/* live-status dot — gentle outward pulse */
+.ph-live-dot {
+  display: inline-block;
+  width: 7px; height: 7px;
+  border-radius: 99px;
+  background: var(--lp-pine-glow);
+  box-shadow: 0 0 0 0 rgba(127, 228, 255, 0.6);
+  animation: ph-pulse 2.4s ease-in-out infinite;
+}
+@keyframes ph-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(127, 228, 255, 0.55); }
+  50%      { box-shadow: 0 0 0 8px rgba(127, 228, 255, 0); }
+}
+
+/* reveal-on-scroll — lightweight, hooked up by IntersectionObserver */
+.ph-rev {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 800ms var(--lp-ease), transform 800ms var(--lp-ease);
+}
+.ph-rev.in { opacity: 1; transform: translateY(0); }
+
+/* editorial responsive */
+@media (max-width: 980px) {
+  .ph-grid-hero    { grid-template-columns: 1fr !important; }
+  .ph-grid-feature { grid-template-columns: 1fr !important; }
+  .ph-grid-letter  { grid-template-columns: 1fr !important; }
+  .ph-irow         { grid-template-columns: 48px 1fr 60px !important; }
+  .ph-irow-hide    { display: none; }
 }
 
 /* Intentionally do not honour prefers-reduced-motion at the CSS level — the

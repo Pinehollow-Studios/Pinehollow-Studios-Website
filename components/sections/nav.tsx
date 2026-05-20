@@ -2,15 +2,22 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from "react";
-import { GhostButton, PrimaryButton } from "@/components/shared/buttons";
-import { PinehollowIconTile } from "@/components/shared/pinehollow-mark";
+import { PinehollowMark } from "@/components/shared/pinehollow-mark";
 
-const items = [
+/**
+ * Editorial TopBar — Volume IV direction.
+ *
+ * Two stacked rows:
+ *   1. Masthead strip — Vol / No. / location / studio-open indicator
+ *   2. Nav row — inline links, no glass pill, no shadow
+ *
+ * The brand mark rises into place on initial page load (.ph-moonrise-moon).
+ */
+
+const navItems = [
   { label: "Apps", href: "/apps" },
   { label: "Manifesto", href: "/manifesto" },
   { label: "Studio", href: "/studio" },
-  { label: "Contact", href: "/contact" },
 ] as const;
 
 function isActive(pathname: string | null, href: string) {
@@ -19,232 +26,154 @@ function isActive(pathname: string | null, href: string) {
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
-/**
- * Sticky nav. Nav lives in the root layout so it persists across route
- * changes — and the active-page indicator (a small glow dot) animates
- * smoothly between items as the route changes.
- */
 export function Nav() {
   const pathname = usePathname();
-  const [isOpen, setOpen] = useState(false);
-
-  useEffect(() => {
-    const close = () => setOpen(false);
-    window.addEventListener("resize", close);
-    return () => window.removeEventListener("resize", close);
-  }, []);
 
   return (
-    <header
-      style={{
-        position: "sticky",
-        top: 0,
-        zIndex: 50,
-        padding: "20px 0",
-      }}
-    >
-      <div className="lp-container">
-        <nav
-          style={{
-            background: "var(--lp-glass)",
-            backdropFilter: "var(--lp-blur-lg)",
-            WebkitBackdropFilter: "var(--lp-blur-lg)",
-            border: "1px solid var(--lp-glass-rim)",
-            borderRadius: "var(--lp-r-pill)",
-            padding: "10px 14px 10px 22px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            boxShadow: "var(--lp-glass-inset), var(--lp-shadow)",
-            gap: 16,
-          }}
-        >
-          <Link href="/" style={{ display: "flex", alignItems: "center", gap: 12 }} aria-label="Pinehollow home">
-            <PinehollowIconTile size={32} ariaHidden />
-            <span
-              style={{
-                display: "inline-flex",
-                alignItems: "baseline",
-                gap: 9,
-                lineHeight: 1,
-              }}
-            >
-              <span style={{ fontWeight: 500, fontSize: 17, letterSpacing: "-0.02em" }}>Pinehollow</span>
-              <span
-                className="nav-monogram"
-                style={{
-                  fontFamily: "var(--lp-font-mono)",
-                  fontSize: 11,
-                  fontWeight: 500,
-                  color: "var(--lp-fg-mute)",
-                  letterSpacing: "0.18em",
-                  position: "relative",
-                  top: -1,
-                }}
-              >
-                STUDIOS
+    <header style={{ position: "relative", zIndex: 5 }}>
+      {/* Masthead strip — issue / date / location / live */}
+      <div style={{ borderBottom: "1px solid var(--ph-rule)" }}>
+        <div className="lp-container">
+          <div className="ph-masthead">
+            <div className="ph-masthead-meta">
+              <span>Vol. I</span>
+              <span>No. 01 · May 2026</span>
+              <span style={{ color: "var(--lp-fg-mute)" }}>
+                United Kingdom · 51.5°N
               </span>
-            </span>
-          </Link>
-
-          <NavLinks pathname={pathname} />
-
-          <div className="nav-cta" style={{ display: "flex", gap: 10 }}>
-            <GhostButton href="/contact">Get in touch</GhostButton>
-            <PrimaryButton href="/manifesto">Read manifesto</PrimaryButton>
-          </div>
-
-          <button
-            type="button"
-            aria-label="Menu"
-            aria-expanded={isOpen}
-            onClick={() => setOpen((v) => !v)}
-            className="nav-burger"
-            style={{
-              display: "none",
-              width: 40,
-              height: 40,
-              borderRadius: 99,
-              border: "1px solid var(--lp-glass-rim)",
-              background: "var(--lp-glass)",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <span style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-              <span style={{ display: "block", width: 16, height: 1, background: "var(--lp-fg)" }} />
-              <span style={{ display: "block", width: 16, height: 1, background: "var(--lp-fg)" }} />
-            </span>
-          </button>
-        </nav>
-
-        {isOpen ? (
-          <div
-            className="nav-mobile-panel"
-            style={{
-              marginTop: 10,
-              background: "var(--lp-glass)",
-              backdropFilter: "var(--lp-blur-lg)",
-              WebkitBackdropFilter: "var(--lp-blur-lg)",
-              border: "1px solid var(--lp-glass-rim)",
-              borderRadius: "var(--lp-r-xl)",
-              padding: 18,
-              boxShadow: "var(--lp-glass-inset), var(--lp-shadow)",
-              display: "none",
-              flexDirection: "column",
-              gap: 12,
-            }}
-          >
-            {items.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                style={{
-                  fontSize: 16,
-                  color: isActive(pathname, item.href) ? "var(--lp-fg)" : "var(--lp-fg-mute)",
-                  padding: "6px 4px",
-                }}
-              >
-                {item.label}
-              </Link>
-            ))}
-            <div style={{ display: "flex", gap: 10, marginTop: 6 }}>
-              <GhostButton href="/contact">Get in touch</GhostButton>
-              <PrimaryButton href="/manifesto">Read manifesto</PrimaryButton>
+            </div>
+            <div className="ph-masthead-status">
+              <span className="ph-live-dot" />
+              <span>Studio open</span>
             </div>
           </div>
-        ) : null}
+        </div>
       </div>
 
-      <style>{`
-        @media (max-width: 880px) {
-          .nav-links, .nav-cta, .nav-monogram { display: none !important; }
-          .nav-burger { display: inline-flex !important; }
-          .nav-mobile-panel { display: flex !important; }
-        }
-      `}</style>
+      {/* Nav row */}
+      <div className="lp-container">
+        <nav className="ph-nav">
+          <Link href="/" className="ph-nav-brand" aria-label="Pinehollow home">
+            <span className="ph-moonrise-moon" style={{ display: "inline-flex" }}>
+              <PinehollowMark size={28} colour="var(--lp-fg)" ariaHidden />
+            </span>
+            <span className="ph-nav-wordmark">Pinehollow</span>
+            <span className="ph-nav-sub">Studios</span>
+          </Link>
+
+          <div className="ph-nav-links">
+            {navItems.map((item) => {
+              const active = isActive(pathname, item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="ph-nav-link"
+                  data-active={active || undefined}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+            <span className="ph-nav-sep" aria-hidden="true" />
+            <Link href="/contact" className="ph-link ph-nav-hello">
+              Hello&nbsp;↗
+            </Link>
+          </div>
+        </nav>
+      </div>
+
+      <style>{NAV_CSS}</style>
     </header>
   );
 }
 
-function NavLinks({ pathname }: { pathname: string | null }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const linkRefs = useRef<Array<HTMLAnchorElement | null>>([]);
-  const dotRef = useRef<HTMLSpanElement>(null);
-  const activeIndex = items.findIndex((it) => isActive(pathname, it.href));
+const NAV_CSS = `
+  .ph-masthead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    gap: 24px;
+    font-family: var(--lp-font-mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--lp-fg-dim);
+  }
+  .ph-masthead-meta {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+  .ph-masthead-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--lp-pine-glow);
+  }
 
-  useLayoutEffect(() => {
-    const dot = dotRef.current;
-    if (!dot) return;
-    if (activeIndex < 0) {
-      dot.style.opacity = "0";
-      dot.style.transform = "translate3d(0,0,0) scale(0)";
-      return;
-    }
-    const link = linkRefs.current[activeIndex];
-    const container = containerRef.current;
-    if (!link || !container) return;
-    const cr = container.getBoundingClientRect();
-    const lr = link.getBoundingClientRect();
-    const x = lr.left - cr.left + lr.width / 2 - 2.5;
-    dot.style.opacity = "1";
-    dot.style.transform = `translate3d(${x}px, 0, 0) scale(1)`;
-  }, [activeIndex, pathname]);
+  .ph-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 0;
+    gap: 24px;
+  }
+  .ph-nav-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .ph-nav-wordmark {
+    font-family: var(--lp-font-display);
+    font-weight: 500;
+    font-size: 19px;
+    letter-spacing: -0.025em;
+    color: var(--lp-fg);
+  }
+  .ph-nav-sub {
+    font-family: var(--lp-font-mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: var(--lp-fg-dim);
+    text-transform: uppercase;
+    margin-left: -2px;
+    margin-top: 4px;
+  }
 
-  const dotStyle: CSSProperties = {
-    position: "absolute",
-    bottom: -10,
-    left: 0,
-    width: 5,
-    height: 5,
-    borderRadius: 99,
-    background: "var(--lp-pine-glow)",
-    boxShadow: "0 0 10px var(--lp-pine-glow)",
-    opacity: 0,
-    transform: "translate3d(0,0,0) scale(0)",
-    transition:
-      "transform 600ms cubic-bezier(0.4, 0, 0.2, 1), opacity 400ms cubic-bezier(0.2, 0.7, 0.2, 1)",
-    willChange: "transform",
-    pointerEvents: "none",
-  };
+  .ph-nav-links {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+  }
+  .ph-nav-link {
+    font-size: 14px;
+    color: var(--lp-fg-mute);
+    letter-spacing: -0.005em;
+    transition: color 240ms var(--lp-ease);
+  }
+  .ph-nav-link:hover,
+  .ph-nav-link[data-active] { color: var(--lp-fg); }
 
-  return (
-    <div
-      ref={containerRef}
-      className="nav-links"
-      style={{
-        position: "relative",
-        display: "flex",
-        gap: 28,
-        fontSize: 14,
-        color: "var(--lp-fg-mute)",
-      }}
-    >
-      {items.map((item, i) => {
-        const active = i === activeIndex;
-        return (
-          <Link
-            key={item.href}
-            href={item.href}
-            ref={(el) => {
-              linkRefs.current[i] = el;
-            }}
-            style={{
-              position: "relative",
-              color: active ? "var(--lp-fg)" : "var(--lp-fg-mute)",
-              transition: "color var(--lp-dur) var(--lp-ease)",
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--lp-fg)")}
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.color = active ? "var(--lp-fg)" : "var(--lp-fg-mute)")
-            }
-          >
-            {item.label}
-          </Link>
-        );
-      })}
-      <span ref={dotRef} aria-hidden="true" style={dotStyle} />
-    </div>
-  );
-}
+  .ph-nav-sep {
+    width: 1px;
+    height: 16px;
+    background: var(--ph-rule);
+  }
+  .ph-nav-hello { font-size: 14px; }
+
+  @media (max-width: 720px) {
+    .ph-masthead { font-size: 10px; gap: 16px; }
+    .ph-masthead-meta { gap: 16px; }
+    .ph-masthead-meta > span:last-child { display: none; }
+    .ph-nav { padding: 18px 0; }
+    .ph-nav-sub { display: none; }
+    .ph-nav-links { gap: 18px; }
+  }
+  @media (max-width: 520px) {
+    .ph-nav-links .ph-nav-link:nth-child(2),
+    .ph-nav-links .ph-nav-link:nth-child(3) { display: none; }
+    .ph-nav-sep { display: none; }
+  }
+`;
