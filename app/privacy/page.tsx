@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import { GlassCard } from "@/components/shared/glass-card";
-import { Overline, Pill, Section } from "@/components/shared/primitives";
-import { Page } from "@/components/shared/page";
+import Link from "next/link";
 import { Reveal } from "@/components/shared/reveal";
 
 export const metadata: Metadata = {
@@ -20,7 +18,7 @@ const policySections = [
   },
   {
     title: "Anonymous usage data in our apps",
-    body: "Some of our apps collect anonymised, aggregate usage data — the kind of thing that says \"a player walked this hole in 12 minutes\" without saying which player. This data is what lets the apps stay free. It is never tied to your identity, and the opt-out is one tap inside the app.",
+    body: "Some of our apps collect anonymised, aggregate usage data — the kind of thing that says “a player walked this hole in 12 minutes” without saying which player. This data is what lets the apps stay free. It is never tied to your identity, and the opt-out is one tap inside the app.",
   },
   {
     title: "B2B insights — what gets sold, and what doesn't",
@@ -54,145 +52,157 @@ const policySections = [
 
 export default function PrivacyPage() {
   return (
-    <Page atmosphere="quiet">
-      <Section py="80px">
-        <div className="lp-hero-pad-top" style={{ paddingTop: 40, maxWidth: 900 }}>
+    <>
+      <section className="ph-pg-hero">
+        <div className="ph-hero-aura" aria-hidden="true" />
+        <div className="lp-container" style={{ position: "relative" }}>
           <Reveal variant="up" immediate delay={80}>
-            <Pill>Privacy Policy</Pill>
-          </Reveal>
-          <Reveal variant="up-xl" immediate delay={180} duration={1100}>
-            <h1
-              style={{
-                fontFamily: "var(--lp-font-display)",
-                fontWeight: 500,
-                letterSpacing: "var(--lp-track-display)",
-                fontSize: "var(--lp-text-5xl)",
-                lineHeight: "var(--lp-leading-tight)",
-                margin: "28px 0 0",
-              }}
-            >
-              Privacy{" "}
-              <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>
-                policy
-              </em>
-              .
-            </h1>
-          </Reveal>
-          <Reveal variant="up" immediate delay={420}>
-            <p
-              style={{
-                color: "var(--lp-fg-mute)",
-                fontSize: "var(--lp-text-lg)",
-                lineHeight: 1.55,
-                maxWidth: 580,
-                marginTop: 28,
-              }}
-            >
-              What this site and our apps collect, what we share with partners, and what stays yours.
-            </p>
-            <div
-              style={{
-                fontFamily: "var(--lp-font-mono)",
-                fontSize: 11,
-                letterSpacing: "0.22em",
-                color: "var(--lp-fg-dim)",
-                textTransform: "uppercase",
-                marginTop: 24,
-              }}
-            >
-              Last updated · May 2026
+            <div className="ph-eyebrow" style={{ marginBottom: 28 }}>
+              <span
+                aria-hidden="true"
+                style={{ width: 24, height: 1, background: "var(--lp-fg-mute)" }}
+              />
+              <span>§01 · Privacy</span>
             </div>
           </Reveal>
-        </div>
-      </Section>
 
-      <Section py="40px">
-        <div
-          className="privacy-grid"
-          style={{
-            display: "grid",
-            gridTemplateColumns: "0.7fr 1.3fr",
-            gap: 64,
-            alignItems: "start",
-          }}
-        >
-          <div>
-            <GlassCard style={{ padding: 28, position: "sticky", top: 100 }}>
-              <Overline>Pinehollow Studios</Overline>
-              <p
-                style={{
-                  marginTop: 12,
-                  fontSize: 15,
-                  lineHeight: 1.6,
-                  color: "var(--lp-fg-mute)",
-                }}
-              >
-                A two-person software studio. This policy covers the studio brand and this website.
+          <Reveal variant="up-xl" immediate delay={180} duration={1100}>
+            <h1 className="ph-display ph-pg-hero-h1">
+              Privacy
+              <br />
+              <em>policy.</em>
+            </h1>
+          </Reveal>
+
+          <Reveal variant="up" immediate delay={420}>
+            <p className="ph-pg-hero-lede">
+              What this site and our apps collect, what we share with partners,
+              and what stays yours.
+            </p>
+            <div className="ph-privacy-updated">Last updated · May 2026</div>
+          </Reveal>
+        </div>
+
+        <style>{`
+          .ph-pg-hero { position: relative; padding: 80px 0 100px; }
+          .ph-pg-hero-h1 {
+            margin: 0;
+            font-size: clamp(56px, 7.4vw, 124px);
+            max-width: 14ch;
+          }
+          .ph-pg-hero-lede {
+            color: var(--lp-fg-mute);
+            font-size: clamp(17px, 1.2vw, 19px);
+            line-height: 1.55;
+            max-width: 580px;
+            margin-top: 36px;
+          }
+          .ph-privacy-updated {
+            font-family: var(--lp-font-mono);
+            font-size: 11px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--lp-fg-dim);
+            margin-top: 24px;
+          }
+        `}</style>
+      </section>
+
+      <section className="ph-privacy-body-section">
+        <div className="lp-container">
+          <div className="ph-privacy-grid">
+            <aside className="ph-privacy-side">
+              <div className="ph-eyebrow" style={{ marginBottom: 16 }}>
+                Pinehollow Studios
+              </div>
+              <p className="ph-privacy-side-body">
+                A two-person software studio. This policy covers the studio
+                brand and this website.
               </p>
-              <a
+              <Link
                 href="mailto:support@pinehollow.studio"
-                style={{
-                  display: "block",
-                  marginTop: 20,
-                  fontFamily: "var(--lp-font-display)",
-                  fontSize: 17,
-                  fontWeight: 500,
-                  letterSpacing: "-0.02em",
-                  color: "var(--lp-pine-glow)",
-                }}
+                className="ph-link ph-privacy-side-mail"
               >
                 support@pinehollow.studio
-              </a>
-            </GlassCard>
-          </div>
+              </Link>
+            </aside>
 
-          <div
-            style={{
-              borderTop: "1px solid var(--lp-glass-rim)",
-              borderBottom: "1px solid var(--lp-glass-rim)",
-            }}
-          >
-            {policySections.map((section, i) => (
-              <Reveal key={section.title} variant="up">
-                <div
-                  style={{
-                    padding: "32px 0",
-                    borderTop: i === 0 ? "none" : "1px solid var(--lp-glass-rim)",
-                  }}
-                >
-                  <h2
+            <div className="ph-privacy-sections">
+              {policySections.map((s, i) => (
+                <Reveal key={s.title} variant="up">
+                  <div
+                    className="ph-privacy-section"
                     style={{
-                      fontFamily: "var(--lp-font-display)",
-                      fontSize: "var(--lp-text-2xl)",
-                      fontWeight: 500,
-                      letterSpacing: "-0.025em",
-                      margin: 0,
+                      borderTop:
+                        i === 0 ? "1px solid var(--ph-rule)" : "none",
                     }}
                   >
-                    {section.title}
-                  </h2>
-                  <p
-                    style={{
-                      marginTop: 10,
-                      fontSize: 16,
-                      lineHeight: 1.7,
-                      color: "var(--lp-fg-mute)",
-                    }}
-                  >
-                    {section.body}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
+                    <h2 className="ph-privacy-section-h">{s.title}</h2>
+                    <p className="ph-privacy-section-body">{s.body}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </div>
 
         <style>{`
+          .ph-privacy-body-section { padding: 40px 0 120px; }
+          .ph-privacy-grid {
+            display: grid;
+            grid-template-columns: 0.7fr 1.3fr;
+            gap: 64px;
+            align-items: start;
+          }
+          .ph-privacy-side {
+            padding: 28px;
+            border: 1px solid var(--ph-rule);
+            border-radius: 4px;
+            position: sticky;
+            top: 40px;
+            background: rgba(255,255,255,0.015);
+          }
+          .ph-privacy-side-body {
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--lp-fg-mute);
+          }
+          .ph-privacy-side-mail {
+            display: block;
+            margin-top: 20px;
+            font-family: var(--lp-font-display);
+            font-size: 17px;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: var(--lp-pine-glow);
+          }
+          .ph-privacy-sections {
+            border-bottom: 1px solid var(--ph-rule);
+          }
+          .ph-privacy-section {
+            padding: 32px 0;
+            border-top: 1px solid var(--ph-rule);
+          }
+          .ph-privacy-section-h {
+            font-family: var(--lp-font-display);
+            font-size: clamp(20px, 1.8vw, 28px);
+            font-weight: 500;
+            letter-spacing: -0.025em;
+            margin: 0;
+          }
+          .ph-privacy-section-body {
+            margin: 10px 0 0;
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--lp-fg-mute);
+          }
           @media (max-width: 880px) {
-            .privacy-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+            .ph-privacy-grid { grid-template-columns: 1fr; gap: 32px; }
+            .ph-privacy-side { position: static; }
           }
         `}</style>
-      </Section>
-    </Page>
+      </section>
+    </>
   );
 }

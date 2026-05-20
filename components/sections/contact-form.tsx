@@ -2,8 +2,6 @@
 
 import { useState, type CSSProperties } from "react";
 import { PrimaryButton } from "@/components/shared/buttons";
-import { GlassCard } from "@/components/shared/glass-card";
-import { Overline } from "@/components/shared/primitives";
 
 type Topic = "hello" | "support" | "press" | "work";
 
@@ -14,6 +12,11 @@ const topicLabels: Record<Topic, string> = {
   work: "Work with us",
 };
 
+/**
+ * Contact form — Volume IV editorial direction.
+ * Hairline-bounded card with mono labels and clean inputs. No glass
+ * wrapper, no glow blobs.
+ */
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [topic, setTopic] = useState<Topic>("hello");
@@ -34,121 +37,55 @@ export function ContactForm() {
 
     const fullSubject = `[${subjectPrefix[topic]}] ${subject || "(no subject)"}`;
     const body = `${message}\n\n— ${name}`;
-    const url = `mailto:support@pinehollow.studio?subject=${encodeURIComponent(fullSubject)}&body=${encodeURIComponent(body)}`;
+    const url = `mailto:support@pinehollow.studio?subject=${encodeURIComponent(
+      fullSubject,
+    )}&body=${encodeURIComponent(body)}`;
 
     window.location.href = url;
     setSubmitted(true);
   };
 
   return (
-    <GlassCard strong style={{ padding: 48, position: "relative", overflow: "hidden" }}>
-      <div
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          top: -120,
-          right: -120,
-          width: 480,
-          height: 480,
-          borderRadius: 99,
-          background: "radial-gradient(circle at center, rgba(127,228,255,0.25), transparent 70%)",
-          opacity: 0.4,
-          filter: "blur(40px)",
-        }}
-      />
-
+    <div className="ph-form">
       {submitted ? (
-        <div style={{ position: "relative", textAlign: "center", padding: "64px 0" }}>
-          <div
-            style={{
-              width: 64,
-              height: 64,
-              borderRadius: 99,
-              background: "var(--lp-pine-glow)",
-              boxShadow: "0 0 32px var(--lp-pine-glow)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              margin: "0 auto",
-              fontSize: 28,
-              color: "#06181F",
-              fontWeight: 700,
-            }}
-          >
-            ✓
-          </div>
-          <h2
-            style={{
-              fontFamily: "var(--lp-font-display)",
-              fontSize: 42,
-              fontWeight: 500,
-              letterSpacing: "-0.03em",
-              marginTop: 28,
-            }}
-          >
-            Sent — <em style={{ fontStyle: "italic", color: "var(--lp-pine-mist)" }}>thanks</em>.
+        <div className="ph-form-sent">
+          <div className="ph-form-sent-tick">✓</div>
+          <h2 className="ph-display ph-form-sent-h2">
+            Sent — <em>thanks</em>.
           </h2>
-          <p
-            style={{
-              color: "var(--lp-fg-mute)",
-              maxWidth: 400,
-              margin: "12px auto 0",
-            }}
-          >
+          <p className="ph-form-sent-body">
             Your mail client should have opened. If not, write to{" "}
-            <a href="mailto:support@pinehollow.studio" style={{ color: "var(--lp-pine-glow)" }}>
+            <a
+              href="mailto:support@pinehollow.studio"
+              className="ph-link"
+              style={{ color: "var(--lp-pine-glow)" }}
+            >
               support@pinehollow.studio
             </a>{" "}
             directly.
           </p>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} style={{ position: "relative" }}>
-          <Overline>The form</Overline>
-          <h2
-            style={{
-              fontFamily: "var(--lp-font-display)",
-              fontWeight: 500,
-              letterSpacing: "-0.025em",
-              fontSize: "var(--lp-text-3xl)",
-              margin: "16px 0 32px",
-              lineHeight: 1.1,
-            }}
-          >
-            Write us a line.
+        <form onSubmit={handleSubmit}>
+          <div className="ph-eyebrow" style={{ marginBottom: 16 }}>
+            The form
+          </div>
+          <h2 className="ph-display ph-form-h2">
+            Write us
+            <br />
+            <em>a line.</em>
           </h2>
 
-          <div style={{ marginBottom: 24 }}>
+          <div className="ph-form-section">
             <Label>Topic</Label>
-            <div
-              className="topic-grid"
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(4, 1fr)",
-                gap: 8,
-                marginTop: 10,
-              }}
-            >
+            <div className="topic-grid">
               {(Object.keys(topicLabels) as Topic[]).map((t) => (
                 <button
                   key={t}
                   type="button"
                   onClick={() => setTopic(t)}
-                  style={{
-                    padding: "11px 8px",
-                    borderRadius: "var(--lp-r)",
-                    background: topic === t ? "rgba(127,228,255,0.10)" : "var(--lp-glass)",
-                    border: `1px solid ${topic === t ? "rgba(127,228,255,0.40)" : "var(--lp-glass-rim)"}`,
-                    color: topic === t ? "var(--lp-pine-glow)" : "var(--lp-fg)",
-                    fontFamily: "var(--lp-font-mono)",
-                    fontSize: 12,
-                    letterSpacing: "0.18em",
-                    textTransform: "uppercase",
-                    transition: "all var(--lp-dur) var(--lp-ease)",
-                    backdropFilter: "var(--lp-blur-sm)",
-                    WebkitBackdropFilter: "var(--lp-blur-sm)",
-                    cursor: "pointer",
-                  }}
+                  className="ph-form-topic"
+                  data-active={topic === t || undefined}
                 >
                   {topicLabels[t]}
                 </button>
@@ -156,14 +93,27 @@ export function ContactForm() {
             </div>
           </div>
 
-          <div
-            className="form-row"
-            style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 18 }}
-          >
-            <Field label="Your name" name="name" placeholder="Alex" required />
-            <Field label="Email" name="email" placeholder="alex@example.com" type="email" required />
+          <div className="form-row">
+            <Field
+              label="Your name"
+              name="name"
+              placeholder="Alex"
+              required
+            />
+            <Field
+              label="Email"
+              name="email"
+              placeholder="alex@example.com"
+              type="email"
+              required
+            />
           </div>
-          <Field label="Subject" name="subject" placeholder="A short line about what this is" required />
+          <Field
+            label="Subject"
+            name="subject"
+            placeholder="A short line about what this is"
+            required
+          />
           <Field
             label="Message"
             name="message"
@@ -172,60 +122,26 @@ export function ContactForm() {
             required
           />
 
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 12,
-              marginTop: 8,
-              color: "var(--lp-fg-dim)",
-              fontSize: 12,
-              fontFamily: "var(--lp-font-mono)",
-              letterSpacing: "0.18em",
-              textTransform: "uppercase",
-            }}
-          >
-            <span
-              style={{
-                width: 5,
-                height: 5,
-                borderRadius: 99,
-                background: "var(--lp-pine-glow)",
-              }}
-            />
+          <div className="ph-form-foot">
+            <span className="ph-live-dot" />
             <span>Replies usually within a few days</span>
           </div>
 
           <div style={{ marginTop: 28 }}>
-            <PrimaryButton size="lg" type="submit">Send message →</PrimaryButton>
+            <PrimaryButton size="lg" type="submit">
+              Send message →
+            </PrimaryButton>
           </div>
         </form>
       )}
 
-      <style>{`
-        @media (max-width: 600px) {
-          .topic-grid { grid-template-columns: repeat(2, 1fr) !important; }
-          .form-row { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
-    </GlassCard>
+      <style>{FORM_CSS}</style>
+    </div>
   );
 }
 
 function Label({ children }: { children: React.ReactNode }) {
-  return (
-    <div
-      style={{
-        fontFamily: "var(--lp-font-mono)",
-        fontSize: 11,
-        letterSpacing: "0.22em",
-        textTransform: "uppercase",
-        color: "var(--lp-fg-mute)",
-      }}
-    >
-      {children}
-    </div>
-  );
+  return <div className="ph-eyebrow ph-form-label">{children}</div>;
 }
 
 function Field({
@@ -248,21 +164,21 @@ function Field({
     width: "100%",
     marginTop: 10,
     padding: multiline ? "14px 16px" : "12px 16px",
-    background: focused ? "var(--lp-glass-strong)" : "var(--lp-glass)",
-    backdropFilter: "var(--lp-blur-sm)",
-    WebkitBackdropFilter: "var(--lp-blur-sm)",
-    border: `1px solid ${focused ? "var(--lp-pine-glow)" : "var(--lp-glass-rim)"}`,
-    borderRadius: "var(--lp-r)",
+    background: focused ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.02)",
+    border: `1px solid ${
+      focused ? "var(--lp-pine-glow)" : "var(--ph-rule-hi)"
+    }`,
+    borderRadius: 4,
     fontFamily: "var(--lp-font-body)",
     fontSize: 15,
     color: "var(--lp-fg)",
-    transition: "all var(--lp-dur) var(--lp-ease)",
+    transition: "all 220ms var(--lp-ease)",
     boxShadow: focused ? "0 0 0 4px rgba(127,228,255,0.10)" : "none",
     outline: "none",
     resize: "vertical",
   };
   return (
-    <div style={{ marginBottom: 18 }}>
+    <div style={{ marginBottom: 22 }}>
       <Label>{label}</Label>
       {multiline ? (
         <textarea
@@ -288,3 +204,103 @@ function Field({
     </div>
   );
 }
+
+const FORM_CSS = `
+  .ph-form {
+    padding: 48px;
+    border: 1px solid var(--ph-rule-hi);
+    border-radius: 4px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01));
+    position: relative;
+  }
+  .ph-form-h2 {
+    margin: 0 0 32px;
+    font-size: clamp(36px, 4.4vw, 64px);
+  }
+  .ph-form-label {
+    margin-bottom: 0;
+  }
+  .ph-form-section { margin-bottom: 28px; }
+  .topic-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .ph-form-topic {
+    padding: 11px 8px;
+    border-radius: 4px;
+    background: transparent;
+    border: 1px solid var(--ph-rule);
+    color: var(--lp-fg-mute);
+    font-family: var(--lp-font-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 220ms var(--lp-ease);
+  }
+  .ph-form-topic:hover {
+    color: var(--lp-fg);
+    border-color: var(--ph-rule-hi);
+  }
+  .ph-form-topic[data-active] {
+    color: var(--lp-pine-glow);
+    border-color: rgba(127,228,255,0.40);
+    background: rgba(127,228,255,0.06);
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 0;
+  }
+
+  .ph-form-foot {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+    color: var(--lp-fg-dim);
+    font-size: 11px;
+    font-family: var(--lp-font-mono);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  .ph-form-sent {
+    text-align: center;
+    padding: 64px 0;
+  }
+  .ph-form-sent-tick {
+    width: 64px;
+    height: 64px;
+    border-radius: 99px;
+    background: var(--lp-pine-glow);
+    box-shadow: 0 0 32px rgba(127,228,255,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 28px;
+    color: var(--lp-ice-ink);
+    font-weight: 700;
+  }
+  .ph-form-sent-h2 {
+    font-size: clamp(36px, 4vw, 56px);
+    margin-top: 28px;
+  }
+  .ph-form-sent-body {
+    color: var(--lp-fg-mute);
+    max-width: 420px;
+    margin: 16px auto 0;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 600px) {
+    .ph-form { padding: 32px 24px; }
+    .topic-grid { grid-template-columns: repeat(2, 1fr); }
+    .form-row { grid-template-columns: 1fr; }
+  }
+`;

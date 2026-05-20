@@ -1,482 +1,460 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { StudioBulletin } from "@/components/sections/studio-bulletin";
-import { GlassCard } from "@/components/shared/glass-card";
-import { Overline, Pill, Section } from "@/components/shared/primitives";
-import { OrbMark } from "@/components/shared/orb-mark";
-import { Page } from "@/components/shared/page";
 import { Reveal } from "@/components/shared/reveal";
 
 export const metadata: Metadata = {
   title: "Studio — Pinehollow Studios",
-  description: "Pinehollow Studios is a two-person iOS software studio. About Tom and Jack.",
+  description:
+    "Pinehollow Studios is a two-person iOS software studio. About Tom and Jack.",
 };
 
 const founders = [
   {
-    name: "Tom",
-    role: "Engineering & design",
-    mark: "t",
+    name: "Tom Wright",
+    role: "Engineering · Design",
     based: "United Kingdom",
-    glow: "var(--lp-pine-glow)",
     bio: "Tom builds the apps. He works in Swift and SwiftUI on iOS, with some TypeScript and React on the web.",
     stack: ["Swift", "SwiftUI", "TypeScript", "React", "Figma"],
-    quote: "",
   },
   {
-    name: "Jack",
+    name: "Jack Hayes",
     role: "Product",
-    mark: "j",
     based: "United Kingdom",
-    glow: "var(--lp-sky)",
     bio: "Jack runs product. He decides what we build, who it's for, and what we leave out.",
     stack: ["Product", "Writing", "Research", "Support"],
-    quote: "",
   },
+];
+
+const facts: Array<[string, string]> = [
+  ["Founders", "2"],
+  ["Founded", "2026"],
+  ["Focus", "iOS"],
+  ["Office", "United Kingdom"],
+  ["Members", "Tom & Jack"],
+  ["Funding", "Self-funded"],
 ];
 
 export default function StudioPage() {
   return (
-    <Page atmosphere="ember">
+    <>
       <StudioHero />
-      <StudioPhoto />
-      <FoundersGrid />
+      <StudioPhotoBand />
+      <FoundersStrip />
       <StudioStory />
       <StudioFacts />
-    </Page>
+    </>
   );
 }
+
+/* ─── Hero ─────────────────────────────────────────────────────── */
 
 function StudioHero() {
   return (
-    <Section py="100px">
-      <div className="lp-hero-pad-top" style={{ paddingTop: 40, maxWidth: 1000 }}>
+    <section className="ph-pg-hero">
+      <div className="ph-hero-aura" aria-hidden="true" />
+      <div className="lp-container" style={{ position: "relative" }}>
         <Reveal variant="up" immediate delay={80}>
-          <Pill tone="pine" icon="dot">The studio</Pill>
+          <div className="ph-eyebrow" style={{ marginBottom: 28 }}>
+            <span
+              aria-hidden="true"
+              style={{ width: 24, height: 1, background: "var(--lp-fg-mute)" }}
+            />
+            <span>§01 · The studio</span>
+          </div>
         </Reveal>
+
         <Reveal variant="up-xl" immediate delay={180} duration={1100}>
-          <h1
-            style={{
-              fontFamily: "var(--lp-font-display)",
-              fontWeight: 500,
-              letterSpacing: "var(--lp-track-display)",
-              fontSize: "var(--lp-text-6xl)",
-              lineHeight: "var(--lp-leading-tight)",
-              margin: "28px 0 0",
-            }}
-          >
-            <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>
-              About
-            </em>{" "}
+          <h1 className="ph-display ph-pg-hero-h1">
+            <em>About</em>
+            <br />
             us.
           </h1>
         </Reveal>
+
         <Reveal variant="up" immediate delay={420}>
-          <p
-            style={{
-              color: "var(--lp-fg-mute)",
-              fontSize: "var(--lp-text-lg)",
-              lineHeight: 1.55,
-              maxWidth: 660,
-              marginTop: 28,
-            }}
-          >
-            Pinehollow is the two of us — Tom and Jack. We started the studio in 2026 to make iOS apps we wanted to use ourselves. We do all the work ourselves: no outsourcing, no investors.
+          <p className="ph-pg-hero-lede">
+            Pinehollow is the two of us — Tom and Jack. We started the studio
+            in 2026 to make iOS apps we wanted to use ourselves. We do all the
+            work ourselves: no outsourcing, no investors.
           </p>
         </Reveal>
       </div>
-    </Section>
+
+      <style>{`
+        .ph-pg-hero { position: relative; padding: 80px 0 100px; }
+        .ph-pg-hero-h1 {
+          margin: 0;
+          font-size: clamp(64px, 8.4vw, 152px);
+          max-width: 14ch;
+        }
+        .ph-pg-hero-lede {
+          color: var(--lp-fg-mute);
+          font-size: clamp(17px, 1.2vw, 19px);
+          line-height: 1.55;
+          max-width: 660px;
+          margin-top: 36px;
+        }
+      `}</style>
+    </section>
   );
 }
 
-function StudioPhoto() {
+/* ─── Photo band ──────────────────────────────────────────────── */
+
+function StudioPhotoBand() {
   return (
-    <Section py="40px">
-      <div
-        className="studio-photo-grid"
-        style={{
-          display: "grid",
-          gridTemplateColumns: "minmax(0, 0.85fr) minmax(0, 1.15fr)",
-          gap: 24,
-          alignItems: "stretch",
-        }}
-      >
+    <section className="ph-studio-photo">
+      <div className="lp-container">
         <Reveal variant="up-lg" duration={1100}>
-          <div
-            className="studio-photo-card lp-fit-col"
-            style={{
-              position: "relative",
-              width: "100%",
-              height: "100%",
-              minHeight: 560,
-              aspectRatio: "4 / 5",
-              borderRadius: "var(--lp-r-xl)",
-              overflow: "hidden",
-              border: "1px solid var(--lp-glass-rim-hi)",
-              boxShadow: "var(--lp-glass-inset-hi), var(--lp-shadow-lg)",
-              background: "var(--lp-base-raised)",
-            }}
-          >
+          <div className="ph-studio-photo-frame">
             <Image
               src="/jack-on-course.jpg"
               alt="Jack playing a parkland course in Surrey at sunset"
               fill
               priority
-              sizes="(max-width: 880px) 100vw, 520px"
+              sizes="(max-width: 1080px) 100vw, 1280px"
               style={{ objectFit: "cover", objectPosition: "center 35%" }}
             />
-            <div
-              aria-hidden="true"
-              style={{
-                position: "absolute",
-                inset: 0,
-                background:
-                  "linear-gradient(180deg, rgba(7,12,18,0.40) 0%, rgba(7,12,18,0) 24%, rgba(7,12,18,0) 60%, rgba(4,8,13,0.85) 100%)",
-              }}
-            />
-            <div
-              style={{
-                position: "absolute",
-                top: 20,
-                left: 20,
-                right: 20,
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "flex-start",
-                gap: 12,
-              }}
-            >
-              <Pill tone="pine" icon="dot">Jack · on a course</Pill>
-            </div>
-            <div
-              style={{
-                position: "absolute",
-                left: 24,
-                right: 24,
-                bottom: 22,
-              }}
-            >
-              <div
-                style={{
-                  fontFamily: "var(--lp-font-mono)",
-                  fontSize: 11,
-                  letterSpacing: "0.22em",
-                  textTransform: "uppercase",
-                  color: "var(--lp-pine-glow)",
-                }}
-              >
-                ● Jack
-              </div>
-              <div
-                style={{
-                  fontFamily: "var(--lp-font-display)",
-                  fontStyle: "italic",
-                  fontWeight: 400,
-                  fontSize: 22,
-                  letterSpacing: "-0.02em",
-                  color: "var(--lp-pine-mist)",
-                  marginTop: 6,
-                }}
-              >
+            <div className="ph-studio-photo-veil" aria-hidden="true" />
+            <div className="ph-studio-photo-caption">
+              <div className="ph-studio-photo-eyebrow">● Jack</div>
+              <div className="ph-studio-photo-italic">
                 a Surrey parkland, at last light
               </div>
             </div>
           </div>
         </Reveal>
+      </div>
 
-        <Reveal variant="up-lg" duration={1100} delay={180}>
-          <StudioBulletin />
+      <style>{`
+        .ph-studio-photo { padding: 0 0 80px; }
+        .ph-studio-photo-frame {
+          position: relative;
+          aspect-ratio: 16 / 9;
+          border-radius: 4px;
+          overflow: hidden;
+          border: 1px solid var(--ph-rule-hi);
+          box-shadow: 0 50px 100px -40px rgba(0,0,0,0.65);
+          background: var(--lp-base-raised);
+        }
+        .ph-studio-photo-veil {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(180deg, rgba(7,12,18,0.30) 0%, transparent 30%, transparent 60%, rgba(4,8,13,0.85) 100%);
+        }
+        .ph-studio-photo-caption {
+          position: absolute;
+          left: 28px;
+          right: 28px;
+          bottom: 24px;
+        }
+        .ph-studio-photo-eyebrow {
+          font-family: var(--lp-font-mono);
+          font-size: 11px;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          color: var(--lp-pine-glow);
+        }
+        .ph-studio-photo-italic {
+          font-family: var(--ph-serif);
+          font-style: italic;
+          font-weight: 400;
+          font-size: 24px;
+          letter-spacing: -0.015em;
+          color: var(--lp-pine-mist);
+          margin-top: 8px;
+          font-variation-settings: 'opsz' 28, 'SOFT' 50;
+        }
+      `}</style>
+    </section>
+  );
+}
+
+/* ─── Founders ──────────────────────────────────────────────── */
+
+function FoundersStrip() {
+  return (
+    <section className="ph-founders">
+      <div className="lp-container">
+        <Reveal variant="up-lg" duration={1100}>
+          <div className="ph-founders-head">
+            <span className="ph-eyebrow">§02 · The two of us</span>
+            <span className="ph-founders-head-rule" aria-hidden="true" />
+          </div>
+        </Reveal>
+
+        <div className="ph-founders-grid">
+          {founders.map((f, idx) => (
+            <Reveal
+              key={f.name}
+              variant="up-lg"
+              delay={idx * 140}
+              duration={1100}
+            >
+              <article className="ph-founder">
+                <div className="ph-founder-name">{f.name}</div>
+                <div className="ph-founder-role">{f.role}</div>
+                <div className="ph-founder-based">● {f.based}</div>
+
+                <p className="ph-founder-bio">{f.bio}</p>
+
+                <div className="ph-founder-stack">
+                  <div className="ph-eyebrow" style={{ marginBottom: 12 }}>
+                    Toolkit
+                  </div>
+                  <div className="ph-founder-stack-row">
+                    {f.stack.map((s, i) => (
+                      <span key={s} className="ph-founder-tag">
+                        {s}
+                        {i < f.stack.length - 1 ? (
+                          <span className="ph-founder-tag-sep">·</span>
+                        ) : null}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+
+      <style>{`
+        .ph-founders { padding: clamp(64px, 8vw, 120px) 0; }
+        .ph-founders-head {
+          display: flex;
+          align-items: center;
+          gap: 18px;
+          margin-bottom: 48px;
+        }
+        .ph-founders-head-rule {
+          flex: 1;
+          height: 1px;
+          background: var(--ph-rule);
+        }
+        .ph-founders-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 0;
+          border-top: 1px solid var(--ph-rule);
+          border-bottom: 1px solid var(--ph-rule);
+        }
+        .ph-founder {
+          padding-top: 48px;
+          padding-bottom: 48px;
+          padding-left: 0;
+          padding-right: 0;
+        }
+        .ph-founders-grid > *:first-child .ph-founder {
+          border-right: 1px solid var(--ph-rule);
+          padding-right: 48px;
+        }
+        .ph-founders-grid > *:last-child .ph-founder {
+          padding-left: 48px;
+        }
+        .ph-founder-name {
+          font-family: var(--lp-font-display);
+          font-weight: 600;
+          font-size: clamp(40px, 4.4vw, 64px);
+          letter-spacing: -0.035em;
+          line-height: 1;
+        }
+        .ph-founder-role {
+          font-family: var(--lp-font-mono);
+          font-size: 11px;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          color: var(--lp-fg-mute);
+          margin-top: 16px;
+        }
+        .ph-founder-based {
+          font-family: var(--lp-font-mono);
+          font-size: 11px;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          color: var(--lp-fg-dim);
+          margin-top: 6px;
+        }
+        .ph-founder-bio {
+          margin: 28px 0 0;
+          color: var(--lp-fg-mute);
+          font-size: 16px;
+          line-height: 1.65;
+        }
+        .ph-founder-stack {
+          margin-top: 36px;
+          padding-top: 24px;
+          border-top: 1px solid var(--ph-rule-faint);
+        }
+        .ph-founder-stack-row {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0 4px;
+          font-size: 14px;
+          color: var(--lp-fg);
+          letter-spacing: -0.005em;
+        }
+        .ph-founder-tag {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+        }
+        .ph-founder-tag-sep {
+          color: var(--lp-fg-dim);
+          margin-left: 4px;
+        }
+
+        @media (max-width: 880px) {
+          .ph-founders-grid { grid-template-columns: 1fr; }
+          .ph-founder {
+            padding: 40px 0 !important;
+            border-right: none !important;
+            border-bottom: 1px solid var(--ph-rule);
+          }
+          .ph-founder:last-child { border-bottom: none; }
+        }
+      `}</style>
+    </section>
+  );
+}
+
+/* ─── Story ─────────────────────────────────────────────────── */
+
+function StudioStory() {
+  return (
+    <section className="ph-story">
+      <div className="lp-container">
+        <Reveal variant="up-lg" duration={1100}>
+          <div className="ph-story-grid">
+            <div>
+              <div className="ph-eyebrow" style={{ marginBottom: 20 }}>
+                §03 · How we&rsquo;re set up
+              </div>
+              <h2 className="ph-display ph-story-h2">
+                Small,
+                <br />
+                <em>on purpose</em>.
+              </h2>
+            </div>
+            <div className="ph-story-body">
+              <p>
+                We&rsquo;re two cofounders, in the UK. Tom handles engineering
+                and design. Jack handles product. We started the studio in
+                2026 to make iOS apps we wanted to use ourselves.
+              </p>
+              <p>
+                The company is self-funded. No investors, no debt, no plans to
+                take any on. The apps pay for the apps.
+              </p>
+              <p>
+                We don&rsquo;t expect to grow much past two people. We&rsquo;d
+                rather build a handful of things we&rsquo;re proud of than a
+                company that needs to keep growing.
+              </p>
+            </div>
+          </div>
         </Reveal>
       </div>
 
       <style>{`
+        .ph-story {
+          padding: clamp(96px, 12vw, 160px) 0;
+          background: var(--lp-base-deep);
+          border-top: 1px solid var(--ph-rule);
+          border-bottom: 1px solid var(--ph-rule);
+        }
+        .ph-story-grid {
+          display: grid;
+          grid-template-columns: 1fr 1.4fr;
+          gap: 80px;
+          align-items: start;
+        }
+        .ph-story-h2 {
+          margin: 0;
+          font-size: clamp(40px, 5.2vw, 88px);
+        }
+        .ph-story-body {
+          display: flex;
+          flex-direction: column;
+          gap: 22px;
+        }
+        .ph-story-body p {
+          margin: 0;
+          color: var(--lp-fg);
+          font-size: 17px;
+          line-height: 1.75;
+        }
+        .ph-story-body p + p { color: var(--lp-fg-mute); }
         @media (max-width: 880px) {
-          .studio-photo-grid { grid-template-columns: minmax(0, 1fr) !important; }
-          .studio-photo-card { min-height: 0 !important; height: auto !important; }
+          .ph-story-grid { grid-template-columns: 1fr; gap: 36px; }
         }
       `}</style>
-    </Section>
+    </section>
   );
 }
 
-
-function FoundersGrid() {
-  return (
-    <Section py="40px">
-      <div
-        className="founders-grid"
-        style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}
-      >
-        {founders.map((f, idx) => (
-          <Reveal key={f.name} variant="up-lg" delay={idx * 140} duration={1100}>
-          <GlassCard strong style={{ padding: 0, overflow: "hidden", position: "relative", height: "100%" }}>
-            <div
-              aria-hidden="true"
-              style={{
-                position: "absolute",
-                top: -100,
-                right: -100,
-                width: 480,
-                height: 480,
-                borderRadius: 99,
-                background: `radial-gradient(circle at center, ${f.glow}, transparent 70%)`,
-                opacity: 0.25,
-                filter: "blur(40px)",
-              }}
-            />
-
-            <div
-              style={{
-                padding: 36,
-                display: "flex",
-                alignItems: "center",
-                gap: 24,
-                borderBottom: "1px solid var(--lp-glass-rim)",
-                position: "relative",
-              }}
-            >
-              <OrbMark mark={f.mark} size={96} glow={f.glow} />
-              <div>
-                <div
-                  style={{
-                    fontFamily: "var(--lp-font-display)",
-                    fontSize: 36,
-                    fontWeight: 500,
-                    letterSpacing: "-0.03em",
-                    lineHeight: 1,
-                  }}
-                >
-                  {f.name}
-                </div>
-                <div
-                  style={{
-                    fontFamily: "var(--lp-font-mono)",
-                    fontSize: 11,
-                    color: "var(--lp-fg-mute)",
-                    letterSpacing: "0.18em",
-                    textTransform: "uppercase",
-                    marginTop: 8,
-                  }}
-                >
-                  {f.role}
-                </div>
-                <div
-                  style={{
-                    fontFamily: "var(--lp-font-mono)",
-                    fontSize: 11,
-                    color: "var(--lp-fg-dim)",
-                    letterSpacing: "0.18em",
-                    textTransform: "uppercase",
-                    marginTop: 4,
-                  }}
-                >
-                  ● {f.based}
-                </div>
-              </div>
-            </div>
-
-            <div style={{ padding: 36, position: "relative" }}>
-              <p
-                style={{
-                  color: "var(--lp-fg-mute)",
-                  fontSize: 16,
-                  lineHeight: 1.65,
-                  margin: 0,
-                }}
-              >
-                {f.bio}
-              </p>
-
-              {f.quote ? (
-                <blockquote
-                  style={{
-                    margin: "28px 0 0",
-                    padding: "0 0 0 18px",
-                    borderLeft: `2px solid ${f.glow}`,
-                    fontFamily: "var(--lp-font-display)",
-                    fontStyle: "italic",
-                    fontWeight: 400,
-                    fontSize: 20,
-                    color: "var(--lp-pine-mist)",
-                    letterSpacing: "-0.01em",
-                    lineHeight: 1.35,
-                  }}
-                >
-                  &ldquo;{f.quote}&rdquo;
-                </blockquote>
-              ) : null}
-
-              <div
-                style={{
-                  marginTop: 28,
-                  paddingTop: 20,
-                  borderTop: "1px solid var(--lp-glass-rim)",
-                }}
-              >
-                <Overline>Toolkit</Overline>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 12 }}>
-                  {f.stack.map((s) => (
-                    <span
-                      key={s}
-                      style={{
-                        padding: "5px 11px",
-                        borderRadius: "var(--lp-r-pill)",
-                        background: "var(--lp-glass)",
-                        border: "1px solid var(--lp-glass-rim)",
-                        fontSize: 12,
-                        color: "var(--lp-fg-mute)",
-                      }}
-                    >
-                      {s}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </GlassCard>
-          </Reveal>
-        ))}
-      </div>
-
-      <style>{`
-        @media (max-width: 880px) {
-          .founders-grid { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
-    </Section>
-  );
-}
-
-function StudioStory() {
-  return (
-    <Section py="120px">
-      <Reveal variant="up-lg" duration={1100}>
-      <GlassCard strong style={{ padding: 0, overflow: "hidden", position: "relative" }}>
-        <div
-          aria-hidden="true"
-          style={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "radial-gradient(60% 80% at 80% 20%, rgba(255,149,96,0.10), transparent 70%), radial-gradient(60% 80% at 20% 80%, rgba(127,228,255,0.12), transparent 70%)",
-          }}
-        />
-        <div
-          className="story-grid"
-          style={{
-            padding: "72px 64px",
-            display: "grid",
-            gridTemplateColumns: "1fr 1.4fr",
-            gap: 64,
-            position: "relative",
-          }}
-        >
-          <div>
-            <Overline>About the studio</Overline>
-            <h2
-              style={{
-                fontFamily: "var(--lp-font-display)",
-                fontWeight: 500,
-                letterSpacing: "-0.035em",
-                fontSize: "var(--lp-text-4xl)",
-                lineHeight: 1.05,
-                margin: "16px 0 0",
-              }}
-            >
-              How we&rsquo;re
-              <br />
-              <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>set up</em>.
-            </h2>
-          </div>
-          <div
-            style={{
-              color: "var(--lp-fg-mute)",
-              fontSize: 17,
-              lineHeight: 1.75,
-              display: "flex",
-              flexDirection: "column",
-              gap: 22,
-            }}
-          >
-            <p style={{ margin: 0 }}>
-              We&rsquo;re two cofounders, in the UK. Tom handles engineering and design. Jack handles product. We started the studio in 2026 to make iOS apps we wanted to use ourselves.
-            </p>
-            <p style={{ margin: 0 }}>
-              The company is self-funded. No investors, no debt, no plans to take any on. The apps pay for the apps.
-            </p>
-            <p style={{ margin: 0 }}>
-              We don&rsquo;t expect to grow much past two people. We&rsquo;d rather build a handful of things we&rsquo;re proud of than a company that needs to keep growing.
-            </p>
-          </div>
-        </div>
-
-        <style>{`
-          @media (max-width: 880px) {
-            .story-grid { grid-template-columns: 1fr !important; gap: 32px !important; padding: 40px !important; }
-          }
-        `}</style>
-      </GlassCard>
-      </Reveal>
-    </Section>
-  );
-}
+/* ─── Facts (typographic ledger) ─────────────────────────────── */
 
 function StudioFacts() {
-  const facts = [
-    { k: "2", d: "Founders" },
-    { k: "2026", d: "Started" },
-    { k: "iOS", d: "Focus" },
-    { k: "UK", d: "Based" },
-  ];
   return (
-    <Section py="80px">
-      <Reveal variant="up">
-        <Overline>The studio, in numbers</Overline>
-      </Reveal>
-      <div
-        className="facts-grid"
-        style={{
-          marginTop: 24,
-          display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          borderTop: "1px solid var(--lp-glass-rim)",
-        }}
-      >
-        {facts.map((f, i) => (
-          <Reveal key={i} variant="up" delay={i * 90}>
-            <div
-              className="fact-cell"
-              style={{
-                padding: "40px 24px",
-                borderRight: i < facts.length - 1 ? "1px solid var(--lp-glass-rim)" : "none",
-                borderBottom: "1px solid var(--lp-glass-rim)",
-                height: "100%",
-              }}
-            >
+    <section className="ph-facts">
+      <div className="lp-container">
+        <Reveal variant="up-lg">
+          <div className="ph-eyebrow" style={{ marginBottom: 32 }}>
+            §04 · The studio, in numbers
+          </div>
+        </Reveal>
+
+        <div className="ph-facts-grid">
+          {facts.map(([k, v], i) => (
+            <Reveal key={k} variant="up" delay={i * 60}>
               <div
+                className="ph-facts-row"
                 style={{
-                  fontFamily: "var(--lp-font-display)",
-                  fontWeight: 500,
-                  letterSpacing: "-0.04em",
-                  fontSize: 56,
-                  lineHeight: 1,
-                  color: "var(--lp-pine-glow)",
+                  borderTop: i === 0 ? "1px solid var(--ph-rule)" : "none",
                 }}
               >
-                {f.k}
+                <span className="ph-facts-k">{k}</span>
+                <span className="ph-facts-v">{v}</span>
               </div>
-              <div style={{ color: "var(--lp-fg-mute)", fontSize: 14, marginTop: 12 }}>{f.d}</div>
-            </div>
-          </Reveal>
-        ))}
+            </Reveal>
+          ))}
+        </div>
       </div>
 
       <style>{`
-        @media (max-width: 880px) {
-          .facts-grid { grid-template-columns: repeat(2, 1fr) !important; }
-          .fact-cell:nth-child(2) { border-right: none !important; }
+        .ph-facts {
+          padding: clamp(80px, 10vw, 140px) 0;
+        }
+        .ph-facts-grid {
+          max-width: 720px;
+          border-bottom: 1px solid var(--ph-rule);
+        }
+        .ph-facts-row {
+          display: grid;
+          grid-template-columns: 220px 1fr;
+          align-items: baseline;
+          gap: 24px;
+          padding: 22px 0;
+          border-top: 1px solid var(--ph-rule);
+        }
+        .ph-facts-k {
+          font-family: var(--lp-font-mono);
+          font-size: 11px;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          color: var(--lp-fg-dim);
+        }
+        .ph-facts-v {
+          font-family: var(--lp-font-display);
+          font-size: 22px;
+          font-weight: 500;
+          letter-spacing: -0.02em;
+        }
+        @media (max-width: 560px) {
+          .ph-facts-row { grid-template-columns: 1fr; gap: 6px; padding: 18px 0; }
         }
       `}</style>
-    </Section>
+    </section>
   );
 }
