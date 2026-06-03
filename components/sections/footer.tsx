@@ -83,7 +83,7 @@ export function Footer() {
             <div className="ph-foot-status">
               <span className="ph-live-dot" />
               <span className="ph-foot-status-label">
-                Currently building Fairways
+                Currently building Vestige
               </span>
             </div>
           </div>
@@ -91,7 +91,7 @@ export function Footer() {
           <FooterCol
             title="Apps"
             items={[
-              { label: "Fairways — golf", href: "/apps" },
+              { label: "Vestige — golf", href: "/apps" },
               { label: "All apps ↗", href: "/apps" },
             ]}
           />
