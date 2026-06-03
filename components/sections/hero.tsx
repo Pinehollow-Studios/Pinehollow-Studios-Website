@@ -53,12 +53,12 @@ function HeroHeadline() {
 
       <p className="ph-hero-lede">
         Pinehollow is a small studio by Tom and Jack. We make iOS apps —
-        Fairways, a golf app, is in the workshop now. Self-funded, UK-based,
+        Vestige, a golf app, is in the workshop now. Self-funded, UK-based,
         in no particular rush.
       </p>
 
       <div className="ph-hero-links">
-        <Link href="/apps" className="ph-link">See Fairways</Link>
+        <Link href="/apps" className="ph-link">See Vestige</Link>
         <span className="ph-hero-links-sep" aria-hidden="true" />
         <Link href="/manifesto" className="ph-link">Read the manifesto</Link>
         <span className="ph-hero-links-sep" aria-hidden="true" />
@@ -70,7 +70,7 @@ function HeroHeadline() {
 
 function CurrentlyColumn() {
   const rows: Array<[label: string, value: string, href: string | null]> = [
-    ["On the bench", "Fairways · iOS · golf", "/apps"],
+    ["On the bench", "Vestige · iOS · golf", "/apps"],
     ["Stage", "Building", null],
     ["Next", "TestFlight", null],
     ["Studio", "United Kingdom", null],

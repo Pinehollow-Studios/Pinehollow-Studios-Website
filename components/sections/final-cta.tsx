@@ -35,7 +35,7 @@ export function FinalCta() {
                 money.
               </p>
               <p>
-                Fairways, a golf app, is on the bench now. Self-funded, no
+                Vestige, a golf app, is on the bench now. Self-funded, no
                 investors, no rush. If you&rsquo;d like a note when it ships
                 — or just want to say hello — write to us.
               </p>

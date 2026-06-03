@@ -93,7 +93,7 @@ function ContactGrid() {
               <ContactPanel
                 eyebrow="The studio"
                 title="Tom & Jack · UK"
-                meta="● Building Fairways"
+                meta="● Building Vestige"
                 metaColor="var(--lp-pine-glow)"
                 metaMono
               />
@@ -209,7 +209,7 @@ function ContactFaq() {
   const faqs = [
     {
       q: "What do you make?",
-      a: "iOS apps. Our first is Fairways, a golf app — in development, no shipping date yet.",
+      a: "iOS apps. Our first is Vestige, a golf app — in development, no shipping date yet.",
     },
     {
       q: "Do you take client work?",

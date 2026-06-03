@@ -10,7 +10,7 @@ import { Overline } from "@/components/shared/primitives";
  * "Workshop bulletin" card — sits next to the founders photo on the studio
  * page. Three concrete blocks separated by hairlines:
  *
- *   1. The first app — Fairways, in development. Brief teaser + link out.
+ *   1. The first app — Vestige, in development. Brief teaser + link out.
  *   2. The line-up — small visual roadmap (Now → Next → Then).
  *   3. Stay close — email signup that opens a pre-filled message to the
  *      studio inbox so visitors can be notified when something ships.
@@ -114,7 +114,7 @@ function FirstApp() {
               color: "var(--lp-fg)",
             }}
           >
-            Fairways
+            Vestige
           </div>
           <div
             style={{
@@ -141,7 +141,7 @@ function FirstApp() {
           marginBottom: 18,
         }}
       >
-        Fairways is an iOS golf app — our first product. More details closer to launch.
+        Vestige is an iOS golf app — our first product. More details closer to launch.
       </p>
 
       <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 22 }}>
@@ -161,7 +161,7 @@ function FirstApp() {
           fontWeight: 500,
         }}
       >
-        See Fairways <span aria-hidden="true">→</span>
+        See Vestige <span aria-hidden="true">→</span>
       </Link>
     </div>
   );
@@ -169,7 +169,7 @@ function FirstApp() {
 
 function Lineup() {
   const stages = [
-    { label: "Now", value: "Fairways", state: "active" as const },
+    { label: "Now", value: "Vestige", state: "active" as const },
     { label: "Next", value: "TBA", state: "pending" as const },
     { label: "Then", value: "TBA", state: "pending" as const },
   ];
@@ -271,9 +271,9 @@ function StayClose() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!email) return;
-    const subject = encodeURIComponent("Notify me — Fairways");
+    const subject = encodeURIComponent("Notify me — Vestige");
     const body = encodeURIComponent(
-      `Please notify me when Fairways is ready to download.\n\nEmail: ${email}\n`,
+      `Please notify me when Vestige is ready to download.\n\nEmail: ${email}\n`,
     );
     window.location.href = `mailto:support@pinehollow.studio?subject=${subject}&body=${body}`;
     setSubmitted(true);
@@ -328,7 +328,7 @@ function StayClose() {
       >
         Want a note when{" "}
         <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--lp-pine-mist)" }}>
-          Fairways
+          Vestige
         </em>{" "}
         is out?
       </div>
@@ -349,7 +349,7 @@ function StayClose() {
           }}
         >
           <span aria-hidden="true">✓</span>
-          Your mail client should have opened. We&rsquo;ll let you know when Fairways is ready.
+          Your mail client should have opened. We&rsquo;ll let you know when Vestige is ready.
         </div>
       ) : (
         <form

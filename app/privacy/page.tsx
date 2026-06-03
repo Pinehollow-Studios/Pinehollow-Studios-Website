@@ -22,7 +22,7 @@ const policySections = [
   },
   {
     title: "B2B insights — what gets sold, and what doesn't",
-    body: "We sell aggregate, anonymised insights derived from app usage to relevant industry partners — for Fairways, that means golf clubs and course operators. Personal data is never sold, shared, or transferred. Identifiers are stripped before any data leaves the app, and partners only ever see aggregated patterns, not individuals.",
+    body: "We sell aggregate, anonymised insights derived from app usage to relevant industry partners — for Vestige, that means golf clubs and course operators. Personal data is never sold, shared, or transferred. Identifiers are stripped before any data leaves the app, and partners only ever see aggregated patterns, not individuals.",
   },
   {
     title: "What we don't do",

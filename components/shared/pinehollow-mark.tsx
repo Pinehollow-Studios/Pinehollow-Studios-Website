@@ -97,7 +97,7 @@ export function PinehollowGlyph({
 // App-icon tile — mark inset on a coloured squircle
 // ─────────────────────────────────────────────────────────────
 
-type TileTheme = "pinehollow" | "fairways" | "light";
+type TileTheme = "pinehollow" | "vestige" | "light";
 
 interface PinehollowIconTileProps {
   size?: number;
@@ -109,7 +109,7 @@ interface PinehollowIconTileProps {
 
 const tileThemes: Record<TileTheme, { bg: string; mark: string; accent: string }> = {
   pinehollow: { bg: "#0A1410", mark: "#3FE5A0", accent: "#3FE5A0" },
-  fairways:   { bg: "#0A1410", mark: "#3FE5A0", accent: "#3FE5A0" },
+  vestige:   { bg: "#0A1410", mark: "#3FE5A0", accent: "#3FE5A0" },
   light:      { bg: "#E6DDCC", mark: "#0A1410", accent: "#2D4F3F" },
 };
 

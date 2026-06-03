@@ -122,7 +122,7 @@ function ManifestoBody() {
     "We're self-funded. There are no investors, no debt, no exit plan. The apps pay for the apps. That means we get to choose what we make, who it's for, and how long it takes.",
     "Most modern software is designed around attention — streaks, badges, push notifications dressed up as features, daily prompts to keep you opening the app. We don't do any of that. Our apps are there when you want them, and out of the way when you don't.",
     "We'd rather make a small thing well than a big thing badly. Each app does one job. If we have a new idea, we start a new app — we don't bolt features onto something that's already done.",
-    "Each app is free to download. Where there are extras, they live behind a paid Pro tier — never the basics. Some of our apps may share anonymised, aggregate usage with industry partners (Fairways with golf clubs, for example) to fund the free tier; we go into the detail on the privacy page.",
+    "Each app is free to download. Where there are extras, they live behind a paid Pro tier — never the basics. Some of our apps may share anonymised, aggregate usage with industry partners (Vestige with golf clubs, for example) to fund the free tier; we go into the detail on the privacy page.",
     "That's the approach. It might change in places, and if it does we'll say so here.",
   ];
 

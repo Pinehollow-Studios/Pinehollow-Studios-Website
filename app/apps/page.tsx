@@ -6,14 +6,14 @@ import { Reveal } from "@/components/shared/reveal";
 export const metadata: Metadata = {
   title: "Apps — Pinehollow Studios",
   description:
-    "What we're building. One iOS app in development — Fairways, a golf app. Plus how we charge for the apps we ship.",
+    "What we're building. One iOS app in development — Vestige, a golf app. Plus how we charge for the apps we ship.",
 };
 
 export default function AppsPage() {
   return (
     <>
       <AppsHero />
-      <FeaturedFairways />
+      <FeaturedVestige />
       <PricingStripe />
     </>
   );
@@ -46,7 +46,7 @@ function AppsHero() {
 
         <Reveal variant="up" immediate delay={420}>
           <p className="ph-pg-hero-lede">
-            Nothing shipped yet. One iOS app in development — Fairways, a golf
+            Nothing shipped yet. One iOS app in development — Vestige, a golf
             app. Self-funded. UK-based. No release date yet.
           </p>
         </Reveal>
@@ -71,9 +71,9 @@ function AppsHero() {
   );
 }
 
-/* ─── Featured Fairways band ────────────────────────────────────── */
+/* ─── Featured Vestige band ────────────────────────────────────── */
 
-function FeaturedFairways() {
+function FeaturedVestige() {
   return (
     <section className="ph-feat">
       <div className="lp-container">
@@ -90,7 +90,7 @@ function FeaturedFairways() {
               </div>
 
               <h2 className="ph-display ph-feat-h2">
-                Fairways.
+                Vestige.
                 <br />
                 <span className="ph-serif ph-feat-h2-em">a golf app.</span>
               </h2>
@@ -99,7 +99,7 @@ function FeaturedFairways() {
 
               <div className="ph-feat-prose">
                 <p>
-                  We&rsquo;re not saying much about Fairways yet. The screens,
+                  We&rsquo;re not saying much about Vestige yet. The screens,
                   the features, the full pitch — those come closer to launch.
                 </p>
                 <p style={{ color: "var(--lp-fg-mute)" }}>
@@ -150,7 +150,7 @@ function ObscuredCard() {
         <OrbMark mark="f" size={68} glow="var(--lp-pine-glow)" />
         <div className="ph-obscure-status">In development</div>
         <div className="ph-obscure-meta">
-          PH-001 · Fairways
+          PH-001 · Vestige
           <br />
           Pinehollow Studios Limited
         </div>
