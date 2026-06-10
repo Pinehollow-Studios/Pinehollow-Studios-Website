@@ -1,5 +1,10 @@
+"use client";
+
 import Link from "next/link";
+import { Magnetic } from "@/components/shared/magnetic";
+import { MaskReveal } from "@/components/shared/mask-reveal";
 import { PinehollowMark } from "@/components/shared/pinehollow-mark";
+import { Reveal } from "@/components/shared/reveal";
 
 interface FooterColProps {
   title: string;
@@ -9,29 +14,14 @@ interface FooterColProps {
 function FooterCol({ title, items }: FooterColProps) {
   return (
     <div>
-      <div className="ph-eyebrow" style={{ marginBottom: 18 }}>
-        {title}
-      </div>
-      <ul
-        style={{
-          listStyle: "none",
-          padding: 0,
-          margin: 0,
-          display: "flex",
-          flexDirection: "column",
-          gap: 10,
-        }}
-      >
+      <div className="ph-eyebrow" style={{ marginBottom: 18 }}>{title}</div>
+      <ul className="ph-foot-list">
         {items.map((item) => (
           <li key={item.label}>
             {item.external ? (
-              <a href={item.href} className="ph-foot-link">
-                {item.label}
-              </a>
+              <a href={item.href} className="ph-foot-link">{item.label}</a>
             ) : (
-              <Link href={item.href} className="ph-foot-link">
-                {item.label}
-              </Link>
+              <Link href={item.href} className="ph-foot-link">{item.label}</Link>
             )}
           </li>
         ))}
@@ -41,50 +31,58 @@ function FooterCol({ title, items }: FooterColProps) {
 }
 
 /**
- * Editorial Colophon footer — Volume IV.
- *
- *   HUGE wordmark sign-off, hairline, 4-column colophon body
- *   (colophon paragraph · apps · studio · elsewhere), hairline,
- *   bottom mono strip (©, built quietly, end of issue).
+ * Colophon footer — giant masked wordmark with a handwritten-feeling serif
+ * "studios." colliding with its baseline, an oversized write-to-us link,
+ * the colophon grid, and a mono end strip with a magnetic back-to-top.
  */
 export function Footer() {
+  const backToTop = () => {
+    window.dispatchEvent(new CustomEvent("ph:scrollto", { detail: 0 }));
+  };
+
   return (
-    <footer
-      style={{
-        borderTop: "1px solid var(--ph-rule-hi)",
-        padding: "96px 0 36px",
-        background: "var(--lp-base-deep)",
-      }}
-    >
+    <footer className="ph-foot">
       <div className="lp-container">
-        {/* HUGE wordmark across the top — confident sign-off */}
-        <div className="ph-foot-wordmark-wrap">
-          <div className="ph-foot-wordmark">
-            Pinehollow
-            <span className="ph-serif ph-foot-wordmark-em">Studios.</span>
-          </div>
+        {/* giant sign-off wordmark */}
+        <div className="ph-foot-mark-wrap">
+          <MaskReveal
+            as="div"
+            className="ph-display ph-foot-wordmark"
+            lines={[<span key="w">Pinehollow</span>]}
+          />
+          <span className="ph-serif ph-foot-studios" aria-hidden="true">studios.</span>
         </div>
+
+        {/* oversized email link */}
+        <Reveal variant="up">
+          <div className="ph-foot-write">
+            <span className="ph-eyebrow">Write to us</span>
+            <a
+              href="mailto:support@pinehollow.studio"
+              className="ph-foot-mail"
+              data-cursor-label="Email"
+            >
+              support@pinehollow.studio
+              <span className="ph-foot-mail-tip">↗</span>
+            </a>
+          </div>
+        </Reveal>
 
         <hr className="ph-rule" />
 
         <div className="ph-foot-grid">
           <div>
-            <div className="ph-eyebrow" style={{ marginBottom: 16 }}>
-              Colophon
-            </div>
+            <div className="ph-eyebrow" style={{ marginBottom: 16 }}>Colophon</div>
             <p className="ph-foot-colophon">
-              This page was set in{" "}
-              <em className="ph-foot-italic">Geist</em>,{" "}
+              This page was set in <em className="ph-foot-italic">Archivo</em>,{" "}
               <em className="ph-foot-italic">Geist Mono</em>, and{" "}
-              <em className="ph-foot-italic">Fraunces</em>. Designed and built
-              in the United Kingdom by Tom &amp; Jack. Volume I, Issue 1. No
-              cookies of consequence, no third-party scripts.
+              <em className="ph-foot-italic">Fraunces</em>. Designed and built in
+              the United Kingdom by Tom &amp; Jack. Volume I, Issue 1. No cookies
+              of consequence, no third-party scripts.
             </p>
             <div className="ph-foot-status">
               <span className="ph-live-dot" />
-              <span className="ph-foot-status-label">
-                Currently building Vestige
-              </span>
+              <span className="ph-foot-status-label">Currently building Vestige</span>
             </div>
           </div>
 
@@ -92,7 +90,7 @@ export function Footer() {
             title="Apps"
             items={[
               { label: "Vestige — golf", href: "/apps" },
-              { label: "All apps ↗", href: "/apps" },
+              { label: "All apps", href: "/apps" },
             ]}
           />
           <FooterCol
@@ -100,7 +98,7 @@ export function Footer() {
             items={[
               { label: "Manifesto", href: "/manifesto" },
               { label: "About us", href: "/studio" },
-              { label: "Get in touch ↗", href: "/contact" },
+              { label: "Get in touch", href: "/contact" },
               { label: "Privacy", href: "/privacy" },
             ]}
           />
@@ -121,10 +119,17 @@ export function Footer() {
         <div className="ph-foot-bottom">
           <span>© Pinehollow Studios Limited · MMXXVI</span>
           <span className="ph-foot-bottom-mid">
-            <PinehollowMark size={14} colour="var(--lp-fg-dim)" ariaHidden />
+            <PinehollowMark size={13} colour="var(--lp-fg-dim)" ariaHidden />
             Built quietly · No cookies · No tracking
           </span>
-          <span>End of issue ·</span>
+          <span className="ph-foot-bottom-end">
+            End of issue ·
+            <Magnetic strength={0.35}>
+              <button type="button" className="ph-foot-top" onClick={backToTop} data-cursor-label="Top">
+                Back to top ↑
+              </button>
+            </Magnetic>
+          </span>
         </div>
       </div>
 
@@ -134,37 +139,86 @@ export function Footer() {
 }
 
 const FOOTER_CSS = `
-  .ph-foot-wordmark-wrap {
+  .ph-foot {
+    border-top: 1px solid var(--ph-rule-hi);
+    padding: clamp(72px, 9vw, 130px) 0 36px;
+    background: var(--lp-base-deep);
     position: relative;
-    padding-bottom: 64px;
+    overflow: hidden;
+  }
+
+  .ph-foot-mark-wrap {
+    position: relative;
+    padding-bottom: clamp(40px, 5vw, 80px);
   }
   .ph-foot-wordmark {
-    font-family: var(--lp-font-display);
-    font-weight: 600;
-    font-size: clamp(64px, 14vw, 240px);
-    letter-spacing: -0.05em;
-    line-height: 0.88;
+    /* sized so PINEHOLLOW (≈8.4× font-size at 122% stretch) fits the container */
+    font-size: clamp(38px, 10vw, 152px);
+    line-height: 0.9;
     color: var(--lp-fg);
-    margin: 0;
-    display: flex;
-    align-items: baseline;
-    gap: 24px;
-    flex-wrap: wrap;
   }
-  .ph-foot-wordmark-em {
+  .ph-foot-studios {
+    position: absolute;
+    right: 2%;
+    bottom: clamp(8px, 2vw, 30px);
+    font-size: clamp(36px, 5.6vw, 104px);
     color: var(--lp-pine-mist);
-    font-size: 0.7em;
-    font-weight: 400;
+    transform: rotate(-5deg);
+    text-shadow: 0 10px 40px rgba(4, 8, 13, 0.9);
+    pointer-events: none;
   }
+
+  .ph-foot-write {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-bottom: clamp(40px, 5vw, 72px);
+  }
+  .ph-foot-mail {
+    align-self: flex-start;
+    font-family: var(--ph-headline);
+    font-weight: 600;
+    font-stretch: 110%;
+    font-size: clamp(22px, 4.2vw, 64px);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: var(--lp-fg);
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.35em;
+    background-image: linear-gradient(var(--lp-pine-glow), var(--lp-pine-glow));
+    background-size: 0% 2px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 600ms var(--ph-ease-expo), color 300ms var(--lp-ease);
+    padding-bottom: 0.08em;
+  }
+  .ph-foot-mail:hover {
+    color: var(--lp-pine-glow);
+    background-size: 100% 2px;
+  }
+  .ph-foot-mail-tip {
+    font-size: 0.55em;
+    color: var(--lp-pine-glow);
+    transition: transform 400ms var(--ph-ease-out);
+  }
+  .ph-foot-mail:hover .ph-foot-mail-tip { transform: translate(4px, -4px); }
 
   .ph-foot-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr 1.2fr;
     gap: 48px;
-    padding: 40px 0;
+    padding: 44px 0;
     align-items: start;
   }
-
+  .ph-foot-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
   .ph-foot-colophon {
     margin: 0;
     font-size: 14px;
@@ -178,31 +232,34 @@ const FOOTER_CSS = `
     color: var(--lp-fg);
     font-variation-settings: 'opsz' 14, 'SOFT' 50;
   }
-
   .ph-foot-status {
     display: inline-flex;
     align-items: center;
     gap: 10px;
     margin-top: 24px;
-    padding: 6px 14px;
+    padding: 7px 14px;
     border-radius: 99px;
     border: 1px solid rgba(127, 228, 255, 0.30);
     background: rgba(127, 228, 255, 0.05);
   }
   .ph-foot-status-label {
     font-family: var(--lp-font-mono);
-    font-size: 11px;
+    font-size: 10px;
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--lp-pine-glow);
   }
-
   .ph-foot-link {
     font-size: 14px;
     color: var(--lp-fg-mute);
-    transition: color 240ms var(--lp-ease);
+    background-image: linear-gradient(var(--lp-pine-glow), var(--lp-pine-glow));
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    padding-bottom: 2px;
+    transition: color 240ms var(--lp-ease), background-size 360ms var(--lp-ease);
   }
-  .ph-foot-link:hover { color: var(--lp-fg); }
+  .ph-foot-link:hover { color: var(--lp-fg); background-size: 100% 1px; }
 
   .ph-foot-bottom {
     display: flex;
@@ -222,6 +279,21 @@ const FOOTER_CSS = `
     align-items: center;
     gap: 10px;
   }
+  .ph-foot-bottom-end {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .ph-foot-top {
+    font-family: var(--lp-font-mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--lp-fg);
+    padding: 10px 4px;
+    transition: color 240ms var(--lp-ease);
+  }
+  .ph-foot-top:hover { color: var(--lp-pine-glow); }
 
   @media (max-width: 980px) {
     .ph-foot-grid { grid-template-columns: 1fr 1fr; gap: 40px; }

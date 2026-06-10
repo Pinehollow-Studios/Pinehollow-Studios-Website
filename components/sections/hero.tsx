@@ -1,29 +1,101 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { MaskReveal } from "@/components/shared/mask-reveal";
+import { Reveal } from "@/components/shared/reveal";
+import { TopoField } from "@/components/shared/topo-field";
+
+gsap.registerPlugin(ScrollTrigger);
 
 /**
- * Hero — Volume IV, editorial direction.
- *
- *   8/4 grid: big editorial headline on the left, "Currently" ledger on
- *   the right. Hairlines instead of glass cards. One Instrument Serif
- *   italic moment in the headline. A soft single aura behind the section.
+ * Hero — contour-map field survey. The hollow's topo lines draw themselves
+ * behind a masked three-line headline; a mono "Currently" ledger sits on the
+ * right like an instrument readout. Headline and field drift apart on scroll.
  */
 export function Hero() {
-  return (
-    <section className="ph-hero">
-      <div className="ph-hero-aura" aria-hidden="true" />
+  const rootRef = useRef<HTMLElement>(null);
 
-      <div className="lp-container" style={{ position: "relative" }}>
-        <div className="ph-grid-hero ph-hero-grid">
-          <HeroHeadline />
-          <CurrentlyColumn />
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+    const ctx = gsap.context(() => {
+      gsap.to("[data-hero-head]", {
+        yPercent: -14,
+        opacity: 0.25,
+        ease: "none",
+        scrollTrigger: { trigger: root, start: "top top", end: "bottom top", scrub: true },
+      });
+      gsap.to("[data-hero-topo]", {
+        yPercent: 18,
+        ease: "none",
+        scrollTrigger: { trigger: root, start: "top top", end: "bottom top", scrub: true },
+      });
+    }, root);
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section className="ph-hero" ref={rootRef}>
+      <div className="ph-hero-aura" aria-hidden="true" />
+      <div className="ph-hero-topo" data-hero-topo aria-hidden="true">
+        <TopoField className="ph-hero-topo-svg" />
+      </div>
+
+      <div className="lp-container ph-hero-stack">
+        <Reveal variant="fade" immediate delay={60}>
+          <div className="ph-hero-eyebrow-row">
+            <span className="ph-eyebrow">
+              <span className="ph-hero-eyebrow-tick" aria-hidden="true" />
+              Field notes · No. 01
+            </span>
+            <span className="ph-eyebrow ph-eyebrow-dim ph-hero-eyebrow-right">
+              An independent iOS software studio
+            </span>
+          </div>
+        </Reveal>
+
+        <div className="ph-hero-grid" data-hero-head>
+          <MaskReveal
+            as="h1"
+            className="ph-display ph-hero-h1"
+            immediate
+            delay={150}
+            lines={[
+              <span key="1">Two people,</span>,
+              <span key="2">one <em>workshop</em>,</span>,
+              <span key="3">iOS apps.</span>,
+            ]}
+          />
+
+          <CurrentlyLedger />
         </div>
 
-        <div className="ph-hero-foot">
-          <hr className="ph-rule" />
-          <div className="ph-hero-foot-row">
-            <span>An independent iOS software studio · since 2026</span>
-            <span>Scroll to read · §01 ↓</span>
-          </div>
+        <div className="ph-hero-low">
+          <Reveal variant="up" immediate delay={950}>
+            <p className="ph-hero-lede">
+              Pinehollow is a small studio by Tom and Jack. We make iOS apps —
+              Vestige, a golf app, is in the workshop now. Self-funded,
+              UK-based, in no particular rush.
+            </p>
+            <div className="ph-hero-links">
+              <Link href="/apps" className="ph-arrow-link" data-cursor-label="Apps">
+                See Vestige <span className="ph-arrow-link-tip">→</span>
+              </Link>
+              <Link href="/manifesto" className="ph-arrow-link" data-cursor-label="Read">
+                The manifesto <span className="ph-arrow-link-tip">→</span>
+              </Link>
+            </div>
+          </Reveal>
+
+          <Reveal variant="fade" immediate delay={1250} className="ph-hero-scroll-wrap">
+            <div className="ph-hero-scroll">
+              <span>Scroll</span>
+              <span className="ph-hero-scroll-line" aria-hidden="true" />
+            </div>
+          </Reveal>
         </div>
       </div>
 
@@ -32,45 +104,9 @@ export function Hero() {
   );
 }
 
-function HeroHeadline() {
-  return (
-    <div>
-      <div className="ph-eyebrow" style={{ marginBottom: 28 }}>
-        <span
-          aria-hidden="true"
-          style={{ width: 24, height: 1, background: "var(--lp-fg-mute)" }}
-        />
-        <span>Cover story · No. 01</span>
-      </div>
-
-      <h1 className="ph-display ph-hero-h1">
-        Two people,
-        <br />
-        <em>one workshop</em>,
-        <br />
-        iOS apps.
-      </h1>
-
-      <p className="ph-hero-lede">
-        Pinehollow is a small studio by Tom and Jack. We make iOS apps —
-        Vestige, a golf app, is in the workshop now. Self-funded, UK-based,
-        in no particular rush.
-      </p>
-
-      <div className="ph-hero-links">
-        <Link href="/apps" className="ph-link">See Vestige</Link>
-        <span className="ph-hero-links-sep" aria-hidden="true" />
-        <Link href="/manifesto" className="ph-link">Read the manifesto</Link>
-        <span className="ph-hero-links-sep" aria-hidden="true" />
-        <Link href="/studio" className="ph-link">Meet the studio</Link>
-      </div>
-    </div>
-  );
-}
-
-function CurrentlyColumn() {
+function CurrentlyLedger() {
   const rows: Array<[label: string, value: string, href: string | null]> = [
-    ["On the bench", "Vestige · iOS · golf", "/apps"],
+    ["On the bench", "Vestige · golf", "/apps"],
     ["Stage", "Building", null],
     ["Next", "TestFlight", null],
     ["Studio", "United Kingdom", null],
@@ -80,28 +116,26 @@ function CurrentlyColumn() {
 
   return (
     <aside className="ph-currently">
-      <div className="ph-currently-head">
-        <span className="ph-eyebrow">Currently</span>
-        <span className="ph-eyebrow ph-eyebrow-dim">14·05·26</span>
-      </div>
-
-      {rows.map(([label, value, href], i) => (
-        <div
-          key={label}
-          className="ph-currently-row"
-          style={{
-            borderTop: i === 0 ? "none" : "1px solid var(--ph-rule-faint)",
-          }}
-        >
-          <span className="ph-currently-key">{label}</span>
-          {href ? (
-            <Link href={href} className="ph-link ph-currently-val">
-              {value}
-            </Link>
-          ) : (
-            <span className="ph-currently-val">{value}</span>
-          )}
+      <Reveal variant="up" immediate delay={700}>
+        <div className="ph-currently-head">
+          <span className="ph-eyebrow">
+            <span className="ph-live-dot" />
+            Currently
+          </span>
+          <span className="ph-eyebrow ph-eyebrow-dim">14·05·26</span>
         </div>
+      </Reveal>
+      {rows.map(([label, value, href], i) => (
+        <Reveal key={label} variant="up" immediate delay={800 + i * 80}>
+          <div className="ph-currently-row">
+            <span className="ph-currently-key">{label}</span>
+            {href ? (
+              <Link href={href} className="ph-link ph-currently-val">{value}</Link>
+            ) : (
+              <span className="ph-currently-val">{value}</span>
+            )}
+          </div>
+        </Reveal>
       ))}
     </aside>
   );
@@ -110,103 +144,155 @@ function CurrentlyColumn() {
 const HERO_CSS = `
   .ph-hero {
     position: relative;
-    padding-top: 80px;
-    padding-bottom: 120px;
+    padding-top: clamp(48px, 6vw, 90px);
+    padding-bottom: clamp(56px, 7vw, 110px);
+    min-height: min(calc(100svh - 120px), 1100px);
+    display: flex;
+    align-items: stretch;
+    overflow: clip;
+  }
+
+  .ph-hero-topo {
+    position: absolute;
+    inset: -10% -22% -20% auto;
+    width: min(76vw, 1150px);
+    z-index: 0;
+    pointer-events: none;
+    -webkit-mask-image: radial-gradient(75% 75% at 55% 50%, black 55%, transparent 100%);
+    mask-image: radial-gradient(75% 75% at 55% 50%, black 55%, transparent 100%);
+  }
+  .ph-hero-topo-svg { width: 100%; height: 100%; }
+
+  .ph-hero-stack {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: clamp(40px, 5vw, 72px);
+  }
+
+  .ph-hero-eyebrow-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 24px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--ph-rule-faint);
+  }
+  .ph-hero-eyebrow-tick {
+    width: 24px;
+    height: 1px;
+    background: var(--lp-pine-glow);
+    display: inline-block;
   }
 
   .ph-hero-grid {
     display: grid;
-    grid-template-columns: 8fr 4fr;
-    gap: 64px;
-    align-items: start;
+    grid-template-columns: minmax(0, 8.2fr) minmax(280px, 3.8fr);
+    gap: clamp(40px, 6vw, 96px);
+    align-items: end;
+    margin-top: clamp(24px, 3vw, 48px);
   }
 
   .ph-hero-h1 {
     margin: 0;
-    font-size: clamp(64px, 8.4vw, 152px);
-    max-width: 14ch;
+    font-size: clamp(54px, 8.6vw, 158px);
+    color: var(--lp-fg);
   }
-
-  .ph-hero-lede {
-    color: var(--lp-fg-mute);
-    font-size: clamp(17px, 1.2vw, 19px);
-    line-height: 1.55;
-    max-width: 520px;
-    margin-top: 40px;
-  }
-
-  .ph-hero-links {
-    display: flex;
-    gap: 28px;
-    margin-top: 36px;
-    align-items: center;
-    font-size: 15px;
-    flex-wrap: wrap;
-  }
-  .ph-hero-links-sep {
-    width: 1px;
-    height: 14px;
-    background: var(--ph-rule-hi);
-  }
+  .ph-hero-h1 em { color: var(--lp-pine-mist); }
 
   /* — currently ledger — */
   .ph-currently {
     border-top: 1px solid var(--ph-rule-hi);
-    border-bottom: 1px solid var(--ph-rule-hi);
     padding-top: 18px;
-    padding-bottom: 8px;
-    margin-top: 6px;
   }
   .ph-currently-head {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-bottom: 18px;
+    padding-bottom: 14px;
   }
   .ph-currently-row {
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: baseline;
     gap: 12px;
-    padding: 12px 0;
+    padding: 11px 0;
+    border-top: 1px solid var(--ph-rule-faint);
   }
   .ph-currently-key {
     font-family: var(--lp-font-mono);
-    font-size: 11px;
+    font-size: 10px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--lp-fg-dim);
   }
   .ph-currently-val {
-    font-size: 15px;
+    font-size: 14px;
     color: var(--lp-fg);
     letter-spacing: -0.01em;
   }
 
-  /* — bottom rule + meta row — */
-  .ph-hero-foot { margin-top: 100px; }
-  .ph-hero-foot-row {
+  /* — lower band: lede + links + scroll cue — */
+  .ph-hero-low {
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+  }
+  .ph-hero-lede {
+    color: var(--lp-fg-mute);
+    font-size: clamp(16px, 1.2vw, 19px);
+    line-height: 1.6;
+    max-width: 520px;
+    margin: 0;
+  }
+  .ph-hero-links {
+    display: flex;
+    gap: 36px;
+    margin-top: 28px;
     align-items: center;
-    padding: 16px 0;
-    font-family: var(--lp-font-mono);
-    font-size: 11px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--lp-fg-dim);
-    gap: 16px;
     flex-wrap: wrap;
   }
 
-  @media (max-width: 980px) {
-    .ph-hero { padding-top: 56px; padding-bottom: 80px; }
-    .ph-hero-grid { gap: 48px; }
-    .ph-hero-h1 { font-size: clamp(52px, 12vw, 96px); }
-    .ph-hero-foot { margin-top: 64px; }
+  .ph-hero-scroll {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--lp-font-mono);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--lp-fg-dim);
   }
-  @media (max-width: 520px) {
-    .ph-hero-links { gap: 16px; }
-    .ph-hero-links-sep { display: none; }
+  .ph-hero-scroll-line {
+    width: 1px;
+    height: 56px;
+    background: var(--ph-rule-hi);
+    position: relative;
+    overflow: hidden;
+  }
+  .ph-hero-scroll-line::after {
+    content: "";
+    position: absolute;
+    left: 0; top: -40%;
+    width: 100%; height: 40%;
+    background: var(--lp-pine-glow);
+    animation: ph-scroll-drip 2.2s var(--ph-ease-out) infinite;
+  }
+  @keyframes ph-scroll-drip {
+    0%   { top: -40%; }
+    100% { top: 110%; }
+  }
+
+  @media (max-width: 980px) {
+    .ph-hero { min-height: 0; }
+    .ph-hero-grid { grid-template-columns: 1fr; align-items: start; }
+    .ph-hero-h1 { font-size: clamp(46px, 11.5vw, 96px); }
+    .ph-hero-topo { width: 120vw; inset: -6% -40% auto auto; opacity: 0.7; }
+    .ph-hero-scroll-wrap { display: none; }
+    .ph-hero-eyebrow-right { display: none; }
   }
 `;

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, type CSSProperties, type ReactNode } from "react";
+import { loaderGate } from "./loader-gate";
 
 type Variant = "up" | "up-lg" | "up-xl" | "fade" | "scale";
 
@@ -89,9 +90,18 @@ export function Reveal({
     };
 
     if (immediate) {
-      // Defer to next frame so the initial paint shows the "from" state.
-      const raf = requestAnimationFrame(trigger);
+      // Wait for the preloader wipe (3s safety timeout), then defer to the
+      // next frame so the initial paint shows the "from" state.
+      let raf = 0;
+      let cancelled = false;
+      Promise.race([
+        loaderGate,
+        new Promise<void>((r) => setTimeout(r, 3000)),
+      ]).then(() => {
+        if (!cancelled) raf = requestAnimationFrame(trigger);
+      });
       return () => {
+        cancelled = true;
         cancelAnimationFrame(raf);
         if (timer !== undefined) window.clearTimeout(timer);
       };

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/sections/contact-form";
+import { PageHero } from "@/components/shared/page-hero";
 import { Reveal } from "@/components/shared/reveal";
 
 export const metadata: Metadata = {
@@ -10,200 +11,115 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <ContactHero />
+      <PageHero
+        eyebrow="§01 · Contact"
+        lines={[
+          <span key="1">Get in</span>,
+          <em key="2">touch.</em>,
+        ]}
+        lede="Email is the fastest way to reach us. Tom and Jack both see what comes in."
+      />
       <ContactGrid />
       <ContactFaq />
     </>
   );
 }
 
-/* ─── Hero ──────────────────────────────────────────────────── */
-
-function ContactHero() {
-  return (
-    <section className="ph-pg-hero">
-      <div className="ph-hero-aura" aria-hidden="true" />
-      <div className="lp-container" style={{ position: "relative" }}>
-        <Reveal variant="up" immediate delay={80}>
-          <div className="ph-eyebrow" style={{ marginBottom: 28 }}>
-            <span
-              aria-hidden="true"
-              style={{ width: 24, height: 1, background: "var(--lp-fg-mute)" }}
-            />
-            <span>§01 · Contact</span>
-          </div>
-        </Reveal>
-
-        <Reveal variant="up-xl" immediate delay={180} duration={1100}>
-          <h1 className="ph-display ph-pg-hero-h1">
-            Get in
-            <br />
-            <em>touch.</em>
-          </h1>
-        </Reveal>
-
-        <Reveal variant="up" immediate delay={420}>
-          <p className="ph-pg-hero-lede">
-            Email is the fastest way to reach us. Tom and Jack both see what
-            comes in.
-          </p>
-        </Reveal>
-      </div>
-
-      <style>{`
-        .ph-pg-hero { position: relative; padding: 80px 0 100px; }
-        .ph-pg-hero-h1 {
-          margin: 0;
-          font-size: clamp(64px, 8.4vw, 152px);
-          max-width: 14ch;
-        }
-        .ph-pg-hero-lede {
-          color: var(--lp-fg-mute);
-          font-size: clamp(17px, 1.2vw, 19px);
-          line-height: 1.55;
-          max-width: 600px;
-          margin-top: 36px;
-        }
-      `}</style>
-    </section>
-  );
-}
-
-/* ─── Form + side panels ────────────────────────────────────── */
+/* ─── Form + side ledger ────────────────────────────────────── */
 
 function ContactGrid() {
+  const panels: Array<{ k: string; title: string; href?: string; meta: string; live?: boolean }> = [
+    {
+      k: "Email",
+      title: "support@pinehollow.studio",
+      href: "mailto:support@pinehollow.studio",
+      meta: "For anything — support, questions, hello.",
+    },
+    {
+      k: "The studio",
+      title: "Tom & Jack · UK",
+      meta: "Building Vestige",
+      live: true,
+    },
+    {
+      k: "Replies",
+      title: "Within a few days",
+      meta: "Sometimes longer if we're deep in something.",
+    },
+  ];
+
   return (
-    <section className="ph-contact-grid-section">
+    <section className="ph-cgrid-section">
       <div className="lp-container">
-        <div className="ph-contact-grid">
+        <div className="ph-cgrid">
           <Reveal variant="up-lg" duration={1000}>
             <ContactForm />
           </Reveal>
 
-          <div className="ph-contact-side">
-            <Reveal variant="up-lg" duration={900} delay={240}>
-              <ContactPanel
-                eyebrow="Email"
-                title="support@pinehollow.studio"
-                href="mailto:support@pinehollow.studio"
-                meta="For anything — support, questions, hello."
-              />
-            </Reveal>
-            <Reveal variant="up-lg" duration={900} delay={380}>
-              <ContactPanel
-                eyebrow="The studio"
-                title="Tom & Jack · UK"
-                meta="● Building Vestige"
-                metaColor="var(--lp-pine-glow)"
-                metaMono
-              />
-            </Reveal>
-            <Reveal variant="up-lg" duration={900} delay={520}>
-              <ContactPanel
-                eyebrow="Replies"
-                title="Usually within a few days"
-                meta="Sometimes longer if we're deep in something."
-              />
-            </Reveal>
+          <div className="ph-cside">
+            {panels.map((p, i) => (
+              <Reveal key={p.k} variant="up" duration={900} delay={200 + i * 130}>
+                <div className="ph-cpanel" style={{ borderTop: i === 0 ? "1px solid var(--ph-rule)" : undefined }}>
+                  <div className="ph-eyebrow" style={{ marginBottom: 12 }}>{p.k}</div>
+                  {p.href ? (
+                    <a href={p.href} className="ph-h3 ph-cpanel-title ph-cpanel-link" data-cursor-label="Email">
+                      {p.title}
+                    </a>
+                  ) : (
+                    <div className="ph-h3 ph-cpanel-title">{p.title}</div>
+                  )}
+                  <div className="ph-cpanel-meta">
+                    {p.live ? <span className="ph-live-dot" style={{ marginRight: 10 }} /> : null}
+                    {p.meta}
+                  </div>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </div>
 
       <style>{`
-        .ph-contact-grid-section { padding: 0 0 80px; }
-        .ph-contact-grid {
+        .ph-cgrid-section { padding: 0 0 80px; }
+        .ph-cgrid {
           display: grid;
           grid-template-columns: 1.4fr 1fr;
-          gap: 20px;
+          gap: clamp(32px, 4vw, 64px);
+          align-items: start;
         }
-        .ph-contact-side {
+        .ph-cside { display: flex; flex-direction: column; }
+        .ph-cpanel {
+          padding: 30px 0;
+          border-bottom: 1px solid var(--ph-rule);
+        }
+        .ph-cpanel-title {
+          display: block;
+          font-size: clamp(18px, 1.8vw, 24px);
+          color: var(--lp-fg);
+          margin-top: 4px;
+          word-break: break-word;
+        }
+        .ph-cpanel-link {
+          transition: color 240ms var(--lp-ease);
+        }
+        .ph-cpanel-link:hover { color: var(--lp-pine-glow); }
+        .ph-cpanel-meta {
+          margin-top: 10px;
+          line-height: 1.6;
+          color: var(--lp-fg-mute);
+          font-size: 14px;
           display: flex;
-          flex-direction: column;
-          gap: 16px;
+          align-items: center;
         }
         @media (max-width: 1000px) {
-          .ph-contact-grid { grid-template-columns: 1fr; }
+          .ph-cgrid { grid-template-columns: 1fr; }
         }
       `}</style>
     </section>
   );
 }
 
-function ContactPanel({
-  eyebrow,
-  title,
-  href,
-  meta,
-  metaColor,
-  metaMono,
-}: {
-  eyebrow: string;
-  title: string;
-  href?: string;
-  meta?: string;
-  metaColor?: string;
-  metaMono?: boolean;
-}) {
-  const TitleEl = href ? "a" : "div";
-  return (
-    <div className="ph-contact-panel">
-      <div className="ph-eyebrow" style={{ marginBottom: 12 }}>
-        {eyebrow}
-      </div>
-      <TitleEl
-        href={href}
-        className="ph-contact-panel-title"
-        style={href ? { color: "var(--lp-fg)" } : undefined}
-      >
-        {title}
-      </TitleEl>
-      {meta ? (
-        <div
-          className="ph-contact-panel-meta"
-          style={{
-            color: metaColor ?? "var(--lp-fg-mute)",
-            fontFamily: metaMono
-              ? "var(--lp-font-mono)"
-              : "var(--lp-font-body)",
-            fontSize: metaMono ? 11 : 14,
-            letterSpacing: metaMono ? "0.22em" : "-0.005em",
-            textTransform: metaMono ? "uppercase" : "none",
-          }}
-        >
-          {meta}
-        </div>
-      ) : null}
-
-      <style>{`
-        .ph-contact-panel {
-          padding: 28px;
-          border: 1px solid var(--ph-rule);
-          border-radius: 4px;
-          background: rgba(255,255,255,0.015);
-          transition: border-color 240ms var(--lp-ease), background 240ms var(--lp-ease);
-        }
-        .ph-contact-panel:hover {
-          border-color: var(--ph-rule-hi);
-          background: rgba(255,255,255,0.03);
-        }
-        .ph-contact-panel-title {
-          display: block;
-          font-family: var(--lp-font-display);
-          font-size: 22px;
-          font-weight: 500;
-          letter-spacing: -0.025em;
-          margin-top: 6px;
-        }
-        .ph-contact-panel-meta {
-          margin-top: 10px;
-          line-height: 1.6;
-        }
-      `}</style>
-    </div>
-  );
-}
-
-/* ─── FAQ — hairline-bounded row table ──────────────────────── */
+/* ─── FAQ rows ──────────────────────────────────────────────── */
 
 function ContactFaq() {
   const faqs = [
@@ -230,61 +146,67 @@ function ContactFaq() {
       <div className="lp-container">
         <Reveal variant="up-lg" duration={1000}>
           <div className="ph-faq-head">
-            <div>
-              <div className="ph-eyebrow" style={{ marginBottom: 20 }}>
-                §02 · Things people ask
-              </div>
-              <h2 className="ph-display ph-faq-h2">
-                A few common
-                <br />
-                <em>questions.</em>
-              </h2>
+            <div className="ph-eyebrow" style={{ marginBottom: 20 }}>
+              <span style={{ color: "var(--lp-pine-glow)" }}>§02</span> Things people ask
             </div>
+            <h2 className="ph-display ph-faq-h2">
+              A few common
+              <br />
+              <em>questions.</em>
+            </h2>
           </div>
         </Reveal>
 
         <div className="ph-faq-list">
           {faqs.map((f, i) => (
             <Reveal key={f.q} variant="up" delay={i * 70}>
-              <div
-                className="ph-faq-row"
-                style={{
-                  borderTop: i === 0 ? "1px solid var(--ph-rule)" : "none",
-                }}
-              >
-                <div className="ph-faq-q">{f.q}</div>
+              <div className="ph-faq-row" style={{ borderTop: i === 0 ? "1px solid var(--ph-rule)" : undefined }}>
+                <span className="ph-faq-no">{String(i + 1).padStart(2, "0")}</span>
+                <div className="ph-h3 ph-faq-q">{f.q}</div>
                 <p className="ph-faq-a">{f.a}</p>
               </div>
             </Reveal>
           ))}
         </div>
+        <hr className="ph-rule" />
       </div>
 
       <style>{`
-        .ph-faq { padding: clamp(80px, 10vw, 140px) 0; }
+        .ph-faq { padding: var(--lp-section-y) 0; }
         .ph-faq-head { margin-bottom: 56px; }
-        .ph-faq-h2 {
-          margin: 0;
-          font-size: clamp(40px, 5.2vw, 80px);
-        }
-        .ph-faq-list {
-          border-bottom: 1px solid var(--ph-rule);
-        }
+        .ph-faq-h2 { margin: 0; font-size: clamp(38px, 5.2vw, 80px); }
+        .ph-faq-h2 em { color: var(--lp-pine-mist); }
         .ph-faq-row {
           display: grid;
-          grid-template-columns: 1fr 2fr;
-          gap: 48px;
+          grid-template-columns: 64px 1fr 1.6fr;
+          gap: 40px;
           padding: 36px 0;
           border-top: 1px solid var(--ph-rule);
-          align-items: start;
+          align-items: baseline;
+          position: relative;
+          transition: padding-left 420ms var(--ph-ease-out);
         }
-        .ph-faq-q {
-          font-family: var(--lp-font-display);
-          font-size: clamp(20px, 2vw, 28px);
-          font-weight: 500;
-          letter-spacing: -0.025em;
-          line-height: 1.2;
+        .ph-faq-row::before {
+          content: "";
+          position: absolute;
+          top: -1px; left: 0;
+          width: 100%; height: 1px;
+          background: var(--lp-pine-glow);
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 600ms var(--ph-ease-expo);
         }
+        .ph-faq-row:hover { padding-left: 18px; }
+        .ph-faq-row:hover::before { transform: scaleX(1); }
+        .ph-faq-row:hover .ph-faq-no { color: var(--lp-pine-glow); }
+        .ph-faq-no {
+          font-family: var(--lp-font-mono);
+          font-size: 12px;
+          letter-spacing: 0.14em;
+          color: var(--lp-fg-dim);
+          transition: color 300ms var(--lp-ease);
+        }
+        .ph-faq-q { font-size: clamp(20px, 2vw, 28px); line-height: 1.15; }
         .ph-faq-a {
           margin: 0;
           color: var(--lp-fg-mute);
@@ -292,7 +214,8 @@ function ContactFaq() {
           line-height: 1.65;
         }
         @media (max-width: 720px) {
-          .ph-faq-row { grid-template-columns: 1fr; gap: 12px; padding: 28px 0; }
+          .ph-faq-row { grid-template-columns: 40px 1fr; gap: 16px; }
+          .ph-faq-a { grid-column: 2; }
         }
       `}</style>
     </section>

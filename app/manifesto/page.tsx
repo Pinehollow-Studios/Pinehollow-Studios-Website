@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PageHero } from "@/components/shared/page-hero";
 import { Reveal } from "@/components/shared/reveal";
 
 export const metadata: Metadata = {
@@ -39,10 +40,39 @@ const principles = [
   },
 ];
 
+const paragraphs = [
+  "Pinehollow Studios is a two-person iOS software studio. Tom builds the apps. Jack runs product. That's the company.",
+  "We're self-funded. There are no investors, no debt, no exit plan. The apps pay for the apps. That means we get to choose what we make, who it's for, and how long it takes.",
+  "Most modern software is designed around attention — streaks, badges, push notifications dressed up as features, daily prompts to keep you opening the app. We don't do any of that. Our apps are there when you want them, and out of the way when you don't.",
+  "We'd rather make a small thing well than a big thing badly. Each app does one job. If we have a new idea, we start a new app — we don't bolt features onto something that's already done.",
+  "Each app is free to download. Where there are extras, they live behind a paid Pro tier — never the basics. Some of our apps may share anonymised, aggregate usage with industry partners (Vestige with golf clubs, for example) to fund the free tier; we go into the detail on the privacy page.",
+  "That's the approach. It might change in places, and if it does we'll say so here.",
+];
+
 export default function ManifestoPage() {
   return (
     <>
-      <ManifestoHero />
+      <PageHero
+        eyebrow="§01 · Manifesto"
+        lines={[
+          <span key="1">How we</span>,
+          <em key="2">work.</em>,
+        ]}
+        lede="A few things we've decided about how we build, who it's for, and what we leave out."
+      >
+        <div className="ph-manifesto-byline">Tom · Jack · 2026</div>
+        <style>{`
+          .ph-manifesto-byline {
+            font-family: var(--lp-font-mono);
+            font-size: 11px;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--lp-fg-dim);
+            margin-top: 36px;
+          }
+        `}</style>
+      </PageHero>
+
       <ManifestoBody />
       <ManifestoPrinciples />
       <ManifestoSign />
@@ -50,284 +80,218 @@ export default function ManifestoPage() {
   );
 }
 
-/* ─── Hero ─────────────────────────────────────────────────── */
-
-function ManifestoHero() {
-  return (
-    <section className="ph-pg-hero ph-manifesto-hero">
-      <div className="ph-hero-aura" aria-hidden="true" />
-      <div className="lp-container" style={{ position: "relative" }}>
-        <Reveal variant="up" immediate delay={80}>
-          <div className="ph-eyebrow" style={{ marginBottom: 28 }}>
-            <span
-              aria-hidden="true"
-              style={{ width: 24, height: 1, background: "var(--lp-fg-mute)" }}
-            />
-            <span>§01 · Manifesto</span>
-          </div>
-        </Reveal>
-
-        <Reveal variant="up-xl" immediate delay={180} duration={1100}>
-          <h1 className="ph-display ph-pg-hero-h1">
-            How we
-            <br />
-            <em>work.</em>
-          </h1>
-        </Reveal>
-
-        <Reveal variant="up" immediate delay={420}>
-          <p className="ph-pg-hero-lede">
-            A few things we&rsquo;ve decided about how we build, who it&rsquo;s
-            for, and what we leave out.
-          </p>
-        </Reveal>
-
-        <Reveal variant="up" immediate delay={560}>
-          <div className="ph-manifesto-byline">Tom · Jack · 2026</div>
-        </Reveal>
-      </div>
-
-      <style>{`
-        .ph-pg-hero { position: relative; padding: 80px 0 100px; }
-        .ph-pg-hero-h1 {
-          margin: 0;
-          font-size: clamp(64px, 8.4vw, 152px);
-          max-width: 14ch;
-        }
-        .ph-pg-hero-lede {
-          color: var(--lp-fg-mute);
-          font-size: clamp(17px, 1.2vw, 19px);
-          line-height: 1.55;
-          max-width: 620px;
-          margin-top: 36px;
-        }
-        .ph-manifesto-byline {
-          font-family: var(--lp-font-mono);
-          font-size: 11px;
-          letter-spacing: 0.28em;
-          text-transform: uppercase;
-          color: var(--lp-fg-dim);
-          margin-top: 36px;
-        }
-      `}</style>
-    </section>
-  );
-}
-
-/* ─── Body ─────────────────────────────────────────────────── */
+/* ─── Body — the reading column ───────────────────────────── */
 
 function ManifestoBody() {
-  const paragraphs = [
-    "Pinehollow Studios is a two-person iOS software studio. Tom builds the apps. Jack runs product. That's the company.",
-    "We're self-funded. There are no investors, no debt, no exit plan. The apps pay for the apps. That means we get to choose what we make, who it's for, and how long it takes.",
-    "Most modern software is designed around attention — streaks, badges, push notifications dressed up as features, daily prompts to keep you opening the app. We don't do any of that. Our apps are there when you want them, and out of the way when you don't.",
-    "We'd rather make a small thing well than a big thing badly. Each app does one job. If we have a new idea, we start a new app — we don't bolt features onto something that's already done.",
-    "Each app is free to download. Where there are extras, they live behind a paid Pro tier — never the basics. Some of our apps may share anonymised, aggregate usage with industry partners (Vestige with golf clubs, for example) to fund the free tier; we go into the detail on the privacy page.",
-    "That's the approach. It might change in places, and if it does we'll say so here.",
-  ];
-
   return (
-    <section className="ph-manifesto-body">
+    <section className="ph-mbody">
       <div className="lp-container">
-        <div className="ph-manifesto-body-rule" />
-        <div className="ph-manifesto-body-text">
+        <div className="ph-mbody-rule" />
+        <div className="ph-mbody-text">
           {paragraphs.map((p, i) => (
             <Reveal key={i} variant="up">
-              <p>{p}</p>
+              <p className={i === 0 ? "ph-mbody-lead" : undefined}>{p}</p>
             </Reveal>
           ))}
         </div>
       </div>
 
       <style>{`
-        .ph-manifesto-body {
+        .ph-mbody {
           padding: clamp(48px, 6vw, 80px) 0 clamp(80px, 10vw, 120px);
         }
-        .ph-manifesto-body-rule {
+        .ph-mbody-rule {
           height: 1px;
           background: var(--ph-rule);
           max-width: 760px;
           margin: 0 auto 56px;
         }
-        .ph-manifesto-body-text {
+        .ph-mbody-text {
           max-width: 760px;
           margin: 0 auto;
-          font-size: var(--lp-text-xl);
+          font-size: clamp(18px, 1.5vw, 22px);
           line-height: 1.75;
-          font-weight: 400;
           color: var(--lp-fg);
         }
-        .ph-manifesto-body-text p { margin: 0 0 28px; }
-        .ph-manifesto-body-text p:last-child { margin-bottom: 0; }
-        @media (max-width: 720px) {
-          .ph-manifesto-body-text { font-size: 18px; }
+        .ph-mbody-text p { margin: 0 0 28px; }
+        .ph-mbody-text > *:last-child p { margin-bottom: 0; }
+        .ph-mbody-lead::first-letter {
+          font-family: var(--ph-serif);
+          font-style: italic;
+          font-weight: 400;
+          font-size: 3.1em;
+          line-height: 0.8;
+          float: left;
+          padding: 0.08em 0.12em 0 0;
+          color: var(--lp-pine-glow);
+          font-variation-settings: 'opsz' 144, 'SOFT' 60;
         }
       `}</style>
     </section>
   );
 }
 
-/* ─── Principles (hairline grid) ─────────────────────────────── */
+/* ─── Principles — six hairline rows ──────────────────────── */
 
 function ManifestoPrinciples() {
   return (
-    <section className="ph-principles">
+    <section className="ph-mprin">
       <div className="lp-container">
         <Reveal variant="up-lg" duration={1000}>
-          <div className="ph-principles-head">
+          <div className="ph-mprin-head">
             <div>
               <div className="ph-eyebrow" style={{ marginBottom: 20 }}>
-                §02 · Six principles
+                <span style={{ color: "var(--lp-pine-glow)" }}>§02</span> Six principles
               </div>
-              <h2 className="ph-display ph-principles-h2">
-                How we work,
+              <h2 className="ph-display ph-mprin-h2">
+                The short
                 <br />
-                in <em>six lines</em>.
+                <em>version.</em>
               </h2>
             </div>
-            <p className="ph-principles-lede">
-              The shorter version. Pin it to the wall.
-            </p>
+            <p className="ph-mprin-lede">Pin it to the wall.</p>
           </div>
         </Reveal>
 
-        <div className="ph-principles-grid">
+        <div className="ph-mprin-list">
           {principles.map((p, i) => (
-            <Reveal key={p.no} variant="up" delay={(i % 2) * 90}>
-              <div className="ph-principle">
-                <div className="ph-principle-no">{p.no}</div>
-                <div className="ph-principle-title">{p.title}</div>
-                <p className="ph-principle-body">{p.body}</p>
+            <Reveal key={p.no} variant="up" delay={(i % 2) * 80}>
+              <div className="ph-mprin-row">
+                <span className="ph-mprin-no">{p.no}</span>
+                <span className="ph-h3 ph-mprin-title">{p.title}</span>
+                <p className="ph-mprin-body">{p.body}</p>
               </div>
             </Reveal>
           ))}
         </div>
+        <hr className="ph-rule" />
       </div>
 
       <style>{`
-        .ph-principles {
-          padding: clamp(80px, 10vw, 140px) 0;
+        .ph-mprin {
+          padding: var(--lp-section-y) 0;
           background: var(--lp-base-deep);
           border-top: 1px solid var(--ph-rule);
           border-bottom: 1px solid var(--ph-rule);
         }
-        .ph-principles-head {
+        .ph-mprin-head {
           display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 80px;
+          grid-template-columns: 1fr auto;
+          gap: 48px;
           align-items: end;
           margin-bottom: 56px;
         }
-        .ph-principles-h2 {
-          margin: 0;
-          font-size: clamp(40px, 5.2vw, 84px);
+        .ph-mprin-h2 { margin: 0; font-size: clamp(44px, 6vw, 96px); }
+        .ph-mprin-h2 em { color: var(--lp-pine-mist); }
+        .ph-mprin-lede {
+          color: var(--lp-fg-dim);
+          font-family: var(--ph-serif);
+          font-style: italic;
+          font-size: 22px;
+          margin: 0 0 10px;
         }
-        .ph-principles-lede {
-          color: var(--lp-fg-mute);
-          font-size: 17px;
-          line-height: 1.6;
-          max-width: 360px;
-          margin: 0;
-        }
-        .ph-principles-grid {
+        .ph-mprin-row {
           display: grid;
-          grid-template-columns: 1fr 1fr;
+          grid-template-columns: 80px 1fr 1.2fr;
+          gap: 32px;
+          align-items: baseline;
+          padding: 34px 0;
           border-top: 1px solid var(--ph-rule);
+          transition: padding-left 420ms var(--ph-ease-out);
+          position: relative;
         }
-        .ph-principle {
-          padding-top: 40px;
-          padding-bottom: 40px;
-          padding-left: 0;
-          padding-right: 0;
+        .ph-mprin-row::before {
+          content: "";
+          position: absolute;
+          top: -1px; left: 0;
+          width: 100%; height: 1px;
+          background: var(--lp-pine-glow);
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 600ms var(--ph-ease-expo);
         }
-        /* Two-column alternating layout via Reveal wrapper position */
-        .ph-principles-grid > *:nth-child(odd) .ph-principle {
-          border-right: 1px solid var(--ph-rule);
-          padding-right: 32px;
+        .ph-mprin-row:hover { padding-left: 18px; }
+        .ph-mprin-row:hover::before { transform: scaleX(1); }
+        .ph-mprin-row:hover .ph-mprin-no { color: var(--lp-pine-glow); }
+        .ph-mprin-no {
+          font-family: var(--lp-font-mono);
+          font-size: 13px;
+          letter-spacing: 0.14em;
+          color: var(--lp-fg-dim);
+          transition: color 300ms var(--lp-ease);
         }
-        .ph-principles-grid > *:nth-child(even) .ph-principle {
-          padding-left: 32px;
-        }
-        .ph-principles-grid > *:not(:nth-last-child(-n+2)) .ph-principle {
-          border-bottom: 1px solid var(--ph-rule);
-        }
-        .ph-principle-no {
-          font-family: var(--lp-font-display);
-          font-weight: 600;
-          font-size: 40px;
-          color: var(--lp-pine-glow);
-          letter-spacing: -0.04em;
-          line-height: 1;
-        }
-        .ph-principle-title {
-          font-family: var(--lp-font-display);
-          font-size: 24px;
-          font-weight: 500;
-          letter-spacing: -0.025em;
-          margin-top: 18px;
-        }
-        .ph-principle-body {
+        .ph-mprin-title { font-size: clamp(22px, 2.2vw, 32px); }
+        .ph-mprin-body {
+          margin: 0;
           color: var(--lp-fg-mute);
           font-size: 15px;
           line-height: 1.65;
-          margin: 12px 0 0;
         }
         @media (max-width: 880px) {
-          .ph-principles-head { grid-template-columns: 1fr; gap: 32px; }
-          .ph-principles-grid { grid-template-columns: 1fr; }
-          .ph-principle {
-            padding: 32px 0 !important;
-            padding-left: 0 !important;
-            padding-right: 0 !important;
-            border-right: none !important;
-            border-bottom: 1px solid var(--ph-rule) !important;
-          }
-          .ph-principle:last-child { border-bottom: none !important; }
+          .ph-mprin-head { grid-template-columns: 1fr; gap: 16px; }
+          .ph-mprin-row { grid-template-columns: 48px 1fr; }
+          .ph-mprin-body { grid-column: 2; }
         }
       `}</style>
     </section>
   );
 }
 
-/* ─── Signed-off ──────────────────────────────────────────── */
+/* ─── Signed ──────────────────────────────────────────────── */
 
 function ManifestoSign() {
   return (
-    <section className="ph-sign">
-      <div className="lp-container">
+    <section className="ph-msign">
+      <div className="lp-container" style={{ textAlign: "center" }}>
         <Reveal variant="up">
-          <div className="ph-eyebrow" style={{ marginBottom: 32, textAlign: "center", justifyContent: "center" }}>
+          <div className="ph-eyebrow" style={{ justifyContent: "center", marginBottom: 32 }}>
             Signed
           </div>
         </Reveal>
 
-        <div className="ph-sign-row">
+        <div className="ph-msign-row">
           <Reveal variant="up-lg" delay={120} duration={1000}>
-            <Signature name="Tom" role="Engineering · Design" />
+            <div>
+              <div className="ph-serif ph-msign-name">Tom</div>
+              <div className="ph-msign-role">Engineering · Design</div>
+            </div>
           </Reveal>
           <Reveal variant="up-lg" delay={260} duration={1000}>
-            <Signature name="Jack" role="Product" />
+            <div>
+              <div className="ph-serif ph-msign-name">Jack</div>
+              <div className="ph-msign-role">Product</div>
+            </div>
           </Reveal>
         </div>
 
         <Reveal variant="up" delay={400}>
-          <div className="ph-sign-year">2026</div>
+          <div className="ph-msign-year">MMXXVI</div>
         </Reveal>
       </div>
 
       <style>{`
-        .ph-sign {
-          padding: clamp(80px, 10vw, 120px) 0;
-          text-align: center;
-        }
-        .ph-sign-row {
+        .ph-msign { padding: var(--lp-section-y) 0; text-align: center; }
+        .ph-msign-row {
           display: flex;
           justify-content: center;
-          gap: 80px;
-          margin-top: 32px;
+          gap: 96px;
           flex-wrap: wrap;
         }
-        .ph-sign-year {
+        .ph-msign-name {
+          font-size: clamp(40px, 4.8vw, 64px);
+          color: var(--lp-pine-mist);
+          line-height: 1;
+          font-variation-settings: 'opsz' 56, 'SOFT' 50;
+        }
+        .ph-msign-role {
+          font-family: var(--lp-font-mono);
+          font-size: 11px;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          color: var(--lp-fg-mute);
+          margin-top: 14px;
+        }
+        .ph-msign-year {
           font-family: var(--lp-font-mono);
           font-size: 11px;
           letter-spacing: 0.28em;
@@ -337,35 +301,5 @@ function ManifestoSign() {
         }
       `}</style>
     </section>
-  );
-}
-
-function Signature({ name, role }: { name: string; role: string }) {
-  return (
-    <div style={{ textAlign: "center" }}>
-      <div className="ph-sign-name">{name}</div>
-      <div className="ph-sign-role">{role}</div>
-
-      <style>{`
-        .ph-sign-name {
-          font-family: var(--ph-serif);
-          font-style: italic;
-          font-weight: 400;
-          font-size: clamp(36px, 4.4vw, 56px);
-          color: var(--lp-pine-mist);
-          letter-spacing: -0.02em;
-          line-height: 1;
-          font-variation-settings: 'opsz' 56, 'SOFT' 50;
-        }
-        .ph-sign-role {
-          font-family: var(--lp-font-mono);
-          font-size: 11px;
-          letter-spacing: 0.22em;
-          text-transform: uppercase;
-          color: var(--lp-fg-mute);
-          margin-top: 14px;
-        }
-      `}</style>
-    </div>
   );
 }

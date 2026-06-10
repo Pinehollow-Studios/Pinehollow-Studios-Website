@@ -1,13 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&display=swap');
-
 :root {
-  /* ─── COLOUR · BASE — Glacial v2026 ─────────────────────── */
+  /* ─── COLOUR · BASE — Glacial (unchanged palette) ───────── */
   --lp-base:           #070C12;
   --lp-base-deep:      #04080D;
   --lp-base-raised:    #101822;
 
-  /* ─── COLOUR · SLATE (structural anchor, was "pine") ────── */
+  /* ─── COLOUR · SLATE ────────────────────────────────────── */
   --lp-pine:           #2A4A5E;
   --lp-pine-deep:      #15293A;
   --lp-pine-glow:      #7FE4FF; /* ICE — the signal */
@@ -16,7 +13,7 @@
 
   /* ─── COLOUR · SECONDARY ────────────────────────────────── */
   --lp-ember:          #FF9560;
-  --lp-sky:            #F2D7A8; /* PARCHMENT — warm cream secondary */
+  --lp-sky:            #F2D7A8;
 
   /* ─── COLOUR · BUTTON-ON-ICE TEXT ───────────────────────── */
   --lp-ice-ink:        #06181F;
@@ -27,104 +24,35 @@
   --lp-fg-dim:         rgba(241, 245, 242, 0.38);
   --lp-fg-faint:       rgba(241, 245, 242, 0.18);
 
-  /* ─── GLASS ─────────────────────────────────────────────── */
-  --lp-glass:          rgba(255, 255, 255, 0.06);
-  --lp-glass-thin:     rgba(255, 255, 255, 0.04);
-  --lp-glass-strong:   rgba(255, 255, 255, 0.10);
-  --lp-glass-hi:       rgba(255, 255, 255, 0.14);
+  /* ─── PAPER ─────────────────────────────────────────────── */
+  --ph-base:           #060A0F;
+  --ph-paper:          #EEE7D8;
+  --ph-paper-ink:      #1A1813;
 
-  --lp-glass-rim:      rgba(255, 255, 255, 0.16);
-  --lp-glass-rim-hi:   rgba(255, 255, 255, 0.24);
-  --lp-glass-inset:    inset 0 1px 0 rgba(255, 255, 255, 0.12);
-  --lp-glass-inset-hi: inset 0 1px 0 rgba(255, 255, 255, 0.20);
-
-  --lp-blur-sm:        blur(16px) saturate(150%);
-  --lp-blur:           blur(28px) saturate(160%);
-  --lp-blur-lg:        blur(40px) saturate(180%);
-  --lp-blur-xl:        blur(60px) saturate(200%);
-
-  /* ─── TYPOGRAPHY ───────────────────────────────────────── */
-  --lp-font-display:   'Geist', 'Inter Tight', system-ui, -apple-system, sans-serif;
-  --lp-font-body:      'Geist', 'Inter Tight', system-ui, -apple-system, sans-serif;
-  --lp-font-mono:      'Geist Mono', 'JetBrains Mono', ui-monospace, monospace;
-
-  --lp-text-overline:  clamp(11px, 0.7vw, 12px);
-  --lp-text-xs:        13px;
-  --lp-text-sm:        15px;
-  --lp-text-base:      17px;
-  --lp-text-lg:        19px;
-  --lp-text-xl:        22px;
-  --lp-text-2xl:       28px;
-  --lp-text-3xl:       36px;
-  --lp-text-4xl:       48px;
-  --lp-text-5xl:       64px;
-  --lp-text-6xl:       clamp(56px, 9vw, 124px);
-  --lp-text-display:   clamp(64px, 11vw, 168px);
-
-  --lp-leading-tight:  0.95;
-  --lp-leading-snug:   1.15;
-  --lp-leading-base:   1.55;
-  --lp-leading-loose:  1.78;
-
-  --lp-track-display:  -0.04em;
-  --lp-track-headline: -0.03em;
-  --lp-track-body:     -0.01em;
-  --lp-track-mono:     0.04em;
-  --lp-track-overline: 0.22em;
-
-  /* ─── SPACING · 8px grid ───────────────────────────────── */
-  --lp-1:  4px;
-  --lp-2:  8px;
-  --lp-3:  12px;
-  --lp-4:  16px;
-  --lp-5:  24px;
-  --lp-6:  32px;
-  --lp-7:  48px;
-  --lp-8:  64px;
-  --lp-9:  96px;
-  --lp-10: 128px;
-  --lp-11: 160px;
-  --lp-12: 200px;
-
-  /* ─── LAYOUT ──────────────────────────────────────────── */
-  --lp-container:      1280px;
-  --lp-gutter:         24px;
-  --lp-section-y:      clamp(80px, 10vw, 160px);
-  --lp-nav-h:          72px;
-
-  /* ─── RADII ───────────────────────────────────────────── */
-  --lp-r-sm:           6px;
-  --lp-r:              12px;
-  --lp-r-lg:           20px;
-  --lp-r-xl:           28px;
-  --lp-r-2xl:          36px;
-  --lp-r-pill:         999px;
-
-  /* ─── SHADOWS ─────────────────────────────────────────── */
-  --lp-shadow-sm:      0 2px 12px rgba(0, 0, 0, 0.25);
-  --lp-shadow:         0 24px 60px -20px rgba(0, 0, 0, 0.55);
-  --lp-shadow-lg:      0 60px 100px -40px rgba(0, 0, 0, 0.65);
-  --lp-shadow-glow:    0 0 40px -4px rgba(127, 228, 255, 0.45);
-  --lp-shadow-glow-sm: 0 0 24px -8px rgba(127, 228, 255, 0.55);
-
-  /* ─── MOTION ──────────────────────────────────────────── */
-  --lp-ease:           cubic-bezier(0.2, 0.7, 0.2, 1);
-  --lp-ease-settle:    cubic-bezier(0, 0, 0.2, 1);
-  --lp-dur-fast:       180ms;
-  --lp-dur:            360ms;
-  --lp-dur-slow:       640ms;
-  --lp-dur-settle:     800ms;
-
-  /* ─── EDITORIAL · VOLUME IV ────────────────────────────── */
-  /* Quarterly-journal direction. Near-flat surface, hairlines,
-     Instrument Serif italic moments, cream-paper letter card. */
-  --ph-serif:          'Fraunces', 'Instrument Serif', 'Cormorant Garamond', Georgia, serif;
-  --ph-base:           #060A0F;             /* slightly deeper than --lp-base */
-  --ph-paper:          #EEE7D8;             /* warm cream — letter card */
-  --ph-paper-ink:      #1A1813;             /* deep brown-black on the cream */
+  /* ─── HAIRLINES ─────────────────────────────────────────── */
   --ph-rule:           rgba(241, 245, 242, 0.14);
   --ph-rule-hi:        rgba(241, 245, 242, 0.28);
   --ph-rule-faint:     rgba(241, 245, 242, 0.07);
+
+  /* ─── TYPOGRAPHY ────────────────────────────────────────── */
+  --lp-font-display:   var(--font-geist), system-ui, -apple-system, sans-serif;
+  --lp-font-body:      var(--font-geist), system-ui, -apple-system, sans-serif;
+  --lp-font-mono:      var(--font-geist-mono), ui-monospace, monospace;
+  --ph-headline:       var(--font-archivo), 'Archivo', system-ui, sans-serif;
+  --ph-serif:          var(--font-fraunces), 'Fraunces', Georgia, serif;
+
+  --lp-track-body:     -0.01em;
+
+  /* ─── LAYOUT ────────────────────────────────────────────── */
+  --lp-container:      1360px;
+  --lp-gutter:         clamp(20px, 3vw, 40px);
+  --lp-section-y:      clamp(96px, 11vw, 180px);
+
+  /* ─── MOTION ────────────────────────────────────────────── */
+  --lp-ease:           cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ph-ease-out:       cubic-bezier(0.16, 1, 0.3, 1);
+  --ph-ease-expo:      cubic-bezier(0.87, 0, 0.13, 1);
+  --lp-dur:            360ms;
 }
 
 /* ─── RESET ──────────────────────────────────────────────── */
@@ -132,11 +60,11 @@
 
 html, body {
   margin: 0; padding: 0;
-  background: var(--lp-base);
+  background: var(--ph-base);
   color: var(--lp-fg);
   font-family: var(--lp-font-body);
-  font-size: var(--lp-text-base);
-  line-height: var(--lp-leading-base);
+  font-size: 16px;
+  line-height: 1.6;
   letter-spacing: var(--lp-track-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -144,12 +72,27 @@ html, body {
 }
 
 body {
-  /* Editorial v2026: near-flat surface. Atmospheric glows live on individual
-     sections (.ph-hero-aura, AtmosphereBg) rather than as page wallpaper. */
-  background: var(--ph-base);
-  background-attachment: scroll;
   min-height: 100vh;
   overflow-x: clip;
+}
+
+/* film grain over everything — fixed, very faint, makes flats feel printed */
+body::after {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  pointer-events: none;
+  z-index: 2000;
+  opacity: 0.038;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  animation: ph-grain 0.9s steps(2) infinite;
+}
+@keyframes ph-grain {
+  0%   { transform: translate(0, 0); }
+  50%  { transform: translate(-1.5%, 1%); }
+  100% { transform: translate(1%, -1.5%); }
 }
 
 a { color: inherit; text-decoration: none; }
@@ -161,19 +104,71 @@ img { display: block; max-width: 100%; }
 :focus-visible {
   outline: 2px solid var(--lp-pine-glow);
   outline-offset: 2px;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
-/* ─── SCROLLBAR ─────────────────────────────────────────── */
+/* ─── SCROLLBAR ──────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 8px; height: 8px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb {
-  background: var(--lp-glass-rim);
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover { background: var(--lp-glass-rim-hi); }
+::-webkit-scrollbar-thumb { background: rgba(241,245,242,0.16); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(241,245,242,0.28); }
 
-/* ─── UTILITIES ─────────────────────────────────────────── */
+/* ─── CUSTOM CURSOR ──────────────────────────────────────── */
+/* native cursor is hidden only once JS mounts and adds .ph-has-cursor */
+html.ph-has-cursor,
+html.ph-has-cursor a,
+html.ph-has-cursor button,
+html.ph-has-cursor [data-cursor] { cursor: none; }
+
+.ph-cursor-dot,
+.ph-cursor-ring {
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 3000;
+  border-radius: 50%;
+  will-change: transform;
+}
+.ph-cursor-dot {
+  width: 6px; height: 6px;
+  margin: -3px 0 0 -3px;
+  background: var(--lp-pine-glow);
+}
+.ph-cursor-ring {
+  width: 36px; height: 36px;
+  margin: -18px 0 0 -18px;
+  border: 1px solid rgba(127, 228, 255, 0.55);
+  transition: width 360ms var(--ph-ease-out), height 360ms var(--ph-ease-out),
+              margin 360ms var(--ph-ease-out), border-color 240ms var(--lp-ease),
+              background-color 240ms var(--lp-ease), opacity 240ms var(--lp-ease);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ph-cursor-ring[data-mode="link"] {
+  width: 64px; height: 64px;
+  margin: -32px 0 0 -32px;
+  border-color: rgba(127, 228, 255, 0.9);
+  background: rgba(127, 228, 255, 0.08);
+}
+.ph-cursor-ring[data-mode="text"] {
+  width: 14px; height: 14px;
+  margin: -7px 0 0 -7px;
+  opacity: 0.4;
+}
+.ph-cursor-label {
+  font-family: var(--lp-font-mono);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--lp-pine-glow);
+  opacity: 0;
+  transition: opacity 240ms var(--lp-ease);
+  white-space: nowrap;
+}
+.ph-cursor-ring[data-mode="link"] .ph-cursor-label { opacity: 1; }
+
+/* ─── UTILITIES ──────────────────────────────────────────── */
 .lp-container {
   width: 100%;
   max-width: var(--lp-container);
@@ -181,93 +176,7 @@ img { display: block; max-width: 100%; }
   padding: 0 var(--lp-gutter);
 }
 
-.lp-overline {
-  font-family: var(--lp-font-mono);
-  font-size: var(--lp-text-overline);
-  letter-spacing: var(--lp-track-overline);
-  text-transform: uppercase;
-  color: var(--lp-fg-mute);
-}
-
-.lp-hr {
-  height: 1px; background: var(--lp-glass-rim); border: 0;
-}
-
-.lp-no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-.lp-no-scrollbar::-webkit-scrollbar { display: none; }
-
-.lp-grain::after {
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  opacity: 0.05; mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/></svg>");
-}
-
-/* ─── ANIMATIONS ─────────────────────────────────────────── */
-@keyframes lpPageFade {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-/* Atmospheric glow drifts — slow, large-radius motion so the lights feel alive */
-@keyframes lp-drift-a {
-  0%   { transform: translate3d(0, 0, 0) scale(1);    opacity: 0.85; }
-  50%  { transform: translate3d(60px, 40px, 0) scale(1.08); opacity: 1; }
-  100% { transform: translate3d(-30px, 70px, 0) scale(0.96); opacity: 0.8; }
-}
-@keyframes lp-drift-b {
-  0%   { transform: translate3d(0, 0, 0) scale(1);    opacity: 0.9; }
-  50%  { transform: translate3d(-50px, 60px, 0) scale(1.05); opacity: 1; }
-  100% { transform: translate3d(40px, -40px, 0) scale(1.02); opacity: 0.85; }
-}
-@keyframes lp-drift-c {
-  0%   { transform: translate3d(0, 0, 0) scale(1);    opacity: 0.75; }
-  50%  { transform: translate3d(40px, -50px, 0) scale(1.10); opacity: 0.95; }
-  100% { transform: translate3d(-60px, 20px, 0) scale(0.98); opacity: 0.8; }
-}
-
-/* Live-status dot — gentle pulse for "on the bench" indicators */
-@keyframes lp-pulse {
-  0%, 100% { transform: scale(1);    opacity: 1;   box-shadow: 0 0 10px var(--lp-pine-glow); }
-  50%      { transform: scale(1.18); opacity: 0.7; box-shadow: 0 0 14px var(--lp-pine-glow); }
-}
-
-/* Mark plate — slow float of the brand mark, halo breath, expanding rings */
-@keyframes lp-mark-float {
-  0%, 100% { transform: translate(-50%, -58%); }
-  50%      { transform: translate(-50%, -60.5%); }
-}
-@keyframes lp-mark-breathe {
-  0%, 100% { opacity: 0.85; transform: translate(-50%, -55%) scale(1); }
-  50%      { opacity: 1;    transform: translate(-50%, -55%) scale(1.08); }
-}
-@keyframes lp-mark-ring {
-  0%   { transform: scale(0.6); opacity: 0; }
-  20%  { opacity: 0.6; }
-  100% { transform: scale(1.6); opacity: 0; }
-}
-
-/* Code-card caret blink */
-@keyframes lp-caret-blink {
-  0%, 49%   { opacity: 1; }
-  50%, 100% { opacity: 0; }
-}
-
-/* ───────────────────────────────────────────────────────────
-   EDITORIAL · VOLUME IV — quarterly-journal primitives
-   ─────────────────────────────────────────────────────────── */
-
-/* hairline rules used in place of glass for structure */
-.ph-rule        { height: 1px; background: var(--ph-rule); border: 0; margin: 0; }
-.ph-rule-hi     { height: 1px; background: var(--ph-rule-hi); border: 0; margin: 0; }
-.ph-rule-faint  { height: 1px; background: var(--ph-rule-faint); border: 0; margin: 0; }
-.ph-rule-double {
-  height: 5px; border: 0; margin: 0;
-  background:
-    linear-gradient(var(--ph-rule), var(--ph-rule)) top/100% 1px no-repeat,
-    linear-gradient(var(--ph-rule), var(--ph-rule)) bottom/100% 1px no-repeat;
-}
-
-/* mono caps eyebrow with extra-wide tracking */
+/* mono caps eyebrow */
 .ph-eyebrow {
   font-family: var(--lp-font-mono);
   font-size: 11px;
@@ -279,29 +188,54 @@ img { display: block; max-width: 100%; }
   gap: 10px;
 }
 .ph-eyebrow-dim { color: var(--lp-fg-dim); }
+.lp-overline { /* legacy alias */
+  font-family: var(--lp-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--lp-fg-mute);
+}
 
-/* display headlines — Geist + Fraunces italic moments */
+/* hairlines */
+.ph-rule        { height: 1px; background: var(--ph-rule); border: 0; margin: 0; }
+.ph-rule-hi     { height: 1px; background: var(--ph-rule-hi); border: 0; margin: 0; }
+.ph-rule-faint  { height: 1px; background: var(--ph-rule-faint); border: 0; margin: 0; }
+.lp-hr          { height: 1px; background: var(--ph-rule); border: 0; }
+
+/* ─── DISPLAY TYPE — expanded grotesk caps + serif italic ── */
 .ph-display {
-  font-family: var(--lp-font-display);
-  font-weight: 600;
-  letter-spacing: -0.05em;
-  line-height: 0.9;
+  font-family: var(--ph-headline);
+  font-weight: 800;
+  font-stretch: 122%;
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+  line-height: 0.92;
 }
 .ph-display em,
 .ph-serif {
   font-family: var(--ph-serif);
   font-style: italic;
-  font-weight: 400;
-  letter-spacing: -0.025em;
-  /* Fraunces variable axes — display optical size + softer corners for
-     a modern, less classical italic that holds its own beside heavy sans. */
-  font-variation-settings: 'opsz' 144, 'SOFT' 50;
-  /* Visual nudge so the italic baseline doesn't appear to float on top of
-     descenders from the surrounding sans lines. */
+  font-weight: 380;
+  text-transform: lowercase;
+  letter-spacing: -0.02em;
+  font-stretch: 100%;
+  font-variation-settings: 'opsz' 144, 'SOFT' 60, 'WONK' 1;
+  line-height: 0.9;
 }
 
-/* small text links with a subtle ice underline */
+/* sub-display: medium headings in tighter grotesk */
+.ph-h3 {
+  font-family: var(--ph-headline);
+  font-weight: 700;
+  font-stretch: 116%;
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+  line-height: 1;
+}
+
+/* ─── LINKS ──────────────────────────────────────────────── */
 .ph-link {
+  position: relative;
   color: var(--lp-fg);
   background-image: linear-gradient(var(--lp-pine-glow), var(--lp-pine-glow));
   background-size: 100% 1px;
@@ -312,7 +246,57 @@ img { display: block; max-width: 100%; }
 }
 .ph-link:hover { color: var(--lp-pine-glow); }
 
-/* soft single glow ONLY behind the hero (replaces wallpaper blobs) */
+/* arrow link — mono caps with sliding arrow */
+.ph-arrow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--lp-font-mono);
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--lp-fg);
+  transition: color 240ms var(--lp-ease);
+}
+.ph-arrow-link .ph-arrow-link-tip {
+  display: inline-block;
+  transition: transform 360ms var(--ph-ease-out);
+  color: var(--lp-pine-glow);
+}
+.ph-arrow-link:hover { color: var(--lp-pine-glow); }
+.ph-arrow-link:hover .ph-arrow-link-tip { transform: translateX(6px); }
+
+/* solid ice block button */
+.ph-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 30px;
+  background: var(--lp-pine-glow);
+  color: var(--lp-ice-ink);
+  font-family: var(--lp-font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+  transition: color 400ms var(--ph-ease-out);
+}
+.ph-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--lp-pine-mist);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 500ms var(--ph-ease-expo);
+}
+.ph-btn:hover::before { transform: scaleY(1); }
+.ph-btn > * { position: relative; }
+
+/* ─── HERO AURA (single soft glow) ───────────────────────── */
 .ph-hero-aura {
   position: absolute;
   inset: -120px -10% auto -10%;
@@ -325,64 +309,17 @@ img { display: block; max-width: 100%; }
   filter: blur(2px);
 }
 
-/* cream-paper letter card */
+/* ─── CREAM PAPER ────────────────────────────────────────── */
 .ph-paper {
   background: var(--ph-paper);
   color: var(--ph-paper-ink);
-  border-radius: 4px;
+  border-radius: 3px;
   box-shadow: 0 80px 100px -40px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(0, 0, 0, 0.4);
 }
 .ph-paper .ph-eyebrow,
 .ph-paper .ph-eyebrow-dim { color: rgba(26, 24, 19, 0.55); }
 
-/* row-hover index — typographic table of links */
-.ph-irow {
-  display: grid;
-  grid-template-columns: 64px 1.7fr 1fr 0.7fr 80px;
-  align-items: center;
-  gap: 24px;
-  padding: 28px 0;
-  border-top: 1px solid var(--ph-rule);
-  cursor: pointer;
-  position: relative;
-  transition: padding 360ms var(--lp-ease);
-}
-.ph-irow:last-child { border-bottom: 1px solid var(--ph-rule); }
-.ph-irow:hover { padding-left: 16px; padding-right: 16px; }
-.ph-irow:hover .ph-irow-name { color: var(--lp-pine-glow); }
-.ph-irow:hover .ph-irow-arrow { transform: translateX(8px); opacity: 1; }
-.ph-irow .ph-irow-arrow {
-  opacity: 0.4;
-  transition: transform 360ms var(--lp-ease), opacity 240ms var(--lp-ease);
-}
-
-/* full-bleed marquee — one slow infinite line of display type */
-.ph-marquee {
-  overflow: hidden;
-  border-top: 1px solid var(--ph-rule);
-  border-bottom: 1px solid var(--ph-rule);
-  padding: 28px 0;
-  white-space: nowrap;
-}
-.ph-marquee-track {
-  display: inline-flex;
-  gap: 56px;
-  animation: ph-scroll 48s linear infinite;
-  will-change: transform;
-}
-@keyframes ph-scroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-/* moonrise — a single rise on initial page load */
-.ph-moonrise-moon {
-  transform: translateY(40px);
-  animation: ph-rise 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
-}
-@keyframes ph-rise { to { transform: translateY(0); } }
-
-/* live-status dot — gentle outward pulse */
+/* ─── LIVE DOT ───────────────────────────────────────────── */
 .ph-live-dot {
   display: inline-block;
   width: 7px; height: 7px;
@@ -396,7 +333,47 @@ img { display: block; max-width: 100%; }
   50%      { box-shadow: 0 0 0 8px rgba(127, 228, 255, 0); }
 }
 
-/* reveal-on-scroll — lightweight, hooked up by IntersectionObserver */
+/* ─── MARQUEE ────────────────────────────────────────────── */
+.ph-marquee {
+  overflow: hidden;
+  border-top: 1px solid var(--ph-rule);
+  border-bottom: 1px solid var(--ph-rule);
+  white-space: nowrap;
+  position: relative;
+}
+.ph-marquee-track {
+  display: inline-flex;
+  align-items: baseline;
+  animation: ph-scroll 36s linear infinite;
+  /* no will-change here — at display-type sizes the promoted layer can
+     exceed GPU texture limits and black out the whole frame */
+}
+.ph-marquee:hover .ph-marquee-track { animation-play-state: paused; }
+@keyframes ph-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ─── LINE-MASK TEXT REVEAL ──────────────────────────────── */
+/* each .ph-mline is an overflow-hidden window; inner slides up into place */
+.ph-mline {
+  display: block;
+  overflow: hidden;
+  /* breathing room so descenders/italics aren't clipped */
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+.ph-mline-in {
+  display: block;
+  transform: translateY(118%) rotate(0.6deg);
+  transform-origin: 0 100%;
+  transition: transform 1100ms var(--ph-ease-expo);
+  transition-delay: calc(var(--mi, 0) * 110ms);
+  will-change: transform;
+}
+.ph-masked.in .ph-mline-in { transform: translateY(0) rotate(0); }
+
+/* ─── REVEAL-ON-SCROLL (class hook) ──────────────────────── */
 .ph-rev {
   opacity: 0;
   transform: translateY(14px);
@@ -404,38 +381,44 @@ img { display: block; max-width: 100%; }
 }
 .ph-rev.in { opacity: 1; transform: translateY(0); }
 
-/* editorial responsive */
+/* ─── INDEX ROWS (work table) ────────────────────────────── */
+.ph-irow {
+  display: grid;
+  grid-template-columns: 90px 1.6fr 1fr 0.8fr 60px;
+  align-items: baseline;
+  gap: 24px;
+  padding: 30px 0;
+  border-top: 1px solid var(--ph-rule);
+  position: relative;
+  transition: padding-left 420ms var(--ph-ease-out);
+}
+.ph-irow::before {
+  content: "";
+  position: absolute;
+  top: -1px; left: 0;
+  width: 100%; height: 1px;
+  background: var(--lp-pine-glow);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 600ms var(--ph-ease-expo);
+}
+a.ph-irow:hover { padding-left: 20px; }
+a.ph-irow:hover::before { transform: scaleX(1); }
+
+/* ─── PAGE WIPE (route transition) ───────────────────────── */
+@keyframes ph-page-in {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.ph-page { animation: ph-page-in 700ms var(--ph-ease-out) both; }
+
+/* ─── EDITORIAL RESPONSIVE HELPERS ───────────────────────── */
 @media (max-width: 980px) {
-  .ph-grid-hero    { grid-template-columns: 1fr !important; }
-  .ph-grid-feature { grid-template-columns: 1fr !important; }
-  .ph-grid-letter  { grid-template-columns: 1fr !important; }
-  .ph-irow         { grid-template-columns: 48px 1fr 60px !important; }
-  .ph-irow-hide    { display: none; }
+  .ph-irow { grid-template-columns: 56px 1fr 60px; }
+  .ph-irow-hide { display: none; }
 }
 
 /* Intentionally do not honour prefers-reduced-motion at the CSS level — the
    atmospheric motion is core to the brand identity and must render the same
    on every machine, including Windows installs that ship with "Animation
    effects" disabled in Accessibility settings. */
-
-/* ─── RESPONSIVE ─────────────────────────────────────────── */
-@media (max-width: 900px) {
-  :root {
-    --lp-gutter: 18px;
-  }
-}
-
-/* Mobile-only utility hooks. Desktop is untouched.
-   Apply via className on elements that need responsive overrides. */
-@media (max-width: 720px) {
-  /* Hero blocks usually have an inline paddingTop ~60. Collapse it on mobile
-     so the page doesn't open with a giant empty band under the nav. */
-  .lp-hero-pad-top { padding-top: 8px !important; }
-
-  /* Auto-height for principle tiles so they don't reserve 280px on mobile. */
-  .lp-tile-auto-h { min-height: 0 !important; }
-
-  /* Allow grid items to actually fit their column on mobile (drops any
-     stretched height: 100% conflicting with aspect-ratio). */
-  .lp-fit-col { height: auto !important; min-height: 0 !important; }
-}

@@ -1,11 +1,40 @@
 import type { Metadata } from "next";
+import { Archivo, Fraunces, Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { Footer } from "@/components/sections/footer";
 import { Nav } from "@/components/sections/nav";
-import { PageFade } from "@/components/shared/page-fade";
+import { Cursor } from "@/components/shared/cursor";
+import { Preloader } from "@/components/shared/preloader";
 import { ScrollTop } from "@/components/shared/scroll-top";
 import { SmoothScroll } from "@/components/shared/smooth-scroll";
 import "./globals.css";
+
+const archivo = Archivo({
+  subsets: ["latin"],
+  axes: ["wdth"],
+  variable: "--font-archivo",
+  display: "swap",
+});
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  axes: ["SOFT", "WONK", "opsz"],
+  variable: "--font-fraunces",
+  display: "swap",
+});
+
+const geist = Geist({
+  subsets: ["latin"],
+  variable: "--font-geist",
+  display: "swap",
+});
+
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-geist-mono",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://pinehollow.studio"),
@@ -21,9 +50,7 @@ export const metadata: Metadata = {
   // Explicitly enumerate the icons so legacy consumers (Google indexer, older
   // Safari) bind to fresh URLs and don't keep serving cached older marks.
   icons: {
-    icon: [
-      { url: "/icon", sizes: "192x192", type: "image/png" },
-    ],
+    icon: [{ url: "/icon", sizes: "192x192", type: "image/png" }],
     shortcut: [{ url: "/icon", type: "image/png" }],
     apple: [{ url: "/apple-icon", sizes: "180x180", type: "image/png" }],
   },
@@ -31,14 +58,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={`${archivo.variable} ${fraunces.variable} ${geist.variable} ${geistMono.variable}`}
+    >
       <body>
+        <Preloader />
+        <Cursor />
         <SmoothScroll>
           <ScrollTop />
           <Nav />
-          <main style={{ position: "relative", zIndex: 1 }}>
-            <PageFade>{children}</PageFade>
-          </main>
+          <main style={{ position: "relative", zIndex: 1 }}>{children}</main>
           <Footer />
         </SmoothScroll>
         <Analytics />
