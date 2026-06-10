@@ -124,7 +124,6 @@ function ManifestoBody() {
           float: left;
           padding: 0.08em 0.12em 0 0;
           color: var(--lp-pine-glow);
-          font-variation-settings: 'opsz' 144, 'SOFT' 60;
         }
       `}</style>
     </section>
@@ -281,7 +280,6 @@ function ManifestoSign() {
           font-size: clamp(40px, 4.8vw, 64px);
           color: var(--lp-pine-mist);
           line-height: 1;
-          font-variation-settings: 'opsz' 56, 'SOFT' 50;
         }
         .ph-msign-role {
           font-family: var(--lp-font-mono);

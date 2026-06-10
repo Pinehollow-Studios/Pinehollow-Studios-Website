@@ -35,11 +35,11 @@
   --ph-rule-faint:     rgba(241, 245, 242, 0.07);
 
   /* ─── TYPOGRAPHY ────────────────────────────────────────── */
-  --lp-font-display:   var(--font-geist), system-ui, -apple-system, sans-serif;
-  --lp-font-body:      var(--font-geist), system-ui, -apple-system, sans-serif;
-  --lp-font-mono:      var(--font-geist-mono), ui-monospace, monospace;
-  --ph-headline:       var(--font-archivo), 'Archivo', system-ui, sans-serif;
-  --ph-serif:          var(--font-fraunces), 'Fraunces', Georgia, serif;
+  --lp-font-display:   var(--font-sans), system-ui, -apple-system, sans-serif;
+  --lp-font-body:      var(--font-sans), system-ui, -apple-system, sans-serif;
+  --lp-font-mono:      var(--font-mono), ui-monospace, monospace;
+  --ph-headline:       var(--font-display), 'Bricolage Grotesque', system-ui, sans-serif;
+  --ph-serif:          var(--font-serif), 'Instrument Serif', Georgia, serif;
 
   --lp-track-body:     -0.01em;
 
@@ -202,24 +202,24 @@ html.ph-has-cursor [data-cursor] { cursor: none; }
 .ph-rule-faint  { height: 1px; background: var(--ph-rule-faint); border: 0; margin: 0; }
 .lp-hr          { height: 1px; background: var(--ph-rule); border: 0; }
 
-/* ─── DISPLAY TYPE — expanded grotesk caps + serif italic ── */
+/* ─── DISPLAY TYPE — display grotesk caps + serif italic ── */
 .ph-display {
   font-family: var(--ph-headline);
   font-weight: 800;
-  font-stretch: 122%;
   text-transform: uppercase;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
   line-height: 0.92;
+  /* Bricolage display optical cut */
+  font-variation-settings: 'opsz' 96;
 }
 .ph-display em,
 .ph-serif {
   font-family: var(--ph-serif);
   font-style: italic;
-  font-weight: 380;
+  font-weight: 400;
   text-transform: lowercase;
-  letter-spacing: -0.02em;
-  font-stretch: 100%;
-  font-variation-settings: 'opsz' 144, 'SOFT' 60, 'WONK' 1;
+  letter-spacing: -0.01em;
+  font-variation-settings: normal;
   line-height: 0.9;
 }
 
@@ -227,10 +227,10 @@ html.ph-has-cursor [data-cursor] { cursor: none; }
 .ph-h3 {
   font-family: var(--ph-headline);
   font-weight: 700;
-  font-stretch: 116%;
   text-transform: uppercase;
-  letter-spacing: -0.005em;
+  letter-spacing: -0.01em;
   line-height: 1;
+  font-variation-settings: 'opsz' 60;
 }
 
 /* ─── LINKS ──────────────────────────────────────────────── */
@@ -410,7 +410,11 @@ a.ph-irow:hover::before { transform: scaleX(1); }
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-.ph-page { animation: ph-page-in 700ms var(--ph-ease-out) both; }
+/* fill must NOT be "both"/"forwards": a filled transform (even identity)
+   makes .ph-page the containing block for position:fixed, which breaks
+   ScrollTrigger pinning (the principles section went blank on scroll). With
+   "backwards" the transform is dropped entirely once the entrance ends. */
+.ph-page { animation: ph-page-in 700ms var(--ph-ease-out) backwards; }
 
 /* ─── EDITORIAL RESPONSIVE HELPERS ───────────────────────── */
 @media (max-width: 980px) {

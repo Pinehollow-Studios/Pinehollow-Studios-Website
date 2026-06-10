@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
-import { Archivo, Fraunces, Geist, Geist_Mono } from "next/font/google";
+import {
+  Bricolage_Grotesque,
+  Fragment_Mono,
+  Instrument_Sans,
+  Instrument_Serif,
+} from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { Footer } from "@/components/sections/footer";
 import { Nav } from "@/components/sections/nav";
@@ -9,30 +14,32 @@ import { ScrollTop } from "@/components/shared/scroll-top";
 import { SmoothScroll } from "@/components/shared/smooth-scroll";
 import "./globals.css";
 
-const archivo = Archivo({
+const displayFont = Bricolage_Grotesque({
+  subsets: ["latin"],
+  axes: ["opsz", "wdth"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const sansFont = Instrument_Sans({
   subsets: ["latin"],
   axes: ["wdth"],
-  variable: "--font-archivo",
+  variable: "--font-sans",
   display: "swap",
 });
 
-const fraunces = Fraunces({
+const serifFont = Instrument_Serif({
   subsets: ["latin"],
+  weight: "400",
   style: ["normal", "italic"],
-  axes: ["SOFT", "WONK", "opsz"],
-  variable: "--font-fraunces",
+  variable: "--font-serif",
   display: "swap",
 });
 
-const geist = Geist({
+const monoFont = Fragment_Mono({
   subsets: ["latin"],
-  variable: "--font-geist",
-  display: "swap",
-});
-
-const geistMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-geist-mono",
+  weight: "400",
+  variable: "--font-mono",
   display: "swap",
 });
 
@@ -60,7 +67,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html
       lang="en"
-      className={`${archivo.variable} ${fraunces.variable} ${geist.variable} ${geistMono.variable}`}
+      className={`${displayFont.variable} ${sansFont.variable} ${serifFont.variable} ${monoFont.variable}`}
     >
       <body>
         <Preloader />

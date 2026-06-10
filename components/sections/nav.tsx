@@ -226,7 +226,6 @@ const NAV_CSS = `
   .ph-nav-wordmark {
     font-family: var(--ph-headline);
     font-weight: 700;
-    font-stretch: 118%;
     font-size: 15px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -360,7 +359,6 @@ const NAV_CSS = `
     gap: 18px;
     font-family: var(--ph-headline);
     font-weight: 800;
-    font-stretch: 120%;
     text-transform: uppercase;
     letter-spacing: -0.01em;
     font-size: clamp(40px, 9.5vw, 72px);

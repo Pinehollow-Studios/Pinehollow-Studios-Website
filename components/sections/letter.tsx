@@ -83,7 +83,7 @@ export function Letter() {
             <div className="ph-final-meta">
               United Kingdom · 2026
               <br />
-              Set in Archivo &amp; Fraunces
+              Set in Bricolage &amp; Instrument Serif
             </div>
           </div>
         </article>
@@ -219,7 +219,6 @@ const FINAL_CSS = `
     font-size: 38px;
     line-height: 1;
     color: var(--ph-paper-ink);
-    font-variation-settings: 'opsz' 36, 'SOFT' 50;
     text-transform: none;
   }
   .ph-final-sig-role {

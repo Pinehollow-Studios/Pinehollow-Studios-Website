@@ -173,7 +173,6 @@ const PRIN_CSS = `
   .ph-prin-ghost {
     font-family: var(--ph-headline);
     font-weight: 800;
-    font-stretch: 122%;
     font-size: clamp(110px, 13vw, 220px);
     line-height: 0.85;
     color: transparent;

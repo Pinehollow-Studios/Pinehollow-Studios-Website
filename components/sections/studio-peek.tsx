@@ -178,7 +178,6 @@ const PEEK_CSS = `
     font-size: 22px;
     color: var(--lp-pine-mist);
     margin-top: 6px;
-    font-variation-settings: 'opsz' 24, 'SOFT' 50;
   }
 
   .ph-peek-h2 {

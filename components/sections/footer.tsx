@@ -74,9 +74,9 @@ export function Footer() {
           <div>
             <div className="ph-eyebrow" style={{ marginBottom: 16 }}>Colophon</div>
             <p className="ph-foot-colophon">
-              This page was set in <em className="ph-foot-italic">Archivo</em>,{" "}
-              <em className="ph-foot-italic">Geist Mono</em>, and{" "}
-              <em className="ph-foot-italic">Fraunces</em>. Designed and built in
+              This page was set in <em className="ph-foot-italic">Bricolage Grotesque</em>,{" "}
+              <em className="ph-foot-italic">Fragment Mono</em>, and{" "}
+              <em className="ph-foot-italic">Instrument Serif</em>. Designed and built in
               the United Kingdom by Tom &amp; Jack. Volume I, Issue 1. No cookies
               of consequence, no third-party scripts.
             </p>
@@ -152,8 +152,8 @@ const FOOTER_CSS = `
     padding-bottom: clamp(40px, 5vw, 80px);
   }
   .ph-foot-wordmark {
-    /* sized so PINEHOLLOW (≈8.4× font-size at 122% stretch) fits the container */
-    font-size: clamp(38px, 10vw, 152px);
+    /* sized so PINEHOLLOW (≈5.6× font-size in Bricolage 800) fills the container */
+    font-size: clamp(48px, 16.5vw, 226px);
     line-height: 0.9;
     color: var(--lp-fg);
   }
@@ -178,7 +178,6 @@ const FOOTER_CSS = `
     align-self: flex-start;
     font-family: var(--ph-headline);
     font-weight: 600;
-    font-stretch: 110%;
     font-size: clamp(22px, 4.2vw, 64px);
     letter-spacing: -0.02em;
     line-height: 1.1;
@@ -230,7 +229,6 @@ const FOOTER_CSS = `
     font-family: var(--ph-serif);
     font-style: italic;
     color: var(--lp-fg);
-    font-variation-settings: 'opsz' 14, 'SOFT' 50;
   }
   .ph-foot-status {
     display: inline-flex;
