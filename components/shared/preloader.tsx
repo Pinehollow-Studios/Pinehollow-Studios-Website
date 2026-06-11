@@ -2,8 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { openGate } from "./loader-gate";
-
-const MARK_PATH = "M4 54 L14 8 L32 36 L50 8 L60 54 Z";
+import { MARK_BEAMS, MARK_ICE, MARK_MIST } from "./pinehollow-mark";
 
 /**
  * One-time loading wipe — mark draws itself while a counter runs 000→100,
@@ -60,15 +59,17 @@ export function Preloader() {
     <div className="ph-loader" data-wipe={phase === "wipe" || undefined} aria-hidden="true">
       <div className="ph-loader-inner">
         <svg width="56" height="56" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d={MARK_PATH}
-            pathLength={1}
-            fill="none"
-            stroke="var(--lp-pine-glow)"
-            strokeWidth={3}
-            strokeLinejoin="round"
-            strokeLinecap="round"
-            className="ph-loader-mark"
+          <rect
+            {...{ x: MARK_BEAMS.front.x, y: MARK_BEAMS.front.y, width: MARK_BEAMS.front.width, height: MARK_BEAMS.front.height, rx: MARK_BEAMS.front.rx }}
+            transform={MARK_BEAMS.front.rotate}
+            fill={MARK_ICE}
+            className="ph-loader-beam ph-loader-beam-a"
+          />
+          <rect
+            {...{ x: MARK_BEAMS.back.x, y: MARK_BEAMS.back.y, width: MARK_BEAMS.back.width, height: MARK_BEAMS.back.height, rx: MARK_BEAMS.back.rx }}
+            transform={MARK_BEAMS.back.rotate}
+            fill={MARK_MIST}
+            className="ph-loader-beam ph-loader-beam-b"
           />
         </svg>
         <div className="ph-loader-meta">
@@ -103,12 +104,17 @@ export function Preloader() {
           opacity: 0;
           transform: translateY(-40px);
         }
-        .ph-loader-mark {
-          stroke-dasharray: 1;
-          stroke-dashoffset: 1;
-          animation: ph-loader-draw 1.2s var(--ph-ease-out) 0.05s forwards;
+        .ph-loader-beam {
+          opacity: 0;
+          transform-box: view-box;
+          animation: ph-loader-rise 700ms var(--ph-ease-expo) forwards;
         }
-        @keyframes ph-loader-draw { to { stroke-dashoffset: 0; } }
+        .ph-loader-beam-a { animation-delay: 0.1s; }
+        .ph-loader-beam-b { animation-delay: 0.34s; }
+        @keyframes ph-loader-rise {
+          from { opacity: 0; translate: 0 14px; }
+          to   { opacity: 1; translate: 0 0; }
+        }
         .ph-loader-meta {
           display: flex;
           align-items: baseline;

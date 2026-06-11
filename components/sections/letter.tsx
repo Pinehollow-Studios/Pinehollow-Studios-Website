@@ -123,13 +123,8 @@ function PostalMark() {
           </textPath>
         </text>
         <g transform="translate(42 42) scale(0.56)">
-          <path
-            d="M4 54 L14 8 L32 36 L50 8 L60 54 Z"
-            fill="none"
-            stroke="rgba(26,24,19,0.55)"
-            strokeWidth="3.5"
-            strokeLinejoin="round"
-          />
+          <rect x="14" y="5" width="15" height="52" rx="7.5" transform="rotate(22 21.5 31)" fill="rgba(26,24,19,0.6)" />
+          <rect x="34" y="15" width="14.5" height="42" rx="7.25" transform="rotate(-24 41.25 36)" fill="rgba(26,24,19,0.35)" />
         </g>
       </svg>
     </div>

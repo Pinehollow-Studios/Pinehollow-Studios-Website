@@ -166,13 +166,8 @@ function Stamp() {
         </text>
       </svg>
       <svg viewBox="0 0 64 64" className="ph-stamp-mark" width="30" height="30">
-        <path
-          d="M4 54 L14 8 L32 36 L50 8 L60 54 Z"
-          fill="none"
-          stroke="var(--lp-pine-glow)"
-          strokeWidth="3.5"
-          strokeLinejoin="round"
-        />
+        <rect x="14" y="5" width="15" height="52" rx="7.5" transform="rotate(22 21.5 31)" fill="var(--lp-pine-glow)" />
+        <rect x="34" y="15" width="14.5" height="42" rx="7.25" transform="rotate(-24 41.25 36)" fill="var(--lp-pine-mist)" opacity="0.85" />
       </svg>
     </div>
   );
