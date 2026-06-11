@@ -146,6 +146,7 @@ const HERO_CSS = `
     position: relative;
     padding-top: clamp(48px, 6vw, 90px);
     padding-bottom: clamp(56px, 7vw, 110px);
+    min-height: min(calc(100vh - 120px), 1100px); /* fallback for pre-svh iOS */
     min-height: min(calc(100svh - 120px), 1100px);
     display: flex;
     align-items: stretch;
@@ -292,7 +293,8 @@ const HERO_CSS = `
     .ph-hero-grid { grid-template-columns: 1fr; align-items: start; }
     .ph-hero-h1 { font-size: clamp(46px, 11.5vw, 96px); }
     .ph-hero-topo { width: 120vw; inset: -6% -40% auto auto; opacity: 0.7; }
-    .ph-hero-scroll-wrap { display: none; }
+    /* the Reveal wrapper carries an inline display, so hide the inner cue */
+    .ph-hero-scroll { display: none; }
     .ph-hero-eyebrow-right { display: none; }
   }
 `;

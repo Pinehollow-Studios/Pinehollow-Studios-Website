@@ -39,7 +39,7 @@
   --lp-font-body:      var(--font-sans), system-ui, -apple-system, sans-serif;
   --lp-font-mono:      var(--font-mono), ui-monospace, monospace;
   --ph-headline:       var(--font-display), 'Bricolage Grotesque', system-ui, sans-serif;
-  --ph-serif:          var(--font-serif), 'Instrument Serif', Georgia, serif;
+  --ph-serif:          var(--font-serif), 'Newsreader', Georgia, serif;
 
   --lp-track-body:     -0.01em;
 
@@ -60,6 +60,7 @@
 
 html, body {
   margin: 0; padding: 0;
+  -webkit-tap-highlight-color: transparent;
   background: var(--ph-base);
   color: var(--lp-fg);
   font-family: var(--lp-font-body);
@@ -93,6 +94,10 @@ body::after {
   0%   { transform: translate(0, 0); }
   50%  { transform: translate(-1.5%, 1%); }
   100% { transform: translate(1%, -1.5%); }
+}
+/* static grain on phones — the flicker isn't worth the battery on iOS */
+@media (max-width: 720px) {
+  body::after { animation: none; }
 }
 
 a { color: inherit; text-decoration: none; }
@@ -216,10 +221,11 @@ html.ph-has-cursor [data-cursor] { cursor: none; }
 .ph-serif {
   font-family: var(--ph-serif);
   font-style: italic;
-  font-weight: 400;
+  font-weight: 460;
   text-transform: lowercase;
-  letter-spacing: -0.01em;
-  font-variation-settings: normal;
+  letter-spacing: -0.015em;
+  /* Newsreader display optical cut — sharp high-contrast italic */
+  font-variation-settings: 'opsz' 72;
   line-height: 0.9;
 }
 
@@ -419,7 +425,9 @@ a.ph-irow:hover::before { transform: scaleX(1); }
 /* ─── EDITORIAL RESPONSIVE HELPERS ───────────────────────── */
 @media (max-width: 980px) {
   .ph-irow { grid-template-columns: 56px 1fr 60px; }
-  .ph-irow-hide { display: none; }
+  /* !important: cells often carry their own display from component styles
+     that load after this sheet and would otherwise win the cascade */
+  .ph-irow-hide { display: none !important; }
 }
 
 /* Intentionally do not honour prefers-reduced-motion at the CSS level — the

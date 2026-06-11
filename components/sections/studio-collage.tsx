@@ -129,6 +129,7 @@ export function StudioCollage() {
           margin-top: 16px;
         }
         .ph-collage-cap-no {
+          white-space: nowrap;
           font-family: var(--lp-font-mono);
           font-size: 10px;
           letter-spacing: 0.22em;

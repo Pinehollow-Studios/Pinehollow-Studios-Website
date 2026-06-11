@@ -3,7 +3,7 @@ import {
   Bricolage_Grotesque,
   Fragment_Mono,
   Instrument_Sans,
-  Instrument_Serif,
+  Newsreader,
 } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { Footer } from "@/components/sections/footer";
@@ -28,10 +28,10 @@ const sansFont = Instrument_Sans({
   display: "swap",
 });
 
-const serifFont = Instrument_Serif({
+const serifFont = Newsreader({
   subsets: ["latin"],
-  weight: "400",
   style: ["normal", "italic"],
+  axes: ["opsz"],
   variable: "--font-serif",
   display: "swap",
 });

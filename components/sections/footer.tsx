@@ -76,7 +76,7 @@ export function Footer() {
             <p className="ph-foot-colophon">
               This page was set in <em className="ph-foot-italic">Bricolage Grotesque</em>,{" "}
               <em className="ph-foot-italic">Fragment Mono</em>, and{" "}
-              <em className="ph-foot-italic">Instrument Serif</em>. Designed and built in
+              <em className="ph-foot-italic">Newsreader</em>. Designed and built in
               the United Kingdom by Tom &amp; Jack. Volume I, Issue 1. No cookies
               of consequence, no third-party scripts.
             </p>
@@ -152,8 +152,9 @@ const FOOTER_CSS = `
     padding-bottom: clamp(40px, 5vw, 80px);
   }
   .ph-foot-wordmark {
-    /* sized so PINEHOLLOW (≈5.6× font-size in Bricolage 800) fills the container */
-    font-size: clamp(48px, 16.5vw, 226px);
+    /* sized so PINEHOLLOW (≈5.6× font-size in Bricolage 800) fills the
+       container at every width without clipping on phones */
+    font-size: min(calc((100vw - 80px) / 5.7), 226px);
     line-height: 0.9;
     color: var(--lp-fg);
   }

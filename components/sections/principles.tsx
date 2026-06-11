@@ -227,5 +227,7 @@ const PRIN_CSS = `
     .ph-prin-ghost { font-size: 96px; }
     .ph-prin-progress-rail { display: none; }
     .ph-prin-head { padding-top: 28px; }
+    /* the "hold course" cue refers to the desktop horizontal pan */
+    .ph-prin-head-row .ph-eyebrow-dim { display: none; }
   }
 `;
