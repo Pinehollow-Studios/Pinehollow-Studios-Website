@@ -6,7 +6,7 @@ import { Reveal } from "@/components/shared/reveal";
 import { TopoField } from "@/components/shared/topo-field";
 
 interface PageHeroProps {
-  /** Mono eyebrow, e.g. "§01 · The apps". */
+  /** Mono eyebrow, e.g. "01 · The work". */
   eyebrow: string;
   /** Headline lines — one node per masked line. */
   lines: ReactNode[];

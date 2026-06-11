@@ -12,7 +12,7 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
-        eyebrow="§01 · Contact"
+        eyebrow="01 · Contact"
         lines={[
           <span key="1">Get in</span>,
           <em key="2">touch.</em>,
@@ -125,7 +125,7 @@ function ContactFaq() {
   const faqs = [
     {
       q: "What do you make?",
-      a: "iOS apps. Our first is Vestige, a golf app — in development, no shipping date yet.",
+      a: "We design and build our own software. The first product is Vestige, a golf app — in development, no shipping date yet.",
     },
     {
       q: "Do you take client work?",
@@ -147,7 +147,7 @@ function ContactFaq() {
         <Reveal variant="up-lg" duration={1000}>
           <div className="ph-faq-head">
             <div className="ph-eyebrow" style={{ marginBottom: 20 }}>
-              <span style={{ color: "var(--lp-pine-glow)" }}>§02</span> Things people ask
+              <span style={{ color: "var(--lp-pine-glow)" }}>02</span> Things people ask
             </div>
             <h2 className="ph-display ph-faq-h2">
               A few common

@@ -64,7 +64,7 @@ export function StudioPeek() {
               <span style={{ color: "var(--lp-pine-glow)" }}>03</span> The studio
             </span>
             <span className="ph-peek-head-rule" aria-hidden="true" />
-            <span className="ph-eyebrow ph-eyebrow-dim">Fig. 1 — the founders</span>
+            <span className="ph-eyebrow ph-eyebrow-dim">Tom &amp; Jack</span>
           </div>
         </Reveal>
 
@@ -93,15 +93,15 @@ export function StudioPeek() {
               as="h2"
               className="ph-display ph-peek-h2"
               lines={[
-                <span key="1">Two people,</span>,
-                <span key="2">one <em>workshop</em>.</span>,
+                <span key="1">Founded by</span>,
+                <em key="2">two friends.</em>,
               ]}
             />
             <Reveal variant="up" delay={220}>
               <p className="ph-peek-lede">
-                Pinehollow is the two of us. Tom builds the apps; Jack runs
-                product. We started the studio in 2026 to make iOS apps we
-                wanted to use ourselves, on our own time and money.
+                Pinehollow is the two of us. Tom designs and builds; Jack runs
+                product. We started the studio in 2026 to make software we
+                believe in, on our own time and money.
               </p>
               <p className="ph-peek-lede" style={{ color: "var(--lp-fg-dim)" }}>
                 No outsourcing. No investors. No urgency that isn&rsquo;t ours.

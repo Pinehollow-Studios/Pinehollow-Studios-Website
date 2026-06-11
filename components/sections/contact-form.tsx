@@ -64,7 +64,7 @@ export function ContactForm() {
         <form onSubmit={handleSubmit}>
           <div className="ph-form-headrow">
             <span className="ph-eyebrow">The form</span>
-            <span className="ph-eyebrow ph-eyebrow-dim">PH/CORR-26</span>
+            <span className="ph-eyebrow ph-eyebrow-dim">We read everything</span>
           </div>
           <h2 className="ph-display ph-form-h2">
             Write us <em>a line.</em>

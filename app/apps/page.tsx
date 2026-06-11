@@ -4,21 +4,21 @@ import { PageHero } from "@/components/shared/page-hero";
 import { Reveal } from "@/components/shared/reveal";
 
 export const metadata: Metadata = {
-  title: "Apps — Pinehollow Studios",
+  title: "Work — Pinehollow Studios",
   description:
-    "What we're building. One iOS app in development — Vestige, a golf app. Plus how we charge for the apps we ship.",
+    "What we're building. Our first product, Vestige — a golf app — designed and built in-house. Plus how we charge for what we ship.",
 };
 
 export default function AppsPage() {
   return (
     <>
       <PageHero
-        eyebrow="§01 · The apps"
+        eyebrow="01 · The work"
         lines={[
           <span key="1">What we&rsquo;re</span>,
           <em key="2">building.</em>,
         ]}
-        lede="Nothing shipped yet. One iOS app in development — Vestige, a golf app. Self-funded. UK-based. No release date yet."
+        lede="Nothing shipped yet. Our first product, Vestige — a golf app — is in development, designed and built entirely in-house. No release date yet."
       />
       <AppIndex />
       <VestigeFeature sectionNo="02" />
@@ -27,7 +27,7 @@ export default function AppsPage() {
   );
 }
 
-/* ─── App index — the studio's ledger of work, mostly unwritten ──── */
+/* ─── Work index — the studio's catalogue ────────────────────────── */
 
 function AppIndex() {
   return (
@@ -57,22 +57,11 @@ function AppIndex() {
           </a>
         </Reveal>
 
-        {["PH-002", "PH-003"].map((ref, i) => (
-          <Reveal key={ref} variant="up" delay={(i + 1) * 90}>
-            <div className="ph-irow ph-aidx-ghost" aria-hidden="true">
-              <span className="ph-aidx-ref">{ref}</span>
-              <span className="ph-h3 ph-aidx-title ph-aidx-title-ghost">Unwritten</span>
-              <span className="ph-aidx-field ph-irow-hide">———</span>
-              <span className="ph-aidx-status ph-irow-hide">Someday</span>
-              <span className="ph-aidx-year">——</span>
-            </div>
-          </Reveal>
-        ))}
         <hr className="ph-rule" />
 
         <Reveal variant="fade" delay={300}>
           <p className="ph-aidx-note">
-            One app at a time, finished properly, then the next line gets written.
+            One product at a time, finished properly, before the next one starts.
           </p>
         </Reveal>
       </div>
@@ -96,10 +85,6 @@ function AppIndex() {
           font-size: clamp(28px, 3.6vw, 56px);
           color: var(--lp-fg);
         }
-        .ph-aidx-title-ghost {
-          color: transparent;
-          -webkit-text-stroke: 1px rgba(241, 245, 242, 0.22);
-        }
         .ph-aidx-field { font-size: 20px; color: var(--lp-pine-mist); }
         .ph-aidx-status {
           display: inline-flex;
@@ -117,8 +102,6 @@ function AppIndex() {
           color: var(--lp-fg-dim);
           text-align: right;
         }
-        .ph-aidx-ghost { opacity: 0.5; }
-        .ph-aidx-ghost .ph-live-dot { display: none; }
         .ph-aidx-note {
           margin: 24px 0 0;
           font-size: 14px;
@@ -136,10 +119,10 @@ function AppIndex() {
 
 function PricingStripe() {
   const values = [
-    { k: "Free", d: "Each app, free to download" },
+    { k: "Free", d: "Each product, free to download" },
     { k: "Pro", d: "Optional paid extras" },
-    { k: "iOS", d: "Phones first" },
     { k: "Direct", d: "Sold by us, no middleman" },
+    { k: "Kept", d: "Maintained for the long run" },
   ];
   return (
     <section className="ph-pricing">
@@ -148,7 +131,7 @@ function PricingStripe() {
           <div className="ph-pricing-head">
             <div>
               <div className="ph-eyebrow" style={{ marginBottom: 20 }}>
-                <span style={{ color: "var(--lp-pine-glow)" }}>§03</span> Pricing
+                <span style={{ color: "var(--lp-pine-glow)" }}>03</span> Pricing
               </div>
               <h2 className="ph-display ph-pricing-h2">
                 Free, with an <em>optional</em>
@@ -157,9 +140,9 @@ function PricingStripe() {
               </h2>
             </div>
             <p className="ph-pricing-lede">
-              Each app is free to download and useful on its own. A paid Pro
-              tier adds extras for people who want them — it never gates the
-              basics.
+              Everything we make is free to download and useful on its own. A
+              paid Pro tier adds extras for people who want them — it never
+              gates the basics.
             </p>
           </div>
         </Reveal>

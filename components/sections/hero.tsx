@@ -49,10 +49,10 @@ export function Hero() {
           <div className="ph-hero-eyebrow-row">
             <span className="ph-eyebrow">
               <span className="ph-hero-eyebrow-tick" aria-hidden="true" />
-              Field notes · No. 01
+              Independent software studio
             </span>
             <span className="ph-eyebrow ph-eyebrow-dim ph-hero-eyebrow-right">
-              An independent iOS software studio
+              Design · Engineering · Product
             </span>
           </div>
         </Reveal>
@@ -64,9 +64,9 @@ export function Hero() {
             immediate
             delay={150}
             lines={[
-              <span key="1">Two people,</span>,
-              <span key="2">one <em>workshop</em>,</span>,
-              <span key="3">iOS apps.</span>,
+              <span key="1">We design</span>,
+              <span key="2">&amp; build</span>,
+              <em key="3">software.</em>,
             ]}
           />
 
@@ -76,9 +76,9 @@ export function Hero() {
         <div className="ph-hero-low">
           <Reveal variant="up" immediate delay={950}>
             <p className="ph-hero-lede">
-              Pinehollow is a small studio by Tom and Jack. We make iOS apps —
-              Vestige, a golf app, is in the workshop now. Self-funded,
-              UK-based, in no particular rush.
+              Pinehollow is an independent studio founded by two friends, Tom
+              and Jack. We design and build our own software — starting with
+              Vestige, a golf app. Self-funded and based in the UK.
             </p>
             <div className="ph-hero-links">
               <Link href="/apps" className="ph-arrow-link" data-cursor-label="Apps">
@@ -106,8 +106,8 @@ export function Hero() {
 
 function CurrentlyLedger() {
   const rows: Array<[label: string, value: string, href: string | null]> = [
-    ["On the bench", "Vestige · golf", "/apps"],
-    ["Stage", "Building", null],
+    ["In progress", "Vestige · golf", "/apps"],
+    ["Stage", "Design & build", null],
     ["Next", "TestFlight", null],
     ["Studio", "United Kingdom", null],
     ["Founded", "2026", null],

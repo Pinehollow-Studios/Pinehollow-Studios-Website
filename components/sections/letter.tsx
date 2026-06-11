@@ -58,12 +58,13 @@ export function Letter() {
 
           <div className="ph-final-body">
             <p>
-              We&rsquo;re Tom and Jack — a small studio for two, based in the
-              United Kingdom. We started Pinehollow in 2026 to make iOS apps we
-              wanted to use ourselves, on our own time and money.
+              We&rsquo;re Tom and Jack — two friends with a small software
+              studio in the United Kingdom. We started Pinehollow in 2026 to
+              design and build things we&rsquo;re proud of, on our own time
+              and money.
             </p>
             <p>
-              Vestige, a golf app, is on the bench now. Self-funded, no
+              Vestige, a golf app, is our current project. Self-funded, no
               investors, no rush. If you&rsquo;d like a note when it ships — or
               just want to say hello — write to us.
             </p>

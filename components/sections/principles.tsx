@@ -11,7 +11,7 @@ const items = [
   {
     no: "01",
     label: "One thing at a time",
-    body: "We make one app, well, then move on. If we have a new idea, we start something new rather than piling features onto something that's already finished.",
+    body: "We make one product, well, then move on. If we have a new idea, we start something new rather than piling features onto something that's already finished.",
   },
   {
     no: "02",
@@ -20,8 +20,8 @@ const items = [
   },
   {
     no: "03",
-    label: "iOS first",
-    body: "We focus on iPhone. Mac, web, or Android come later if and when they make sense for a given app.",
+    label: "Design first",
+    body: "How something feels matters as much as what it does. We design everything ourselves, and we don't ship until it feels right.",
   },
 ];
 
@@ -81,7 +81,7 @@ export function Principles() {
           <span className="ph-eyebrow">
             <span className="ph-prin-head-no">02</span> What we&rsquo;ve decided
           </span>
-          <span className="ph-eyebrow ph-eyebrow-dim">Hold course →</span>
+          <span className="ph-eyebrow ph-eyebrow-dim">Keep scrolling →</span>
         </div>
       </div>
 

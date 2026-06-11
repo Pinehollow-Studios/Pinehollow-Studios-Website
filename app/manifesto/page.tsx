@@ -25,27 +25,27 @@ const principles = [
   },
   {
     no: "04",
-    title: "iOS first.",
-    body: "We start on iPhone. Mac, web, or Android come later, if and when they make sense for a given app.",
+    title: "Design first.",
+    body: "How something feels matters as much as what it does. We design everything ourselves, and we don't ship until it feels right.",
   },
   {
     no: "05",
     title: "Built to last.",
-    body: "We maintain the apps over time, not just at launch. Updates are small and considered, not constant.",
+    body: "We maintain what we ship over time, not just at launch. Updates are small and considered, not constant.",
   },
   {
     no: "06",
     title: "Independent.",
-    body: "Two people, no investors, no acquisition plan. We answer to ourselves and to the people who use our apps.",
+    body: "Two people, no investors, no acquisition plan. We answer to ourselves and to the people who use our software.",
   },
 ];
 
 const paragraphs = [
-  "Pinehollow Studios is a two-person iOS software studio. Tom builds the apps. Jack runs product. That's the company.",
+  "Pinehollow Studios is a software studio founded by two friends. Tom designs and builds. Jack runs product. That's the company.",
   "We're self-funded. There are no investors, no debt, no exit plan. The apps pay for the apps. That means we get to choose what we make, who it's for, and how long it takes.",
   "Most modern software is designed around attention — streaks, badges, push notifications dressed up as features, daily prompts to keep you opening the app. We don't do any of that. Our apps are there when you want them, and out of the way when you don't.",
-  "We'd rather make a small thing well than a big thing badly. Each app does one job. If we have a new idea, we start a new app — we don't bolt features onto something that's already done.",
-  "Each app is free to download. Where there are extras, they live behind a paid Pro tier — never the basics. Some of our apps may share anonymised, aggregate usage with industry partners (Vestige with golf clubs, for example) to fund the free tier; we go into the detail on the privacy page.",
+  "We'd rather make a small thing well than a big thing badly. Each product does one job. If we have a new idea, we start something new — we don't bolt features onto something that's already done.",
+  "Everything we make is free to download. Where there are extras, they live behind a paid Pro tier — never the basics. Some of our products may share anonymised, aggregate usage with industry partners (Vestige with golf clubs, for example) to fund the free tier; we go into the detail on the privacy page.",
   "That's the approach. It might change in places, and if it does we'll say so here.",
 ];
 
@@ -53,7 +53,7 @@ export default function ManifestoPage() {
   return (
     <>
       <PageHero
-        eyebrow="§01 · Manifesto"
+        eyebrow="01 · Manifesto"
         lines={[
           <span key="1">How we</span>,
           <em key="2">work.</em>,
@@ -139,7 +139,7 @@ function ManifestoPrinciples() {
           <div className="ph-mprin-head">
             <div>
               <div className="ph-eyebrow" style={{ marginBottom: 20 }}>
-                <span style={{ color: "var(--lp-pine-glow)" }}>§02</span> Six principles
+                <span style={{ color: "var(--lp-pine-glow)" }}>02</span> Six principles
               </div>
               <h2 className="ph-display ph-mprin-h2">
                 The short
@@ -147,7 +147,7 @@ function ManifestoPrinciples() {
                 <em>version.</em>
               </h2>
             </div>
-            <p className="ph-mprin-lede">Pin it to the wall.</p>
+            <p className="ph-mprin-lede">What we hold ourselves to</p>
           </div>
         </Reveal>
 

@@ -88,7 +88,7 @@ export default async function OgImage() {
               color: "rgba(241,245,242,0.55)",
             }}
           >
-            VOL. I — FIELD NOTES
+            INDEPENDENT SOFTWARE STUDIO
           </div>
         </div>
 
@@ -103,14 +103,11 @@ export default async function OgImage() {
             fontWeight: 800,
           }}
         >
-          <span>TWO PEOPLE,</span>
-          <span style={{ display: "flex" }}>
-            ONE&nbsp;
-            <span style={{ color: "#D6F5FF", fontWeight: 300, letterSpacing: "-0.025em" }}>
-              workshop,
-            </span>
+          <span>WE DESIGN</span>
+          <span>&amp; BUILD</span>
+          <span style={{ color: "#D6F5FF", fontWeight: 300, letterSpacing: "-0.025em" }}>
+            software.
           </span>
-          <span>IOS APPS.</span>
         </div>
 
         {/* foot strip */}

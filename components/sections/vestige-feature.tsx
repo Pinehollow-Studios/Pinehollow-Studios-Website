@@ -10,9 +10,9 @@ import { Reveal } from "@/components/shared/reveal";
 gsap.registerPlugin(ScrollTrigger);
 
 /**
- * Vestige feature — the one thing on the bench, presented as a sealed
- * dossier: a blurred not-yet-public screen with a rotating wax-stamp seal,
- * a scanline sweep, and a mono spec ledger. Used on the home page and /apps.
+ * Vestige feature — the studio's current product, shown as a blurred
+ * not-yet-public screen with a rotating stamp, a scanline sweep, and a
+ * mono spec ledger. Used on the home page and /apps.
  */
 export function VestigeFeature({ sectionNo = "01" }: { sectionNo?: string }) {
   const rootRef = useRef<HTMLElement>(null);
@@ -40,10 +40,10 @@ export function VestigeFeature({ sectionNo = "01" }: { sectionNo?: string }) {
         <Reveal variant="fade">
           <div className="ph-feat-head">
             <span className="ph-eyebrow">
-              <span className="ph-feat-head-no">{sectionNo}</span> On the bench
+              <span className="ph-feat-head-no">{sectionNo}</span> Current work
             </span>
             <span className="ph-feat-head-rule" aria-hidden="true" />
-            <span className="ph-eyebrow ph-eyebrow-dim">Ref. PH-001</span>
+            <span className="ph-eyebrow ph-eyebrow-dim">Our first product</span>
           </div>
         </Reveal>
 
@@ -66,11 +66,12 @@ export function VestigeFeature({ sectionNo = "01" }: { sectionNo?: string }) {
 
               <div className="ph-feat-prose">
                 <p>
-                  We&rsquo;re not saying much about Vestige yet. The screens,
-                  the features, the full pitch — those come closer to launch.
+                  We&rsquo;re keeping Vestige under wraps while we build it.
+                  The design, the features, the full story — those come
+                  closer to launch.
                 </p>
                 <p style={{ color: "var(--lp-fg-mute)" }}>
-                  Drop us a line if you&rsquo;d like a note when it&rsquo;s ready.
+                  Write to us if you&rsquo;d like a note when it&rsquo;s ready.
                 </p>
               </div>
             </Reveal>
@@ -80,7 +81,7 @@ export function VestigeFeature({ sectionNo = "01" }: { sectionNo?: string }) {
                 {(
                   [
                     ["Stage", "In development"],
-                    ["Platform", "iOS only"],
+                    ["Platform", "iPhone"],
                     ["Pricing", "Free"],
                     ["Release", "2026"],
                   ] as const
@@ -117,10 +118,10 @@ function DossierCard() {
   const bars = [82, 54, 68, 38, 74, 46, 60, 30];
 
   return (
-    <div className="ph-dossier" data-dossier data-cursor data-cursor-label="Sealed">
+    <div className="ph-dossier" data-dossier data-cursor data-cursor-label="Soon">
       <div className="ph-dossier-top">
-        <span>PH-001 / Vestige</span>
-        <span>Sealed until launch</span>
+        <span>Vestige · preview</span>
+        <span>Coming 2026</span>
       </div>
 
       <div className="ph-dossier-screen" aria-hidden="true">
@@ -139,8 +140,8 @@ function DossierCard() {
       </div>
 
       <div className="ph-dossier-foot">
-        <span>Pinehollow Studios Ltd.</span>
-        <span>No screens yet · on purpose</span>
+        <span>Pinehollow Studios</span>
+        <span>Full reveal closer to launch</span>
       </div>
     </div>
   );
@@ -161,7 +162,7 @@ function Stamp() {
         <circle cx="80" cy="80" r="48" fill="none" stroke="rgba(127,228,255,0.35)" strokeWidth="1" />
         <text className="ph-stamp-text">
           <textPath href="#ph-stamp-circ" startOffset="0">
-            In development · Pinehollow Studios · PH-001 · do not open until 2026 ·
+            Vestige · in development · Pinehollow Studios · MMXXVI ·
           </textPath>
         </text>
       </svg>

@@ -6,7 +6,7 @@ import { Reveal } from "@/components/shared/reveal";
 export const metadata: Metadata = {
   title: "Studio — Pinehollow Studios",
   description:
-    "Pinehollow Studios is a two-person iOS software studio. About Tom and Jack.",
+    "Pinehollow Studios is an independent software studio founded by two friends. About Tom and Jack.",
 };
 
 const founders = [
@@ -14,7 +14,7 @@ const founders = [
     name: "Tom",
     role: "Engineering · Design",
     based: "United Kingdom",
-    bio: "Tom builds the apps. He works in Swift and SwiftUI on iOS, with some TypeScript and React on the web.",
+    bio: "Tom designs and builds the products — native apps in Swift and SwiftUI, with TypeScript and React on the web.",
     stack: ["Swift", "SwiftUI", "TypeScript", "React", "Figma"],
   },
   {
@@ -29,7 +29,7 @@ const founders = [
 const facts: Array<[string, string]> = [
   ["Founders", "2"],
   ["Founded", "2026"],
-  ["Focus", "iOS"],
+  ["Craft", "Design & engineering"],
   ["Office", "United Kingdom"],
   ["Members", "Tom & Jack"],
   ["Funding", "Self-funded"],
@@ -39,12 +39,12 @@ export default function StudioPage() {
   return (
     <>
       <PageHero
-        eyebrow="§01 · The studio"
+        eyebrow="01 · The studio"
         lines={[
           <em key="1">About</em>,
           <span key="2">us.</span>,
         ]}
-        lede="Pinehollow is the two of us — Tom and Jack. We started the studio in 2026 to make iOS apps we wanted to use ourselves. We do all the work ourselves: no outsourcing, no investors."
+        lede="Pinehollow is the two of us — Tom and Jack, friends first, cofounders second. We design and build software together, and everything is done in-house: no outsourcing, no investors."
       />
       <StudioCollage />
       <FoundersStrip />
@@ -63,7 +63,7 @@ function FoundersStrip() {
         <Reveal variant="fade">
           <div className="ph-founders-head">
             <span className="ph-eyebrow">
-              <span style={{ color: "var(--lp-pine-glow)" }}>§02</span> The two of us
+              <span style={{ color: "var(--lp-pine-glow)" }}>02</span> The two of us
             </span>
             <span className="ph-founders-head-rule" aria-hidden="true" />
           </div>
@@ -180,7 +180,7 @@ function StudioStory() {
           <div className="ph-story-grid">
             <div>
               <div className="ph-eyebrow" style={{ marginBottom: 20 }}>
-                <span style={{ color: "var(--lp-pine-glow)" }}>§03</span> How we&rsquo;re set up
+                <span style={{ color: "var(--lp-pine-glow)" }}>03</span> How we&rsquo;re set up
               </div>
               <h2 className="ph-display ph-story-h2">
                 Small,
@@ -190,9 +190,9 @@ function StudioStory() {
             </div>
             <div className="ph-story-body">
               <p>
-                We&rsquo;re two cofounders, in the UK. Tom handles engineering
-                and design. Jack handles product. We started the studio in 2026
-                to make iOS apps we wanted to use ourselves.
+                We&rsquo;re two cofounders, in the UK. Tom handles design and
+                engineering. Jack handles product. We started the studio in
+                2026 to build software we wanted to exist.
               </p>
               <p>
                 The company is self-funded. No investors, no debt, no plans to
@@ -242,7 +242,7 @@ function StudioFacts() {
       <div className="lp-container">
         <Reveal variant="up-lg">
           <div className="ph-eyebrow" style={{ marginBottom: 32 }}>
-            <span style={{ color: "var(--lp-pine-glow)" }}>§04</span> The studio, in numbers
+            <span style={{ color: "var(--lp-pine-glow)" }}>04</span> The studio, in numbers
           </div>
         </Reveal>
 

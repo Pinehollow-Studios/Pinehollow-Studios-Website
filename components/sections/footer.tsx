@@ -77,8 +77,8 @@ export function Footer() {
               This page was set in <em className="ph-foot-italic">Bricolage Grotesque</em>,{" "}
               <em className="ph-foot-italic">Instrument Sans</em>, and{" "}
               <em className="ph-foot-italic">Fragment Mono</em>. Designed and built in
-              the United Kingdom by Tom &amp; Jack. Volume I, Issue 1. No cookies
-              of consequence, no third-party scripts.
+              the United Kingdom by Tom &amp; Jack. No cookies of consequence,
+              no third-party scripts.
             </p>
             <div className="ph-foot-status">
               <span className="ph-live-dot" />
@@ -87,10 +87,10 @@ export function Footer() {
           </div>
 
           <FooterCol
-            title="Apps"
+            title="Work"
             items={[
               { label: "Vestige — golf", href: "/apps" },
-              { label: "All apps", href: "/apps" },
+              { label: "All work", href: "/apps" },
             ]}
           />
           <FooterCol
@@ -123,7 +123,6 @@ export function Footer() {
             Built quietly · No cookies · No tracking
           </span>
           <span className="ph-foot-bottom-end">
-            End of issue ·
             <Magnetic strength={0.35}>
               <button type="button" className="ph-foot-top" onClick={backToTop} data-cursor-label="Top">
                 Back to top ↑

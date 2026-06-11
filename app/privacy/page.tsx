@@ -62,7 +62,7 @@ export default function PrivacyPage() {
                 aria-hidden="true"
                 style={{ width: 24, height: 1, background: "var(--lp-fg-mute)" }}
               />
-              <span>§01 · Privacy</span>
+              <span>01 · Privacy</span>
             </div>
           </Reveal>
 

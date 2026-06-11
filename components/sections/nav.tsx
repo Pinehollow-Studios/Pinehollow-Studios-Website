@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { PinehollowMark } from "@/components/shared/pinehollow-mark";
 
 const navItems = [
-  { label: "Apps", href: "/apps", no: "01" },
+  { label: "Work", href: "/apps", no: "01" },
   { label: "Manifesto", href: "/manifesto", no: "02" },
   { label: "Studio", href: "/studio", no: "03" },
 ] as const;
@@ -75,9 +75,9 @@ export function Nav() {
       <div className="ph-masthead">
         <div className="lp-container ph-masthead-row">
           <div className="ph-masthead-meta">
-            <span>Vol. I — No. 01</span>
+            <span>Pinehollow Studios</span>
             <span className="ph-masthead-hide">United Kingdom · 51.5°N</span>
-            <span className="ph-masthead-hide">Field notes from a small software studio</span>
+            <span className="ph-masthead-hide">Founded by two friends</span>
           </div>
           <div className="ph-masthead-status">
             <span className="ph-live-dot" />

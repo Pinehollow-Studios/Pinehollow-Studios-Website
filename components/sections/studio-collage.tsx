@@ -74,7 +74,7 @@ export function StudioCollage() {
             />
           </div>
           <figcaption className="ph-collage-cap">
-            <span className="ph-collage-cap-no">Fig. 1</span>
+            <span className="ph-collage-cap-no">Tom &amp; Jack</span>
             <span className="ph-serif ph-collage-cap-it">the two of us, mid-round</span>
           </figcaption>
         </figure>
@@ -90,8 +90,8 @@ export function StudioCollage() {
             />
           </div>
           <figcaption className="ph-collage-cap">
-            <span className="ph-collage-cap-no">Fig. 2</span>
-            <span className="ph-serif ph-collage-cap-it">a Surrey parkland, at last light</span>
+            <span className="ph-collage-cap-no">Surrey</span>
+            <span className="ph-serif ph-collage-cap-it">a parkland course, at last light</span>
           </figcaption>
         </figure>
       </div>
