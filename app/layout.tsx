@@ -43,10 +43,12 @@ export const metadata: Metadata = {
   },
   // Explicitly enumerate the icons so legacy consumers (Google indexer, older
   // Safari) bind to fresh URLs and don't keep serving cached older marks.
+  // The ?v= is a cache-buster — bump it whenever the mark changes, since
+  // browsers cache favicons in a separate store that ignores hard refreshes.
   icons: {
-    icon: [{ url: "/icon", sizes: "192x192", type: "image/png" }],
-    shortcut: [{ url: "/icon", type: "image/png" }],
-    apple: [{ url: "/apple-icon", sizes: "180x180", type: "image/png" }],
+    icon: [{ url: "/icon?v=2", sizes: "192x192", type: "image/png" }],
+    shortcut: [{ url: "/icon?v=2", type: "image/png" }],
+    apple: [{ url: "/apple-icon?v=2", sizes: "180x180", type: "image/png" }],
   },
 };
 
