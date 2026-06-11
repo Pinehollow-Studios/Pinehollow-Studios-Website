@@ -89,7 +89,7 @@ export default function OgImage() {
             }}
           >
             <span>A two-person</span>
-            <span style={{ fontStyle: "italic", color: "#D6F5FF", fontWeight: 400 }}>
+            <span style={{ color: "#D6F5FF", fontWeight: 300 }}>
               software studio.
             </span>
           </div>

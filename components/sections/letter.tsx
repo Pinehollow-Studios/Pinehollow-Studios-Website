@@ -83,7 +83,7 @@ export function Letter() {
             <div className="ph-final-meta">
               United Kingdom · 2026
               <br />
-              Set in Bricolage &amp; Newsreader
+              Set in Bricolage &amp; Fragment Mono
             </div>
           </div>
         </article>

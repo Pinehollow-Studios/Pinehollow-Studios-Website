@@ -116,9 +116,8 @@ function ManifestoBody() {
         .ph-mbody-text p { margin: 0 0 28px; }
         .ph-mbody-text > *:last-child p { margin-bottom: 0; }
         .ph-mbody-lead::first-letter {
-          font-family: var(--ph-serif);
-          font-style: italic;
-          font-weight: 400;
+          font-family: var(--ph-headline);
+          font-weight: 700;
           font-size: 3.1em;
           line-height: 0.8;
           float: left;
@@ -184,10 +183,11 @@ function ManifestoPrinciples() {
         .ph-mprin-h2 em { color: var(--lp-pine-mist); }
         .ph-mprin-lede {
           color: var(--lp-fg-dim);
-          font-family: var(--ph-serif);
-          font-style: italic;
-          font-size: 22px;
-          margin: 0 0 10px;
+          font-family: var(--lp-font-mono);
+          font-size: 12px;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          margin: 0 0 14px;
         }
         .ph-mprin-row {
           display: grid;
@@ -277,6 +277,7 @@ function ManifestoSign() {
           flex-wrap: wrap;
         }
         .ph-msign-name {
+          text-transform: none; /* signatures keep their capitals */
           font-size: clamp(40px, 4.8vw, 64px);
           color: var(--lp-pine-mist);
           line-height: 1;

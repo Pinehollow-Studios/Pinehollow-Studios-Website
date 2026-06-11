@@ -1,10 +1,5 @@
 import type { Metadata } from "next";
-import {
-  Bricolage_Grotesque,
-  Fragment_Mono,
-  Instrument_Sans,
-  Newsreader,
-} from "next/font/google";
+import { Bricolage_Grotesque, Fragment_Mono, Instrument_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { Footer } from "@/components/sections/footer";
 import { Nav } from "@/components/sections/nav";
@@ -25,14 +20,6 @@ const sansFont = Instrument_Sans({
   subsets: ["latin"],
   axes: ["wdth"],
   variable: "--font-sans",
-  display: "swap",
-});
-
-const serifFont = Newsreader({
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-  axes: ["opsz"],
-  variable: "--font-serif",
   display: "swap",
 });
 
@@ -67,7 +54,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html
       lang="en"
-      className={`${displayFont.variable} ${sansFont.variable} ${serifFont.variable} ${monoFont.variable}`}
+      className={`${displayFont.variable} ${sansFont.variable} ${monoFont.variable}`}
     >
       <body>
         <Preloader />

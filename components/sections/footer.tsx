@@ -75,8 +75,8 @@ export function Footer() {
             <div className="ph-eyebrow" style={{ marginBottom: 16 }}>Colophon</div>
             <p className="ph-foot-colophon">
               This page was set in <em className="ph-foot-italic">Bricolage Grotesque</em>,{" "}
-              <em className="ph-foot-italic">Fragment Mono</em>, and{" "}
-              <em className="ph-foot-italic">Newsreader</em>. Designed and built in
+              <em className="ph-foot-italic">Instrument Sans</em>, and{" "}
+              <em className="ph-foot-italic">Fragment Mono</em>. Designed and built in
               the United Kingdom by Tom &amp; Jack. Volume I, Issue 1. No cookies
               of consequence, no third-party scripts.
             </p>
@@ -227,8 +227,8 @@ const FOOTER_CSS = `
     max-width: 380px;
   }
   .ph-foot-italic {
-    font-family: var(--ph-serif);
-    font-style: italic;
+    font-style: normal;
+    font-weight: 600;
     color: var(--lp-fg);
   }
   .ph-foot-status {

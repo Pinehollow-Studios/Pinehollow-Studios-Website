@@ -39,7 +39,9 @@
   --lp-font-body:      var(--font-sans), system-ui, -apple-system, sans-serif;
   --lp-font-mono:      var(--font-mono), ui-monospace, monospace;
   --ph-headline:       var(--font-display), 'Bricolage Grotesque', system-ui, sans-serif;
-  --ph-serif:          var(--font-serif), 'Newsreader', Georgia, serif;
+  /* "serif" accent token now resolves to the display face — accents are
+     light-weight lowercase Bricolage, no italics anywhere on the site */
+  --ph-serif:          var(--font-display), 'Bricolage Grotesque', system-ui, sans-serif;
 
   --lp-track-body:     -0.01em;
 
@@ -207,7 +209,7 @@ html.ph-has-cursor [data-cursor] { cursor: none; }
 .ph-rule-faint  { height: 1px; background: var(--ph-rule-faint); border: 0; margin: 0; }
 .lp-hr          { height: 1px; background: var(--ph-rule); border: 0; }
 
-/* ─── DISPLAY TYPE — display grotesk caps + serif italic ── */
+/* ─── DISPLAY TYPE — heavy caps + light lowercase accents ── */
 .ph-display {
   font-family: var(--ph-headline);
   font-weight: 800;
@@ -220,13 +222,12 @@ html.ph-has-cursor [data-cursor] { cursor: none; }
 .ph-display em,
 .ph-serif {
   font-family: var(--ph-serif);
-  font-style: italic;
-  font-weight: 460;
+  font-style: normal;
+  font-weight: 275;
   text-transform: lowercase;
-  letter-spacing: -0.015em;
-  /* Newsreader display optical cut — sharp high-contrast italic */
-  font-variation-settings: 'opsz' 72;
-  line-height: 0.9;
+  letter-spacing: -0.025em;
+  font-variation-settings: 'opsz' 96;
+  line-height: 0.92;
 }
 
 /* sub-display: medium headings in tighter grotesk */
