@@ -78,7 +78,7 @@ export function Letter() {
               </div>
               <div>
                 <div className="ph-serif ph-final-sig-name">Jack</div>
-                <div className="ph-final-sig-role">Product</div>
+                <div className="ph-final-sig-role">Product, data &amp; growth</div>
               </div>
             </div>
             <div className="ph-final-meta">

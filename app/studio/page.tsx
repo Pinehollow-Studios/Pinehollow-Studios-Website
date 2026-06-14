@@ -19,10 +19,10 @@ const founders = [
   },
   {
     name: "Jack",
-    role: "Product",
+    role: "Product · Data · Growth",
     based: "United Kingdom",
-    bio: "Jack runs product. He decides what we build, who it's for, and what we leave out.",
-    stack: ["Product", "Writing", "Research", "Support"],
+    bio: "Jack started the project solo in early 2026, building the React and TypeScript prototype Vestige grew from. He now runs product direction, the course-data pipeline, and the studio's growth and partnerships.",
+    stack: ["Product", "TypeScript", "React", "GIS", "Growth"],
   },
 ];
 
@@ -191,8 +191,8 @@ function StudioStory() {
             <div className="ph-story-body">
               <p>
                 We&rsquo;re two cofounders, in the UK. Tom handles design and
-                engineering. Jack handles product. We started the studio in
-                2026 to build software we wanted to exist.
+                engineering. Jack handles product, data, and growth. We started
+                the studio in 2026 to build software we wanted to exist.
               </p>
               <p>
                 The company is self-funded. No investors, no debt, no plans to
