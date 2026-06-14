@@ -351,7 +351,27 @@ const FEAT_CSS = `
     .ph-feat-visual { order: -1; }
   }
   @media (max-width: 560px) {
-    .ph-feat-meta { width: 100%; }
-    .ph-feat-meta-cell { flex: 1 1 calc(50% - 28px); min-width: 130px; }
+    /* On phones the four cells become a 2×2 grid. Grid cells stretch to a
+       shared row height, so a single border-left/​border-top draws clean,
+       full-height dividers that always line up — unlike the desktop
+       flex + border-right + margin scheme, which left stubby, offset rules
+       once the row wrapped. */
+    .ph-feat-meta {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .ph-feat-meta > .ph-feat-meta-cell:not(:last-child) {
+      border-right: 0;
+      margin-right: 0;
+      padding-right: 0;
+    }
+    .ph-feat-meta-cell { padding: 18px 0; }
+    .ph-feat-meta-cell:nth-child(odd)  { padding-right: 18px; }
+    .ph-feat-meta-cell:nth-child(even) {
+      padding-left: 22px;
+      border-left: 1px solid var(--ph-rule);
+    }
+    .ph-feat-meta-cell:nth-child(n+3)  { border-top: 1px solid var(--ph-rule); }
   }
 `;
