@@ -84,7 +84,10 @@ export default function PrivacyPage() {
         </div>
 
         <style>{`
-          .ph-pg-hero { position: relative; padding: 80px 0 100px; }
+          /* overflow:clip contains the .ph-hero-aura glow, which bleeds
+             ~10% past the right edge and otherwise causes horizontal
+             scroll on mobile (the shared PageHero clips it the same way). */
+          .ph-pg-hero { position: relative; padding: 80px 0 100px; overflow: clip; }
           .ph-pg-hero-h1 {
             margin: 0;
             font-size: clamp(56px, 7.4vw, 124px);
