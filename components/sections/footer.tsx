@@ -77,8 +77,8 @@ export function Footer() {
               This page was set in <em className="ph-foot-italic">Bricolage Grotesque</em>,{" "}
               <em className="ph-foot-italic">Instrument Sans</em>, and{" "}
               <em className="ph-foot-italic">Fragment Mono</em>. Designed and built in
-              the United Kingdom by Tom &amp; Jack. No cookies of consequence,
-              no third-party scripts.
+              the United Kingdom by Tom &amp; Jack. No cookies, no third-party
+              trackers.
             </p>
             <div className="ph-foot-status">
               <span className="ph-live-dot" />
