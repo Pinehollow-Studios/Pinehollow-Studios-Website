@@ -14,7 +14,7 @@ const founders = [
     name: "Tom",
     role: "Engineering · Design",
     based: "United Kingdom",
-    bio: "Tom designs and builds the products — native apps in Swift and SwiftUI, with TypeScript and React on the web.",
+    bio: "Tom is the lead developer of Pinehollow Studios, building native apps in Swift and SwiftUI. He also owns design end-to-end across the studio, alongside TypeScript and React on the web.",
     stack: ["Swift", "SwiftUI", "TypeScript", "React", "Figma"],
   },
   {
