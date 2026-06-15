@@ -19,18 +19,26 @@ export function StudioCollage() {
     if (!root) return;
 
     const frames = root.querySelectorAll<HTMLElement>("[data-collage-frame]");
+    // Reveal off the section, not the individual frames. Each frame sits
+    // under a GSAP parallax transform (.ph-collage-item) *and* inside this
+    // section's `overflow: clip` — a combination that makes
+    // IntersectionObserver report zero intersection for the frame on desktop,
+    // so a frame-level observer never fired and the photos stayed clipped out
+    // of sight. The section itself has no transformed or clipped ancestor, so
+    // it intersects reliably; we reveal both frames when it scrolls in.
     const obs = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {
           if (e.isIntersecting) {
-            (e.target as HTMLElement).classList.add("in");
-            obs.unobserve(e.target);
+            frames.forEach((f) => f.classList.add("in"));
+            obs.disconnect();
+            return;
           }
         }
       },
-      { threshold: 0.2 },
+      { threshold: 0, rootMargin: "0px 0px -20% 0px" },
     );
-    frames.forEach((f) => obs.observe(f));
+    obs.observe(root);
 
     const ctx = gsap.context(() => {
       gsap.fromTo(
