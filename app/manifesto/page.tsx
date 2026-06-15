@@ -41,7 +41,7 @@ const principles = [
 ];
 
 const paragraphs = [
-  "Pinehollow Studios is a software studio founded by two friends. Tom designs and builds. Jack runs product. That's the company.",
+  "Pinehollow Studios is a software studio founded by two friends. Tom designs and builds. Jack runs product, data, and growth. That's the company.",
   "We're self-funded. There are no investors, no debt, no exit plan. The apps pay for the apps. That means we get to choose what we make, who it's for, and how long it takes.",
   "Most modern software is designed around attention — streaks, badges, push notifications dressed up as features, daily prompts to keep you opening the app. We don't do any of that. Our apps are there when you want them, and out of the way when you don't.",
   "We'd rather make a small thing well than a big thing badly. Each product does one job. If we have a new idea, we start something new — we don't bolt features onto something that's already done.",
@@ -258,7 +258,7 @@ function ManifestoSign() {
           <Reveal variant="up-lg" delay={260} duration={1000}>
             <div>
               <div className="ph-serif ph-msign-name">Jack</div>
-              <div className="ph-msign-role">Product</div>
+              <div className="ph-msign-role">Product · Data · Growth</div>
             </div>
           </Reveal>
         </div>
