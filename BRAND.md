@@ -1,0 +1,109 @@
+# Pinehollow Studios — Brand & Colour Reference
+
+The design system used across the Pinehollow Studios website. Palette name: **Glacial**.
+Source of truth: `app/globals.css` (`:root` tokens), `components/shared/pinehollow-mark.tsx`,
+and the icon files in `app/`.
+
+---
+
+## Logo-ready shortlist
+
+The minimum working set for the app logo / mark:
+
+| Use | Hex |
+|---|---|
+| Mark — front beam (the signal) | `#7FE4FF` |
+| Mark — back beam (mist, ~85% opacity) | `#D6F5FF` |
+| Background — page base | `#060A0F` |
+| Background — deepest | `#04080D` |
+| Background — gradient depth | `#15293A` |
+| Text on an ice fill | `#06181F` |
+| Off-white text | `#F1F5F2` |
+
+---
+
+## Full palette
+
+### The signal (primary accent)
+| Token | Hex | Role |
+|---|---|---|
+| Ice / pine-glow | `#7FE4FF` | Primary accent — the brand "signal". Front beam of the mark. |
+| Ice (hot) | `#B0F1FF` | Brighter ice, hover / emphasis |
+| Mist | `#D6F5FF` | Light tint. Back beam of the mark, lowercase type accents |
+
+### Backgrounds (dark)
+| Token | Hex | Role |
+|---|---|---|
+| Page base (`--ph-base`) | `#060A0F` | The actual site/page background |
+| Base (`--lp-base`) | `#070C12` | Near-black blue |
+| Base deep (`--lp-base-deep`) | `#04080D` | Deepest — footer, recessed sections |
+| Base raised (`--lp-base-raised`) | `#101822` | Slightly lifted surfaces |
+
+### Slate / pine (mid-tones)
+| Token | Hex | Role |
+|---|---|---|
+| Pine (`--lp-pine`) | `#2A4A5E` | Muted slate-blue |
+| Pine deep (`--lp-pine-deep`) | `#15293A` | Icon gradient top, depth |
+
+### Text / foreground
+| Token | Value | Role |
+|---|---|---|
+| Foreground (`--lp-fg`) | `#F1F5F2` | Off-white (slight green tint) — primary text |
+| Muted (`--lp-fg-mute`) | `rgba(241, 245, 242, 0.62)` | Secondary text |
+| Dim (`--lp-fg-dim`) | `rgba(241, 245, 242, 0.38)` | Labels |
+| Faint (`--lp-fg-faint`) | `rgba(241, 245, 242, 0.18)` | Very subtle |
+| Ice-ink (`--lp-ice-ink`) | `#06181F` | Dark text on top of ice fills (e.g. button labels) |
+
+### Warm / paper (used sparingly)
+| Token | Hex | Role |
+|---|---|---|
+| Paper (`--ph-paper`) | `#EEE7D8` | Cream paper surface (the "letter") |
+| Paper ink (`--ph-paper-ink`) | `#1A1813` | Text on cream |
+| Ember (`--lp-ember`) | `#FF9560` | Warm accent (rare) |
+| Sky (`--lp-sky`) | `#F2D7A8` | Warm tint (rare) |
+
+### Hairlines / rules (white at low opacity)
+| Token | Value |
+|---|---|
+| Rule (`--ph-rule`) | `rgba(241, 245, 242, 0.14)` |
+| Rule hi (`--ph-rule-hi`) | `rgba(241, 245, 242, 0.28)` |
+| Rule faint (`--ph-rule-faint`) | `rgba(241, 245, 242, 0.07)` |
+
+---
+
+## The logo mark — "the lean"
+
+Two rounded beams leaning into each other (two founders, one peak; the void
+beneath is the hollow). Drawn on a 64×64 grid.
+
+- **Front beam:** fill `#7FE4FF` (ice)
+- **Back beam:** fill `#D6F5FF` (mist) at **85% opacity** (so the overlap reads as depth)
+- Mono fallback: both beams one colour, the back beam at 55% opacity
+
+### App-icon tile recipe (to match the existing favicon/app icon)
+- **Background:** radial gradient from `#15293A` (top, ~14% down) → `#060A0F` (bottom)
+- **Halo behind the mark:** `#7FE4FF` at ~22% opacity, radial, fading to transparent
+- Rounded-square tile, corner radius ≈ 28 on a 128 grid (~22%)
+
+### Mark geometry (SVG, 64×64 viewBox)
+```xml
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect x="14" y="5"  width="15"   height="52" rx="7.5"  transform="rotate(22 21.5 31)"  fill="#7FE4FF"/>
+  <rect x="34" y="15" width="14.5" height="42" rx="7.25" transform="rotate(-24 41.25 36)" fill="#D6F5FF" opacity="0.85"/>
+</svg>
+```
+
+---
+
+## Typography
+- **Display:** Bricolage Grotesque — ExtraBold (800) for heavy UPPERCASE headlines; Light (~275–300) for lowercase accents.
+- **Body:** Instrument Sans.
+- **Mono / labels:** Fragment Mono — small UPPERCASE, letter-spaced eyebrows and meta.
+
+---
+
+## Gradients in use (for reference)
+- **Hero aura glow:** `radial-gradient(rgba(127,228,255,0.10) → transparent)` layered over `radial-gradient(rgba(42,74,94,0.45) → transparent)`.
+- **OG / share card:** background `radial-gradient(rgba(127,228,255,0.14) → transparent)` + `radial-gradient(rgba(42,74,94,0.50) → transparent)` on `#060A0F`.
+
+_Note: `rgb(127, 228, 255)` == `#7FE4FF`; `rgb(241, 245, 242)` == `#F1F5F2`._
