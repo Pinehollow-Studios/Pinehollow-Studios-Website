@@ -44,7 +44,7 @@ export default function StudioPage() {
           <em key="1">About</em>,
           <span key="2">us.</span>,
         ]}
-        lede="Pinehollow is the two of us — Tom and Jack, friends first, cofounders second. We design and build software together, and everything is done in-house: no outsourcing, no investors."
+        lede="Pinehollow is the two of us, Tom and Jack — friends first, cofounders second. We design and build everything ourselves, with no one else in the room."
       />
       <StudioCollage />
       <FoundersStrip />
@@ -195,8 +195,8 @@ function StudioStory() {
                 the studio in 2026 to build software we wanted to exist.
               </p>
               <p>
-                The company is self-funded. No investors, no debt, no plans to
-                take any on. The apps pay for the apps.
+                The company is self-funded, and we intend to keep it that way.
+                With no outside money, the decisions stay entirely ours.
               </p>
               <p>
                 We don&rsquo;t expect to grow much past two people. We&rsquo;d

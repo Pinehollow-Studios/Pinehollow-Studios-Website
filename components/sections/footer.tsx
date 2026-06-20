@@ -120,7 +120,7 @@ export function Footer() {
           <span>© Pinehollow Studios Limited · MMXXVI</span>
           <span className="ph-foot-bottom-mid">
             <PinehollowMark size={13} colour="var(--lp-fg-dim)" ariaHidden />
-            Built quietly · No cookies · No tracking
+            Built quietly · Two people, one studio
           </span>
           <span className="ph-foot-bottom-end">
             <Magnetic strength={0.35}>

@@ -141,8 +141,8 @@ function PricingStripe() {
             </div>
             <p className="ph-pricing-lede">
               Everything we make is free to download and useful on its own. A
-              paid Pro tier adds extras for people who want them — it never
-              gates the basics.
+              paid Pro tier adds extras for those who want them, while the core
+              stays free for everyone.
             </p>
           </div>
         </Reveal>
