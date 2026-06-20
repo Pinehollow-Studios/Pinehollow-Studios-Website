@@ -18,7 +18,7 @@ export default function AppsPage() {
           <span key="1">What we&rsquo;re</span>,
           <em key="2">building.</em>,
         ]}
-        lede="Nothing shipped yet. Our first product, Vestige — a golf app — is in development, designed and built entirely in-house. No release date yet."
+        lede="Nothing shipped yet. Our first product, Vestige, a golf app, is in active development, with a private beta later this year and a public launch in 2027."
       />
       <AppIndex />
       <VestigeFeature sectionNo="02" />

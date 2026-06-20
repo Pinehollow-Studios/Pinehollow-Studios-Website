@@ -108,7 +108,7 @@ function CurrentlyLedger() {
   const rows: Array<[label: string, value: string, href: string | null]> = [
     ["In progress", "Vestige · golf", "/apps"],
     ["Stage", "Design & build", null],
-    ["Next", "TestFlight", null],
+    ["Next", "Private beta", null],
     ["Studio", "United Kingdom", null],
     ["Founded", "2026", null],
     ["Funding", "Self-funded", null],

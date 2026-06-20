@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -61,17 +60,18 @@ export function VestigeFeature({ sectionNo = "01" }: { sectionNo?: string }) {
             <Reveal variant="up" delay={200}>
               <div className="ph-feat-status">
                 <span className="ph-live-dot" />
-                In development · launching 2026
+                In development · launching 2027
               </div>
 
               <div className="ph-feat-prose">
                 <p>
-                  We&rsquo;re keeping Vestige under wraps while we build it.
-                  The design, the features, the full story — those come
-                  closer to launch.
+                  Vestige is a golf app we&rsquo;re building for ourselves and
+                  anyone who plays. It&rsquo;s in active development now, with a
+                  private beta later this year and a public launch in 2027.
                 </p>
                 <p style={{ color: "var(--lp-fg-mute)" }}>
-                  Write to us if you&rsquo;d like a note when it&rsquo;s ready.
+                  The design, the roadmap, and the beta waitlist all live at
+                  vestige.golf.
                 </p>
               </div>
             </Reveal>
@@ -83,7 +83,7 @@ export function VestigeFeature({ sectionNo = "01" }: { sectionNo?: string }) {
                     ["Stage", "In development"],
                     ["Platform", "iPhone"],
                     ["Pricing", "Free"],
-                    ["Release", "2026"],
+                    ["Release", "2027"],
                   ] as const
                 ).map(([k, v]) => (
                   <div key={k} className="ph-feat-meta-cell">
@@ -94,9 +94,15 @@ export function VestigeFeature({ sectionNo = "01" }: { sectionNo?: string }) {
               </div>
 
               <div className="ph-feat-links">
-                <Link href="/contact" className="ph-arrow-link" data-cursor-label="Write">
-                  Get a note when it ships <span className="ph-arrow-link-tip">→</span>
-                </Link>
+                <a
+                  href="https://vestige.golf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ph-arrow-link"
+                  data-cursor-label="Visit"
+                >
+                  Visit vestige.golf <span className="ph-arrow-link-tip">→</span>
+                </a>
               </div>
             </Reveal>
           </div>
@@ -121,7 +127,7 @@ function DossierCard() {
     <div className="ph-dossier" data-dossier data-cursor data-cursor-label="Soon">
       <div className="ph-dossier-top">
         <span>Vestige · preview</span>
-        <span>Coming 2026</span>
+        <span>Coming 2027</span>
       </div>
 
       <div className="ph-dossier-screen" aria-hidden="true">
@@ -141,7 +147,7 @@ function DossierCard() {
 
       <div className="ph-dossier-foot">
         <span>Pinehollow Studios</span>
-        <span>Full reveal closer to launch</span>
+        <span>More at vestige.golf</span>
       </div>
     </div>
   );

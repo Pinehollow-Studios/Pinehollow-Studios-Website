@@ -19,7 +19,15 @@ function FooterCol({ title, items }: FooterColProps) {
         {items.map((item) => (
           <li key={item.label}>
             {item.external ? (
-              <a href={item.href} className="ph-foot-link">{item.label}</a>
+              <a
+                href={item.href}
+                className="ph-foot-link"
+                {...(item.href.startsWith("http")
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
+              >
+                {item.label}
+              </a>
             ) : (
               <Link href={item.href} className="ph-foot-link">{item.label}</Link>
             )}
@@ -89,7 +97,7 @@ export function Footer() {
           <FooterCol
             title="Work"
             items={[
-              { label: "Vestige — golf", href: "/apps" },
+              { label: "Vestige · golf", href: "/apps" },
               { label: "All work", href: "/apps" },
             ]}
           />
@@ -105,6 +113,7 @@ export function Footer() {
           <FooterCol
             title="Elsewhere"
             items={[
+              { label: "vestige.golf", href: "https://vestige.golf", external: true },
               {
                 label: "support@pinehollow.studio",
                 href: "mailto:support@pinehollow.studio",

@@ -64,9 +64,10 @@ export function Letter() {
               and money.
             </p>
             <p>
-              Vestige, a golf app, is our current project. Self-funded, no
-              investors, no rush. If you&rsquo;d like a note when it ships — or
-              just want to say hello — write to us.
+              Vestige, a golf app, is our current project, with a public launch
+              planned for 2027. You can follow along or join the beta at
+              vestige.golf, and you&rsquo;re always welcome to write and say
+              hello.
             </p>
           </div>
 
