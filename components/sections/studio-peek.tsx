@@ -104,7 +104,7 @@ export function StudioPeek() {
                 software we believe in, and we fund all of it ourselves.
               </p>
               <p className="ph-peek-lede" style={{ color: "var(--lp-fg-dim)" }}>
-                Nothing outsourced, no investors, and no urgency that isn&rsquo;t ours.
+                Nothing outsourced, no investors, and we move at our own pace.
               </p>
               <div className="ph-peek-links">
                 <Link href="/studio" className="ph-arrow-link" data-cursor-label="Meet us">
