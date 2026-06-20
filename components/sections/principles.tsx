@@ -11,7 +11,7 @@ const items = [
   {
     no: "01",
     label: "One thing at a time",
-    body: "We make one product, well, then move on. If we have a new idea, we start something new rather than piling features onto something that's already finished.",
+    body: "We build one product, finish it properly, and only then start the next. We don't keep adding to it once it's done.",
   },
   {
     no: "02",

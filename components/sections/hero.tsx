@@ -77,8 +77,8 @@ export function Hero() {
           <Reveal variant="up" immediate delay={950}>
             <p className="ph-hero-lede">
               Pinehollow is an independent studio founded by two friends, Tom
-              and Jack. We design and build our own software — starting with
-              Vestige, a golf app. Self-funded and based in the UK.
+              and Jack. We design and build our own software, starting with
+              Vestige, a golf app. Self-funded, based in the UK.
             </p>
             <div className="ph-hero-links">
               <Link href="/apps" className="ph-arrow-link" data-cursor-label="Apps">
@@ -108,7 +108,7 @@ function CurrentlyLedger() {
   const rows: Array<[label: string, value: string, href: string | null]> = [
     ["In progress", "Vestige · golf", "/apps"],
     ["Stage", "Design & build", null],
-    ["Next", "TestFlight", null],
+    ["Next", "Private beta", null],
     ["Studio", "United Kingdom", null],
     ["Founded", "2026", null],
     ["Funding", "Self-funded", null],

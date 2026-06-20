@@ -11,7 +11,7 @@ const principles = [
   {
     no: "01",
     title: "One thing at a time.",
-    body: "Each app does one job. If we have a new idea, we start something new rather than piling features onto something that's already finished.",
+    body: "Each app does one job. A new idea becomes its own app, never an add-on to a finished one.",
   },
   {
     no: "02",
@@ -42,9 +42,9 @@ const principles = [
 
 const paragraphs = [
   "Pinehollow Studios is a software studio founded by two friends. Tom designs and builds. Jack runs product, data, and growth. That's the company.",
-  "We're self-funded. There are no investors, no debt, no exit plan. The apps pay for the apps. That means we get to choose what we make, who it's for, and how long it takes.",
-  "Most modern software is designed around attention — streaks, badges, push notifications dressed up as features, daily prompts to keep you opening the app. We don't do any of that. Our apps are there when you want them, and out of the way when you don't.",
-  "We'd rather make a small thing well than a big thing badly. Each product does one job. If we have a new idea, we start something new — we don't bolt features onto something that's already done.",
+  "We're self-funded: no investors, no debt, no exit plan. The apps pay for the apps, which means we choose what we make, who it's for, and how long it takes.",
+  "Most modern software is built to grab your attention: streaks, badges, push notifications, daily prompts to keep you opening the app. We don't do any of that. Our apps are there when you want them, and out of the way when you don't.",
+  "We'd rather make a small thing well than a big thing badly. Each product does one job, and a new idea starts a new project rather than complicating a finished one.",
   "Everything we make is free to download. Where there are extras, they live behind a paid Pro tier — never the basics. Some of our products may share anonymised, aggregate usage with industry partners (Vestige with golf clubs, for example) to fund the free tier; we go into the detail on the privacy page.",
   "That's the approach. It might change in places, and if it does we'll say so here.",
 ];

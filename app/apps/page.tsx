@@ -18,7 +18,7 @@ export default function AppsPage() {
           <span key="1">What we&rsquo;re</span>,
           <em key="2">building.</em>,
         ]}
-        lede="Nothing shipped yet. Our first product, Vestige — a golf app — is in development, designed and built entirely in-house. No release date yet."
+        lede="Nothing shipped yet. Our first product, Vestige, a golf app, is in active development, with a private beta later this year and a public launch in 2027."
       />
       <AppIndex />
       <VestigeFeature sectionNo="02" />
@@ -141,8 +141,8 @@ function PricingStripe() {
             </div>
             <p className="ph-pricing-lede">
               Everything we make is free to download and useful on its own. A
-              paid Pro tier adds extras for people who want them — it never
-              gates the basics.
+              paid Pro tier adds extras for those who want them, while the core
+              stays free for everyone.
             </p>
           </div>
         </Reveal>

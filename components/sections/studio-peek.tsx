@@ -100,11 +100,11 @@ export function StudioPeek() {
             <Reveal variant="up" delay={220}>
               <p className="ph-peek-lede">
                 Pinehollow is the two of us. Tom designs and builds; Jack runs
-                product. We started the studio in 2026 to make software we
-                believe in, on our own time and money.
+                product and growth. We started the studio in 2026 to make
+                software we believe in, and we fund all of it ourselves.
               </p>
               <p className="ph-peek-lede" style={{ color: "var(--lp-fg-dim)" }}>
-                No outsourcing. No investors. No urgency that isn&rsquo;t ours.
+                Nothing outsourced, no investors, and we move at our own pace.
               </p>
               <div className="ph-peek-links">
                 <Link href="/studio" className="ph-arrow-link" data-cursor-label="Meet us">

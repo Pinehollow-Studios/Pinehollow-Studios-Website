@@ -125,7 +125,7 @@ function ContactFaq() {
   const faqs = [
     {
       q: "What do you make?",
-      a: "We design and build our own software. The first product is Vestige, a golf app — in development, no shipping date yet.",
+      a: "We design and build our own software. The first product is Vestige, a golf app, in development now, with a public launch planned for 2027. You can follow along at vestige.golf.",
     },
     {
       q: "Do you take client work?",
