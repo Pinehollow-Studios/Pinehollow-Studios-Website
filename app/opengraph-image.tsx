@@ -6,11 +6,17 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const alt = "Pinehollow Studios — a two-person iOS software studio.";
 
-// "The lean" mark, duotone, as a data URI for the card header.
+// "The lean" mark, brand gradient, as a data URI for the card header.
 const markSvg = `
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect x="14" y="5" width="15" height="52" rx="7.5" transform="rotate(22 21.5 31)" fill="#7FE4FF"/>
-  <rect x="34" y="15" width="14.5" height="42" rx="7.25" transform="rotate(-24 41.25 36)" fill="#D6F5FF" opacity="0.85"/>
+  <defs>
+    <linearGradient id="beam" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0%" stop-color="#B0F1FF"/>
+      <stop offset="100%" stop-color="#D6F5FF"/>
+    </linearGradient>
+  </defs>
+  <rect x="14" y="5" width="15" height="52" rx="7.5" transform="rotate(22 21.5 31)" fill="url(#beam)"/>
+  <rect x="34" y="15" width="14.5" height="42" rx="7.25" transform="rotate(-24 41.25 36)" fill="url(#beam)" opacity="0.85"/>
 </svg>
 `.trim();
 

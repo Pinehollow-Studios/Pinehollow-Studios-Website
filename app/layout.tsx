@@ -46,9 +46,9 @@ export const metadata: Metadata = {
   // The ?v= is a cache-buster — bump it whenever the mark changes, since
   // browsers cache favicons in a separate store that ignores hard refreshes.
   icons: {
-    icon: [{ url: "/icon?v=2", sizes: "192x192", type: "image/png" }],
-    shortcut: [{ url: "/icon?v=2", type: "image/png" }],
-    apple: [{ url: "/apple-icon?v=2", sizes: "180x180", type: "image/png" }],
+    icon: [{ url: "/icon?v=3", sizes: "192x192", type: "image/png" }],
+    shortcut: [{ url: "/icon?v=3", type: "image/png" }],
+    apple: [{ url: "/apple-icon?v=3", sizes: "180x180", type: "image/png" }],
   },
 };
 

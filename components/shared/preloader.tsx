@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { openGate } from "./loader-gate";
-import { MARK_BEAMS, MARK_ICE, MARK_MIST } from "./pinehollow-mark";
+import { MARK_BEAM_FROM, MARK_BEAM_TO, MARK_BEAMS } from "./pinehollow-mark";
 
 /**
  * One-time loading wipe — mark draws itself while a counter runs 000→100,
@@ -59,16 +59,22 @@ export function Preloader() {
     <div className="ph-loader" data-wipe={phase === "wipe" || undefined} aria-hidden="true">
       <div className="ph-loader-inner">
         <svg width="56" height="56" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="ph-loader-beam-grad" x1="0" y1="0" x2="0.4" y2="1">
+              <stop offset="0%" stopColor={MARK_BEAM_FROM} />
+              <stop offset="100%" stopColor={MARK_BEAM_TO} />
+            </linearGradient>
+          </defs>
           <rect
             {...{ x: MARK_BEAMS.front.x, y: MARK_BEAMS.front.y, width: MARK_BEAMS.front.width, height: MARK_BEAMS.front.height, rx: MARK_BEAMS.front.rx }}
             transform={MARK_BEAMS.front.rotate}
-            fill={MARK_ICE}
+            fill="url(#ph-loader-beam-grad)"
             className="ph-loader-beam ph-loader-beam-a"
           />
           <rect
             {...{ x: MARK_BEAMS.back.x, y: MARK_BEAMS.back.y, width: MARK_BEAMS.back.width, height: MARK_BEAMS.back.height, rx: MARK_BEAMS.back.rx }}
             transform={MARK_BEAMS.back.rotate}
-            fill={MARK_MIST}
+            fill="url(#ph-loader-beam-grad)"
             className="ph-loader-beam ph-loader-beam-b"
           />
         </svg>

@@ -12,8 +12,8 @@ The minimum working set for the app logo / mark:
 
 | Use | Hex |
 |---|---|
-| Mark — front beam (the signal) | `#7FE4FF` |
-| Mark — back beam (mist, ~85% opacity) | `#D6F5FF` |
+| Mark beam — gradient start (hot ice) | `#B0F1FF` |
+| Mark beam — gradient end (mist) | `#D6F5FF` |
 | Background — page base | `#060A0F` |
 | Background — deepest | `#04080D` |
 | Background — gradient depth | `#15293A` |
@@ -27,9 +27,9 @@ The minimum working set for the app logo / mark:
 ### The signal (primary accent)
 | Token | Hex | Role |
 |---|---|---|
-| Ice / pine-glow | `#7FE4FF` | Primary accent — the brand "signal". Front beam of the mark. |
-| Ice (hot) | `#B0F1FF` | Brighter ice, hover / emphasis |
-| Mist | `#D6F5FF` | Light tint. Back beam of the mark, lowercase type accents |
+| Ice / pine-glow | `#7FE4FF` | Primary accent — the brand "signal" (buttons, dots, selection, loader). |
+| Ice (hot) | `#B0F1FF` | Brighter ice — mark beam gradient start; hover / emphasis |
+| Mist | `#D6F5FF` | Light tint — mark beam gradient end, lowercase type accents |
 
 ### Backgrounds (dark)
 | Token | Hex | Role |
@@ -76,20 +76,28 @@ The minimum working set for the app logo / mark:
 Two rounded beams leaning into each other (two founders, one peak; the void
 beneath is the hollow). Drawn on a 64×64 grid.
 
-- **Front beam:** fill `#7FE4FF` (ice)
-- **Back beam:** fill `#D6F5FF` (mist) at **85% opacity** (so the overlap reads as depth)
+- **Beams:** both filled with a vertical-ish gradient — `#B0F1FF` (top) → `#D6F5FF` (bottom)
+- **Back beam:** at **85% opacity** (so the overlap reads as depth)
+- **Ink variant** (mark on light surfaces): both beams `#06181F`, back beam at 42% opacity
 - Mono fallback: both beams one colour, the back beam at 55% opacity
 
-### App-icon tile recipe (to match the existing favicon/app icon)
+### App-icon tile recipe (favicon / app icon)
 - **Background:** radial gradient from `#15293A` (top, ~14% down) → `#060A0F` (bottom)
-- **Halo behind the mark:** `#7FE4FF` at ~22% opacity, radial, fading to transparent
+- **Beams:** the gradient mark above, centred
+- **Edge:** 1.5px inner stroke at `rgba(255, 255, 255, 0.10)`
 - Rounded-square tile, corner radius ≈ 28 on a 128 grid (~22%)
 
 ### Mark geometry (SVG, 64×64 viewBox)
 ```xml
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect x="14" y="5"  width="15"   height="52" rx="7.5"  transform="rotate(22 21.5 31)"  fill="#7FE4FF"/>
-  <rect x="34" y="15" width="14.5" height="42" rx="7.25" transform="rotate(-24 41.25 36)" fill="#D6F5FF" opacity="0.85"/>
+  <defs>
+    <linearGradient id="beam" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0%" stop-color="#B0F1FF"/>
+      <stop offset="100%" stop-color="#D6F5FF"/>
+    </linearGradient>
+  </defs>
+  <rect x="14" y="5"  width="15"   height="52" rx="7.5"  transform="rotate(22 21.5 31)"  fill="url(#beam)"/>
+  <rect x="34" y="15" width="14.5" height="42" rx="7.25" transform="rotate(-24 41.25 36)" fill="url(#beam)" opacity="0.85"/>
 </svg>
 ```
 
